@@ -1,108 +1,143 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# **GRACES ART WEBSITE**
 
-Welcome USER_NAME,
+The Graces Art is a web application that enables users to purchase an artwork for printing. The purchased artwork would be delivered to the user's supplied address.  
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+![Graces Art](/docs/images/responsive.png)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Live Site
 
-## Gitpod Reminders
+[Graces Art Live](#)
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## Repository
 
-`python3 -m http.server`
+[View Repository Here](https://github.com/Polyanyanwu/graces-art-pp5)
 
-A blue button should appear to click: _Make Public_,
+## Table of Contents
 
-Another blue button should appear to click: _Open Browser_.
+- [**GRACES ART WEBSITE**](#graces-art-website)
+  - [Live Site](#live-site)
+  - [Repository](#repository)
+  - [Table of Contents](#table-of-contents)
+  - [**Objectives of the Site**](#objectives-of-the-site)
+  - [**User Experience Design**](#user-experience-design)
+    - [**Initial Design Features**](#initial-design-features)
+      - [**User Interaction**](#user-interaction)
+    - [**User Roles**](#user-roles)
+      - [**A. Admin user**](#a-admin-user)
+      - [**B. Operator**](#b-operator)
+      - [**C. Public**](#c-public)
+    - [**Agile Initiative**](#agile-initiative)
+      - [**Epics**](#epics)
+    - [**User Stories**](#user-stories)
+    - [GitHub Projects](#github-projects)
+    - [**Wireframes**](#wireframes)
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+## **Objectives of the Site**
 
-A blue button should appear to click: _Make Public_,
+The site has objective of providing easy to use application for selection of famous artwork images for printing. The user desires to select an artwork, chose a frame and size for the production, view the resultant cost of the artwork and get the produced work shipped to the desired location. The site owner wants to manage available frames, receive online payments for the user choices and ship the artwork once it has been produced. The application will provide historical and statistical reports to the validated user, the operator and the admin user.
 
-Another blue button should appear to click: _Open Browser_.
+## **User Experience Design**
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+### **Initial Design Features**
 
-To log into the Heroku toolbelt CLI:
+- The application will enable the user to select an artwork to print based on various criteria – genre, artist, style or generally by the name of the artwork.
+- Different frame types will be displayed for the user to choose from.
+- The print sizes will be listed to enable the user indicate the preferred print size.
+- The quotation for the print is generated automatically after factoring in the frame and size of the picture.
+- A shopping bag and wish list are maintained for the user. An item could be moved to the shopping bag from the wish list.
+- A checkout process will enable the user add the delivery details, discounts applied where available and final cost to pay is determined. When payment is received, an email is sent to the user confirming payment and providing details of expected delivery date depending on shipping method selected.
+- An order could be canceled before shipment and within a specified period. After the given period the order can no longer be cancelled. Defective prints could be returned and replaced within a given period at no extra cost to the customer.
+- The item is marked as shipped by the site operator when shipped, and updated as delivered by the site operator when customer has received the item (name and date/time is entered to indicate who received the item).
+- Authenticated customers can view messages and alerts sent to them regarding progress of their order and could choose to archive or delete such messages.
+- Discount Vouchers are available to:
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+1. A given percentage to first time visitors who registers with the site and chose to complete a purchase.
+2. Customers who purchase items above a stated sum of money.
+The vouchers will be applied at checkout.
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+- The access to the application will be role based and user views only menu options that are available to the assigned role for the user.
+- Product ratings will display besides the product listing. Clicking on the ratings will navigate the user to the testimonials for details of customer ratings on our services. Only customers that have purchased an item previously are permitted to write reviews.
+- The Site Administrator will be able to add or delete an artwork; add, delete and update quantities of frames available for print job. A customer may not select a frame that is out of stock.
 
-------
+#### **User Interaction**
 
-## Release History
+- A user will need to login to complete a purchase. Initially the artwork and shopping bag will be available. User could decide to put items into the shopping bag first but to complete the purchase, the user needs to create an account and provide delivery address.
+- An email address and password would be sufficient to create an account, but the email has to be confirmed. A user remains signed in until user choses to sign out, in line with current UX design.
+- When a user places an order successfully, it will appear on the order list, any cancellation will appear on the update messages dropdown.
+- Confirmation of order, cancellations or request for return will fire an email to the user informing them accordingly. Admin could disallow a return of a delivered artwork giving the user valid reasons for the refusal.
+- Login button will change to Logout when a user successfully logged in. The name of the logged in user will be displayed.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+[>> Bact to TOC](#table-of-contents)
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### **User Roles**
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+There shall be three roles for the application:
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+#### **A. Admin user**
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+1. Assign user role to signed-in users
+2. Set system preferences
+3. Update order status – change status to shipped after artwork has been shipped or delivered after customer has received artwork
+4. Maintain artwork, add/delete artwork, add/delete genre, add/delete artist, add/delete art styles.
+5. Maintain frame types and quantities available
+6. Maintain discount vouchers and percentage discounts on them
+7. Maintain reason for return of order
+8. Maintain reason for cancellation of order.
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+#### **B. Operator**
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+1. Review request for return of artwork and take action.
+2. Update order status – change status to shipped after artwork has been shipped or delivered after customer has received artwork
+3. Enquiry on the details of orders for a given period
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+#### **C. Public**
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+1. Sign-in to the site
+2. Make orders
+3. Cancel orders
+4. Enquiries on order history
+5. Return defective prints
+6. View/delete messages
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+Only the Admin will use the Admin portal, while Operator and Public will use the application main page. Accessible menu items will depend on the role assigned to the user by the administrator.
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+[>> Bact to TOC](#table-of-contents)
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### **Agile Initiative**
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
+The project will consist of one initiative which is to provide an intuitive user-friendly online store for the sale of artwork to the public.
 
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
+#### **Epics**
 
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
+The functionalities in the application shall be provided through two user epics:
 
-------
+1. The application shall provide a role-based access control enabling users to register with the site, maintain passwords, and possibly integrate with social media for authentication.
+2. The application shall provide online selection of artwork, frame and dimension for the printing of the work and delivery to the user after payment.
 
-## FAQ about the uptime script
+### **User Stories**
 
-**Why have you added this script?**
+The User Stories for the application was developed before commencement of the application and guided the process. The User Stories were entered as Issues on GitHub repository for the application and used to guide the management of the project. The User Stories were grouped into four:
 
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
+- Customer Stories
+- Operator Stories
+- Authentication stories
+- Site Owner/Admin stories
+  
+Detailed User Stories are [provided HERE](/docs/user_stories.md)
 
-**How will this affect me?**
+### GitHub Projects
 
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
+Two projects were used in the GitHub to manage the project. There were two iteration timeboxes implemented with Milestones/Sprints of two weeks duration each. The links to the projects are given below:
 
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
+[First Iteration: Graces Art](https://github.com/users/Polyanyanwu/projects/6)  
+[Final Iteration: Graces Art](https://github.com/users/Polyanyanwu/projects/7)
 
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
+MoSCow prioritization was used and the User Stories were categorized into "Must Have", "Could Have" and "Should Have". The categories were implemented as labels on GitHub.
 
-**So….?**
+Major bugs encountered in the course of the development were raised on GitHub as issues and closed when resolved.
 
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
+[>> Bact to TOC](#table-of-contents)
 
-**Can I opt out?**
+### **Wireframes**
 
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+Wireframes were designed at the onset of the project and guided the development of the application. The full wireframes are [provided HERE](/docs/wireframes.md)
