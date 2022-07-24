@@ -31,7 +31,8 @@ The Graces Art is a web application that enables users to purchase an artwork fo
     - [**User Stories**](#user-stories)
     - [GitHub Projects](#github-projects)
     - [**Wireframes**](#wireframes)
-  - [Database Design](#database-design)
+  - [**Database Design**](#database-design)
+  - [**Flowchart**](#flowchart)
 
 ## **Objectives of the Site**
 
@@ -143,10 +144,16 @@ Major bugs encountered in the course of the development were raised on GitHub as
 
 Wireframes were designed at the onset of the project and guided the development of the application. The full wireframes are [provided HERE](/docs/wireframe.md)
 
-## Database Design
+## **Database Design**
 
 The database used in this project is a relational database, Postgres provided by Heroku.
 
 The initial design database Entity Diagram is given below:
 
-[Database Entity Diagram](/docs/graces_art_ed.png)
+![Database Entity Diagram](/docs/graces_art_ed.png)
+
+## **Flowchart**
+
+The initial flowchart for the user interaction with the website has been produced to guide the application development. As the site unfolds, it may differ slightly as requirements may change in the course of development.
+
+![Flowchart](/docs/graces_art_flowchart.png)
