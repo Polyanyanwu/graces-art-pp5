@@ -140,4 +140,4 @@ Major bugs encountered in the course of the development were raised on GitHub as
 
 ### **Wireframes**
 
-Wireframes were designed at the onset of the project and guided the development of the application. The full wireframes are [provided HERE](/docs/wireframes.md)
+Wireframes were designed at the onset of the project and guided the development of the application. The full wireframes are [provided HERE](/docs/wireframe.md)

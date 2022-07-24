@@ -26,5 +26,8 @@
    "editor.defaultFormatter": "HookyQR.beautify",
    "cSpell.words": [
       "Allauth"
+   ],
+   "cSpell.ignoreWords": [
+      "Wireframes"
    ]
 }
