@@ -33,6 +33,8 @@ The Graces Art is a web application that enables users to purchase an artwork fo
     - [**Wireframes**](#wireframes)
   - [**Database Design**](#database-design)
   - [**Flowchart**](#flowchart)
+  - [**Search Engine Optimization**](#search-engine-optimization)
+    - [**Keywords Research**](#keywords-research)
 
 ## **Objectives of the Site**
 
@@ -157,3 +159,56 @@ The initial design database Entity Diagram is given below:
 The initial flowchart for the user interaction with the website has been produced to guide the application development. As the site unfolds, it may differ slightly as requirements may change in the course of development.
 
 ![Flowchart](/docs/graces_art_flowchart.png)
+
+## **Search Engine Optimization**
+
+### **Keywords Research**
+
+I initially did a brainstorming session and listed the following keywords I consider relevant to the application for the purpose of search engine optimization.
+
+- Art gifts
+- Printed arts
+- Classical artwork
+- Print classical artwork
+- Buy printed artwork
+- Buy classical printed artwork
+
+I then went to Google and looked up the above keywords and got suggestions while typing. Also considered the  “People also ask” and “Related searches”  sections on the google results page and came up with the following keywords:
+
+- Artwork for sale
+- Print ready artwork
+- Buy album artwork
+- Buy printed artwork
+- Where can I buy art prints for sale?
+- Buy classical art
+- Classical art prints
+- Classical art prints framed
+- Famous art prints
+- Famous paintings
+- Buy prints of famous artists
+- Framed prints online Ireland
+
+The next step was on [WordTracker](https://www.wordtracker.com/)  to have a feel of the relevance and authoritativeness of the data available on keyword volume and competition.
+
+I searched “classical art”,  “art print” and “famous paintings” on [WordTracker](https://www.wordtracker.com/) and came up with the following considering the volume and competition:
+
+![WordTracker Result](/docs/seo_keywords.png)
+
+- Classical art
+- Classical artwork
+- Framed prints
+- Art print
+- Framed photos
+- Famous painting
+- Famous artist
+
+In view of the above, my keywords for the Graces Art Prints website is given below:
+
+| Classical art prints           | Famous artists                          |
+|--------------------------------|-----------------------------------------|
+| Framed classical art prints    | Buy prints of famous artists            |
+| Framed photos of classical art | Classical artwork                       |
+| Famous paintings               | where can I buy classical art in Dublin |
+| Buy printed artwork            | Buy classical art printed               |
+
+The above keywords would be included in the meta of the website and be considered in the relevant pages as they form the core of the product that is being marketed by the website.
