@@ -1,0 +1,1832 @@
+[
+  {
+    "pk": 1,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART231801001",
+      "name": "Franz Kline number 2 1954",
+      "artist": 23,
+      "genre": 18,
+      "style": 1,
+      "rating": 3,
+      "image": "franz-kline_number-2-1954.jpg",
+      "price": 45,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 2,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART231801002",
+      "name": "Franz Kline Opustena",
+      "artist": 23,
+      "genre": 18,
+      "style": 1,
+      "rating": 3,
+      "image": "franz-kline_opustena.jpg",
+      "price": 45,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 3,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART231801003",
+      "name": "Franz Kline Untitled",
+      "artist": 23,
+      "genre": 18,
+      "style": 1,
+      "rating": 4,
+      "image": "franz-kline_untitled.jpg",
+      "price": 45,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 4,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART231801004",
+      "name": "Franz Kline Untitled 1957",
+      "artist": 23,
+      "genre": 18,
+      "style": 1,
+      "rating": 4,
+      "image": "franz-kline_untitled-1957.jpg",
+      "price": 45,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 5,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART241801001",
+      "name": "Jackson Pollock Composition with pouring ii(1)",
+      "artist": 24,
+      "genre": 18,
+      "style": 1,
+      "rating": 4,
+      "image": "jackson-pollock_composition-with-pouring-ii.jpg",
+      "price": 58.45,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 6,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART241801002",
+      "name": "Jackson Pollock eyes in the heat 1946(2)",
+      "artist": 24,
+      "genre": 18,
+      "style": 1,
+      "rating": 4,
+      "image": "jackson-pollock_eyes-in-the-heat-1946-2.jpg",
+      "price": 58.45,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 7,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART241801003",
+      "name": "Jackson Pollock Full fathom five(1)",
+      "artist": 24,
+      "genre": 18,
+      "style": 1,
+      "rating": 3.5,
+      "image": "jackson-pollock_full-fathom-five-1.jpg",
+      "price": 58.45,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 8,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART241801004",
+      "name": "Jackson Pollock number 8 detail(1)",
+      "artist": 24,
+      "genre": 18,
+      "style": 1,
+      "rating": 4,
+      "image": "jackson-pollock_number-8-detail-1.jpg",
+      "price": 58.45,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 9,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART241801005",
+      "name": "Jackson Pollock number 32 1950",
+      "artist": 24,
+      "genre": 18,
+      "style": 1,
+      "rating": 3,
+      "image": "jackson-pollock_number-32-1950.jpg",
+      "price": 58.45,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 10,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART251801001",
+      "name": "Norman Bluhm aritic 1959",
+      "artist": 25,
+      "genre": 18,
+      "style": 1,
+      "rating": 3,
+      "image": "norman-bluhm_aritic-1959.jpg",
+      "price": 30.50,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 11,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART261801001",
+      "name": "Walasse Ting venus 1980",
+      "artist": 26,
+      "genre": 18,
+      "style": 1,
+      "rating": 3.5,
+      "image": "walasse-ting_venus-1980.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 12,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART270206001",
+      "name": "Eric Fischl beata ludovica",
+      "artist": 27,
+      "genre": 2,
+      "style": 6,
+      "rating": 4,
+      "image": "eric-fischl_beata-ludovica.jpg",
+      "price": 50.55,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 13,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART270506002",
+      "name": "Eric Fischl growing up in the company of women ii",
+      "artist": 27,
+      "genre": 5,
+      "style": 6,
+      "rating": 4,
+      "image": "eric-fischl_growing-up-in-the-company-of-women-ii.jpg",
+      "price": 50.55,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 14,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART270506003",
+      "name": "Eric Fischl scenes from late paradise beached",
+      "artist": 27,
+      "genre": 5,
+      "style": 6,
+      "rating": 4.5,
+      "image": "eric-fischl_scenes-from-late-paradise-beached.jpg",
+      "price": 50.55,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 15,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART270206004",
+      "name": "Eric Fischl so she moved into the light",
+      "artist": 27,
+      "genre": 2,
+      "style": 6,
+      "rating": 4,
+      "image": "eric-fischl_so-she-moved-into-the-light.jpg",
+      "price": 50.55,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 16,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART270206005",
+      "name": "Eric Fischl the empress of sorrow",
+      "artist": 27,
+      "genre": 2,
+      "style": 6,
+      "rating": 5,
+      "image": "eric-fischl_the-empress-of-sorrow.jpg",
+      "price": 70.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 17,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART270206006",
+      "name": "Eric Fischl untitled 7",
+      "artist": 27,
+      "genre": 2,
+      "style": 6,
+      "rating": 4.5,
+      "image": "eric-fischl_untitled-7.jpg",
+      "price": 50.55,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 18,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART280406001",
+      "name": "Fairfield Porter red cables 1940",
+      "artist": 28,
+      "genre": 4,
+      "style": 6,
+      "rating": 4.5,
+      "image": "fairfield-porter_red-cables-1940.jpg",
+      "price": 40.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 19,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290606001",
+      "name": "Jamie Wyeth Andy Warhol facing left 1976",
+      "artist": 29,
+      "genre": 6,
+      "style": 6,
+      "rating": 4,
+      "image": "jamie-wyeth_andy-warhol-facing-left-1976.jpg",
+      "price": 65.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 20,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290206002",
+      "name": "Jamie Wyeth angus 1974",
+      "artist": 29,
+      "genre": 2,
+      "style": 6,
+      "rating": 4,
+      "image": "jamie-wyeth_angus-1974.jpg",
+      "price": 65.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 21,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290206003",
+      "name": "jamie-wyeth_angus-study-1974",
+      "artist": 29,
+      "genre": 2,
+      "style": 6,
+      "rating": 4,
+      "image": "jamie-wyeth_angus-study-1974.jpg",
+      "price": 65.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 22,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290206004",
+      "name": "Jamie Wyeth Cat bates of monhegan 1995",
+      "artist": 29,
+      "genre": 2,
+      "style": 6,
+      "rating": 4,
+      "image": "jamie-wyeth_cat-bates-of-monhegan-1995.jpg",
+      "price": 65.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 23,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290406005",
+      "name": "Jamie Wyeth giant dryads",
+      "artist": 29,
+      "genre": 4,
+      "style": 6,
+      "rating": 3.5,
+      "image": "jamie-wyeth_giant-dryads.jpg",
+      "price": 40.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 24,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290406006",
+      "name": "Jamie Wyeth island roses",
+      "artist": 29,
+      "genre": 4,
+      "style": 6,
+      "rating": 4,
+      "image": "jamie-wyeth_island-roses.jpg",
+      "price": 40.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 25,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290206007",
+      "name": "Jamie Wyeth lighthouse 1993",
+      "artist": 29,
+      "genre": 2,
+      "style": 6,
+      "rating": 4,
+      "image": "jamie-wyeth_lighthouse-1993.jpg",
+      "price": 45.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 26,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290406008",
+      "name": "Jamie Wyeth new growth 1971",
+      "artist": 29,
+      "genre": 4,
+      "style": 6,
+      "rating": 3,
+      "image": "jamie-wyeth_new-growth-1971.jpg",
+      "price": 40.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 27,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART290206009",
+      "name": "jamie-wyeth_wolf-dog-1976",
+      "artist": 29,
+      "genre": 2,
+      "style": 6,
+      "rating": 4.5,
+      "image": "jamie-wyeth_wolf-dog-1976.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 28,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART270206007",
+      "name": "eric-fischl_barbecue",
+      "artist": 27,
+      "genre": 2,
+      "style": 6,
+      "rating": 4,
+      "image": "eric-fischl_barbecue.jpg",
+      "price": 65.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 29,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART300406001",
+      "name": "richard-whitney_spring-thaw",
+      "artist": 30,
+      "genre": 4,
+      "style": 6,
+      "rating": 4,
+      "image": "richard-whitney_spring-thaw.jpg",
+      "price": 65.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 30,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART300406002",
+      "name": "Richard Whitney spring willows",
+      "artist": 30,
+      "genre": 4,
+      "style": 6,
+      "rating": 3.5,
+      "image": "richard-whitney_spring-willows.jpg",
+      "price": 65.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 31,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART300406003",
+      "name": "Richard Whitney walpole meadow",
+      "artist": 30,
+      "genre": 4,
+      "style": 6,
+      "rating": 4,
+      "image": "richard-whitney_walpole-meadow.jpg",
+      "price": 65.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 32,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART310708001",
+      "name": "andrea-del-castagno_crucifixion",
+      "artist": 31,
+      "genre": 7,
+      "style": 8,
+      "rating": 4.5,
+      "image": "andrea-del-castagno_crucifixion.jpg",
+      "price": 65.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 33,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART310708002",
+      "name": "Andrea del Castagno dormition of the virgin",
+      "artist": 31,
+      "genre": 7,
+      "style": 8,
+      "rating": 4.5,
+      "image": "andrea-del-castagno_dormition-of-the-virgin.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 34,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART310608003",
+      "name": "Andrea del Castagno giovanni boccaccio",
+      "artist": 31,
+      "genre": 6,
+      "style": 8,
+      "rating": 5,
+      "image": "andrea-del-castagno_giovanni-boccaccio.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 35,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART310708004",
+      "name": "Andrea del Castagno Holy Trinity with St Jerome",
+      "artist": 31,
+      "genre": 7,
+      "style": 8,
+      "rating": 4,
+      "image": "andrea-del-castagno_holy-trinity-with-st-jerome.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 36,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART320708001",
+      "name": "andrea-del-verrocchio_the-doubting-thomas-1483",
+      "artist": 32,
+      "genre": 7,
+      "style": 8,
+      "rating": 4,
+      "image": "andrea-del-verrocchio_the-doubting-thomas-1483.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 37,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART330708001",
+      "name": "Benozzo Gozzoli the dance of salome 1462",
+      "artist": 33,
+      "genre": 7,
+      "style": 8,
+      "rating": 5,
+      "image": "benozzo-gozzoli_the-dance-of-salome-1462.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 38,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART340708001",
+      "name": "Domenico Veneziano Madonna and child 1437",
+      "artist": 34,
+      "genre": 7,
+      "style": 8,
+      "rating": 5,
+      "image": "domenico-veneziano_madonna-and-child-1437.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 39,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART350708001",
+      "name": "Fra Angelico Archangel Gabriel annunciate 1433",
+      "artist": 35,
+      "genre": 7,
+      "style": 8,
+      "rating": 4,
+      "image": "fra-angelico_archangel-gabriel-annunciate-1433.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 40,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART350708002",
+      "name": "Fra Angelico Christ glorified in the court of heaven 1430",
+      "artist": 35,
+      "genre": 7,
+      "style": 8,
+      "rating": 4.5,
+      "image": "fra-angelico_christ-glorified-in-the-court-of-heaven-1430.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 41,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART350708003",
+      "name": "Fra Angelico last judgment",
+      "artist": 35,
+      "genre": 7,
+      "style": 8,
+      "rating": 4,
+      "image": "fra-angelico_last-judgment.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 42,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART350708004",
+      "name": "Fra Angelico visitation 1434",
+      "artist": 35,
+      "genre": 7,
+      "style": 8,
+      "rating": 3.5,
+      "image": "fra-angelico_visitation-1434.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 43,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART360708001",
+      "name": "Giovanni Bellini resurrection of Christ 1479",
+      "artist": 36,
+      "genre": 7,
+      "style": 8,
+      "rating": 4,
+      "image": "giovanni-bellini_resurrection-of-christ-1479.jpg",
+      "price": 59.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 44,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART370708001",
+      "name": "Jacopo Bellini virgin and child",
+      "artist": 37,
+      "genre": 7,
+      "style": 8,
+      "rating": 3.5,
+      "image": "jacopo-bellini_virgin-and-child.jpg",
+      "price": 59.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 45,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART380808001",
+      "name": "Leonardo da vinci an artillery park 1487",
+      "artist": 38,
+      "genre": 8,
+      "style": 8,
+      "rating": 4,
+      "image": "leonardo-da-vinci_an-artillery-park-1487.jpg",
+      "price": 105.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 46,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART380808002",
+      "name": "Leonardo da Vinci study of a child with a cat",
+      "artist": 38,
+      "genre": 8,
+      "style": 8,
+      "rating": 3.5,
+      "image": "leonardo-da-vinci_study-of-a-child-with-a-cat.jpg",
+      "price": 105.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 47,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART380808003",
+      "name": "Leonardo da Vinci study of the effect of light on a profile head facsimile",
+      "artist": 38,
+      "genre": 8,
+      "style": 8,
+      "rating": 4,
+      "image": "leonardo-da-vinci_study-of-the-effect-of-light-on-a-profile-head-facsimile.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 48,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART380808004",
+      "name": "Leonardo da Vinci study sheet 1478",
+      "artist": 38,
+      "genre": 8,
+      "style": 8,
+      "rating": 3.5,
+      "image": "leonardo-da-vinci_study-sheet-1478.jpg",
+      "price": 85.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 49,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART390608001",
+      "name": "Paolo Uccello head of prophet 1443-1",
+      "artist": 39,
+      "genre": 6,
+      "style": 8,
+      "rating": 4,
+      "image": "paolo-uccello_head-of-prophet-1443-1.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 50,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART390608002",
+      "name": "Paolo Uccello roundel with head-1",
+      "artist": 39,
+      "genre": 6,
+      "style": 8,
+      "rating": 4,
+      "image": "paolo-uccello_roundel-with-head-1.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 51,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART400708001",
+      "name": "Piero della Francesca the stigmatisation of st francis",
+      "artist": 40,
+      "genre": 7,
+      "style": 8,
+      "rating": 5,
+      "image": "piero-della-francesca_the-stigmatisation-of-st-francis.jpg",
+      "price": 105.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 52,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART410204001",
+      "name": "Edward Hopper chair car 1965",
+      "artist": 41,
+      "genre": 2,
+      "style": 4,
+      "rating": 4,
+      "image": "edward-hopper_chair-car-1965.jpg",      
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 53,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART410104002",
+      "name": "Edward Hopper cape cod afternoon",
+      "artist": 41,
+      "genre": 1,
+      "style": 4,
+      "rating": 4,
+      "image": "edward-hopper_cape-cod-afternoon.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 54,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART410104003",
+      "name": "Edward Hopper drug store 1927",
+      "artist": 41,
+      "genre": 1,
+      "style": 4,
+      "rating": 5,
+      "image": "edward-hopper_drug-store-1927.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 55,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART410404004",
+      "name": "Edward Hopper lighthouse at two lights 1929",
+      "artist": 41,
+      "genre": 4,
+      "style": 4,
+      "rating": 4,
+      "image": "edward-hopper_lighthouse-at-two-lights-1929.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 56,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART410104005",
+      "name": "Edward Hopper New York office",
+      "artist": 41,
+      "genre": 1,
+      "style": 4,
+      "rating": 3,
+      "image": "edward-hopper_new-york-office.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 57,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART410104006",
+      "name": "Edward Hopper read pavillonde flore",
+      "artist": 41,
+      "genre": 1,
+      "style": 4,
+      "rating": 4,
+      "image": "edward-hopper_read-pavillonde-flore.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 58,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART410104007",
+      "name": "Edward Hopper tramp steamer",
+      "artist": 41,
+      "genre": 1,
+      "style": 4,
+      "rating": 3,
+      "image": "edward-hopper_tramp-steamer.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 59,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART420604001",
+      "name": "George Luks boy with suspenders",
+      "artist": 42,
+      "genre": 6,
+      "style": 4,
+      "rating": 4,
+      "image": "george-luks_boy-with-suspenders.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 60,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART421004002",
+      "name": "George Luks frank crane",
+      "artist": 42,
+      "genre": 10,
+      "style": 4,
+      "rating": 4.5,
+      "image": "george-luks_frank-crane.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 61,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART420604003",
+      "name": "George Luks girl with doll",
+      "artist": 42,
+      "genre": 6,
+      "style": 4,
+      "rating": 4,
+      "image": "george-luks_girl-with-doll.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 62,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART420204004",
+      "name": "George Luks hobo musician",
+      "artist": 42,
+      "genre": 2,
+      "style": 4,
+      "rating": 4,
+      "image": "george-luks_hobo-musician.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 63,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART220204001",
+      "name": "John French Sloan back room 1912",
+      "artist": 22,
+      "genre": 2,
+      "style": 4,
+      "rating": 4,
+      "image": "john-french-sloan_back-room-1912.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 64,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART221104002",
+      "name": "John French Sloan deep blue sea 1916",
+      "artist": 22,
+      "genre": 11,
+      "style": 4,
+      "rating": 5,
+      "image": "john-french-sloan_deep-blue-sea-1916",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 65,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART220204003",
+      "name": "John French Sloan fifth avenue New York 1911",
+      "artist": 22,
+      "genre": 2,
+      "style": 4,
+      "rating": 4,
+      "image": "john-french-sloan_fifth-avenue-new-york-1911.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 66,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART220404004",
+      "name": "John French Sloan humoresque 1915",
+      "artist": 22,
+      "genre": 4,
+      "style": 4,
+      "rating": 4.5,
+      "image": "john-french-sloan_humoresque-1915.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 67,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART220604005",
+      "name": "John French Sloan rosette 1913",
+      "artist": 22,
+      "genre": 6,
+      "style": 4,
+      "rating": 5,
+      "image": "john-french-sloan_rosette-1913.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 68,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART210204001",
+      "name": "William James Glackens skating in central park 1910",
+      "artist": 21,
+      "genre": 2,
+      "style": 4,
+      "rating": 4,
+      "image": "william-james-glackens_skating-in-central-park-1910.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 69,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART210404002",
+      "name": "William James Glackens summer hotel 1909",
+      "artist": 21,
+      "genre": 4,
+      "style": 4,
+      "rating": 4.5,
+      "image": "william-james-glackens_summer-hotel-1909.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 70,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART210204003",
+      "name": "William James Glackens the drive central park 1905",
+      "artist": 21,
+      "genre": 2,
+      "style": 4,
+      "rating": 5,
+      "image": "william-james-glackens_the-drive-central-park-1905.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 71,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART210204004",
+      "name": "William James Glackens under the trees",
+      "artist": 21,
+      "genre": 2,
+      "style": 4,
+      "rating": 5,
+      "image": "william-james-glackens_under-the-trees.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 72,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART010925001",
+      "name": "Georges Braque aria de bach 1913",
+      "artist": 1,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "georges-braque_aria-de-bach-1913.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 73,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART010925002",
+      "name": "Georges Braque the green jug",
+      "artist": 1,
+      "genre": 9,
+      "style": 25,
+      "rating": 3,
+      "image": "georges-braque_the-green-jug.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 74,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925001",
+      "name": "Juan Gris a pot of geraniums 1915",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4.5,
+      "image": "juan-gris_a-pot-of-geraniums-1915.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 75,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925002",
+      "name": "Juan Gris book pipe and glasses",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 5,
+      "image": "juan-gris_book-pipe-and-glasses.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 76,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925003",
+      "name": "Juan Gris breakfast 1915",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "juan-gris_breakfast-1915.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 77,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925004",
+      "name": "Juan Gris fruit bowl with bottle 1914",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "juan-gris_fruit-bowl-with-bottle-1914.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 78,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925005",
+      "name": "Juan Gris guitar bottle and glass 1914",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "juan-gris_guitar-bottle-and-glass-1914.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 79,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925006",
+      "name": "Juan Gris open window with hills 1923",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 5,
+      "image": "juan-gris_open-window-with-hills-1923.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 80,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925007",
+      "name": "Juan Gris pedistal table in front of the window 1921",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "juan-gris_pedistal-table-in-front-of-the-window-1921.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 81,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925008",
+      "name": "Juan Gris still life dedicated to andre salmon 1915",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "juan-gris_still-life-dedicated-to-andre-salmon-1915.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 82,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925009",
+      "name": "Juan Gris still life with white tablecloth 1916",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "juan-gris_still-life-with-white-tablecloth-1916.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 83,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925010",
+      "name": "Juan Gris the bottle of banyuls 1914-1",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "juan-gris_the-bottle-of-banyuls-1914-1.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 84,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925011",
+      "name": "Juan Gris the checkerboard 1915",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4.5,
+      "image": "juan-gris_the-checkerboard-1915.jpg",
+      "price": 90.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 85,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925012",
+      "name": "Juan Gris the guitar 1913",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4.5,
+      "image": "juan-gris_the-guitar-1913.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 86,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925013",
+      "name": "Juan Gris the siphon 1913",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4.5,
+      "image": "juan-gris_the-siphon-1913.jpg",
+      "price": 40.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 87,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925014",
+      "name": "Juan Gris the sunblind 1914",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4.5,
+      "image": "juan-gris_the-sunblind-1914.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 88,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART020925015",
+      "name": "Juan Gris violin and glass 1918",
+      "artist": 2,
+      "genre": 9,
+      "style": 25,
+      "rating": 4.5,
+      "image": "juan-gris_violin-and-glass-1918",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 89,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART030225001",
+      "name": "Pablo Picasso couple of dancers 1915",
+      "artist": 3,
+      "genre": 2,
+      "style": 25,
+      "rating": 4,
+      "image": "pablo-picasso_couple-of-dancers-1915.jpg",
+      "price": 105.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 90,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART030925002",
+      "name": "Pablo Picasso guitar and jug on a table 1918",
+      "artist": 3,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "pablo-picasso_guitar-and-jug-on-a-table-1918.jpg",
+      "price": 105.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 91,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART030925003",
+      "name": "Pablo Picasso partition bottle of port guitar playing cards 1917",
+      "artist": 3,
+      "genre": 9,
+      "style": 25,
+      "rating": 4,
+      "image": "pablo-picasso_partition-bottle-of-port-guitar-playing-cards-1917.jpg",
+      "price": 105.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 92,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART040224001",
+      "name": "Akseli Gallen Kallela the storm 1902",
+      "artist": 4,
+      "genre": 2,
+      "style": 24,
+      "rating": 5,
+      "image": "akseli-gallen-kallela_the-storm-1902.jpg",
+      "price": 65.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 93,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART051224001",
+      "name": "Alphonse Mucha age of wisdom 1938",
+      "artist": 5,
+      "genre": 12,
+      "style": 24,
+      "rating": 5,
+      "image": "alphonse-mucha_age-of-wisdom-1938.jpg",
+      "price": 70.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 94,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART051224002",
+      "name": "Alphonse Mucha easter chimes awaken nature 1896",
+      "artist": 5,
+      "genre": 12,
+      "style": 24,
+      "rating": 4,
+      "image": "alphonse-mucha_easter-chimes-awaken-nature-1896.jpg",
+      "price": 70.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 95,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART060724001",
+      "name": "Gustave Moreau saint sebastian and his executioners",
+      "artist": 6,
+      "genre": 7,
+      "style": 24,
+      "rating": 4,
+      "image": "gustave-moreau_saint-sebastian-and-his-executioners.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 96,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART060724002",
+      "name": "Gustave Moreau saint sebastian being tended by saintly women",
+      "artist": 6,
+      "genre": 7,
+      "style": 24,
+      "rating": 4,
+      "image": "gustave-moreau_saint-sebastian-being-tended-by-saintly-women.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 97,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART060724003",
+      "name": "Gustave Moreau the good samaritan",
+      "artist": 6,
+      "genre": 7,
+      "style": 24,
+      "rating": 4,
+      "image": "gustave-moreau_the-good-samaritan.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 98,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART",
+      "name": "Kuzma Petrov Vodkin mother child saving 1932",
+      "artist": 7,
+      "genre": 8,
+      "style": 24,
+      "rating": 4.5,
+      "image": "kuzma-petrov-vodkin_mother-child-saving-1932.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 99,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART080624001",
+      "name": "Marcel Duchamp Yvonne and Magdeleine torn in tatters 1911",
+      "artist": 8,
+      "genre": 6,
+      "style": 24,
+      "rating": 4,
+      "image": "marcel-duchamp_yvonne-and-magdeleine-torn-in-tatters-1911.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 100,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART091324001",
+      "name": "Martiros Saryan fairy lake 1905",
+      "artist": 9,
+      "genre": 13,
+      "style": 24,
+      "rating": 4,
+      "image": "martiros-saryan_fairy-lake-1905.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 101,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART101424001",
+      "name": "Maurice Denis procession de fete dieu",
+      "artist": 10,
+      "genre": 14,
+      "style": 24,
+      "rating": 5,
+      "image": "maurice-denis_procession-de-fete-dieu.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 102,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART110424001",
+      "name": "Mikhail Nesterov Solovki 1917",
+      "artist": 11,
+      "genre": 4,
+      "style": 24,
+      "rating": 3.5,
+      "image": "mikhail-nesterov_solovki-1917.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 103,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART121424001",
+      "name": "Odilon Redon Apollo's Chariot 8",
+      "artist": 12,
+      "genre": 14,
+      "style": 24,
+      "rating": 4,
+      "image": "odilon-redon_apollo-s-chariot-8.jpg",
+      "price": 70.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 104,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART121524002",
+      "name": "Odilon Redo Roger and Angelica 1",
+      "artist": 12,
+      "genre": 15,
+      "style": 24,
+      "rating": 4,
+      "image": "odilon-redon_roger-and-angelica-1.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 105,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART120724003",
+      "name": "Odilon Redon: the Buddha",
+      "artist": 12,
+      "genre": 7,
+      "style": 24,
+      "rating": 5,
+      "image": "odilon-redon_the-buddha.jpg",
+      "price": 30.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 106,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART120224004",
+      "name": "Odilon Redon the fisherwoman 1900",
+      "artist": 12,
+      "genre": 2,
+      "style": 24,
+      "rating": 4,
+      "image": "odilon-redon_the-fisherwoman-1900.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 107,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART130609001",
+      "name": "Lucian Freud: head of a girl 1976",
+      "artist": 13,
+      "genre": 6,
+      "style": 9,
+      "rating": 5,
+      "image": "lucian-freud_head-of-a-girl-1976.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 108,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART130609002",
+      "name": "Lucian Freud: woman with eyes closed",
+      "artist": 13,
+      "genre": 6,
+      "style": 9,
+      "rating": 5,
+      "image": "lucian-freud_woman-with-eyes-closed.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 109,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART091609002",
+      "name": "Martiros Saryan: flowers of Armenia 1916",
+      "artist": 9,
+      "genre": 16,
+      "style": 9,
+      "rating": 4,
+      "image": "martiros-saryan_flowers-of-armenia-1916.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 110,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART090909003",
+      "name": "Martiros Saryan: light gamma 1913",
+      "artist": 9,
+      "genre": 9,
+      "style": 9,
+      "rating": 4,
+      "image": "martiros-saryan_light-gamma-1913",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 111,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART010909003",
+      "name": "Georges Braque: the studio viii 1954",
+      "artist": 1,
+      "genre": 9,
+      "style": 9,
+      "rating": 3.5,
+      "image": "georges-braque_the-studio-viii-1954.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 112,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART140209001",
+      "name": "Oskar Kokoschka: children playing 1909",
+      "artist": 14,
+      "genre": 2,
+      "style": 9,
+      "rating": 5,
+      "image": "oskar-kokoschka_children-playing-1909.jpg",
+      "price": 50.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 113,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART150209001",
+      "name": "Rafael Zabaleta: bathers on the beach in santander 1955",
+      "artist": 15,
+      "genre": 2,
+      "style": 9,
+      "rating": 5,
+      "image": "rafael-zabaleta_bathers-on-the-beach-in-santander-1955.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 114,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART160619001",
+      "name": "Andy Warhol: Botticelli Dettaglio",
+      "artist": 16,
+      "genre": 6,
+      "style": 19,
+      "rating": 4,
+      "image": "andy-warhol_botticelli-dettaglio.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 115,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART",
+      "name": "Andy Warhol: untitled beauty products 1960",
+      "artist": 16,
+      "genre": 9,
+      "style": 19,
+      "rating": 4.5,
+      "image": "andy-warhol_untitled-beauty-products-1960.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 116,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART171719001",
+      "name": "Derek Boshier: the identi kit man 1962",
+      "artist": 17,
+      "genre": 17,
+      "style": 19,
+      "rating": 4,
+      "image": "derek-boshier_the-identi-kit-man-1962.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 117,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART181719001",
+      "name": "Eduardo Paolozzi: it's a psychological fact pleasure helps your disposition 1948",
+      "artist": 18,
+      "genre": 17,
+      "style": 19,
+      "rating": 4,
+      "image": "eduardo-paolozzi_it-s-a-psychological-fact-pleasure-helps-your-disposition-1948.jpg",
+      "price": 70.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 118,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART181719002",
+      "name": "Eduardo Paolozzi: real gold 1949",
+      "artist": 18,
+      "genre": 17,
+      "style": 19,
+      "rating": 4,
+      "image": "eduardo-paolozzi_real-gold-1949.jpg",
+      "price": 60.00,
+      "on_sale": true
+    }
+  },
+  {
+    "pk": 119,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART191719001",
+      "name": "Peter Phillips: gravy for the navy 1975",
+      "artist": 19,
+      "genre": 17,
+      "style": 19,
+      "rating": 5,
+      "image": "peter-phillips_gravy-for-the-navy-1975.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 120,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART191724002",
+      "name": "Peter Phillips: select-o-mat corolla 1972",
+      "artist": 19,
+      "genre": 17,
+      "style": 19,
+      "rating": 5,
+      "image": "peter-phillips_select-o-mat-corolla-1972.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 121,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART191724002",
+      "name": "Peter Phillips: six times eight dreaming 1974",
+      "artist": 19,
+      "genre": 17,
+      "style": 19,
+      "rating": 5,
+      "image": "peter-phillips_select-o-mat-corolla-1972.jpg",
+      "price": 60.00,
+      "on_sale": false
+    }
+  },
+  {
+    "pk": 122,
+    "model": "artworks.artwork",
+    "fields": {
+      "sku": "ART200519001",
+      "name": "R. B. Kitaj: the rise of fascism",
+      "artist": 20,
+      "genre": 5,
+      "style": 19,
+      "rating": 5,
+      "image": "r-b-kitaj_the-rise-of-fascism.jpg",
+      "price": 80.00,
+      "on_sale": false
+    }
+  }
+]

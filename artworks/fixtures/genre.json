@@ -1,0 +1,146 @@
+[
+  {
+    "pk": 1,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "cityscape",
+      "friendly_name": "Cityscape"
+    }
+  },
+  {
+    "pk": 2,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "genre_painting",
+      "friendly_name": "Genre Painting"
+    }
+  },
+  {
+    "pk": 3,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "illustration",
+      "friendly_name": "Illustration"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "landscape",
+      "friendly_name": "Landscape"
+    }
+  },
+  {
+    "pk": 5,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "nude_painting",
+      "friendly_name": "Nude Painting"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "portrait",
+      "friendly_name": "Portrait"
+    }
+  },
+  {
+    "pk": 7,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "religious_painting",
+      "friendly_name": "Religious Painting"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "sketch_and_study",
+      "friendly_name": "Sketch and Study"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "still_life",
+      "friendly_name": "Still Life"
+    }
+  },
+  {
+    "pk": 10,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "caricature",
+      "friendly_name": "Caricature"
+    }
+  },
+  {
+    "pk": 11,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "marina",
+      "friendly_name": "Marina"
+    }
+  },
+  {
+    "pk": 12,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "allegorical_painting",
+      "friendly_name": "Allegorical Painting"
+    }
+  },
+  {
+    "pk": 13,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "symbolic_painting",
+      "friendly_name": "Symbolic Painting"
+    }
+  },
+  {
+    "pk": 14,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "mythological_painting",
+      "friendly_name": "Mythological Painting"
+    }
+  },
+  {
+    "pk": 15,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "literary_painting",
+      "friendly_name": "Literary Painting"
+    }
+  },
+  {
+    "pk": 16,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "flower_painting",
+      "friendly_name": "Flower Painting"
+    }
+  },
+  {
+    "pk": 17,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "figurative",
+      "friendly_name": "Figurative"
+    }
+  },
+  {
+    "pk": 18,
+    "model": "artworks.genre",
+    "fields": {
+      "name": "abstract_painting",
+      "friendly_name": "Abstract Painting"
+    }
+  }
+]
