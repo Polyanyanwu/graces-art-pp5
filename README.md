@@ -204,10 +204,11 @@ I searched “classical art”,  “art print” and “famous paintings” on [
 
 In view of the above, my keywords for the Graces Art Prints website is given below:
 
-| Classical art prints           | Famous artists                          |
+| Short-tail Keywords            | Long-tail Keywords                      |
 |--------------------------------|-----------------------------------------|
-| Framed classical art prints    | Buy prints of famous artists            |
-| Framed photos of classical art | Classical artwork                       |
+| Classical art prints           | Framed photos of classical art          |
+| Classical artwork              | Buy prints of famous artists            |
+| Famous artists                 | Framed classical art prints             |
 | Famous paintings               | where can I buy classical art in Dublin |
 | Buy printed artwork            | Buy classical art printed               |
 
