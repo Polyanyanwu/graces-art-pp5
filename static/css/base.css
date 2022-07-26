@@ -16,8 +16,9 @@ body {
     background-size: cover;
     background-position-y: 5rem;
     height: calc(100vh - 164px);
-    font-family: 'Teko', sans-serif;
-    font-size: 300;
+    /* font-family: 'Teko', sans-serif; */
+    font-family: 'Exo', sans-serif;
+    font-weight: 400;
 }
 
 .hidden {
@@ -52,4 +53,24 @@ body {
 
 .go-shop-btn:hover{
     color:white;
+}
+
+/* from Bulma -walkthrough project*/
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+.black-border {
+    border: 1px solid var(--rich-black)!important;
+}
+
+.my-btn {
+    background: var(--rich-black);
+    color:var(--tart-orange);
+}
+.my-btn:hover {
+    color:var(--baby-powder);
 }
