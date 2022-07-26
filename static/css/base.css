@@ -15,7 +15,7 @@ body {
     background: url('/media/index_background.png') no-repeat center center fixed;
     background-size: cover;
     background-position-y: 5rem;
-    height: calc(100vh - 164px);
+    /* height: calc(100vh - 164px); */
     /* font-family: 'Teko', sans-serif; */
     font-family: 'Exo', sans-serif;
     font-weight: 400;
@@ -48,7 +48,7 @@ body {
     color:var(--tart-orange);
     min-width: 200px;
     font-weight: 500;
-    font-size:2rem;
+    font-size:1.5rem;
 }
 
 .go-shop-btn:hover{
@@ -74,3 +74,24 @@ body {
 .my-btn:hover {
     color:var(--baby-powder);
 }
+
+/* overwrite bootstrap display of down pointing arrow */
+.dropstart .dropdown-toggle::before {
+    display:none;
+  }
+
+
+/* fixed top navbar only on medium and up */
+ @media (min-width: 992px) {
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
+
+    .header-container {
+        padding-top: 150px;
+    }
+ }

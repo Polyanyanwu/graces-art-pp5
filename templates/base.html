@@ -5,87 +5,190 @@
 
 <head>
 
-    {% block meta %}
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Buy framed classical art prints from world's famous artists!" />
-    <meta name="keywords" content="classical art prints, framed photos of classical art, classical artwork, 
+  {% block meta %}
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Buy framed classical art prints from world's famous artists!" />
+  <meta name="keywords" content="classical art prints, framed photos of classical art, classical artwork, 
       buy prints of famous artists, famous artists, framed classical art prints,
       famous paintings, where can I buy classical art in Dublin, buy printed artwork,
       buy classical art printed, artwork, paintings, artist, classical art" />
-    <meta name="author" content="Graces Art Print" />
-    {% endblock %}
+  <meta name="author" content="Graces Art Print" />
+  {% endblock %}
 
-    {% block extra_meta %}
-    {% endblock %}
+  {% block extra_meta %}
+  {% endblock %}
 
-    {% block corecss %}
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500;600&family=Exo:ital,wght@0,100;0,200;0,300;0,400;1,400;1,500&family=Teko:wght@300;400;500;600&display=swap">
-    <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
-    {% endblock %}
+  {% block corecss %}
 
-    {% block extra_css %}
-    {% endblock %}
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@500;600&family=Exo:ital,wght@0,100;0,200;0,300;0,400;1,400;1,500&family=Teko:wght@300;400;500;600&display=swap">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+  <link href="{% static 'fontawesomefree/css/all.min.css' %}" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
+  {% endblock %}
 
-    {% block corejs %}
-    <script src="https://kit.fontawesome.com/af901081da.js" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous">
-    </script>
-    
-    {% endblock %}
+  {% block extra_css %}
+  {% endblock %}
+
+  {% block corejs %}
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  </script>
 
 
-    {% block extra_js %}
-    {% endblock %}
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+  </script>
 
-    <title>Graces Art Print {% block extra_title %}{% endblock %}</title>
+  {% endblock %}
+
+
+  {% block extra_js %}
+  {% endblock %}
+
+  <title>Graces Art Print {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
 
-    <header class="container-fluid fixed-top">
-        <div id="topnav" class="row bg-white pt-lg-2 d-none d-lg-flex">
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
-                <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                    <h2 class="main-logo my-0"><strong><span class="logo-init">G</span>races<span class="logo-init">A</span>rt<span class="logo-init">P</span>rint</strong></h2>
-                </a>
-            </div>
-            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form method="GET" action="#">
-                  <div class="input-group w-100">
-                    <input class="form-control border black-border" type="text" name="qry"
-                      placeholder="Search artwork by name">
-                    <div class="input-group-append">
-                      <button class="form-control btn my-btn border black-border" type="submit">
-                        <span class="icon">
-                          <i class="fas fa-search"></i>
-                        </span>
-                      </button>
-                    </div>
-                  </div>
-                </form>
+  <header>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+      <div class="container-fluid nav-area">
+        <a href="{% url 'home' %}" class="nav-link main-logo-link">
+          <h2 class="main-logo my-0"><strong><span class="logo-init">G</span>races<span
+                class="logo-init">A</span>rt<span class="logo-init">P</span>rint</strong></h2>
+        </a>
+        <div class="col-lg-2 my-auto py-1 py-lg-0"></div>
+        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+          <form method="GET" action="#">
+            <div class="input-group w-100">
+              <input class="form-control border black-border" type="text" name="qry"
+                placeholder="Search artwork by name">
+              <div class="input-group-append">
+                <button class="form-control btn my-btn border black-border" type="submit">
+                  <span class="icon">
+                    <i class="fas fa-search"></i>
+                  </span>
+                </button>
               </div>
-    </header>
-    {% block page_header %}
-    {% endblock %}
+            </div>
+          </form>
+        </div>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    {% block content %}
-    {% endblock %}
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+          {% if user.is_authenticated %}
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
-    {% block postloadjs %}
+            <!-- Operator sub menu -->
 
-    {% endblock %}
+            <li class="nav-item dropdown dropstart">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
+                <div class="text-center">
+                  <div><i class="fas fa-user-plus fa-lg"></i></div>
+                  <p class="my-0">Admin/Ops</p>
+                </div>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">Update Order Status</a></li>
+                <li><a class="dropdown-item" href="#">Review Return Order</a></li>
+                <li><a class="dropdown-item" href="#">Order Details List</a></li>
+                <li><a class="dropdown-item" href="#">
+                    <hr></a></li>
+                <li><a class="dropdown-item" href="#">Maintain General Information</a></li>
+                <li><a class="dropdown-item" href="#">Maintain Artist</a></li>
+                <li><a class="dropdown-item" href="#">Maintain Style</a></li>
+                <li><a class="dropdown-item" href="#">Maintain Genre</a></li>
+                <li><a class="dropdown-item" href="#">Maintain System Preferences</a></li>
+                <li><a class="dropdown-item" href="#">
+                    <hr></a></li>
+                <li><a class="dropdown-item" href="#">Add Artwork</a></li>
+                <li><a class="dropdown-item" href="#">Edit/Delete Artwork</a></li>
+
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown dropstart">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
+                <div class="text-center">
+                  <div><i class="fas fa-user icon"></i></div>
+                  <p class="my-0">My Account</p>
+                </div>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="#">My Profile</a></li>
+                <li><a class="dropdown-item" href="#">Update Email</a></li>
+                <li><a class="dropdown-item" href="#">Order History</a></li>
+                <li><a class="dropdown-item" href="#">Return Order</a></li>
+                <li><a class="dropdown-item" href="#">Notifications</a></li>
+                <li><a class="dropdown-item" href="#">Wish list</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+            </li>
+            <li><a class="dropdown-item" href="{% url 'account_reset_password' %}">Reset Password</a>
+            </li>
+          </ul>
+          </li>
+
+          <!-- Administrator Role Options -->
+
+          {% else %}
+          <!-- only show sign up and login button if user is not already signed in -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
+              <div class="text-center">
+                <div><i class="fas fa-user icon"></i></div>
+                <p class="my-0">My Account</p>
+              </div>
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+              <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+            </ul>
+          </li>
+          {% endif %}
+          <li class="list-inline-item">
+            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+              <div class="text-center">
+                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                <p class="my-0">
+                  {% if grand_total %}
+                  ${{ grand_total|floatformat:2 }}
+                  {% else %}
+                  $0.00
+                  {% endif %}
+                </p>
+              </div>
+            </a>
+          </li>
+
+        </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+  {% block page_header %}
+  {% endblock %}
+
+  {% block content %}
+  {% endblock %}
+
+  {% block postloadjs %}
+
+  {% endblock %}
 
 </body>
 
