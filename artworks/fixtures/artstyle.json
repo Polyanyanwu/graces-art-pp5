@@ -1,0 +1,66 @@
+[
+  {
+    "pk": 1,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "action_painting",
+      "friendly_name": "Action Painting"
+    }
+  },
+  {
+    "pk": 4,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "baroque",
+      "friendly_name": "Baroque"
+    }
+  },
+  {
+    "pk": 6,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "contemporary_realism",
+      "friendly_name": "Contemporary Realism"
+    }
+  },
+  {
+    "pk": 8,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "early_renaissance",
+      "friendly_name": "Early_Renaissance"
+    }
+  },
+  {
+    "pk": 9,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "Expressionism",
+      "friendly_name": "Expressionism"
+    }
+  },
+  {
+    "pk": 19,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "pop_art",
+      "friendly_name": "Pop Art"
+    }
+  },
+  {
+    "pk": 24,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "symbolism",
+      "friendly_name": "Symbolism"
+    }
+  },
+  {
+    "pk": 25,
+    "model": "artworks.artstyle",
+    "fields": {
+      "name": "synthetic_cubism",
+      "friendly_name": "Synthetic Cubism"
+    }
+  }
+]
