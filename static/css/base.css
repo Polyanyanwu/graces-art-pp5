@@ -12,18 +12,17 @@ html {
 }
 
 body {
-    background: url('/media/home_background.webp') no-repeat center center fixed;
+    background: url('/media/index_background.png') no-repeat center center fixed;
     background-size: cover;
+    background-position-y: 5rem;
     height: calc(100vh - 164px);
-    color: #555;
     font-family: 'Teko', sans-serif;
+    font-size: 300;
 }
 
 .hidden {
     display: none;
 }
-
-
 
 .row {
     margin-left: 0;
@@ -34,9 +33,23 @@ body {
     margin-bottom: 0;
 }
 
-.main-logo{
+.main-logo {
     font-family: 'Edu NSW ACT Foundation', cursive;
+    color:var(--rich-black);
 }
+
 .logo-init {
     color: var(--tart-orange)
+}
+
+.go-shop-btn {
+    background: var(--rich-black);
+    color:var(--tart-orange);
+    min-width: 200px;
+    font-weight: 500;
+    font-size:2rem;
+}
+
+.go-shop-btn:hover{
+    color:white;
 }
