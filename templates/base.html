@@ -57,128 +57,147 @@
 
   <header>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <div class="container-fluid nav-area">
-        <a href="{% url 'home' %}" class="nav-link main-logo-link">
-          <h2 class="main-logo my-0"><strong><span class="logo-init">G</span>races<span
-                class="logo-init">A</span>rt<span class="logo-init">P</span>rint</strong></h2>
-        </a>
-        <div class="col-lg-2 my-auto py-1 py-lg-0"></div>
-        <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-          <form method="GET" action="#">
-            <div class="input-group w-100">
-              <input class="form-control border black-border" type="text" name="qry"
-                placeholder="Search artwork by name">
-              <div class="input-group-append">
-                <button class="form-control btn my-btn border black-border" type="submit">
-                  <span class="icon">
-                    <i class="fas fa-search"></i>
-                  </span>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
-          aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <div class="container-fluid nav-area fixed-top">
+      <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
-          {% if user.is_authenticated %}
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-            <!-- Operator sub menu -->
-
-            <li class="nav-item dropdown dropstart">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
-                <div class="text-center">
-                  <div><i class="fas fa-user-plus fa-lg"></i></div>
-                  <p class="my-0">Admin/Ops</p>
+          <a href="{% url 'home' %}" class="nav-link main-logo-link">
+            <h2 class="main-logo-font my-0"><strong><span class="logo-init">G</span>races<span
+                  class="logo-init">A</span>rt<span class="logo-init">P</span>rint</strong></h2>
+          </a>
+          <div class="col-lg-2 my-auto py-1 py-lg-0"></div>
+          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+            <form method="GET" action="#">
+              <div class="input-group w-100">
+                <input class="form-control border black-border" type="text" name="qry"
+                  placeholder="Search artwork by name">
+                <div class="input-group-append">
+                  <button class="form-control btn my-btn border black-border" type="submit">
+                    <span class="icon">
+                      <i class="fas fa-search"></i>
+                    </span>
+                  </button>
                 </div>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">Update Order Status</a></li>
-                <li><a class="dropdown-item" href="#">Review Return Order</a></li>
-                <li><a class="dropdown-item" href="#">Order Details List</a></li>
-                <li><a class="dropdown-item" href="#">
-                    <hr></a></li>
-                <li><a class="dropdown-item" href="#">Maintain General Information</a></li>
-                <li><a class="dropdown-item" href="#">Maintain Artist</a></li>
-                <li><a class="dropdown-item" href="#">Maintain Style</a></li>
-                <li><a class="dropdown-item" href="#">Maintain Genre</a></li>
-                <li><a class="dropdown-item" href="#">Maintain System Preferences</a></li>
-                <li><a class="dropdown-item" href="#">
-                    <hr></a></li>
-                <li><a class="dropdown-item" href="#">Add Artwork</a></li>
-                <li><a class="dropdown-item" href="#">Edit/Delete Artwork</a></li>
-
-              </ul>
-            </li>
-
-            <li class="nav-item dropdown dropstart">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
-                <div class="text-center">
-                  <div><i class="fas fa-user icon"></i></div>
-                  <p class="my-0">My Account</p>
-                </div>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <li><a class="dropdown-item" href="#">My Profile</a></li>
-                <li><a class="dropdown-item" href="#">Update Email</a></li>
-                <li><a class="dropdown-item" href="#">Order History</a></li>
-                <li><a class="dropdown-item" href="#">Return Order</a></li>
-                <li><a class="dropdown-item" href="#">Notifications</a></li>
-                <li><a class="dropdown-item" href="#">Wish list</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
-            </li>
-            <li><a class="dropdown-item" href="{% url 'account_reset_password' %}">Reset Password</a>
-            </li>
-          </ul>
-          </li>
-
-          <!-- Administrator Role Options -->
-
-          {% else %}
-          <!-- only show sign up and login button if user is not already signed in -->
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-              data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
-              <div class="text-center">
-                <div><i class="fas fa-user icon"></i></div>
-                <p class="my-0">My Account</p>
               </div>
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
-              <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+            </form>
+          </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              {% if user.is_authenticated %}
+
+
+              <!-- Operator sub menu -->
+
+              <li class="nav-item dropdown dropstart">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
+                  <div class="text-center">
+                    <div><i class="fas fa-user-plus fa-lg"></i></div>
+                    <p class="my-0">Admin/Ops</p>
+                  </div>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">Update Order Status</a></li>
+                  <li><a class="dropdown-item" href="#">Review Return Order</a></li>
+                  <li><a class="dropdown-item" href="#">Order Details List</a></li>
+                  <li><a class="dropdown-item" href="#">
+                      <hr></a></li>
+                  <li><a class="dropdown-item" href="#">Maintain General Information</a></li>
+                  <li><a class="dropdown-item" href="#">Maintain Artist</a></li>
+                  <li><a class="dropdown-item" href="#">Maintain Style</a></li>
+                  <li><a class="dropdown-item" href="#">Maintain Genre</a></li>
+                  <li><a class="dropdown-item" href="#">Maintain System Preferences</a></li>
+                  <li><a class="dropdown-item" href="#">
+                      <hr></a></li>
+                  <li><a class="dropdown-item" href="#">Add Artwork</a></li>
+                  <li><a class="dropdown-item" href="#">Edit/Delete Artwork</a></li>
+
+                </ul>
+              </li>
+
+              <li class="nav-item dropdown dropstart">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
+                  <div class="text-center">
+                    <div><i class="fas fa-user icon"></i></div>
+                    <p class="my-0">My Account</p>
+                  </div>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="#">My Profile</a></li>
+                  <li><a class="dropdown-item" href="#">Update Email</a></li>
+                  <li><a class="dropdown-item" href="#">Order History</a></li>
+                  <li><a class="dropdown-item" href="#">Return Order</a></li>
+                  <li><a class="dropdown-item" href="#">Notifications</a></li>
+                  <li><a class="dropdown-item" href="#">Wish list</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_reset_password' %}">Reset Password</a></li>
+                </ul>
+              </li>
+
+              <!-- Administrator Role Options -->
+
+              {% else %}
+              <!-- only show sign up and login button if user is not already signed in -->
+              <li class="nav-item dropdown dropstart">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
+                  <div class="text-center">
+                    <div><i class="fas fa-user icon"></i></div>
+                    <p class="my-0">My Account</p>
+                  </div>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink1">
+                  <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
+                </ul>
+              </li>
+              {% endif %}
+              <li class="list-inline-item">
+                <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link"
+                  href="#">
+                  <div class="text-center">
+                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                    <p class="my-0">
+                      {% if grand_total %}
+                      ${{ grand_total|floatformat:2 }}
+                      {% else %}
+                      $0.00
+                      {% endif %}
+                    </p>
+                  </div>
+                </a>
+              </li>
             </ul>
-          </li>
-          {% endif %}
-          <li class="list-inline-item">
-            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
-              <div class="text-center">
-                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
-                <p class="my-0">
-                  {% if grand_total %}
-                  ${{ grand_total|floatformat:2 }}
-                  {% else %}
-                  $0.00
-                  {% endif %}
-                </p>
-              </div>
-            </a>
-          </li>
-
-        </ul>
+          </div>
+        </nav>
+      </div>
+      <div class="row">
+        <nav class="navbar navbar-expand-lg navbar-light w-100">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          {% include 'includes/nav-bar-mobile-header.html' %}
+          {% include 'includes/nav-bar-large-header.html' %}
+        </nav>
+      </div>
+      <div id="delivery-banner" class="row text-center">
+        <div class="col p-1" id ="voucher-banner">
+          <h4 class="my-1">Fabulous discounts available to new and returning customers grab a voucher now!</h4>
         </div>
       </div>
-    </nav>
+    </div>
+
+
   </header>
   {% block page_header %}
   {% endblock %}

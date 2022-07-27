@@ -14,9 +14,8 @@ html {
 body {
     background: url('/media/index_background.png') no-repeat center center fixed;
     background-size: cover;
-    background-position-y: 5rem;
-    /* height: calc(100vh - 164px); */
-    /* font-family: 'Teko', sans-serif; */
+    background-position-y: 8.4rem;
+    height: calc(100vh - 164px);
     font-family: 'Exo', sans-serif;
     font-weight: 400;
 }
@@ -34,9 +33,15 @@ body {
     margin-bottom: 0;
 }
 
-.main-logo {
+.main-logo-font {
     font-family: 'Edu NSW ACT Foundation', cursive;
     color:var(--rich-black);
+}
+
+#voucher-banner {
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    color:var(--baby-powder);
+    background-color: var(--rich-black);
 }
 
 .logo-init {
@@ -95,3 +100,14 @@ body {
         padding-top: 150px;
     }
  }
+
+ /* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 146px;
+    }
+
+    body {
+        height: calc(100vh - 126px);
+    }
+}
