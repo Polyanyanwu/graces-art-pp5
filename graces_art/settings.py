@@ -86,6 +86,8 @@ TEMPLATES = [
     },
 ]
 
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 WSGI_APPLICATION = 'graces_art.wsgi.application'
 
 # sign in and login specs

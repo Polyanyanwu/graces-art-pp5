@@ -112,7 +112,20 @@ body {
     color: var(--baby-powder);
     background-color: var(--grey);
 }
+/* toast messages */
+.message-container {
+    position: fixed;
+    top: 80px;
+    right: 1rem;
+    z-index: 99999999999;
+}
+.custom-toast {
+    overflow: visible;
+}
 
+.toast-capper {
+    height: 2px;
+}
 
 /* fixed top navbar only on medium and up */
  @media (min-width: 992px) {
