@@ -1,0 +1,13 @@
+{% load i18n %}
+{% load account %}
+
+<div class="container">
+    <div class="row gx-5">
+        <div class="ms-auto text-center">
+            <p></p>
+            {% user_display user as user_display %}
+            <p><strong>{% trans "Note" %}:</strong> {% blocktrans %}you are already logged in as {{ user_display }}.{% endblocktrans %}</p>
+        </div>
+    </div>
+    </div>
+

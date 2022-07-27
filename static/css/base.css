@@ -85,6 +85,34 @@ body {
     display:none;
   }
 
+  .overlay {
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	position: fixed;
+	background: var(--baby-powder);
+	z-index: -1;
+}
+
+.btn-ok{
+    color: var(--baby-powder);
+    background-color: var(--jet);
+}
+.btn-ok:hover{
+    color: var(--baby-powder);
+    background-color: var(--grey);
+}
+
+.btn-cancel{
+    color: var(--baby-powder);
+    background-color: var(--tart-orange);
+}
+.btn-cancel:hover{
+    color: var(--baby-powder);
+    background-color: var(--grey);
+}
+
 
 /* fixed top navbar only on medium and up */
  @media (min-width: 992px) {
@@ -101,6 +129,9 @@ body {
     }
  }
 
+ .page-spacer {
+    padding-top: 200px;
+}
  /* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
