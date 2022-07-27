@@ -59,7 +59,7 @@
     <!-- Navigation -->
     <div class="container-fluid nav-area fixed-top">
       <div class="row">
-        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+        <nav class="navbar navbar-expand-lg navbar-light d-none d-lg-flex bg-white">
 
           <a href="{% url 'home' %}" class="nav-link main-logo-link">
             <h2 class="main-logo-font my-0"><strong><span class="logo-init">G</span>races<span
@@ -87,7 +87,7 @@
           </button>
 
           <div class="collapse navbar-collapse justify-content-end" id="navbarText">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 list-inline">
               {% if user.is_authenticated %}
 
 
@@ -182,12 +182,12 @@
       </div>
       <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light w-100">
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-nav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           {% include 'includes/nav-bar-mobile-header.html' %}
-          {% include 'includes/nav-bar-large-header.html' %}
+          {% include 'includes/artwork-menu.html' %}
         </nav>
       </div>
       <div id="delivery-banner" class="row text-center">

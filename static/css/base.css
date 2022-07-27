@@ -109,5 +109,36 @@ body {
 
     body {
         height: calc(100vh - 126px);
+        font-size: 0.8rem;
+    }
+    .navbar-toggler-icon {
+        padding: .4rem .4rem;
+        font-size: 1rem;
+    }
+    .nav-link {
+        padding: 0.1rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+    .dropdown-toggle::after{
+        content: none;
+    }
+    .dropdown-menu{
+        font-size: 0.8rem;
+    }
+    .main-logo{
+        font-size: 1rem;
+        font-weight: bold;
+    }
+    .go-shop-btn {
+        background: var(--rich-black);
+        color:var(--tart-orange);
+        min-width: 100px;
+        font-weight: 400;
+        font-size:1rem;
+
+
     }
 }
