@@ -50,14 +50,14 @@ body {
 
 .go-shop-btn {
     background: var(--rich-black);
-    color:var(--tart-orange);
+    color:var(--baby-powder);
     min-width: 200px;
     font-weight: 500;
     font-size:1.5rem;
 }
 
 .go-shop-btn:hover{
-    color:white;
+    color:var(--tart-orange)
 }
 
 /* from Bulma -walkthrough project*/
@@ -78,6 +78,10 @@ body {
 }
 .my-btn:hover {
     color:var(--baby-powder);
+}
+.navbar{
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 /* overwrite bootstrap display of down pointing arrow */
@@ -127,6 +131,22 @@ body {
     height: 2px;
 }
 
+footer {
+    /* position: absolute;
+    bottom: 0; */
+    width:100%;
+    background-color: var(--bs-gray-200);
+  }
+
+  footer a {
+    color: var(--tart-orange);
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--jet)
+}
+
 /* fixed top navbar only on medium and up */
  @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -152,7 +172,7 @@ body {
     }
 
     body {
-        height: calc(100vh - 126px);
+        height: calc(100vh - 126px)!important;
         font-size: 0.8rem;
     }
     .navbar-toggler-icon {
@@ -176,6 +196,10 @@ body {
         font-size: 1rem;
         font-weight: bold;
     }
+
+    .header-container {
+        padding-top: 180px;
+    }
     .go-shop-btn {
         background: var(--rich-black);
         color:var(--tart-orange);
@@ -184,5 +208,8 @@ body {
         font-size:1rem;
 
 
+    }
+    footer h4{
+        font-size:1rem;
     }
 }

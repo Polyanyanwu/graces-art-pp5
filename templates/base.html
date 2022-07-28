@@ -1,7 +1,7 @@
 {% load static %}
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="h-100">
 
 <head>
 
@@ -49,7 +49,7 @@
   <title>Graces Art Print {% block extra_title %}{% endblock %}</title>
 </head>
 
-<body>
+<body class="d-flex flex-column h-100">
 
   <header>
     <!-- Navigation -->
@@ -188,7 +188,7 @@
       </div>
       <div id="delivery-banner" class="row text-center">
         <div class="col p-1" id ="voucher-banner">
-          <h4 class="my-1">Fabulous discounts available to new and returning customers grab a voucher now!</h4>
+          <h4 class="mb-1">Fabulous discounts available to new and returning customers grab a voucher now!</h4>
         </div>
       </div>
     </div>
@@ -219,7 +219,7 @@
   {% block postloadjs %}
 
   {% endblock %}
-
+  {% include 'includes/footer.html' %}
 </body>
 
 </html>
