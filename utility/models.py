@@ -11,11 +11,16 @@ class SystemPreference(models.Model):
             ('D', 'Description of Current Sales'),
             ('R', 'Return Valid Days'),
         ]
+    DATA_TYPES = [
+            ('str', 'Text'),
+            ('int', 'Integer'),
+        ]
 
     code = models.CharField(primary_key=True, choices=SYSTEM_OPTIONS,
                             default='S', max_length=1)
     data = models.CharField(max_length=50, blank=False)
-    data_type = models.CharField(max_length=3, blank=False)
+    data_type = models.CharField(max_length=3, blank=False,
+                                 choices=DATA_TYPES)
     # data types will be str or int used to validate input
 
     def __str__(self):
