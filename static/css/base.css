@@ -116,6 +116,17 @@ body {
     color: var(--baby-powder);
     background-color: var(--grey);
 }
+
+.btn-select{
+    color: var(--rich-black);
+    background-color: var(--baby-powder);
+    border: solid 1px var(--tart-orange);
+}
+.btn-select:hover{
+    color: var(--baby-powder);
+    background-color: var(--grey);
+}
+
 /* toast messages */
 .message-container {
     position: fixed;

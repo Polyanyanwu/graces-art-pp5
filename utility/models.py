@@ -51,3 +51,7 @@ class HomeMessage(models.Model):
 
     def __str__(self):
         return str(self.description)
+
+    def verbose_name(self):
+        """ Method to return the verbose name of the option """
+        return dict(HomeMessage.CHOICES)[self.code]

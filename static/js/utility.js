@@ -6,6 +6,7 @@
 function startUp() {
     "use strict";
     document.querySelector('#id_code').setAttribute('disabled', '');
+    document.querySelector('#id_data_type').setAttribute('disabled', '');
     const select_btn = document.querySelectorAll('.select-pref');
     select_btn.forEach(btn => btn.addEventListener('click', function (e) {
         e.preventDefault();

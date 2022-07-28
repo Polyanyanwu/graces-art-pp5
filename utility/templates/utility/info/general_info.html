@@ -8,7 +8,7 @@ The access restriction is implemented in the view -->
 {% load crispy_forms_tags %}
 {% block extra_title %}- Sys Param {% endblock %}
 {% block postloadjs %}
-  <script src="{% static 'js/utility.js' %}"></script>
+
 {% endblock %}
 {% block page_header %}
     <div class="container header-container">
@@ -22,19 +22,22 @@ The access restriction is implemented in the view -->
 <div class="container-fluid gx-4 ">
     <div class="row">
         <div class="col main-title text-center">
-            <h4>Maintain System Preferences</h4>
+            <h4>Maintain General Information</h4>
         </div>
     </div>
 </div>
 <div class="container-fluid gx-4 ">
     <div class="row justify-content-center">
         <div class="col-12 col-md-6">
-            <form action="{% url 'system_preference' %}" method="POST" id="sys_pref_update">
+            <form action="{% url 'general_info' %}" method="POST" id="gen_info_update">
                 {% csrf_token %}
-                {{ form|crispy }}
+
+                {{ form | crispy }}
+ 
                 <div class="d-flex justify-content-center mt-2">
-                    <button type="submit" class="btn btn-primary btn-ok" name="save_system_preference">Save</button>
+                    <button type="submit" class="btn btn-primary btn-ok" name="save_gen_info">Save</button>
                 </div>
+            </form>
                 <table class="table table-striped">
                     <thead>
                       <tr>
@@ -45,20 +48,20 @@ The access restriction is implemented in the view -->
                       </tr>
                     </thead>
                     <tbody>
-                        {% for item in syspref %}
+                        {% for item in info %}
                       <tr>
                         <th scope="row">{{ forloop.counter }}</th>
-                        <td>{{ item.pref_verbose }}</td>
-                        <td>{{ item.data }}</td>
+                        <td>{{ item.verbose_name }}</td>
+                        <td>{{ item.description | safe}}</td>
                         <td> <button class="btn btn-sm btn-select select-pref" data-code = {{item.code}} >Select</button>
                       </tr>
                       {% endfor %}
                     </tbody>
                   </table>
-                  <input type="text" class="hidden" name="pref_code" value ={{pref_code}} id="clicked-code">
-                  <button class="btn hidden" id="select-pref-btn" type="submit"
+                  <input type="hidden" name="info_code" value ={{info_code}} id="clicked-code">
+                  <button class="btn hidden" id="select-info-btn" type="submit"
                   name="action">select actual</button>
-            </form>
+
         </div>
     </div>
 </div>

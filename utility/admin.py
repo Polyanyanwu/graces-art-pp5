@@ -20,4 +20,4 @@ class BookingStatusAdmin(admin.ModelAdmin):
 class HomeMessageAdmin(SummernoteModelAdmin):
     """ Maintain Text for Privacy policy & Terms of Use"""
     list_display = ('code', )
-    summernote_fields = ('description')
+    summernote_fields = ('description',)
