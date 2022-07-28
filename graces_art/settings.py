@@ -51,7 +51,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'fontawesomefree',
     'crispy_forms',
-    'home'
+    'home',
+    'utility',
 ]
 
 MIDDLEWARE = [
