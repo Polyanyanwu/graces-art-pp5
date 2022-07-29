@@ -2,18 +2,21 @@
 
 {% load i18n %}
 
-{% block additional_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
+{% block extra_title %}{% trans "Verify Your E-mail Address" %}{% endblock %}
 
 {% block inner_content %}
-<div class="container-fluid gx-4 ">
+
+<div class="container-fluid ">
     <div class="row">
-        <div class="col main-title text-center">
+        <div class="col text-center">
             <h3>Verify Your E-mail Address</h3>
         </div>
         <hr>
     </div>
+</div>
+<div class="container-fluid">
     <div class="row">
-        <div class="col-md-6 mx-auto mt-2">
+        <div class="col">
             <p>
                 {% blocktrans %}
                 We have sent an e-mail to you for verification. Follow the link provided to finalize the
@@ -22,5 +25,6 @@
                 {% endblocktrans %}
             </p>
         </div>
+    </div>
     </div>
     {% endblock %}
