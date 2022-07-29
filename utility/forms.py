@@ -3,8 +3,7 @@
     and Privacy Notice
 """
 from django import forms
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
-from django_summernote.fields import SummernoteTextField
+from django_summernote.widgets import SummernoteWidget
 from .models import SystemPreference, HomeMessage
 
 
@@ -20,16 +19,7 @@ class SystemPreferenceForm(forms.ModelForm):
 class HomeMessageForm(forms.ModelForm):
     """ Privacy Notice and Terms of Use data """
     description = forms.CharField(widget=SummernoteWidget())
+
     class Meta:
         model = HomeMessage
-
-        # description = SummernoteTextField()
         fields = ('code', 'description')
-
-# class FormFromSomeModel(forms.ModelForm):
-#     class Meta:
-#         model = SomeModel
-#         widgets = {
-#             'foo': SummernoteWidget(),
-#             'bar': SummernoteInplaceWidget(),
-#         }

@@ -106,7 +106,7 @@
 
                 <!-- Administrator Role Options -->
                   {% if request.user|belong_group:"administrator" %}
-                    <li><a class="dropdown-item" href="#">Maintain Artist</a></li>
+                    <li><a class="dropdown-item" href="{% url 'maintain_artists' %}">Maintain Artist</a></li>
                     <li><a class="dropdown-item" href="#">Maintain Style</a></li>
                     <li><a class="dropdown-item" href="#">Maintain Genre</a></li>
                     <li><a class="dropdown-item" href="{% url 'general_info' %}">Maintain General Information</a></li>
