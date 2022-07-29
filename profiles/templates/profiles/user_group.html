@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block extra_title %}- Groups {% endblock %}
+<!-- {% block postloadjs %}
+    <script src="{% static 'js/profile.js' %}"></script>
+{% endblock %} -->
+{% block page_header %}
+    <div class="container header-container">
+        <div class="row">
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid gx-4 ">
+    <div class="row">
+        <div class="col text-center">
+            <h4>Assign User Roles/Groups</h4>
+        </div>
+    </div>
+</div>
+<div class="container-fluid gx-4 ">
+    <div class="row justify-content-center">
+        <div class="col-12 col-md-6">
+            <p></p>
+            <form action="{% url 'update_group' %}" method="POST" id="group-update-form">
+                {% csrf_token %}
+                {{ group_form|crispy }}
+                <div class="d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary btn-color" name ="add_user_group">Add</button>
+                </div>
+                <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
+                <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">User</th>
+                            <th scope="col">Group</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for group in users.groups.all %}
+                        <tr>
+                            <th scope="row">{{ forloop.counter }}</th>
+                            <td>{{users.first_name}} {{users.last_name}}</td>
+                            <td>{{ group.name }}</td>
+                            <td><button type="submit"  name="remove_group"  class="btn btn-cancel btn-sm" >Remove
+                            </button>
+                        </td>
+                            </td>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <button type="hidden" name="remove_group" id="action_button"></button>
+                        <input type="hidden" value="" name="user_group_selected" id="user_group_name">
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

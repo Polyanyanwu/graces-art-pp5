@@ -1,11 +1,13 @@
 """ Views for Profile and Group update """
 
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db import transaction
-from .forms import UserProfileForm
+from django.contrib.auth.models import User, Group
+from .forms import UserProfileForm, GroupForm
 from .models import UserProfile
+from .user_belong import check_in_group
 
 
 @login_required
@@ -27,3 +29,54 @@ def update_profile(request):
     return render(request, 'profiles/user_profile.html', {
         'profile_form': profile_form
     })
+
+
+@login_required
+@transaction.atomic
+def update_group(request):
+    """ Add or remove user from a group
+        Only administrator group members have access to this """
+
+    if request.method == 'POST':
+        if 'user_change' in request.POST:
+            user_sent = request.POST.get('user')
+            user = get_object_or_404(User, id=user_sent)
+            group_form = GroupForm(instance=user)
+
+        elif 'remove_group' in request.POST:
+            my_group = Group.objects.get(
+                name=request.POST.get('user_group_selected'))
+            user_sent = request.POST.get('user')
+            user = get_object_or_404(User, id=user_sent)
+            my_group.user_set.remove(user)
+            group_form = GroupForm(instance=user)
+            messages.success(request, ('Group removed successfully'))
+
+        elif 'add_user_group' in request.POST:
+            group_name = request.POST.get('group_name')
+            user_sent = request.POST.get('user')
+            user = get_object_or_404(User, id=user_sent)
+            group_form = GroupForm(instance=user)
+
+            if not group_name:
+                messages.error(request,
+                               ('Please select a group before clicking Add'))
+                group_form = GroupForm()
+            else:
+                my_group = Group.objects.get(id=group_name)
+                if check_in_group(user, (my_group.name, )) == "OK":
+                    messages.error(request,
+                                   ('User already in this group'))
+                else:
+                    my_group.user_set.add(user)
+                    messages.success(request,
+                                     ('Group added successfully'))
+    else:
+        user = request.user
+        group_form = GroupForm()
+
+    return render(request, 'profiles/user_group.html',
+                  {
+                        'group_form': group_form,
+                        'users': user
+                  })

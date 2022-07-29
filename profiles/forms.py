@@ -1,7 +1,7 @@
 """ Forms for the User profile app """
 
 from django import forms
-from .models import UserProfile
+from .models import UserProfile, UserGroup
 
 
 class UserProfileForm(forms.ModelForm):
@@ -50,3 +50,11 @@ class UserProfileForm(forms.ModelForm):
         user.last_name = self.cleaned_data['last_name']
         user.save()
         return user
+
+
+class GroupForm(forms.ModelForm):
+    """ Enable select user group """
+    class Meta:
+        """ Specify the profile fields to update """
+        model = UserGroup
+        fields = ('user', 'group_name')
