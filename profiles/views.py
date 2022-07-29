@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db import transaction
 from django.contrib.auth.models import User, Group
-from .forms import UserProfileForm, GroupForm
+from .forms import UserProfileForm, GroupForm, UserForm
 from .models import UserProfile
 from .user_belong import check_in_group
 
@@ -17,11 +17,13 @@ def update_profile(request):
     user_profile = get_object_or_404(UserProfile, user=request.user)
     if request.method == 'POST':
         profile_form = UserProfileForm(request.POST, instance=user_profile)
-        if profile_form.is_valid():
+        user_form = UserForm(request.POST, instance=request.user)
+
+        if profile_form.is_valid() and user_form.is_valid():
             profile_form.save(request)
+            user_form.save()
             messages.success(request,
                              ('Your profile was successfully updated!'))
-            # return redirect('/')
         else:
             messages.error(request, ('Please correct the error below.'))
     else:

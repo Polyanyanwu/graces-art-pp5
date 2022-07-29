@@ -1,6 +1,7 @@
 """ Forms for the User profile app """
 
 from django import forms
+from django.contrib.auth.models import User
 from .models import UserProfile, UserGroup
 
 
@@ -58,3 +59,11 @@ class GroupForm(forms.ModelForm):
         """ Specify the profile fields to update """
         model = UserGroup
         fields = ('user', 'group_name')
+
+
+class UserForm(forms.ModelForm):
+    """ Update User form data """
+    class Meta:
+        """ Fields to update from User model """
+        model = User
+        fields = ('first_name', 'last_name',)
