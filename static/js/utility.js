@@ -20,15 +20,31 @@ function startUp() {
 
     if (document.querySelector('#gen_info_update')) {
         // General information form
-        console.log("here at gen info form")
         const idCode = document.querySelector('#id_code');
         idCode.addEventListener('change', function (e) {
-            // e.preventDefault();
-            // const btn_code = e.target.dataset.code;
-            console.log("event listener set=="+ e.target.value )
             document.getElementById('clicked-code').value = e.target.value;
             document.querySelector('#select-info-btn').click();
         });
+    }
+
+    // User Group Update
+    if (document.querySelector("#group-update-form")) {
+        // force selection of first user
+        if (!document.querySelector("#id_user").value) {
+            document.querySelector("#id_user").value = document.querySelector("#user_id").value;
+        }
+        document.querySelector("#id_group_name").required = false;
+        document.querySelector("#id_user").addEventListener('change', (e) => {
+            e.preventDefault();
+            document.getElementById('user-change-button').click();
+        });
+
+        const rec_btn = document.querySelectorAll('.remove-group');
+        rec_btn.forEach(btn => btn.addEventListener('click', function (e) {
+            document.getElementById("user_group_name").value = e.target.dataset.group;
+            document.getElementById('action_button').click();
+            }));
+
     }
 
 }

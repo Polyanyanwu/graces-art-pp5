@@ -1,3 +1,4 @@
+{% load user_belong_group %}
 <a href="{% url 'home' %}" class="nav-link d-block d-lg-none main-logo-link">
     <h2 class="main-logo-font my-0"><strong><span class="logo-init">G</span>races<span
           class="logo-init">A</span>rt<span class="logo-init">P</span>rint</strong></h2>
@@ -29,9 +30,6 @@
 
 {% if user.is_authenticated %}
 
-
-<!-- Operator sub menu -->
-
 <li class="nav-item dropdown list-inline-item dropdown-menu-start" >
   <a class="nav-link dropdown-toggle d-block d-lg-none" href="#" id="navbarDropdownMenuLink" role="button"
     data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
@@ -41,21 +39,28 @@
     </div>
   </a>
   <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink">
-    <li><a class="dropdown-item" href="#">Update Order Status</a></li>
-    <li><a class="dropdown-item" href="#">Review Return Order</a></li>
-    <li><a class="dropdown-item" href="#">Order Details List</a></li>
-    <li><a class="dropdown-item" href="#">
-        <hr></a></li>
-    <li><a class="dropdown-item" href="#">Maintain General Information</a></li>
-    <li><a class="dropdown-item" href="#">Maintain Artist</a></li>
-    <li><a class="dropdown-item" href="#">Maintain Style</a></li>
-    <li><a class="dropdown-item" href="#">Maintain Genre</a></li>
-    <li><a class="dropdown-item" href="#">Maintain System Preferences</a></li>
-    <li><a class="dropdown-item" href="#">
-        <hr></a></li>
-    <li><a class="dropdown-item" href="#">Add Artwork</a></li>
-    <li><a class="dropdown-item" href="#">Edit/Delete Artwork</a></li>
+    <!-- Operator sub menu -->
+    {% if request.user|belong_group:"operator" %}
+      <li><a class="dropdown-item" href="#">Update Order Status</a></li>
+      <li><a class="dropdown-item" href="#">Review Return Order</a></li>
+      <li><a class="dropdown-item" href="#">Order Details List</a></li>
+      <li><a class="dropdown-item" href="#">
+      <hr></a></li>
+    {% endif %}
 
+  <!-- Administrator Role Options -->
+    {% if request.user|belong_group:"administrator" %}
+      <li><a class="dropdown-item" href="#">Maintain Artist</a></li>
+      <li><a class="dropdown-item" href="#">Maintain Style</a></li>
+      <li><a class="dropdown-item" href="#">Maintain Genre</a></li>
+      <li><a class="dropdown-item" href="{% url 'general_info' %}">Maintain General Information</a></li>
+      <li><a class="dropdown-item" href="{% url 'system_preference' %}">Maintain System Preferences</a></li>
+      <li><a class="dropdown-item" href="{% url 'update_group' %}">Assign User Roles</a></li>
+      <li><a class="dropdown-item" href="#">
+          <hr></a></li>
+      <li><a class="dropdown-item" href="#">Add Artwork</a></li>
+      <li><a class="dropdown-item" href="#">Edit/Delete Artwork</a></li>
+    {% endif %}
   </ul>
 </li>
 
@@ -82,8 +87,6 @@
   </ul>
 </li>
 
-<!-- Administrator Role Options -->
-
 {% else %}
 <!-- only show sign up and login button if user is not already signed in -->
 <li class="nav-item dropdown list-inline-item">
@@ -100,12 +103,6 @@
   </ul>
 </li>
 {% endif %}
-
-
-
-
-
-
 
 <li class="list-inline-item">
     <a class="{% if grand_total %}text-primary font-weight-bold{% else %}text-black{% endif %} nav-link d-block d-lg-none" href="#">

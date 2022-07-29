@@ -2,9 +2,9 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block extra_title %}- Groups {% endblock %}
-<!-- {% block postloadjs %}
-    <script src="{% static 'js/profile.js' %}"></script>
-{% endblock %} -->
+{% block postloadjs %}
+    <script src="{% static 'js/utility.js' %}"></script>
+{% endblock %}
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -29,7 +29,7 @@
                 {% csrf_token %}
                 {{ group_form|crispy }}
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary btn-color" name ="add_user_group">Add</button>
+                    <button type="submit" class="btn btn-primary btn-ok mt-2" name ="add_user_group">Add</button>
                 </div>
                 <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
                 <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
@@ -48,14 +48,15 @@
                             <th scope="row">{{ forloop.counter }}</th>
                             <td>{{users.first_name}} {{users.last_name}}</td>
                             <td>{{ group.name }}</td>
-                            <td><button type="submit"  name="remove_group"  class="btn btn-cancel btn-sm" >Remove
+                            <td><button type="submit"  name="remove_group"  class="btn btn-cancel btn-sm remove-group"
+                                data-group = {{ group.name }} >Remove
                             </button>
                         </td>
                             </td>
                             </td>
                         </tr>
                         {% endfor %}
-                        <button type="hidden" name="remove_group" id="action_button"></button>
+                        <button type="button" class="hidden" name="remove_group" id="action_button"></button>
                         <input type="hidden" value="" name="user_group_selected" id="user_group_name">
                     </tbody>
                 </table>
