@@ -2,7 +2,7 @@
 
 {% load i18n %}
 
-{% block additional_title %}{% trans "E-mail Addresses" %}{% endblock %}
+{% block extra_title %}{% trans "E-mail Addresses" %}{% endblock %}
 
 {% block inner_content %}
 <div class="container-fluid gx-4 ">
@@ -67,7 +67,7 @@
     <form method="post" action="{% url 'account_email' %}" class="add_email">
       {% csrf_token %}
       {{ form.as_p }}
-      <button name="action_add" type="submit" class="btn btn-success btn-sm">{% trans "Add E-mail" %} </button>
+      <button name="action_add" type="submit" class="btn btn-success btn-sm mb-2">{% trans "Add E-mail" %} </button>
     </form>
     {% endif %}
 

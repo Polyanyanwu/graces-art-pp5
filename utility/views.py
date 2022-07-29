@@ -94,14 +94,12 @@ class HomeMessageView(View):
 
     def post(self, request, *args, **kwargs):
         """ Update selected record """
-        print(request.POST)
         if 'save_gen_info' in request.POST:  # save button clicked
 
             selected_item = request.POST.get('code')
             info_form = get_object_or_404(HomeMessage, code=selected_item)
             data = request.POST.get('description')
             info_form.description = data
-            print("before save")
             try:
                 info_form.save()
                 messages.add_message(request, messages.INFO,
@@ -110,11 +108,12 @@ class HomeMessageView(View):
                 print(" Data error saving system preference ")
                 messages.add_message(request, messages.INFO,
                                      'Error saving cancellation, try later')
-            info = HomeMessage.objects.all()
-            form = HomeMessageForm(instance=info[0])
-            selected_item = info[0].code
+            # info = HomeMessage.objects.all()
+            form = HomeMessageForm(instance=selected_item)
+            # selected_item = info[0].code
         else:
             selected_item = request.POST.get('info_code')
+            print("selected item==", selected_item)
             info = HomeMessage.objects.all()
             curr = None
             try:
@@ -122,9 +121,9 @@ class HomeMessageView(View):
             except ObjectDoesNotExist as exception:
                 print(exception)
             if curr:
-                form = HomeMessage(instance=curr)
+                form = HomeMessageForm(instance=curr)
             else:
-                form = HomeMessage(instance=info[0])
+                form = HomeMessageForm(instance=info[0])
 
         return render(
             request,

@@ -121,6 +121,9 @@ SUMMERNOTE_THEME = 'bs5'
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode, default
     'iframe': True,
+    # Change editor size
+    'width': '100%',
+    'height': '480',
 }
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
