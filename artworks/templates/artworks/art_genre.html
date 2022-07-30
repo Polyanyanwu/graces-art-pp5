@@ -1,9 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
-{% block extra_title %}- art_styles {% endblock %}
+{% block extra_title %}- art_genre {% endblock %}
 {% block postloadjs %}
-<script src="{% static 'js/artworks.js' %}"></script>
+    <script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}
 {% block page_header %}
 <div class="container header-container">
@@ -17,14 +17,14 @@
 <div class="container-fluid gx-4 ">
     <div class="row">
         <div class="col text-center">
-            <h4>Maintain Art Styles</h4>
+            <h4>Maintain Art Genre</h4>
             <hr>
         </div>
     </div>
 </div>
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <form action="{% url 'maintain_art_style' %}" method="POST" id="art_style-maintain-form">
+        <form action="{% url 'maintain_art_genre' %}" method="POST" id="art-genre-maintain-form">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4">
 
@@ -50,20 +50,20 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for art_style in art_styles %}
+                            {% for art_genre in art_genres %}
                             <tr>
-                                <th scope="row">{{forloop.counter0|add:art_styles.start_index}}</th>
-                                <td>{{art_style.name}}</td>
-                                <td>{{ art_style.friendly_name }}</td>
+                                <th scope="row">{{forloop.counter0|add:art_genres.start_index}}</th>
+                                <td>{{art_genre.name}}</td>
+                                <td>{{ art_genre.friendly_name }}</td>
                                 <td>
                                     <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
                                         data-bs-target="#confirmModal"
-                                        data-message="Please confirm deleting the {{art_style.name}} Art Style. This action is not reversible?"
-                                        data-record_id={{art_style.name}}>Delete
+                                        data-message="Please confirm deleting the {{art_genre.name}} Art Genre. This action is not reversible?"
+                                        data-record_id={{art_genre.name}}>Delete
                                     </button>
 
                                 <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
-                                        data-name={{ art_style.name }}>Edit
+                                        data-name={{ art_genre.name }}>Edit
                                     </button>
                                 </td>
                                 </td>
@@ -84,13 +84,13 @@
 </div>
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
-        {% if art_styles.has_previous %}
-        <li><a href="?page={{ art_styles.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
-            <span class="ms-5">Page {{ art_styles.number }} of {{ art_styles.paginator.num_pages }}</span>
+        {% if art_genres.has_previous %}
+        <li><a href="?page={{ art_genres.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
+            <span class="ms-5">Page {{ art_genres.number }} of {{ art_genres.paginator.num_pages }}</span>
         </li>
         {% endif %}
-        {% if art_styles.has_next %}
-        <li><a href="?page={{ art_styles.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
+        {% if art_genres.has_next %}
+        <li><a href="?page={{ art_genres.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
         </li>
         {% endif %}
     </ul>
