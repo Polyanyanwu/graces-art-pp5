@@ -559,12 +559,12 @@
     "model": "artworks.artwork",
     "fields": {
       "sku": "ART340708001",
-      "name": "Domenico Veneziano Madonna and child 1437",
-      "artist": 34,
-      "genre": 7,
-      "style": 8,
+      "name": "Pablo Picasso Landscape of juan les pins-1920",
+      "artist": 3,
+      "genre": 9,
+      "style": 9,
       "rating": 5,
-      "image": "domenico-veneziano_madonna-and-child-1437.jpg",
+      "image": "pablo-picasso_landscape-of-juan-les-pins-1920",
       "price": 80.00,
       "on_sale": false
     }

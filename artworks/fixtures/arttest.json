@@ -1,0 +1,32 @@
+[
+    {
+      "pk": 1,
+      "model": "artworks.artwork",
+      "fields": {
+        "sku": "ART231801001",
+        "name": "Franz Kline number 2 1954",
+        "artist": 23,
+        "genre": 18,
+        "style": 1,
+        "rating": 3,
+        "image": "franz-kline_number-2-1954.jpg",
+        "price": 45,
+        "on_sale": false
+      }
+    },
+    {
+      "pk": 2,
+      "model": "artworks.artwork",
+      "fields": {
+        "sku": "ART231801002",
+        "name": "Franz Kline Opustena",
+        "artist": 23,
+        "genre": 18,
+        "style": 1,
+        "rating": 3,
+        "image": "franz-kline_opustena.jpg",
+        "price": 45,
+        "on_sale": false
+      }
+    }
+    ]
