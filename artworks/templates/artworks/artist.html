@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block extra_title %}- Artists {% endblock %}
 {% block postloadjs %}
-    <script src="{% static 'js/artworks.js' %}"></script>
+<script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}
 {% block page_header %}
 <div class="container header-container">
@@ -26,50 +26,59 @@
     <div class="row justify-content-center">
         <form action="{% url 'maintain_artists' %}" method="POST" id="artist-maintain-form">
             <div class="row justify-content-center">
-            <div class="col-12 col-md-4">
+                <div class="col-12 col-md-4">
 
-                {% csrf_token %}
-                {{ form|crispy }}
-                <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button>
-                    <button type="submit" class="btn btn-primary btn-ok mt-2 me-2" name="save_record">Save</button>
-                    <button type="submit" class="btn btn-cancel btn-ok mt-2" name="cancel_ops" value="Cancel" formnovalidate>Cancel</button>
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button>
+                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2" name="save_record">Save</button>
+                        <button type="submit" class="btn btn-cancel btn-ok mt-2" name="cancel_ops" value="Cancel"
+                            formnovalidate>Cancel</button>
+                    </div>
+                    <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
+                    <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
                 </div>
-                <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
-                <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
+                <div class="col-12 col-md-6">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Friendly Name</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for artist in artists %}
+                            <tr>
+                                <!-- <th scope="row">{{ forloop.counter }}</th> -->
+                                <th scope="row">{{forloop.counter0|add:artists.start_index}}</th>
+                                <td>{{artist.name}}</td>
+                                <td>{{ artist.friendly_name }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
+                                        data-bs-target="#confirmModal"
+                                        data-message="Please confirm deleting the Artist?"
+                                        data-record_id={{artist.name}}>Delete
+                                    </button>
+
+                                <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
+                                        data-name={{ artist.name }}>Edit
+                                    </button>
+                                </td>
+                                </td>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
+                            <input type="hidden" value="" name="name_selected" id="name_selected">
+                            <input type="hidden" value="" name="confirm-id" id="confirm-id">
+                            <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+                        </tbody>
+                    </table>
+                </div>
             </div>
-            <div class="col-12 col-md-6">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Friendly Name</th>
-                            <th scope="col">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for artist in artists %}
-                        <tr>
-                            <!-- <th scope="row">{{ forloop.counter }}</th> -->
-                            <th scope="row">{{forloop.counter0|add:artists.start_index}}</th>
-                            <td>{{artist.name}}</td>
-                            <td>{{ artist.friendly_name }}</td>
-                            <td><button type="submit" name="delete" class="btn btn-cancel btn-sm delete-btn">Delete
-                                </button>
-                            <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn" data-name = {{ artist.name }} >Edit
-                                </button>
-                            </td>
-                            </td>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
-                        <input type="hidden" value="" name="name_selected" id="name_selected">
-                    </tbody>
-                </table>
-            </div>
-        </div>
         </form>
     </div>
 </div>
@@ -78,7 +87,7 @@
     <ul class="pagination justify-content-center">
         {% if artists.has_previous %}
         <li><a href="?page={{ artists.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
-            <span class ="ms-5">Page {{ artists.number }} of {{ artists.paginator.num_pages }}</span>
+            <span class="ms-5">Page {{ artists.number }} of {{ artists.paginator.num_pages }}</span>
         </li>
         {% endif %}
         {% if artists.has_next %}

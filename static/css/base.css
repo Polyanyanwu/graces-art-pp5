@@ -48,6 +48,12 @@ body {
     color: var(--tart-orange)
 }
 
+.title-bar {
+    background: linear-gradient(0.25turn, var(--tart-orange), var(--jet), var(--grey));
+    color: #EDF7F6;
+    font-size: 1rem;
+}
+
 .go-shop-btn {
     background: var(--rich-black);
     color:var(--baby-powder);
@@ -127,6 +133,10 @@ body {
     background-color: var(--grey);
 }
 
+input {
+    color: var(--rich-black) !important;
+    font-weight: bold !important;
+}
 /* Django allauth */
 .form-inner-content label:not([for='id_remember']) {
     display: none;

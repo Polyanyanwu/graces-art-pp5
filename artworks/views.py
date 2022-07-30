@@ -17,6 +17,10 @@ from .models import Artist
 def maintain_artist(request):
     """ Maintain Artist """
     artists = Artist.objects.all().order_by('friendly_name')
+    use_instance = True
+    if artists.count() == 0:
+        use_instance = False
+        form = ArtistForm()
     if request.method == 'POST':
         print(request.POST)
         if 'select_rec' in request.POST:
@@ -26,8 +30,19 @@ def maintain_artist(request):
         elif 'create_new_record' in request.POST:
             form = ArtistForm()
         elif 'cancel_ops' in request.POST:
-            form = ArtistForm(instance=artists[0])
+            if use_instance:
+                form = ArtistForm(instance=artists[0])
             HttpResponseRedirect('artworks/artist.html')
+        elif 'confirm-action-btn' in request.POST:
+            # action is only delete action
+            name_sent = request.POST.get('confirm-id')
+            artist = get_object_or_404(Artist, name=name_sent)
+            artist.delete()
+            messages.success(request,
+                             ('Artist ' + name_sent +
+                              ' was successfully deleted!'))
+            if use_instance:
+                form = ArtistForm(instance=artists[0])
         elif 'save_record' in request.POST:
             form = ArtistForm(data=request.POST)
             if form.is_valid():
@@ -43,7 +58,8 @@ def maintain_artist(request):
             else:
                 messages.error(request, ('Please correct the error below.'))
     else:
-        form = ArtistForm(instance=artists[0])
+        if use_instance:
+            form = ArtistForm(instance=artists[0])
     paginator = Paginator(artists, 10)  # Show 15 bookings per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
