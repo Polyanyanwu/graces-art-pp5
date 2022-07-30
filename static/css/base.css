@@ -133,10 +133,11 @@ body {
     background-color: var(--grey);
 }
 
-input {
+input, .dropdown-toggle, .nav-link {
     color: var(--rich-black) !important;
     font-weight: bold !important;
 }
+
 /* Django allauth */
 .form-inner-content label:not([for='id_remember']) {
     display: none;
