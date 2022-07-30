@@ -15,7 +15,7 @@ body {
     background: url('/media/index_background.png') no-repeat center center fixed;
     background-size: cover;
     background-position-y: 8.4rem;
-    height: calc(100vh - 164px);
+    height: calc(100vh - 164px)!important;
     font-family: 'Exo', sans-serif;
     font-weight: 400;
 }
@@ -66,6 +66,12 @@ body {
     color:var(--tart-orange)
 }
 
+.img-cover {
+    object-fit: cover;
+    width: 300px;
+    height: 200px;
+  }
+
 /* from Bulma -walkthrough project*/
 .icon {
     align-items: center;
@@ -89,6 +95,10 @@ body {
     padding-top: 0;
     padding-bottom: 0;
 }
+
+/* .product-container{
+    overscroll-behavior: contain;
+} */
 
 /* overwrite bootstrap display of down pointing arrow */
 .dropstart .dropdown-toggle::before {

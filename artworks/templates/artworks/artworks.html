@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="product-container col-10 offset-1">
+            <div class="row">
+                {% for artwork in artworks %}
+                <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                    <div class="card h-100 border-0">
+                        {% if artwork.image %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid img-cover " src="{{ artwork.image.url }}"
+                                alt="{{ artwork.name }}">
+                        </a>
+                        {% else %}
+                        <a href="#">
+                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no_image.png"
+                                alt="{{ product.name }}">
+                        </a>
+                        {% endif %}
+                        <div class="card-body pb-0">
+                            <p class="mb-0">{{ artwork.name }}</p>
+                        </div>
+                        <div class="card-footer bg-white pt-0 border-0 text-left">
+                            <div class="row">
+                                <div class="col">
+                                    <p class="lead mb-0 text-left font-weight-bold">€{{ artwork.price }}</p>
+                                    {% if artwork.artist %}
+                                    <p class="small mt-1 mb-0">
+                                        <a class="text-muted" href="#">
+                                            <i class="fas fa-user-edit"></i> {{ artwork.artist.friendly_name }}
+                                        </a>
+                                    </p>
+                                    {% endif %}
+                                    {% if artwork.genre %}
+                                    <p class="small mt-1 mb-0">
+                                        <a class="text-muted" href="#">
+                                            Genre: {{ artwork.genre.friendly_name }}
+                                        </a>
+                                    </p>
+                                    {% endif %}
+
+                                    {% if artwork.style %}
+                                    <p class="small mt-1 mb-0">
+                                        <a class="text-muted" href="#">
+                                            Style: {{ artwork.style.friendly_name }}
+                                        </a>
+                                    </p>
+                                    {% endif %}
+                                    {% if artwork.rating %}
+                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ artwork.rating }} /
+                                        5</small>
+                                    {% else %}
+                                    <small class="text-muted">No Rating</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

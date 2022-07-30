@@ -9,7 +9,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from profiles.user_belong import check_in_group
 from .forms import ArtistForm, ArtStyleForm, ArtGenreForm
-from .models import Artist, ArtStyle, ArtGenre
+from .models import Artist, ArtStyle, ArtGenre, Artwork
 
 
 @login_required
@@ -198,3 +198,15 @@ def maintain_art_genre(request):
         'form': form,
         'art_genres': page_obj,
     })
+
+
+def get_artworks(request):
+    """ A view to display all Artworks """
+
+    artworks = Artwork.objects.all()
+
+    context = {
+        'artworks': artworks,
+    }
+
+    return render(request, 'artworks/artworks.html', context)
