@@ -20,6 +20,13 @@ body {
     font-weight: 400;
 }
 
+main{
+    height: calc(100vh - 164px) !important;
+    position: fixed;
+    width: 100%;
+    margin-top: 168px;
+    overflow: auto;
+}
 .hidden {
     display: none;
 }
