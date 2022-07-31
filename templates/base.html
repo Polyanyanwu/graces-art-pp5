@@ -115,7 +115,7 @@
 
                   <li><a class="dropdown-item" href="#">
                       <hr></a></li>
-                  <li><a class="dropdown-item" href="#">Add Artwork</a></li>
+                  <li><a class="dropdown-item" href="{% url 'add_artwork' %}">Add Artwork</a></li>
                   <li><a class="dropdown-item" href="#">Edit/Delete Artwork</a></li>
                   {% endif %}
                 </ul>
@@ -185,7 +185,7 @@
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
-          {% include 'includes/nav-bar-mobile-header.html' %}
+          {% include 'includes/nav-bar-mobile-header.html' %} 
           {% include 'includes/artwork-menu.html' %}
         </nav>
       </div>
@@ -194,6 +194,7 @@
           <h4 class="mb-1">Fabulous discounts available to new and returning customers grab a voucher now!</h4>
         </div>
       </div>
+      
     </div>
   </header>
   <!-- Modal dialogue for confirmations -->
@@ -234,14 +235,21 @@
   {% block page_header %}
   {% endblock %}
 
+  <main>
   {% block content %}
-  {% endblock %}
+
+
+
+  {% endblock %}  
+  {% include 'includes/footer.html' %}
+  </main>
+
 
   <script src="{% static 'js/base.js' %}"></script>
   {% block postloadjs %}
 
   {% endblock %}
-  {% include 'includes/footer.html' %}
+
 </body>
 
 </html>
