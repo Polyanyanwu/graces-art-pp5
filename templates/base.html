@@ -115,7 +115,7 @@
 
                   <li><a class="dropdown-item" href="#">
                       <hr></a></li>
-                  <li><a class="dropdown-item" href="#">Add Artwork</a></li>
+                  <li><a class="dropdown-item" href="{% url 'add_artwork' %}">Add Artwork</a></li>
                   <li><a class="dropdown-item" href="#">Edit/Delete Artwork</a></li>
                   {% endif %}
                 </ul>
@@ -194,6 +194,7 @@
           <h4 class="mb-1">Fabulous discounts available to new and returning customers grab a voucher now!</h4>
         </div>
       </div>
+      
     </div>
   </header>
   <!-- Modal dialogue for confirmations -->
@@ -240,6 +241,7 @@
 
 
   {% endblock %}  
+  {% include 'includes/footer.html' %}
   </main>
 
 
@@ -247,7 +249,7 @@
   {% block postloadjs %}
 
   {% endblock %}
-  {% include 'includes/footer.html' %}
+
 </body>
 
 </html>

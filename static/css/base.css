@@ -15,17 +15,20 @@ body {
     background: url('/media/index_background.png') no-repeat center center fixed;
     background-size: cover;
     background-position-y: 8.4rem;
-    height: calc(100vh - 164px)!important;
+    /* height: calc(100vh - 164px)!important; */
     font-family: 'Exo', sans-serif;
     font-weight: 400;
 }
 
 main{
-    height: calc(100vh - 164px) !important;
+    height: calc(100vh - 160px) !important;
     position: fixed;
     width: 100%;
-    margin-top: 168px;
+    margin-top: 160px;
     overflow: auto;
+}
+.index-container{
+    height: calc(100vh - 310px);
 }
 .hidden {
     display: none;
@@ -61,6 +64,10 @@ main{
     font-size: 1rem;
 }
 
+.highlight{
+    color:var(--tart-orange);
+    font-weight: bold;
+}
 .go-shop-btn {
     background: var(--rich-black);
     color:var(--baby-powder);

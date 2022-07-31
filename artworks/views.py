@@ -8,7 +8,7 @@ from django.db import transaction
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from profiles.user_belong import check_in_group
-from .forms import ArtistForm, ArtStyleForm, ArtGenreForm
+from .forms import ArtistForm, ArtStyleForm, ArtGenreForm, ArtworkForm
 from .models import Artist, ArtStyle, ArtGenre, Artwork
 
 
@@ -210,3 +210,29 @@ def get_artworks(request):
     }
 
     return render(request, 'artworks/artworks.html', context)
+
+
+@login_required
+def add_artwork(request):
+    """ Add artwork to the database """
+
+    # check that user is administrator
+    rights = check_in_group(request.user, ("administrator",))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+
+    if request.method == 'POST':
+        form = ArtworkForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added an Artwork!')
+        else:
+            messages.error(request, 'Failed to add Artwork.\
+                 Please check your input.')
+    else:
+        form = ArtworkForm()
+
+    return render(request, 'artworks/add_artwork.html', {
+        'form': form,
+    })

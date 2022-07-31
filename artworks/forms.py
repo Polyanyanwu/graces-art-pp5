@@ -1,7 +1,7 @@
 """ Forms for Artwork Module """
 
 from django import forms
-from .models import Artist, ArtStyle, ArtGenre
+from .models import Artist, ArtStyle, ArtGenre, Artwork
 
 
 class ArtistForm(forms.ModelForm):
@@ -26,3 +26,12 @@ class ArtGenreForm(forms.ModelForm):
         """ Meta for Art Genre Form """
         model = ArtGenre
         fields = '__all__'
+
+
+class ArtworkForm(forms.ModelForm):
+    """ New artwork Form"""
+
+    class Meta:
+        """ New Artwork Meta """
+        model = Artwork
+        fields = ('name', 'artist', 'genre', 'style', 'sku', 'on_sale', 'price', 'rating', 'image_url', 'image')

@@ -1,6 +1,8 @@
 """ Artwork and related tables model """
 
 from django.db import models
+from django.core.validators import \
+    (MinLengthValidator, MinValueValidator, MaxValueValidator)
 from utility.models import SystemPreference
 
 
@@ -61,7 +63,9 @@ class ArtGenre(models.Model):
 class Artwork(models.Model):
     """ Artwork to be selected by user """
 
-    sku = models.CharField(max_length=50, null=True, blank=True)
+    sku = models.CharField(max_length=50, null=True, blank=True,
+                           unique=True,
+                           validators=[MinLengthValidator(12), ])
     name = models.CharField(max_length=254)
     artist = models.ForeignKey('Artist', null=True, blank=True,
                                on_delete=models.SET_NULL)
@@ -75,6 +79,8 @@ class Artwork(models.Model):
                                         default="S")
     price = models.DecimalField(max_digits=8, decimal_places=2)
     rating = models.DecimalField(max_digits=5, decimal_places=2,
+                                 validators=[MaxValueValidator(5),
+                                             MinValueValidator(0)],
                                  null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
