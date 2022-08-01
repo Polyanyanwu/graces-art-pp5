@@ -34,4 +34,5 @@ class ArtworkForm(forms.ModelForm):
     class Meta:
         """ New Artwork Meta """
         model = Artwork
-        fields = ('name', 'artist', 'genre', 'style', 'sku', 'on_sale', 'price', 'rating', 'image_url', 'image')
+        fields = ('id', 'name', 'artist', 'genre', 'style', 'sku', 'on_sale',
+                  'price', 'rating', 'image_url', 'image')

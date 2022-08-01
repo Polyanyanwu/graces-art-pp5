@@ -27,11 +27,11 @@
             enctype="multipart/form-data">
             {% csrf_token %}
             {% for field in form %}
-            {% if field.name != 'image' %}
-            {{ field | as_crispy_field }}
-            {% else %}
-            {{ field }}
-            {% endif %}
+                {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                {% else %}
+                    {{ field }}
+                {% endif %}
             {% endfor %}
             <div class="text-right">
                 <a class="btn btn-cancel m-2" href="{% url 'get_artworks' %}">Cancel</a>
@@ -45,5 +45,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script src="{% static 'js/artworks.js' %}"></script>
+    <script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}
