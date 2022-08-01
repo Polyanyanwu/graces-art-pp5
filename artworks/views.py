@@ -281,6 +281,26 @@ def edit_delete_artwork(request):
                                  ('Your Artwork was successfully updated!'))
             else:
                 messages.error(request, ('Please correct the error below.'))
+        elif 'run-query' in request.POST:
+            sku = request.POST.get('q_sku')
+            if sku:
+                artworks = Artwork.objects.filter(sku=sku)
+                if artworks.count() > 0:
+                    form = ArtworkForm(instance=artworks[0])
+                else:
+                    artworks = Artwork.objects.all().order_by('artist')
+                    if artworks.count() > 0:
+                        form = ArtworkForm(instance=artworks[0])
+            else:
+                name = request.POST.get('q_name')
+                if name:
+                    artworks = Artwork.objects.filter(name__icontains=name)
+                    if artworks.count() > 0:
+                        form = ArtworkForm(instance=artworks[0])
+                    else:
+                        artworks = Artwork.objects.all().order_by('artist')
+                        if artworks.count() > 0:
+                            form = ArtworkForm(instance=artworks[0])
     else:
         artworks = Artwork.objects.all().order_by('artist')
         recs_available = artworks.count() > 0

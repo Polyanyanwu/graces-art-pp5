@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block extra_title %}- Edit Artworks {% endblock %}
 {% block postloadjs %}
-    <script src="{% static 'js/artworks.js' %}"></script>
+<script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}
 {% block page_header %}
 <div class="container header-container">
@@ -25,18 +25,18 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <form action="{% url 'edit_delete_artwork' %}" method="POST" id="artist-maintain-form"
-                        enctype="multipart/form-data">
+            enctype="multipart/form-data">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4">
 
                     {% csrf_token %}
 
                     {% for field in form %}
-                        {% if field.name != 'image' %}
-                            {{ field | as_crispy_field }}
-                        {% else %}
-                            {{ field }}
-                        {% endif %}
+                    {% if field.name != 'image' %}
+                    {{ field | as_crispy_field }}
+                    {% else %}
+                    {{ field }}
+                    {% endif %}
                     {% endfor %}
                     <div class="d-flex justify-content-center">
                         <!-- <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button> -->
@@ -60,9 +60,19 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <tr>
+                                <th scope="row"></th>
+                                <td><input type="text" value="" name="q_sku" placeholder="SKU"></td>
+                                <td><input type="text" value="" name="q_name" placeholder="Artwork name">
+                                    <button type="submit" name="run-query" title="Click to search">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </td>
+                            </tr>
+
                             {% for artwork in artworks %}
                             <tr>
-                                <!-- <th scope="row">{{ forloop.counter }}</th> -->
                                 <th scope="row">{{forloop.counter0|add:artworks.start_index}}</th>
                                 <td>{{artwork.sku}}</td>
                                 <td>{{artwork.name}}</td>
@@ -83,8 +93,8 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
-                                        data-bs-target="#confirmModal"
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many"
+                                        data-bs-toggle="modal" data-bs-target="#confirmModal"
                                         data-message="Please confirm deleting the Artwork?"
                                         data-record_id={{artwork.id}}>Delete
                                     </button>
@@ -100,7 +110,8 @@
                             <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
                             <input type="hidden" value="" name="name_selected" id="name_selected">
                             <input type="hidden" value="" name="confirm-id" id="confirm-id">
-                            <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+                            <button type="submit" class="hidden" name="confirm-action-btn"
+                                id="confirm-action-btn"></button>
                         </tbody>
                     </table>
                 </div>
