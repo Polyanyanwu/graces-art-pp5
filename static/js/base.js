@@ -35,12 +35,15 @@ const Confirmation = function (message, yesFunction, noFunction) {
 };
 
 // confirmation for single row of data
-if(document.getElementById('confirm_single')){
-    document.getElementById('confirm_single').addEventListener('click', function () {
+if(document.getElementById('confirm-single')){
+    document.getElementById('confirm-single').addEventListener('click', function (e) {
         "use strict";
-        const msg = document.getElementById('confirm_message').dataset.message;
+        const msg = document.getElementById('confirm-single').dataset.message;
         Confirmation(msg,
             function yes() {
+                const rec_id = e.target.dataset.record_id;
+                console.log("record id======", rec_id);
+                document.getElementById("confirm-id").value = rec_id;
                 document.getElementById('confirm-action-btn').click();
             },
             function no() {

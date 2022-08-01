@@ -25,7 +25,7 @@
                         </a>
                         {% else %}
                         <a href="#">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}no_image.png"
+                            <img class="card-img-top img-fluid img-cover" src="{{ MEDIA_URL }}no_image.jpg"
                                 alt="{{ product.name }}">
                         </a>
                         {% endif %}
@@ -64,6 +64,12 @@
                                     {% else %}
                                     <small class="text-muted">No Rating</small>
                                     {% endif %}
+                                    {% if request.user.is_superuser %}
+                                    <small class="ml-3">
+                                        <a href="{% url 'edit_delete_artwork_single' artwork.id %}">Edit|Delete</a>  
+                                    </small>
+                                {% endif %}
+
                                 </div>
                             </div>
                         </div>

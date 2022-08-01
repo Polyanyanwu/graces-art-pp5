@@ -1,6 +1,6 @@
 """ Views for Artworks and related tables update """
 
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -203,7 +203,7 @@ def maintain_art_genre(request):
 def get_artworks(request):
     """ A view to display all Artworks """
 
-    artworks = Artwork.objects.all()
+    artworks = Artwork.objects.all().filter(pk__gte=100)
 
     context = {
         'artworks': artworks,
@@ -235,4 +235,121 @@ def add_artwork(request):
 
     return render(request, 'artworks/add_artwork.html', {
         'form': form,
+    })
+
+
+def edit_delete_artwork(request):
+    """ Edit/Delete Artwork """
+    # check that user is administrator
+    rights = check_in_group(request.user, ("administrator",))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+    artworks = Artwork.objects.all().order_by('artist')
+    recs_available = artworks.count() > 0
+
+    # artwork = None
+    # form = None
+    if request.method == 'POST':
+        if 'select_rec' in request.POST:
+            id_sent = request.POST.get('name_selected')
+            artwork = get_object_or_404(Artwork, pk=int(id_sent))
+            form = ArtworkForm(instance=artwork)
+        elif 'confirm-action-btn' in request.POST:
+            # action is only delete action
+            id_sent = request.POST.get('confirm-id')
+            artwork = get_object_or_404(Artwork, pk=int(id_sent))
+            name = artwork.name
+            artwork.delete()
+            messages.success(request,
+                             ('Artwork ' + name +
+                              ' was successfully deleted!'))
+            artworks = Artwork.objects.all().order_by('artist')
+            if artworks.count() > 0:
+                form = ArtworkForm(instance=artworks[0])
+                HttpResponseRedirect('artworks/edit_delete_artwork.html')
+        elif 'cancel_ops' in request.POST:
+            if recs_available:
+                form = ArtworkForm(instance=artworks[0])
+            HttpResponseRedirect('artworks/edit_delete_artwork.html')
+        elif 'save_record' in request.POST:
+            artwork = get_object_or_404(Artwork, sku=request.POST.get('sku'))
+            form = ArtworkForm(request.POST, request.FILES, instance=artwork)
+            if form.is_valid():
+                form.save()
+                messages.success(request,
+                                 ('Your Artwork was successfully updated!'))
+            else:
+                messages.error(request, ('Please correct the error below.'))
+        elif 'run-query' in request.POST:
+            sku = request.POST.get('q_sku')
+            if sku:
+                artworks = Artwork.objects.filter(sku=sku)
+                if artworks.count() > 0:
+                    form = ArtworkForm(instance=artworks[0])
+                else:
+                    artworks = Artwork.objects.all().order_by('artist')
+                    if artworks.count() > 0:
+                        form = ArtworkForm(instance=artworks[0])
+            else:
+                name = request.POST.get('q_name')
+                if name:
+                    artworks = Artwork.objects.filter(name__icontains=name)
+                    if artworks.count() > 0:
+                        form = ArtworkForm(instance=artworks[0])
+                    else:
+                        artworks = Artwork.objects.all().order_by('artist')
+                        if artworks.count() > 0:
+                            form = ArtworkForm(instance=artworks[0])
+    else:
+        artworks = Artwork.objects.all().order_by('artist')
+        recs_available = artworks.count() > 0
+        if recs_available:
+            form = ArtworkForm(instance=artworks[0])
+    paginator = Paginator(artworks, 10)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'artworks/edit_delete_artwork.html', {
+        'form': form,
+        'artworks': page_obj,
+    })
+
+
+def edit_delete_artwork_single(request, artwork_id):
+    """ Edit/Delete Artwork - single record """
+    # check that user is administrator
+    rights = check_in_group(request.user, ("administrator",))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+
+    if request.method == 'POST':
+        if 'confirm-action-btn' in request.POST:
+            # action is only delete action
+            id_sent = request.POST.get('confirm-id')
+            artwork = get_object_or_404(Artwork, pk=int(id_sent))
+            name = artwork.name
+            artwork.delete()
+            messages.success(request, ('Artwork ' + name +
+                             ' was successfully deleted!'))
+            return redirect(reverse('get_artworks'))
+
+        elif 'cancel_ops' in request.POST:
+            return redirect(reverse('get_artworks'))
+        elif 'save_record' in request.POST:
+            artwork = get_object_or_404(Artwork, sku=request.POST.get('sku'))
+            form = ArtworkForm(request.POST, request.FILES, instance=artwork)
+            if form.is_valid():
+                form.save()
+                messages.success(request,
+                                 ('Your Artwork was successfully updated!'))
+            else:
+                messages.error(request, ('Please correct the error below.'))
+            # redirect to product details later
+    else:
+        artwork = get_object_or_404(Artwork, pk=artwork_id)
+        form = ArtworkForm(instance=artwork)
+    return render(request, 'artworks/edit_delete_single_artwork.html', {
+        'form': form,
+        'artwork': artwork,
     })
