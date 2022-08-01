@@ -10,6 +10,7 @@ urlpatterns = [
     path('artgenre', views.maintain_art_genre, name='maintain_art_genre'),
     path('shop', views.get_artworks, name='get_artworks'),
     path('add', views.add_artwork, name='add_artwork'),
-    path('ed/<int:artwork_id>', views.edit_delete_artwork, name='edit_delete_artwork'),
+    path('ed/<int:artwork_id>/', views.edit_delete_artwork_single,
+         name='edit_delete_artwork_single'),
     path('ed', views.edit_delete_artwork, name='edit_delete_artwork'),
 ]
