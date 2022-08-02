@@ -8,8 +8,8 @@ from django.db import transaction
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from profiles.user_belong import check_in_group
-from .forms import ArtistForm, ArtStyleForm, ArtGenreForm, ArtworkForm
-from .models import Artist, ArtStyle, ArtGenre, Artwork
+from .forms import ArtistForm, ArtStyleForm, ArtGenreForm, ArtworkForm, ArtFrameForm
+from .models import Artist, ArtStyle, ArtGenre, Artwork, ArtFrame
 
 
 @login_required
@@ -352,4 +352,75 @@ def edit_delete_artwork_single(request, artwork_id):
     return render(request, 'artworks/edit_delete_single_artwork.html', {
         'form': form,
         'artwork': artwork,
+    })
+
+
+@login_required
+@transaction.atomic
+def maintain_art_frame(request):
+    """ Maintain Art Frames """
+    # check that user is administrator
+    rights = check_in_group(request.user, ("administrator",))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+
+    art_frames = ArtFrame.objects.all().order_by('size')
+    use_instance = True
+    if art_frames.count() == 0:
+        use_instance = False
+        form = ArtFrameForm()
+    if request.method == 'POST':
+        if 'select_rec' in request.POST:
+            id_sent = request.POST.get('name_selected')
+            request.session['current_rec'] = id_sent
+            art_frame = get_object_or_404(ArtFrame, pk=int(id_sent))
+            form = ArtFrameForm(instance=art_frame)
+        elif 'create_new_record' in request.POST:
+            request.session['current_rec'] = ""
+            form = ArtFrameForm()
+        elif 'cancel_ops' in request.POST:
+            if use_instance:
+                form = ArtFrameForm(instance=art_frames[0])
+                request.session['current_rec'] = art_frames[0].id
+            HttpResponseRedirect('artworks/art_frame.html')
+        elif 'confirm-action-btn' in request.POST:
+            # action is only delete action
+            id_sent = request.POST.get('confirm-id')
+            art_frame = get_object_or_404(ArtFrame, pk=int(id_sent))
+            name = art_frame.name
+            art_frame.delete()
+            request.session['current_rec'] = ""
+            messages.success(request,
+                             ('Art frame ' + name +
+                              ' was successfully deleted!'))
+            art_frames = ArtFrame.objects.all().order_by('size')
+            if art_frames.count() > 0:
+                form = ArtFrameForm(instance=art_frames[0])
+                request.session['current_rec'] = art_frames[0].id
+        elif 'save_record' in request.POST:
+            if request.session.get('current_rec'):
+                frame_id = int(request.session.get('current_rec'))
+                art_frame = get_object_or_404(ArtFrame,
+                                              pk=frame_id)
+                form = ArtFrameForm(request.POST, request.FILES,
+                                    instance=art_frame)
+            else:
+                form = ArtFrameForm(request.POST, request.FILES)
+            if form.is_valid():
+                form.save()
+                messages.success(request,
+                                 ('Your Art Frame was successfully saved!'))
+            else:
+                messages.error(request, ('Please correct the error below.'))
+    else:
+        if use_instance:
+            form = ArtFrameForm(instance=art_frames[0])
+            request.session['current_rec'] = art_frames[0].id
+    paginator = Paginator(art_frames, 10)  # Show 10 recs per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'artworks/art_frame.html', {
+        'form': form,
+        'art_frames': page_obj,
     })

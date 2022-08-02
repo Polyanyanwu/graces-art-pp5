@@ -92,6 +92,12 @@ main{
     height: 30px;
     cursor: auto;
 }
+.img-tiny-frame {
+    object-fit: cover;
+    width: 30px;
+    height: 40px;
+    cursor: auto;
+}
 
 /* from Bulma -walkthrough project*/
 .icon {

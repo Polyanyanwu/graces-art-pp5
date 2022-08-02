@@ -13,4 +13,5 @@ urlpatterns = [
     path('ed/<int:artwork_id>/', views.edit_delete_artwork_single,
          name='edit_delete_artwork_single'),
     path('ed', views.edit_delete_artwork, name='edit_delete_artwork'),
+    path('frame', views.maintain_art_frame, name='maintain_art_frame'),
 ]

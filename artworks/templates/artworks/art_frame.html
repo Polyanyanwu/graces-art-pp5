@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block extra_title %}- art_frames {% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid gx-4 ">
+    <div class="row">
+        <div class="col text-center">
+            <h4>Maintain Art Frames</h4>
+            <hr>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        <form action="{% url 'maintain_art_frame' %}" method="POST" id="art-frame-maintain-form"
+                enctype="multipart/form-data">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-4">
+
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
+                    {% endfor %}
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button>
+                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2" name="save_record">Save</button>
+                        <button type="submit" class="btn btn-cancel btn-ok mt-2" name="cancel_ops" value="Cancel"
+                            formnovalidate>Cancel</button>
+                    </div>
+                    <!-- <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
+                    <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden"> -->
+                </div>
+                <div class="col-12 col-md-6">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Size</th>
+                                <th scope="col">Price</th>
+                                <th scope="col">Quantity</th>
+                                <th scope="col">Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for art_frame in art_frames %}
+                            <tr>
+                                <th scope="row">{{forloop.counter0|add:art_frames.start_index}}</th>
+                                <td>{{art_frame.name}}</td>
+                                <td>{{ art_frame.size }}</td>
+                                <td>{{ art_frame.price }}</td>
+                                <td>{{ art_frame.qty }}</td>
+                                <td>
+                                    {% if art_frame.image %}
+                                    <a href="#">
+                                        <img class="img-fluid img-tiny-frame " src="{{ art_frame.image.url }}"
+                                            alt="{{ art_frame.name }}">
+                                    </a>
+                                    {% else %}
+                                    <a href="#">
+                                        <img class="img-tiny-frame" src="{{ MEDIA_URL }}no_image.jpg"
+                                            alt="{{ art_frame.name }}">
+                                    </a>
+                                    {% endif %}
+                                </td>
+                                <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
+                                        data-name={{ art_frame.id }}>Edit
+                                    </button>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many"
+                                        data-bs-toggle="modal" data-bs-target="#confirmModal"
+                                        data-message="Please confirm deleting the {{art_frame.name}} art frame. This action is not reversible?"
+                                        data-record_id={{art_frame.id}}>Delete
+                                    </button>
+                                <td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
+            <input type="hidden" value="" name="name_selected" id="name_selected">
+            <input type="hidden" value="" name="confirm-id" id="confirm-id">
+            <button type="submit" class="hidden" name="confirm-action-btn"
+                id="confirm-action-btn"></button>
+        </form>
+    </div>
+</div>
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if art_frames.has_previous %}
+        <li><a href="?page={{ art_frames.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
+            <span class="ms-5">Page {{ art_frames.number }} of {{ art_frames.paginator.num_pages }}</span>
+        </li>
+        {% endif %}
+        {% if art_frames.has_next %}
+        <li><a href="?page={{ art_frames.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}
+{% block postloadjs %}
+<script src="{% static 'js/artworks.js' %}"></script>
+{% endblock %}

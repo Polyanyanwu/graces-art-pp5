@@ -96,3 +96,18 @@ class Artwork(models.Model):
             return self.price * sales_per/100
         else:
             return self.price
+
+
+class ArtFrame(models.Model):
+    """ Artframe to be selected by user """
+
+    name = models.CharField(max_length=254, null=False, blank=False)
+    size = models.CharField(max_length=10, null=False, blank=False)
+    price = models.DecimalField(max_digits=8, decimal_places=2,
+                                validators=[MinValueValidator(1)])
+    qty = models.PositiveIntegerField(null=False, blank=False)
+    image_url = models.URLField(max_length=1024, null=True, blank=True)
+    image = models.ImageField(null=True, blank=True)
+
+    def __str__(self):
+        return str(self.name)
