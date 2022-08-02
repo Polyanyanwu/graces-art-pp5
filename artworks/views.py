@@ -218,6 +218,8 @@ def get_artworks(request):
             artworks = artworks.filter(artist__name=request.GET['artist'])
         if 'genre' in request.GET:
             artworks = artworks.filter(genre__name=request.GET['genre'])
+        if 'style' in request.GET:
+            artworks = artworks.filter(style__name=request.GET['style'])
     context = {
         'artworks': artworks,
     }

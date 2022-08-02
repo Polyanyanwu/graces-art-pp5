@@ -38,14 +38,14 @@
                                     <p class="lead mb-0 text-left highlight">€{{ artwork.price }}</p>
                                     {% if artwork.artist %}
                                     <p class="small mt-1 mb-0">
-                                        <a class="text-muted" href="#">
+                                        <a class="text-muted" href="{% url 'get_artworks' %}?artist={{artwork.artist}}">
                                             <i class="fas fa-user-edit"></i> {{ artwork.artist.friendly_name }}
                                         </a>
                                     </p>
                                     {% endif %}
                                     {% if artwork.genre %}
                                     <p class="small mt-1 mb-0">
-                                        <a class="text-muted" href="#">
+                                        <a class="text-muted" href="{% url 'get_artworks' %}?genre={{artwork.genre}}">
                                             Genre: {{ artwork.genre.friendly_name }}
                                         </a>
                                     </p>
@@ -53,7 +53,7 @@
 
                                     {% if artwork.style %}
                                     <p class="small mt-1 mb-0">
-                                        <a class="text-muted" href="#">
+                                        <a class="text-muted" href="{% url 'get_artworks' %}?style={{artwork.style}}">
                                             Style: {{ artwork.style.friendly_name }}
                                         </a>
                                     </p>

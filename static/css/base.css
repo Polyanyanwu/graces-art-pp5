@@ -56,6 +56,9 @@ main {
     background-color: var(--rich-black);
 }
 
+a {
+    text-decoration: none;
+}
 .logo-init {
     color: var(--tart-orange)
 }
