@@ -30,11 +30,12 @@
 
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button>
-                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2" name="save_record">Save</button>
-                        <button type="submit" class="btn btn-cancel btn-ok mt-2" name="cancel_ops" value="Cancel"
+                    <div class="d-flex justify-content-left">
+                        <button type="submit" class="btn btn-cancel btn-ok mt-2 me-5 btn-sm " name="cancel_ops" value="Cancel"
                             formnovalidate>Cancel</button>
+                        <button type="submit" class="btn btn-secondary btn-sm mt-2 ms-2" name="create_new_record">New</button>
+                        <button type="submit" class="btn btn-ok btn-sm mx-4 mt-2" name="save_record">Save</button>
+
                     </div>
                     <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
                     <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">

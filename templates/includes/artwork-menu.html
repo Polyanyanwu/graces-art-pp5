@@ -12,12 +12,17 @@
                 All Products
             </a>
             <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink1">
-                <li><a class="dropdown-item" href="#">By Price</a></li>
+                <!-- <li><a class="dropdown-item" href="#">By Price</a></li>
                 <li><a class="dropdown-item" href="#">By Rating</a></li>
                 <li><a class="dropdown-item" href="#">By Genre</a></li>
                 <li><a class="dropdown-item" href="#">By Style</a></li>
-                <li><a class="dropdown-item" href="#">All Artworks</a></li>
+                <li><a class="dropdown-item" href="#">All Artworks</a></li> -->
 
+                <li><a class="dropdown-item" href="{% url 'get_artworks' %}?sort=price&direction=asc">By Price</a></li>
+                <li><a class="dropdown-item" href="{% url 'get_artworks' %}?sort=rating&direction=des">By Rating</a></li>
+                <li><a class="dropdown-item" href="{% url 'get_artworks' %}?sort=genre&direction=asc">By Genre</a></li>
+                <li><a class="dropdown-item" href="{% url 'get_artworks' %}?sort=style&direction=asc">By Style</a></li>
+                <li><a class="dropdown-item" href="{% url 'get_artworks' %}">All Artworks</a></li>
             </ul>
         </li>
 
@@ -27,8 +32,14 @@
                 Artists
             </a>
             <!-- for loop for the artists -->
-            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink1">
-                <li><a class="dropdown-item" href="#">poly holder</a></li>
+            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdownMenuLink1">
+                {% for artist in artists %}
+                <li><a class="dropdown-item" href="{% url 'get_artworks' %}?artist={{artist.name}}">
+                        {{artist.friendly_name}}
+                    </a>
+                {% endfor %}
+
+
             </ul>
         </li>
 

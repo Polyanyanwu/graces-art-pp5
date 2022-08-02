@@ -203,7 +203,19 @@ def maintain_art_genre(request):
 def get_artworks(request):
     """ A view to display all Artworks """
 
-    artworks = Artwork.objects.all().filter(pk__gte=100)
+    artworks = Artwork.objects.all()
+    direction = None
+    if request.GET:
+        if 'sort' in request.GET:
+            sort_key = request.GET['sort']
+            sort = sort_key
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sort_key = f'-{sort_key}'
+            artworks = artworks.order_by(sort_key)
+        if 'artist' in request.GET:
+            artworks = artworks.filter(artist__name=request.GET['artist'])
 
     context = {
         'artworks': artworks,

@@ -20,16 +20,18 @@ body {
     font-weight: 400;
 }
 
-main{
+main {
     height: calc(100vh - 160px) !important;
     position: fixed;
     width: 100%;
     margin-top: 160px;
     overflow: auto;
 }
-.index-container{
+
+.index-container {
     height: calc(100vh - 310px);
 }
+
 .hidden {
     display: none;
 }
@@ -45,12 +47,12 @@ main{
 
 .main-logo-font {
     font-family: 'Edu NSW ACT Foundation', cursive;
-    color:var(--rich-black);
+    color: var(--rich-black);
 }
 
 #voucher-banner {
     font-family: 'Edu NSW ACT Foundation', cursive;
-    color:var(--baby-powder);
+    color: var(--baby-powder);
     background-color: var(--rich-black);
 }
 
@@ -64,27 +66,28 @@ main{
     font-size: 1rem;
 }
 
-.highlight{
-    color:var(--tart-orange);
+.highlight {
+    color: var(--tart-orange);
     font-weight: bold;
 }
+
 .go-shop-btn {
     background: var(--rich-black);
-    color:var(--baby-powder);
+    color: var(--baby-powder);
     min-width: 200px;
     font-weight: 500;
-    font-size:1.5rem;
+    font-size: 1.5rem;
 }
 
-.go-shop-btn:hover{
-    color:var(--tart-orange)
+.go-shop-btn:hover {
+    color: var(--tart-orange)
 }
 
 .img-cover {
     object-fit: cover;
     width: 300px;
     height: 200px;
-  }
+}
 
 .img-tiny {
     object-fit: cover;
@@ -92,6 +95,7 @@ main{
     height: 30px;
     cursor: auto;
 }
+
 .img-tiny-frame {
     object-fit: cover;
     width: 30px;
@@ -107,20 +111,36 @@ main{
     height: 1.5rem;
     width: 1.5rem;
 }
+
 .black-border {
-    border: 1px solid var(--rich-black)!important;
+    border: 1px solid var(--rich-black) !important;
 }
 
 .my-btn {
     background: var(--rich-black);
-    color:var(--tart-orange);
+    color: var(--tart-orange);
 }
+
 .my-btn:hover {
-    color:var(--baby-powder);
+    color: var(--baby-powder);
 }
-.navbar{
+
+.navbar {
     padding-top: 0;
     padding-bottom: 0;
+}
+
+.auth-container, .container-main {
+    min-height: calc(100% - 152px);
+}
+
+/* .container-main {
+
+} */
+
+.scroll-nav {
+    max-height: 400px;
+    overflow: scroll;
 }
 
 /* .product-container{
@@ -129,48 +149,53 @@ main{
 
 /* overwrite bootstrap display of down pointing arrow */
 .dropstart .dropdown-toggle::before {
-    display:none;
-  }
-
-  .overlay {
-	height: 100%;
-	width: 100%;
-	top: 0;
-	left: 0;
-	position: fixed;
-	background: var(--baby-powder);
-	z-index: -1;
+    display: none;
 }
 
-.btn-ok{
+.overlay {
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    background: var(--baby-powder);
+    z-index: -1;
+}
+
+.btn-ok {
     color: var(--baby-powder);
     background-color: var(--jet);
 }
-.btn-ok:hover{
+
+.btn-ok:hover {
     color: var(--baby-powder);
     background-color: var(--grey);
 }
 
-.btn-cancel{
+.btn-cancel {
     color: var(--baby-powder);
     background-color: var(--tart-orange);
 }
-.btn-cancel:hover{
+
+.btn-cancel:hover {
     color: var(--baby-powder);
     background-color: var(--grey);
 }
 
-.btn-select{
+.btn-select {
     color: var(--rich-black);
     background-color: var(--baby-powder);
     border: solid 1px var(--tart-orange);
 }
-.btn-select:hover{
+
+.btn-select:hover {
     color: var(--baby-powder);
     background-color: var(--grey);
 }
 
-input, .dropdown-toggle, .nav-link {
+input,
+.dropdown-toggle,
+.nav-link {
     color: var(--rich-black) !important;
     font-weight: bold !important;
 }
@@ -179,11 +204,13 @@ input, .dropdown-toggle, .nav-link {
 .form-inner-content label:not([for='id_remember']) {
     display: none;
 }
-.form-inner-content div input, .form-inner-content div select {
+
+.form-inner-content div input,
+.form-inner-content div select {
     margin-top: 0.6rem;
 }
 
-.form-inner-content input{
+.form-inner-content input {
     color: var(--rich-black);
     font-weight: bold;
 }
@@ -199,6 +226,7 @@ input, .dropdown-toggle, .nav-link {
     right: 1rem;
     z-index: 99999999999;
 }
+
 .custom-toast {
     overflow: visible;
 }
@@ -209,11 +237,11 @@ input, .dropdown-toggle, .nav-link {
 
 footer {
     margin-top: 2px;
-    width:100%;
+    width: 100%;
     background-color: var(--bs-gray-200);
-  }
+}
 
-  footer a {
+footer a {
     color: var(--tart-orange);
     text-decoration: none;
 }
@@ -223,7 +251,7 @@ footer a:hover {
 }
 
 /* fixed top navbar only on medium and up */
- @media (min-width: 992px) {
+@media (min-width: 992px) {
     .fixed-top-desktop-only {
         position: fixed;
         top: 0;
@@ -235,25 +263,28 @@ footer a:hover {
     .header-container {
         padding-top: 150px;
     }
- }
+}
 
- .page-spacer {
+.page-spacer {
     padding-top: 200px;
 }
- /* pad the top a bit when navbar is collapsed on mobile */
+
+/* pad the top a bit when navbar is collapsed on mobile */
 @media (max-width: 991px) {
     .header-container {
         padding-top: 146px;
     }
 
     body {
-        height: calc(100vh - 126px)!important;
+        height: calc(100vh - 126px) !important;
         font-size: 0.8rem;
     }
+
     .navbar-toggler-icon {
         padding: .4rem .4rem;
         font-size: 1rem;
     }
+
     .nav-link {
         padding: 0.1rem;
     }
@@ -261,13 +292,16 @@ footer a:hover {
     .nav-link i.fa-lg {
         font-size: 1rem;
     }
-    .dropdown-toggle::after{
+
+    .dropdown-toggle::after {
         content: none;
     }
-    .dropdown-menu{
+
+    .dropdown-menu {
         font-size: 0.8rem;
     }
-    .main-logo{
+
+    .main-logo {
         font-size: 1rem;
         font-weight: bold;
     }
@@ -275,16 +309,18 @@ footer a:hover {
     .header-container {
         padding-top: 180px;
     }
+
     .go-shop-btn {
         background: var(--rich-black);
-        color:var(--tart-orange);
+        color: var(--tart-orange);
         min-width: 100px;
         font-weight: 400;
-        font-size:1rem;
+        font-size: 1rem;
 
 
     }
-    footer h4{
-        font-size:1rem;
+
+    footer h4 {
+        font-size: 1rem;
     }
 }
