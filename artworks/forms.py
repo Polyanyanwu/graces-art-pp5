@@ -1,7 +1,7 @@
 """ Forms for Artwork Module """
 
 from django import forms
-from .models import Artist, ArtStyle, ArtGenre, Artwork
+from .models import Artist, ArtStyle, ArtGenre, Artwork, ArtFrame
 
 
 class ArtistForm(forms.ModelForm):
@@ -62,3 +62,11 @@ class ArtworkForm(forms.ModelForm):
         sorted_friendly_names = sorted((trans for trans in friendly_names),
                                        key=lambda x: x[1])
         self.fields['style'].choices = sorted_friendly_names
+
+
+class ArtFrameForm(forms.ModelForm):
+    """ Art Frames form """
+    class Meta:
+        """ Meta for Art Frame Form """
+        model = ArtFrame
+        fields = '__all__'
