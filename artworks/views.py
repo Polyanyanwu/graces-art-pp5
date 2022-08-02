@@ -216,7 +216,8 @@ def get_artworks(request):
             artworks = artworks.order_by(sort_key)
         if 'artist' in request.GET:
             artworks = artworks.filter(artist__name=request.GET['artist'])
-
+        if 'genre' in request.GET:
+            artworks = artworks.filter(genre__name=request.GET['genre'])
     context = {
         'artworks': artworks,
     }

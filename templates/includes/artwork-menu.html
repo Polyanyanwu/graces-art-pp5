@@ -38,8 +38,20 @@
                         {{artist.friendly_name}}
                     </a>
                 {% endfor %}
-
-
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Genre
+            </a>
+            <!-- for loop for the artists -->
+            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdownMenuLink1">
+                {% for genre in genres %}
+                <li><a class="dropdown-item" href="{% url 'get_artworks' %}?genre={{genre.name}}">
+                        {{genre.friendly_name}}
+                    </a>
+                {% endfor %}
             </ul>
         </li>
 
