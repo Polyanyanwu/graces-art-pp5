@@ -5,7 +5,7 @@
 <div class="overlay"></div>
 <div class="container-fluid container-main">
     <div class="row">
-        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+        <div class="col-12 col-md-5 col-lg-4 offset-lg-2">
             <div class="image-container mt-5">
                 {% if artwork.image %}
                 <a href="{{ artwork.image.url }}" target="_blank">
@@ -30,9 +30,9 @@
                 </a>
             </div>
         </div>
-        <div class="col-12 col-md-6 col-lg-4">
+        <div class="col-12 col-md-7 col-lg-4">
             <div class="product-details-container mb-5 mt-md-5">
-                <h3 class="mb-0">{{ artwork.name }}</h3>
+                <h4 class="mb-0">{{ artwork.name }}</h4>
 
                 {% if artwork.genre %}
                 <p class="small mt-1 mb-0">
@@ -81,7 +81,7 @@
 
                 <form class="form" action="{% url 'artwork_detail' artwork.id %}" method="POST">
                     {% csrf_token %}
-                    <p class="mb-0">
+                    <p class="mb-1">
                         <label for="frame">Frame:</label>
                         <select name="frame" id="select_frame">
                             <option value=0> ---</option>
@@ -92,8 +92,12 @@
                         </select>
                         <span class="highlight" id="frame-cost"></span>
                     </p>
-                    <p class="mb-0">Artwork + Frame: <span id="art-and-frame" class="highlight"></span> </p>
-                    <p class="mb-0">
+                    <p class="small">
+                        <em><a class= "text-muted mt-5" rel="external" href="https://www.bgastore.ie/" target="_blank">
+                            If your desired art frame is not listed, check this site, make a choice and contact us</a></em>
+                    </p>
+                    <p class="mb-1">Artwork + Frame: <span id="art-and-frame" class="highlight"></span> </p>
+                    <p class="mb-1">
                         <label for="quantity">Quantity:</label>
                         <select name="quantity" id="quantity">
                             {% for i in max_qty %}
@@ -101,7 +105,17 @@
                             {% endfor %}
                         </select>
                     </p>
-                    <p class="mb-0">Total: <span id="total-cost" class="highlight"></span> </p>
+                    <p class="mb-1">Total: <span id="total-cost" class="highlight"></span> </p>
+                    <div>
+                        <a href="{% url 'get_artworks' %}" class="btn btn-ok mt-3">
+                            <span>
+                                <i class="fas fa-angle-double-left"></i>
+                            </span>
+                            <span>Keep Shopping</span>
+                        </a>
+                        <button type="submit" class="btn btn-select mt-3" name="add-to-wishlist">Add to Wishlist</button>
+                        <button type="submit" class="btn btn-dark mt-3" name="add-to-bag">Add to Bag</button>
+                    </div>
                 </form>
             </div>
         </div>
