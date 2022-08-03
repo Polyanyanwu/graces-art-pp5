@@ -50,10 +50,17 @@ main {
     color: var(--rich-black);
 }
 
-#voucher-banner {
+.voucher-banner {
     font-family: 'Edu NSW ACT Foundation', cursive;
     color: var(--baby-powder);
     background-color: var(--rich-black);
+}
+.discount-header {
+    font-family: 'Edu NSW ACT Foundation', cursive;
+    color: var(--baby-powder);
+    background-color: var(--jet);
+    width: 100%;
+    text-align: center;
 }
 
 a {

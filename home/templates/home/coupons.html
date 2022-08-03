@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container index-container">
+    <div class="row h-100">
+        <div class="col-sm-12 offset-md-4 md-6">
+            <div class="toast show rounded-0 border-top-0 align-contents-right">
+                <div class="w-100 toast-capper bg-success"></div>
+                <div class="toast-header">
+                    <h4 class="me-auto discount-header">Discount Coupons!</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                </div>
+                <div class="toast-body bg-white">
+                    <div class="row">
+                        <hr class="mt-1 mb-3">
+                        <div class="col">
+                            <p>We encourage you for registering with our site to buy famous classical art 
+                                prints in the world! Grab the voucher and use at checkout. It give you
+                                <span class="highlight">{{welcome_code_discount}}% </span> off your first purchase</p>
+                            <input type="text" readonly value={{welcome_code}} id="welcome-code">
+                            <button id="welcome-code-btn"><i class="fas fa-copy icon" title="copy"></i></button> 
+                        </div>
+                        <div class="col">
+                            <p>For trusting us with your art frame job we reward you <span class="highlight"> {{threshold_discount}}%</span> 
+                                when you spend up to <span class="highlight"> €{{threshold_amt}} </span>.
+                                Copy the code below</p>
+                            <input type="text" readonly value={{threshold_code}} id="threshold-code">
+                           <button id="threshold-code-btn"><i class="fas fa-copy icon" title="copy"></i></button> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", startUp);
 
 const toastRemove = function () {
     "use strict";
-    const toast = document.querySelector('.toast');
+    const toast = document.querySelector('.custom-toast');
     if (toast != null){
         if (toast.classList.contains('show')){
             setTimeout(function () {
@@ -70,6 +70,24 @@ if(document.querySelectorAll('.confirm-many')){
             });
     }));
 }
+
+
+const welcomeCodeEl = document.getElementById('welcome-code');
+const thresholdCodeEl = document.getElementById('threshold-code');
+const welcomeCodeBtn = document.getElementById('welcome-code-btn');
+const thresholdCodeBtn = document.getElementById('threshold-code-btn');
+
+welcomeCodeBtn.addEventListener('click', (e) =>{
+    e.preventDefault();
+    navigator.clipboard.writeText(welcomeCodeEl.value);
+    alert("Copied the text: " + welcomeCodeEl.value);
+});
+
+thresholdCodeBtn.addEventListener('click', (e) =>{
+    e.preventDefault();
+    navigator.clipboard.writeText(thresholdCodeEl.value);
+    alertMe("Copied the text: " + thresholdCodeEl.value);
+});
 
 
 function startUp(){

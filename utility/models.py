@@ -11,6 +11,12 @@ class SystemPreference(models.Model):
             ('D', 'Description of Current Sales'),
             ('R', 'Return Valid Days'),
             ('Q', 'Maximum Customer Selectable Quantity'),
+            ('CF', 'Customer welcome Coupon Code'),
+            ('CR', 'Customer Threshold Coupon Code'),
+            ('C1', 'Welcome coupon percentage discount'),
+            ('T1', 'Threshold Amount'),
+            ('C2', 'Threshold discount percentage')
+
         ]
     DATA_TYPES = [
             ('str', 'Text'),
@@ -18,7 +24,7 @@ class SystemPreference(models.Model):
         ]
 
     code = models.CharField(primary_key=True, choices=SYSTEM_OPTIONS,
-                            default='S', max_length=1)
+                            default='S', max_length=2)
     data = models.CharField(max_length=50, blank=False)
     data_type = models.CharField(max_length=3, blank=False,
                                  choices=DATA_TYPES)
