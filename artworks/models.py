@@ -93,7 +93,7 @@ class Artwork(models.Model):
         in the System Preference """
         if self.sale_percentage.data:
             sales_per = int(self.sale_percentage.data)
-            return self.price * sales_per/100
+            return self.price - self.price * sales_per/100
         else:
             return self.price
 

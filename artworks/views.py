@@ -220,6 +220,8 @@ def get_artworks(request):
             artworks = artworks.filter(genre__name=request.GET['genre'])
         if 'style' in request.GET:
             artworks = artworks.filter(style__name=request.GET['style'])
+        if 'sales' in request.GET:
+            artworks = artworks.filter(on_sale=True)
     context = {
         'artworks': artworks,
     }

@@ -7,7 +7,7 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown1" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 All Products
             </a>
@@ -27,12 +27,12 @@
         </li>
 
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Artists
             </a>
             <!-- for loop for the artists -->
-            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdownMenuLink1">
+            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdownMenuLink2">
                 {% for artist in artists %}
                 <li><a class="dropdown-item" href="{% url 'get_artworks' %}?artist={{artist.name}}">
                         {{artist.friendly_name}}
@@ -41,12 +41,12 @@
             </ul>
         </li>
         <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Genre
             </a>
             <!-- for loop for the artists -->
-            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdownMenuLink1">
+            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdownMenuLink3">
                 {% for genre in genres %}
                 <li><a class="dropdown-item" href="{% url 'get_artworks' %}?genre={{genre.name}}">
                         {{genre.friendly_name}}
@@ -56,16 +56,13 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            <a class="nav-link" href="#" id="navbarDropdown4" role="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 Discount Coupons
             </a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Sales
-            </a>
+            <a class="dropdown-item" href="{% url 'get_artworks' %}?sales=True">Sales</a>
         </li>
     </ul>
 </div>

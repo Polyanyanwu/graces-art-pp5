@@ -73,6 +73,9 @@ a {
     color: var(--tart-orange);
     font-weight: bold;
 }
+.strikeout {
+    text-decoration: line-through;
+}
 
 .go-shop-btn {
     background: var(--rich-black);

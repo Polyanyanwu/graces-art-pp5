@@ -35,7 +35,15 @@
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    <p class="lead mb-0 text-left highlight">€{{ artwork.price }}</p>
+                                    {% if artwork.on_sale %} 
+                                        <span class="lead strikeout mb-0 text-left ">€{{ artwork.price|floatformat:2}}</span>
+                                        <span class="lead highlight ms-2"> €{{artwork.get_sale_price|floatformat:2}}</span>
+                                        
+   
+                                    {% else %} 
+                                        <p class="lead mb-0 text-left highlight">€{{ artwork.price }}</p>
+                                    {% endif %} 
+
                                     {% if artwork.artist %}
                                     <p class="small mt-1 mb-0">
                                         <a class="text-muted" href="{% url 'get_artworks' %}?artist={{artwork.artist}}">
