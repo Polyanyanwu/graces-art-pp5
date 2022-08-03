@@ -35,14 +35,15 @@
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    {% if artwork.on_sale %} 
-                                        <span class="lead strikeout mb-0 text-left ">€{{ artwork.price|floatformat:2}}</span>
-                                        <span class="lead highlight ms-2"> €{{artwork.get_sale_price|floatformat:2}}</span>
-                                        
-   
-                                    {% else %} 
-                                        <p class="lead mb-0 text-left highlight">€{{ artwork.price }}</p>
-                                    {% endif %} 
+                                    {% if artwork.on_sale %}
+                                    <span
+                                        class="lead strikeout mb-0 text-left ">€{{ artwork.price|floatformat:2}}</span>
+                                    <span class="lead highlight ms-2"> €{{artwork.get_sale_price|floatformat:2}}</span>
+
+
+                                    {% else %}
+                                    <p class="lead mb-0 text-left highlight">€{{ artwork.price }}</p>
+                                    {% endif %}
 
                                     {% if artwork.artist %}
                                     <p class="small mt-1 mb-0">
@@ -74,15 +75,35 @@
                                     {% endif %}
                                     {% if request.user.is_superuser %}
                                     <small class="ml-3">
-                                        <a href="{% url 'edit_delete_artwork_single' artwork.id %}">Edit|Delete</a>  
+                                        <a href="{% url 'edit_delete_artwork_single' artwork.id %}">Edit|Delete</a>
                                     </small>
-                                {% endif %}
+                                    {% endif %}
 
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none mb-1">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none mb-1">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block d-xl-none mb-1">
+                        <hr>
+                    </div>
+                {% endif %}
+                {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block mb-1">
+                        <hr>
+                    </div>
+                {% endif %}
                 {% endfor %}
             </div>
         </div>
