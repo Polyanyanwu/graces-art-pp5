@@ -8,7 +8,9 @@ from django.db import transaction
 from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from profiles.user_belong import check_in_group
-from .forms import ArtistForm, ArtStyleForm, ArtGenreForm, ArtworkForm, ArtFrameForm
+from utility.models import SystemPreference
+from .forms import\
+    (ArtistForm, ArtStyleForm, ArtGenreForm, ArtworkForm, ArtFrameForm)
 from .models import Artist, ArtStyle, ArtGenre, Artwork, ArtFrame
 
 
@@ -256,6 +258,24 @@ def get_artworks(request):
     }
 
     return render(request, 'artworks/artworks.html', context)
+
+
+def artwork_detail(request, artwork_id):
+    """ A view to obtain individual artwork details
+        and frames to enable user add to bag, or wish list
+    """
+
+    artwork = get_object_or_404(Artwork, pk=artwork_id)
+    frames = ArtFrame.objects.all()
+    max_qty_rec = get_object_or_404(SystemPreference, code='Q')
+    max_qty = int(max_qty_rec.data) + 1
+    return render(request,
+                  'artworks/artwork_detail.html',
+                  {
+                    'artwork': artwork,
+                    'frames': frames,
+                    'max_qty': range(1, max_qty),
+                  })
 
 
 @login_required

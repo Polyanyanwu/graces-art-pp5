@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid container-main">
+    <div class="row">
+        <div class="col-12 col-md-6 col-lg-4 offset-lg-2">
+            <div class="image-container mt-5">
+                {% if artwork.image %}
+                <a href="{{ artwork.image.url }}" target="_blank">
+                    <img class="card-img-top img-fluid img-cover" src="{{ artwork.image.url }}"
+                        alt="{{ artwork.name }}">
+                </a>
+                {% else %}
+                <img class="card-img-top img-fluid img-cover" src="{{ MEDIA_URL }}noimage.png" alt="{{ artwork.name }}">
+                {% endif %}
+
+            </div>
+            <div>
+                {% if request.user.is_superuser %}
+                <small class="ml-3">
+                    <a class="text-danger" href="{% url 'edit_delete_artwork_single' artwork.id %}">Edit/Delete</a>
+                </small>
+                {% endif %}
+            </div>
+            <div>
+                <a href="" target="_blank" id="frame_href">
+                    <img id="selected-img" class="card-img-top frame-img-cover" src="" alt="Artwork Frame">
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-4">
+            <div class="product-details-container mb-5 mt-md-5">
+                <h3 class="mb-0">{{ artwork.name }}</h3>
+
+                {% if artwork.genre %}
+                <p class="small mt-1 mb-0">
+                    <a class="text-muted" href="{% url 'get_artworks' %}?genre={{ artwork.genre.name }}">
+                        Genre: {{ artwork.genre.friendly_name }}
+                    </a>
+                </p>
+                {% endif %}
+                {% if artwork.style %}
+                <p class="small mt-1 mb-0">
+                    <a class="text-muted" href="{% url 'get_artworks' %}?style={{ artwork.style.name }}">
+                        Style: {{ artwork.style.friendly_name }}
+                    </a>
+                </p>
+                {% endif %}
+
+                {% if artwork.artist %}
+                <p class="small mt-1 mb-0">
+                    <a class="text-muted" href="{% url 'get_artworks' %}?artist={{artwork.artist}}">
+                        <i class="fas fa-user-edit"></i> {{ artwork.artist.friendly_name }}
+                    </a>
+                </p>
+                {% endif %}
+
+                {% if artwork.rating %}
+                <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ artwork.rating }} / 5</small>
+                {% else %}
+                <small class="text-muted">No Rating</small>
+                {% endif %}
+
+                {% if artwork.on_sale %}
+                <p class="small">
+                    <span>Base price: </span>
+                    <span class=" strikeout mb-0 text-left">€</span>
+                    <span class=" strikeout mb-0 text-left">{{ artwork.price|floatformat:2}}</span>
+                    <span class=" highlight ms-2">€</span>
+                    <span class=" highlight" id="sale-price">{{artwork.get_sale_price|floatformat:2}}</span>
+                </p>
+                {% else %}
+                <p class="small">
+                    <span>Base price: </span>
+                    <span class=" mb-0 text-left highlight">€</span>
+                    <span class="mb-0 text-left highlight" id="price">{{ artwork.price }}</span>
+                </p>
+                {% endif %}
+
+                <form class="form" action="{% url 'artwork_detail' artwork.id %}" method="POST">
+                    {% csrf_token %}
+                    <p class="mb-0">
+                        <label for="frame">Frame:</label>
+                        <select name="frame" id="select_frame">
+                            <option value=0> ---</option>
+                            {% for frame in frames %}
+                            <option value={{frame.id}}:{{frame.price}}:{{frame.image.url}}> {{frame.get_description}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <span class="highlight" id="frame-cost"></span>
+                    </p>
+                    <p class="mb-0">Artwork + Frame: <span id="art-and-frame" class="highlight"></span> </p>
+                    <p class="mb-0">
+                        <label for="quantity">Quantity:</label>
+                        <select name="quantity" id="quantity">
+                            {% for i in max_qty %}
+                            <option value={{i}}>{{i}}</option>
+                            {% endfor %}
+                        </select>
+                    </p>
+                    <p class="mb-0">Total: <span id="total-cost" class="highlight"></span> </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'js/artworks.js' %}"></script>
+{% endblock %}

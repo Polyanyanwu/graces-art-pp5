@@ -111,3 +111,7 @@ class ArtFrame(models.Model):
 
     def __str__(self):
         return str(self.name)
+
+    def get_description(self):
+        """ get the size and image name for dropdown in artwork details """
+        return self.size + ": " + self.name

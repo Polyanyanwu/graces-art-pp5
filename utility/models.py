@@ -10,6 +10,7 @@ class SystemPreference(models.Model):
             ('S', 'Sales Percentage'),
             ('D', 'Description of Current Sales'),
             ('R', 'Return Valid Days'),
+            ('Q', 'Maximum Customer Selectable Quantity'),
         ]
     DATA_TYPES = [
             ('str', 'Text'),

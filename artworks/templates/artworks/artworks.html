@@ -57,12 +57,12 @@
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
                         {% if artwork.image %}
-                        <a href="#">
+                        <a href="{% url 'artwork_detail' artwork.id %}">
                             <img class="card-img-top img-fluid img-cover " src="{{ artwork.image.url }}"
                                 alt="{{ artwork.name }}">
                         </a>
                         {% else %}
-                        <a href="#">
+                        <a href="{% url 'artwork_detail' artwork.id %}">
                             <img class="card-img-top img-fluid img-cover" src="{{ MEDIA_URL }}no_image.jpg"
                                 alt="{{ product.name }}">
                         </a>
@@ -77,8 +77,6 @@
                                     <span
                                         class="lead strikeout mb-0 text-left ">€{{ artwork.price|floatformat:2}}</span>
                                     <span class="lead highlight ms-2"> €{{artwork.get_sale_price|floatformat:2}}</span>
-
-
                                     {% else %}
                                     <p class="lead mb-0 text-left highlight">€{{ artwork.price }}</p>
                                     {% endif %}

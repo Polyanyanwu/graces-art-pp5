@@ -102,6 +102,11 @@ a {
     cursor: auto;
 }
 
+.frame-img-cover {
+    object-fit: cover;
+    width: 120px;
+    height: 160px;
+}
 .img-tiny-frame {
     object-fit: cover;
     width: 30px;

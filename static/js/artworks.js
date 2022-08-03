@@ -3,8 +3,10 @@
 
 function startUp() {
     "use strict";
+    artDetails();
     getSkuPrefix();
     sort_selection();
+    artDetails();
     // User Group Update
     const rec_btn = document.querySelectorAll('.edit-btn');
     rec_btn.forEach(btn => btn.addEventListener('click', function (e) {
@@ -76,4 +78,58 @@ $('#select-sort').change(function() {
         window.location.replace(currentUrl);
     }
 })
+}
+
+function artDetails(){
+
+    const frameCost = document.querySelector('#frame-cost');
+    const selectFrame = document.querySelector('#select_frame');
+    const selectedImg = document.querySelector('#selected-img');
+    const frameHref = document.querySelector('#frame_href');
+    const artFrameCost = document.querySelector('#art-and-frame');
+    const totalCostEl = document.querySelector('#total-cost');
+    const qtyEl = document.getElementById('quantity');
+
+    selectFrame.addEventListener('change', function(e){
+
+        frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
+        costVal =   frameDetail.split(":")[1];
+        imgVal =   frameDetail.split(":")[2];
+        selectedImg.src = imgVal;
+        frameHref.href = imgVal;
+        frameCost.textContent= "€" + costVal;
+        if (document.querySelector('#sale-price')){
+            artFrameCost.textContent = "€" + (parseFloat(costVal) + parseFloat(document.querySelector('#sale-price').textContent)).toFixed(2);
+        }else{
+            artFrameCost.textContent = "€" + (parseFloat(costVal) + parseFloat(document.querySelector('#price').textContent)).toFixed(2);
+        }
+       const totalCost = getTotalDetailCost(costVal); 
+       totalCostEl.textContent = "€" + totalCost.toFixed(2);
+
+    })
+
+    qtyEl.addEventListener('change', function(e){
+
+        frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
+        if (frameDetail !== "0"){
+            // if a frame has been selected 
+            costVal =   frameDetail.split(":")[1];
+            const totalCost = getTotalDetailCost(costVal); 
+            totalCostEl.textContent = "€" + totalCost.toFixed(2);
+        }
+    })
+}
+
+function getTotalDetailCost(frameCost){
+    const salePrice = document.getElementById('sale-price');
+    const price = document.getElementById('price');
+    const qtyEl = document.getElementById('quantity');
+    const qty = parseInt(qtyEl.options[qtyEl.selectedIndex].value);
+    let total = 0;
+    if (salePrice){
+       total = parseFloat(frameCost) + parseFloat(salePrice.textContent) * qty;
+    }else{
+        total = parseFloat(frameCost) + parseFloat(price.textContent) * qty;
+    }
+    return total;
 }
