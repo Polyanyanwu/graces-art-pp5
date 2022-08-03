@@ -4,6 +4,7 @@
 function startUp() {
     "use strict";
     getSkuPrefix();
+    sort_selection();
     // User Group Update
     const rec_btn = document.querySelectorAll('.edit-btn');
     rec_btn.forEach(btn => btn.addEventListener('click', function (e) {
@@ -52,4 +53,27 @@ function getSkuPrefix() {
             sku.value = sku_txt;
         }
     }
+}
+
+
+function sort_selection(){
+$('#select-sort').change(function() {
+    var selector = $(this);
+    var currentUrl = new URL(window.location);
+
+    var selectedVal = selector.val();
+    if(selectedVal != "reset"){
+        var sort = selectedVal.split("_")[0];
+        var direction = selectedVal.split("_")[1];
+
+        currentUrl.searchParams.set("sort", sort);
+        currentUrl.searchParams.set("direction", direction);
+
+        window.location.replace(currentUrl);
+    } else {
+        currentUrl.searchParams.delete("sort");
+        currentUrl.searchParams.delete("direction");
+        window.location.replace(currentUrl);
+    }
+})
 }

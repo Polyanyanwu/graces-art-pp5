@@ -91,36 +91,42 @@ def maintain_art_style(request):
         form = ArtStyleForm()
     if request.method == 'POST':
         if 'select_rec' in request.POST:
-            name_sent = request.POST.get('name_selected')
-            art_style = get_object_or_404(ArtStyle, name=name_sent)
+            id_sent = request.POST.get('name_selected')
+            art_style = get_object_or_404(ArtStyle, pk=id_sent)
             form = ArtStyleForm(instance=art_style)
+            request.session['current_rec'] = id_sent
         elif 'create_new_record' in request.POST:
             form = ArtStyleForm()
+            request.session['current_rec'] = ""
         elif 'cancel_ops' in request.POST:
             if use_instance:
                 form = ArtStyleForm(instance=art_styles[0])
+                request.session['current_rec'] = art_styles[0].id
             HttpResponseRedirect('artworks/art_style.html')
         elif 'confirm-action-btn' in request.POST:
             # action is only delete action
-            name_sent = request.POST.get('confirm-id')
-            art_genre = get_object_or_404(ArtStyle, name=name_sent)
-            art_genre.delete()
+            id_sent = request.POST.get('confirm-id')
+            art_style = get_object_or_404(ArtStyle, pk=id_sent)
+            name_sent = art_style.name
+            art_style.delete()
+            request.session['current_rec'] = ""
             messages.success(request,
                              ('Art Style ' + name_sent +
                               ' was successfully deleted!'))
             if use_instance:
                 form = ArtStyleForm(instance=art_styles[0])
         elif 'save_record' in request.POST:
-            form = ArtStyleForm(data=request.POST)
+
+            if request.session.get('current_rec'):
+                style_id = int(request.session.get('current_rec'))
+                art_style = get_object_or_404(ArtStyle,
+                                              pk=style_id)
+                form = ArtStyleForm(request.POST, request.FILES,
+                                    instance=art_style)
+            else:
+                form = ArtStyleForm(request.POST, request.FILES)
             if form.is_valid():
-                try:
-                    art_style = ArtStyle.objects.get(
-                                name=request.POST.get('name'))
-                    art_style.name = request.POST.get('name')
-                    art_style.friendly_name = request.POST.get('friendly_name')
-                    art_style.save()
-                except ObjectDoesNotExist:
-                    form.save()
+                form.save()
                 messages.success(request,
                                  ('Your Art Style was successfully saved!'))
             else:
@@ -205,6 +211,10 @@ def get_artworks(request):
 
     artworks = Artwork.objects.all()
     direction = None
+    criteria = None
+    sort = None
+    search_type = None
+
     if request.GET:
         if 'sort' in request.GET:
             sort_key = request.GET['sort']
@@ -214,16 +224,35 @@ def get_artworks(request):
                 if direction == 'desc':
                     sort_key = f'-{sort_key}'
             artworks = artworks.order_by(sort_key)
+
         if 'artist' in request.GET:
             artworks = artworks.filter(artist__name=request.GET['artist'])
+            if artworks.count() > 0:
+                search_type = 'Artist: ' + artworks[0].artist.friendly_name
         if 'genre' in request.GET:
             artworks = artworks.filter(genre__name=request.GET['genre'])
+            if artworks.count() > 0:
+                search_type = 'Genre: ' + artworks[0].genre.friendly_name
         if 'style' in request.GET:
             artworks = artworks.filter(style__name=request.GET['style'])
+            if artworks.count() > 0:
+                search_type = 'Style: ' + artworks[0].genre.friendly_name
         if 'sales' in request.GET:
             artworks = artworks.filter(on_sale=True)
+            search_type = 'Sales'
+        if 'qry' in request.GET:
+            criteria = request.GET['qry']
+            if not criteria:
+                messages.error(request, "Please enter a search criteria\
+                     before searching!")
+                return redirect(reverse('get_artworks'))
+            artworks = artworks.filter(name__icontains=criteria)
+    existing_sorting = f'{sort}-{direction}'
     context = {
         'artworks': artworks,
+        'criteria': criteria,
+        'existing_sorting': existing_sorting,
+        'search_type': search_type,
     }
 
     return render(request, 'artworks/artworks.html', context)

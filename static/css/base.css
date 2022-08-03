@@ -322,11 +322,13 @@ footer a:hover {
         min-width: 100px;
         font-weight: 400;
         font-size: 1rem;
-
-
     }
 
-    footer h4 {
+    #voucher-banner h4 {
+        font-size:1rem;
+    }
+
+    footer h4, h3 {
         font-size: 1rem;
     }
 }

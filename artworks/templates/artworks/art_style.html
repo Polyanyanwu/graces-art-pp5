@@ -30,11 +30,12 @@
 
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button>
-                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2" name="save_record">Save</button>
-                        <button type="submit" class="btn btn-cancel btn-ok mt-2" name="cancel_ops" value="Cancel"
-                            formnovalidate>Cancel</button>
+                    <div class="d-flex justify-content-left">
+                        <button type="submit" class="btn btn-cancel btn-ok mt-2 btn-sm me-5" name="cancel_ops" value="Cancel"
+                        formnovalidate>Cancel</button>
+                        <button type="submit" class="btn btn-secondary mt-2 me-2 btn-sm" name="create_new_record">New</button>
+                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2 btn-sm" name="save_record">Save</button>
+
                     </div>
                     <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
                     <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
@@ -59,11 +60,11 @@
                                     <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
                                         data-bs-target="#confirmModal"
                                         data-message="Please confirm deleting the {{art_style.name}} Art Style. This action is not reversible?"
-                                        data-record_id={{art_style.name}}>Delete
+                                        data-record_id={{art_style.id}}>Delete
                                     </button>
 
                                 <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
-                                        data-name={{ art_style.name }}>Edit
+                                        data-name={{ art_style.id }}>Edit
                                     </button>
                                 </td>
                                 </td>
