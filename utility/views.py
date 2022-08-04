@@ -134,3 +134,15 @@ class HomeMessageView(View):
                 "info_code": selected_item
             }
         )
+
+
+def terms_of_use(request):
+    """ View terms of use message """
+    info = get_object_or_404(HomeMessage, code='T')
+    return render(
+          request,
+          "utility/terms_of_use.html",
+          {
+              "info": info,
+          }
+      )

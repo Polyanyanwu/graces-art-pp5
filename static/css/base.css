@@ -149,7 +149,7 @@ a {
 }
 
 .auth-container, .container-main {
-    min-height: calc(100% - 152px);
+    min-height: calc(100% - 149px);
 }
 
 /* .container-main {

@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", startUp);
 
 // Timeout function to delay when a message is displayed 
@@ -8,8 +6,8 @@ document.addEventListener("DOMContentLoaded", startUp);
 const toastRemove = function () {
     "use strict";
     const toast = document.querySelector('.custom-toast');
-    if (toast != null){
-        if (toast.classList.contains('show')){
+    if (toast != null) {
+        if (toast.classList.contains('show')) {
             setTimeout(function () {
                 toast.classList.remove('show')
             }, 5000); // 10 seconds
@@ -35,7 +33,7 @@ const Confirmation = function (message, yesFunction, noFunction) {
 };
 
 // confirmation for single row of data
-if(document.getElementById('confirm-single')){
+if (document.getElementById('confirm-single')) {
     document.getElementById('confirm-single').addEventListener('click', function (e) {
         "use strict";
         const msg = document.getElementById('confirm-single').dataset.message;
@@ -54,9 +52,9 @@ if(document.getElementById('confirm-single')){
 
 
 // Confirmation for multiple rows
-if(document.querySelectorAll('.confirm-many')){
+if (document.querySelectorAll('.confirm-many')) {
     const rec_btn = document.querySelectorAll('.confirm-many');
-    rec_btn.forEach(btn => btn.addEventListener('click', function(e){
+    rec_btn.forEach(btn => btn.addEventListener('click', function (e) {
         "use strict";
         const msg = e.target.dataset.message;
         Confirmation(msg,
@@ -72,24 +70,29 @@ if(document.querySelectorAll('.confirm-many')){
 }
 
 
-const welcomeCodeEl = document.getElementById('welcome-code');
-const thresholdCodeEl = document.getElementById('threshold-code');
-const welcomeCodeBtn = document.getElementById('welcome-code-btn');
-const thresholdCodeBtn = document.getElementById('threshold-code-btn');
+function copyDiscountCode() {
+    "use strict";
+    const welcomeCodeEl = document.getElementById('welcome-code');
+    const thresholdCodeEl = document.getElementById('threshold-code');
+    const welcomeCodeBtn = document.getElementById('welcome-code-btn');
+    const thresholdCodeBtn = document.getElementById('threshold-code-btn');
 
-welcomeCodeBtn.addEventListener('click', (e) =>{
-    e.preventDefault();
-    navigator.clipboard.writeText(welcomeCodeEl.value);
-    alert("Copied the text: " + welcomeCodeEl.value);
-});
+    welcomeCodeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText(welcomeCodeEl.value);
+        alert("Copied the text: " + welcomeCodeEl.value);
+    });
 
-thresholdCodeBtn.addEventListener('click', (e) =>{
-    e.preventDefault();
-    navigator.clipboard.writeText(thresholdCodeEl.value);
-    alertMe("Copied the text: " + thresholdCodeEl.value);
-});
+    thresholdCodeBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        navigator.clipboard.writeText(thresholdCodeEl.value);
+        alertMe("Copied the text: " + thresholdCodeEl.value);
+    });
+}
 
-
-function startUp(){
+function startUp() {
     toastRemove();
+    if (document.querySelector('.discount-header')){
+        copyDiscountCode()
+    }
 }

@@ -4,8 +4,9 @@ from . import views
 
 
 urlpatterns = [
-    path('sys_pref/', views.SystemPreferenceView.as_view(),
-         name='system_preference'),
-    path('info/', views.HomeMessageView.as_view(),
-         name='general_info'),
+     path('sys_pref/', views.SystemPreferenceView.as_view(),
+          name='system_preference'),
+     path('info/', views.HomeMessageView.as_view(),
+          name='general_info'),
+     path('terms/', views.terms_of_use, name='terms_of_use'),
 ]
