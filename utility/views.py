@@ -109,11 +109,10 @@ class HomeMessageView(View):
                 messages.add_message(request, messages.INFO,
                                      'Error saving cancellation, try later')
             # info = HomeMessage.objects.all()
-            form = HomeMessageForm(instance=selected_item)
-            # selected_item = info[0].code
+            form = HomeMessageForm(instance=info_form)
+            info = info_form
         else:
             selected_item = request.POST.get('info_code')
-            print("selected item==", selected_item)
             info = HomeMessage.objects.all()
             curr = None
             try:
