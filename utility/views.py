@@ -157,3 +157,15 @@ def privacy_policy(request):
               "info": info,
           }
       )
+
+
+def about_us(request):
+    """ View About Us"""
+    info = get_object_or_404(HomeMessage, code='A')
+    return render(
+          request,
+          "utility/about_us.html",
+          {
+              "info": info,
+          }
+      )

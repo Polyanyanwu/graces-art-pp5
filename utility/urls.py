@@ -10,4 +10,5 @@ urlpatterns = [
           name='general_info'),
      path('terms/', views.terms_of_use, name='terms_of_use'),
      path('pp/', views.privacy_policy, name='privacy_policy'),
+     path('au/', views.about_us, name='about_us'),
 ]
