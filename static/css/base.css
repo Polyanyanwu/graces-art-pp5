@@ -92,6 +92,18 @@ a {
     font-size: 1.5rem;
 }
 
+.back-to-top-btn {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+}
+
+.back-to-top-link {
+    cursor: pointer
+}
+
 .go-shop-btn:hover {
     color: var(--tart-orange)
 }
@@ -132,6 +144,10 @@ a {
 
 .black-border {
     border: 1px solid var(--rich-black) !important;
+}
+
+.red-border {
+    border: 1px solid var(--tart-orange) !important;
 }
 
 .my-btn {

@@ -8,14 +8,14 @@ The access restriction is implemented in the view -->
 {% load crispy_forms_tags %}
 {% block extra_title %}- Sys Param {% endblock %}
 {% block postloadjs %}
-    <script src="{% static 'js/utility.js' %}"></script>
+<script src="{% static 'js/utility.js' %}"></script>
 {% endblock %}
 {% block page_header %}
-    <div class="container header-container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
     </div>
+</div>
 {% endblock %}
 {% block content %}
 <div class="overlay"></div>
@@ -32,13 +32,26 @@ The access restriction is implemented in the view -->
             <form action="{% url 'general_info' %}" method="POST" id="gen_info_update">
                 {% csrf_token %}
                 {{ form | crispy }}
-                <div class="d-flex justify-content-center mt-2">
-                    <button type="submit" class="btn btn-primary btn-ok mb-2" name="save_gen_info">Save</button>
+                <div class="d-flex justify-content-start mt-2">
+                    <a href="{% url 'home' %}" class="btn btn-ok mb-2 me-5">
+                        <span>
+                            <i class="fas fa-angle-double-left"></i>
+                        </span>
+                        <span>Home</span>
+                    </a>
+                    <a href="{% url 'general_info' %}" class="btn btn-cancel mb-2 ms-5 me-5">
+                        Cancel
+                    </a>
+                    
+
+                    <button type="submit" class="btn btn-primary btn-ok mb-2 ms-5" name="save_gen_info">Save</button>
                 </div>
-                  <input type="hidden" name="info_code" value ={{info_code}} id="clicked-code">
-                  <button class="hidden" id="select-info-btn" type="submit"
-                  name="action">select actual</button>
-                </form>
+
+                <input type="hidden" name="info_code" value={{info_code}} id="clicked-code">
+                <button class="hidden" id="select-info-btn" type="submit" name="action">select actual</button>
+
+            </form>
+
         </div>
     </div>
 </div>

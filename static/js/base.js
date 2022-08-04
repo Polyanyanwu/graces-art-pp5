@@ -95,4 +95,11 @@ function startUp() {
     if (document.querySelector('.discount-header')){
         copyDiscountCode()
     }
+
+    // If back to top link is on the page, listen for click events
+    if (document.querySelector('.back-to-top-btn')){
+        document.querySelector('.back-to-top-link').addEventListener('click', function(e){
+            document.querySelector('.container-main').scrollIntoView();
+        })
+        }
 }

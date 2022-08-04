@@ -11,7 +11,7 @@
                 aria-expanded="false">
                 All Products
             </a>
-            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink1">
+            <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdown1">
                 <!-- <li><a class="dropdown-item" href="#">By Price</a></li>
                 <li><a class="dropdown-item" href="#">By Rating</a></li>
                 <li><a class="dropdown-item" href="#">By Genre</a></li>
@@ -32,7 +32,7 @@
                 Artists
             </a>
             <!-- for loop for the artists -->
-            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdownMenuLink2">
+            <ul class="dropdown-menu dropdown-menu-start scroll-nav" aria-labelledby="navbarDropdown2">
                 {% for artist in artists %}
                 <li><a class="dropdown-item" href="{% url 'get_artworks' %}?artist={{artist.name}}">
                         {{artist.friendly_name}}

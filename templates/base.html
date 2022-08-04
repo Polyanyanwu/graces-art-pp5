@@ -39,7 +39,6 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-  </script>
 
   {% endblock %}
 
@@ -123,14 +122,14 @@
               </li>
 
               <li class="nav-item dropdown dropstart">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
                   <div class="text-center">
                     <div><i class="fas fa-user icon"></i></div>
                     <p class="my-0">My Account</p>
                   </div>
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                   <li><a class="dropdown-item" href="{% url 'update_profile' %}">My Profile</a></li>
                   <li><a class="dropdown-item" href="{% url 'account_email' %}">Update Email</a></li>
                   <li><a class="dropdown-item" href="#">Order History</a></li>
@@ -148,14 +147,14 @@
               {% else %}
               <!-- only show sign up and login button if user is not already signed in -->
               <li class="nav-item dropdown dropstart">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
                   <div class="text-center">
                     <div><i class="fas fa-user icon"></i></div>
                     <p class="my-0">My Account</p>
                   </div>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink1">
+                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink3">
                   <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
                   <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
                 </ul>
@@ -183,7 +182,7 @@
       <div class="row">
         <nav class="navbar navbar-expand-lg navbar-light w-100">
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu-nav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           {% include 'includes/nav-bar-mobile-header.html' %} 
