@@ -145,3 +145,15 @@ def terms_of_use(request):
               "info": info,
           }
       )
+
+
+def privacy_policy(request):
+    """ View privacy policy"""
+    info = get_object_or_404(HomeMessage, code='P')
+    return render(
+          request,
+          "utility/privacy_policy.html",
+          {
+              "info": info,
+          }
+      )

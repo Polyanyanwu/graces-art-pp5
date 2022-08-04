@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- privacy policy {% endblock %}
+
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid container-main">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 text-center">
+            <h4>Privacy Policy</h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            {{info|safe}}
+        </div>
+    </div>
+</div>
+<div class="back-to-top-btn shadow-sm border red-border">
+    <a class="back-to-top-link d-flex h-100" title="Back to top">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>	
+</div>
+
+{% endblock %}

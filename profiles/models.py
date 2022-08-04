@@ -22,8 +22,8 @@ class UserProfile(models.Model):
     town_city = models.CharField(max_length=40, null=True, blank=True)
     county_region = models.CharField(max_length=80, null=True, blank=True)
     postal_code = models.CharField(max_length=20, null=True, blank=True)
-    used_welcome_coupon = models.BooleanField(null=False,
-                                              blank=False, default=False)
+    used_welcome_coupon = models.BooleanField(null=True,
+                                              blank=True, default=False)
 
     def __str__(self):
         return self.user.username

@@ -31,6 +31,7 @@ class UserProfileForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county_region': 'County, State or Locality',
+            'used_welcome_coupon': 'Used Welcome Coupon',
         }
 
         self.fields['first_name'].widget.attrs['autofocus'] = True
