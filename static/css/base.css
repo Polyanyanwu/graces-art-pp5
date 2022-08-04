@@ -55,6 +55,7 @@ main {
     color: var(--baby-powder);
     background-color: var(--rich-black);
 }
+
 .discount-header {
     font-family: 'Edu NSW ACT Foundation', cursive;
     color: var(--baby-powder);
@@ -66,6 +67,7 @@ main {
 a {
     text-decoration: none;
 }
+
 .logo-init {
     color: var(--tart-orange)
 }
@@ -80,6 +82,7 @@ a {
     color: var(--tart-orange);
     font-weight: bold;
 }
+
 .strikeout {
     text-decoration: line-through;
 }
@@ -87,10 +90,11 @@ a {
 .go-shop-btn {
     background: var(--rich-black);
     color: var(--baby-powder);
-    min-width: 200px;
+    min-width: 150px;
     font-weight: 500;
-    font-size: 1.5rem;
+    /* font-size: 1.5rem; */
 }
+
 
 .back-to-top-btn {
     height: 42px;
@@ -126,11 +130,27 @@ a {
     width: 120px;
     height: 160px;
 }
+
 .img-tiny-frame {
     object-fit: cover;
     width: 30px;
     height: 40px;
     cursor: auto;
+}
+
+
+
+#mc_embed_signup {
+    background-color: var(--bs-gray-200);
+    clear: left;
+    font: 14px Helvetica, Arial, sans-serif;
+    width: 500px;
+    padding: 0;
+}
+
+#mc_embed_signup .mc-field-group, #mc_embed_signup .helper_text {
+    padding: 0;
+    background-color: var(--bs-gray-200);
 }
 
 /* from Bulma -walkthrough project*/
@@ -164,8 +184,9 @@ a {
     padding-bottom: 0;
 }
 
-.auth-container, .container-main {
-    min-height: calc(100% - 149px);
+.auth-container,
+.container-main {
+    min-height: calc(100% - 185px);
 }
 
 /* .container-main {
@@ -196,7 +217,7 @@ a {
     z-index: -1;
 }
 
-.btn-ok {
+.btn-ok, #mc-embedded-subscribe {
     color: var(--baby-powder);
     background-color: var(--jet);
 }
@@ -353,10 +374,11 @@ footer a:hover {
     }
 
     #voucher-banner h4 {
-        font-size:1rem;
+        font-size: 1rem;
     }
 
-    footer h4, h3 {
+    footer h4,
+    h3 {
         font-size: 1rem;
     }
 }
