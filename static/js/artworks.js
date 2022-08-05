@@ -90,11 +90,13 @@ function artDetails() {
         const artFrameCost = document.querySelector('#art-and-frame');
         const totalCostEl = document.querySelector('#total-cost');
         const qtyEl = document.getElementById('quantity');
-
+        const frameIdEl = document.getElementById('frame-id');
         selectFrame.addEventListener('change', function (e) {
 
-            frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
-            costVal = frameDetail.split(":")[1];
+            const frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
+            const frameId = frameDetail.split(":")[0];
+            frameIdEl.textContent = frameId;
+            const costVal = frameDetail.split(":")[1];
             imgVal = frameDetail.split(":")[2];
             selectedImg.src = imgVal;
             frameHref.href = imgVal;

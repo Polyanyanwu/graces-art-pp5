@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'utility',
     'profiles',
     'artworks',
+    'bag',
 ]
 
 MIDDLEWARE = [

@@ -117,6 +117,8 @@
                         <button type="submit" class="btn btn-dark mt-3" name="add-to-bag">Add to Bag</button>
                     </div>
                 </form>
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                <input type="hidden" name="frame" value="" id="frame-id">
             </div>
         </div>
     </div>
