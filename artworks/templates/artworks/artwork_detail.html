@@ -13,7 +13,7 @@
                         alt="{{ artwork.name }}">
                 </a>
                 {% else %}
-                <img class="card-img-top img-fluid img-cover" src="{{ MEDIA_URL }}noimage.png" alt="{{ artwork.name }}">
+                <img class="card-img-top img-fluid img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="{{ artwork.name }}">
                 {% endif %}
 
             </div>
@@ -26,7 +26,7 @@
             </div>
             <div>
                 <a href="" target="_blank" id="frame_href">
-                    <img id="selected-img" class="card-img-top frame-img-cover" src="" alt="Artwork Frame">
+                    <img id="selected-img" class="card-img-top frame-img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="Artwork Frame">
                 </a>
             </div>
         </div>
@@ -82,7 +82,7 @@
                 <form class="form" action="{% url 'add_to_bag' artwork.id %}" method="POST">
                     {% csrf_token %}
                     <p class="mb-1">
-                        <label for="frame">Frame:</label>
+                        <label for="select_frame">Frame:</label>
                         <select name="frame" id="select_frame">
                             <option value=0> ---</option>
                             {% for frame in frames %}

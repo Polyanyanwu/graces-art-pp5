@@ -290,6 +290,12 @@ input,
     height: 2px;
 }
 
+.bag-notice-container {
+    height: 35vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 footer {
     margin-top: 2px;
     width: 100%;
@@ -380,5 +386,9 @@ footer a:hover {
     footer h4,
     h3 {
         font-size: 1rem;
+    }
+    /* toast messages */
+    .message-container {
+        width: 80vw;
     }
 }

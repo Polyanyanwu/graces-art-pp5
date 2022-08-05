@@ -17,25 +17,31 @@ def bag_contents(request):
     bag = request.session.get('bag', {})
     coupon_delta = 0
 
-    for artwork_id, frame_detail in bag.items():
+    for item_id, frame_detail in bag.items():
+        artwork_id = item_id.split('-')[0]
         artwork = get_object_or_404(Artwork, pk=artwork_id)
         frame = get_object_or_404(ArtFrame,
                                   pk=list(frame_detail['frame_id'].keys())[0])
+
         quantity = list(frame_detail['frame_id'].values())[0]
         product_count += quantity
         if artwork.on_sale:
             sale_price = float(artwork.get_sale_price())
             product_subtotal = quantity * (Decimal(sale_price)
                                            + frame.price)
+            price = sale_price
         else:
             product_subtotal = Decimal(quantity *
                                        (artwork.price + frame.price))
+            price = artwork.price
         total += product_subtotal
         bag_items.append({
             'artwork_id': artwork_id,
             'quantity': quantity,
             'artwork': artwork,
             'frame': frame,
+            'artwork_price': price,
+            'sub_total': product_subtotal,
         })
     delivery_cost = Decimal(int(get_object_or_404(SystemPreference,
                             code='DP').data) * total / 100)

@@ -2,32 +2,88 @@
     <div class="w-100 toast-capper bg-success"></div>
     <div class="toast-header">
         <strong class="me-auto">Success!</strong>
-        <button type="button" class="btn-close"  data-bs-dismiss="toast" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
     </div>
     <div class="toast-body bg-white">
         <div class="row">
-            <hr class="mt-1 mb-3">
             <div class="col">
                 {{ message }}
             </div>
         </div>
 
         {% if 'bag_item_changed' in message.extra_tags %}
-            <input type="hidden" id="toast-persist">
-            <p class="logo-font bg-white text-black py-1">Your Bag ({{product_count}})</p>
-            <div>
-                {% for item in bag_items %}
-                    <div class="row">
-                        <div class="col-3 my-1">
-                            {% if item.product.image %}
-                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                            {% else %}
-                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                            {% endif %}
-                        </div>
-                    </div>
-                {% endfor %}
+        <input type="hidden" id="toast-persist">
+        <hr class="mt-1 mb-1">
+        <p class="logo-font bg-white text-black py-1">Your Bag ({{product_count}})</p>
+        <div class="bag-notice-container">
+            {% for item in bag_items %}
+            <div class="row">
+                <div class="col-3 my-1">
+                    {% if item.artwork.image %}
+                    <img class="w-100" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
+                    {% else %}
+                    <img class="w-100" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
+                    {% endif %}
+                    <img class="w-100" src="{{ item.frame.image.url }}" alt="{{ item.frame.name }}">
+                </div>
+                <div class="col-9">
+                    <p class="my-0">Artwork: <strong>{{ item.artwork.name }}</strong></p>
+                    <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong></p>
+                    <p class="my-0">Frame: {{ item.frame.name }}</p>
+                    <p class="my-0"><strong>€{{ item.frame.price|floatformat:"2g" }}</strong></p>
+                    <p class="my-0 small text-muted">Qty: {{ item.quantity }}</p>
+                    <p class="my-0"><strong>Sub-Total: €{{ item.sub_total|floatformat:"2g" }}</strong></p>
+                </div>
+                <hr class="mt-1 mb-1">
             </div>
+            {% endfor %}
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="my-0 text-end"><strong>Total:</strong></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="my-0 highlight"><strong>€{{ total|floatformat:"2g" }}</strong></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p class="my-0 text-end"><strong>Delivery:</strong></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="my-0 highlight"><strong>€{{ delivery_cost|floatformat:"2g" }}</strong></p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        <p class="my-0 text-end"><strong>Grand Total:</strong></p>
+                    </div>
+                    <div class="col-6">
+                        <p class="my-0 highlight"><strong>€{{ grand_total|floatformat:"2g" }}</strong></p>
+                    </div>
+                </div>
+                {% if coupon_delta > 0 %}
+                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                    Spend <strong>${{ coupon_delta }}</strong> more to qualify to use the discount coupon!
+                </p>
+                {% else %}
+                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                    You have over <strong>€{{ coupon_threshold }}</strong> in your bag, remember to get our discount
+                    coupon code above and use at checkout!
+                </p>
+                {% endif %}
+
+                <div>
+                    <a href="#" class="btn btn-ok mt-1 w-100">
+                        <span><i class="fas fa-lock icon"></i></span>
+                        <span>Proceed to Checkout</span>
+                        <span><i class="fas fa-euro-sign icon"></i></span>
+                    </a>
+                </div>
+            </div>
+        </div>
         {% endif %}
     </div>
 </div>
