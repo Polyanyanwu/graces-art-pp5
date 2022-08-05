@@ -11,5 +11,23 @@
                 {{ message }}
             </div>
         </div>
+
+        {% if 'bag_item_changed' in message.extra_tags %}
+            <input type="hidden" id="toast-persist">
+            <p class="logo-font bg-white text-black py-1">Your Bag ({{product_count}})</p>
+            <div>
+                {% for item in bag_items %}
+                    <div class="row">
+                        <div class="col-3 my-1">
+                            {% if item.product.image %}
+                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            {% else %}
+                            <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
     </div>
 </div>

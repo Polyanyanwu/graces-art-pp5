@@ -95,7 +95,8 @@ function artDetails() {
 
             const frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
             const frameId = frameDetail.split(":")[0];
-            frameIdEl.textContent = frameId;
+            console.log(frameId);
+            frameIdEl.value = frameId;
             const costVal = frameDetail.split(":")[1];
             imgVal = frameDetail.split(":")[2];
             selectedImg.src = imgVal;

@@ -79,7 +79,7 @@
                 </p>
                 {% endif %}
 
-                <form class="form" action="{% url 'artwork_detail' artwork.id %}" method="POST">
+                <form class="form" action="{% url 'add_to_bag' artwork.id %}" method="POST">
                     {% csrf_token %}
                     <p class="mb-1">
                         <label for="frame">Frame:</label>
@@ -116,9 +116,10 @@
                         <button type="submit" class="btn btn-select mt-3" name="add-to-wishlist">Add to Wishlist</button>
                         <button type="submit" class="btn btn-dark mt-3" name="add-to-bag">Add to Bag</button>
                     </div>
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    <input type="hidden" name="frame" value="" id="frame-id">
                 </form>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                <input type="hidden" name="frame" value="" id="frame-id">
+
             </div>
         </div>
     </div>

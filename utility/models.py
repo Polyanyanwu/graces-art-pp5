@@ -15,7 +15,9 @@ class SystemPreference(models.Model):
             ('CR', 'Customer Threshold Coupon Code'),
             ('C1', 'Welcome coupon percentage discount'),
             ('T1', 'Threshold Amount'),
-            ('C2', 'Threshold discount percentage')
+            ('C2', 'Threshold discount percentage'),
+            ('DP', 'Delivery Charge Percentage'),
+            ('DC', 'Delivery Cost Maximum'),
 
         ]
     DATA_TYPES = [
