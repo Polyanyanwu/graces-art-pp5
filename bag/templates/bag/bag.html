@@ -14,7 +14,6 @@
 <div class="container container-main">
     {% if bag_items %}
     <div class="row" col-sm-12 col-md-10 col-offset-1>
-
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -34,53 +33,52 @@
                         <td>
 
                             {% if item.artwork.image %}
-                            <img class="img-cover" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
+                                <img class="img-cover" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
                             {% else %}
-                            <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
+                                <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
                             {% endif %}
-
-
                             <p class="my-0"> <strong>{{ item.artwork.name }}</strong></p>
                             {% if item.artwork.on_sale %}
                                 <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong>
-                                <span class=" strikeout my-0 ms-2">€{{ item.artwork.price|floatformat:2}}</span>
+                                    <span class=" strikeout my-0 ms-2">€{{ item.artwork.price|floatformat:2}}</span>
                                 </p>
                             {% else %}
                                 <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong></p>
                             {% endif %}
                             <button type="submit" class="btn btn-select" name="wish_list" id="wish-list-btn">Move to
                                 Wishlist</button>
-                            <!-- <button type="submit" class="btn btn-cancel" name="remove_rec" value={{item.artwork.id}}-{{item.frame.id}}
-                                id="remove-btn">Delete</button> -->
                             <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
                                 data-bs-target="#confirmModal"
                                 data-message="Please confirm removing the {{item.artwork.name}} from the shopping bag"
                                 data-record_id={{item.artwork.id}}-{{item.frame.id}}>Remove
                             </button>
-
-
                         </td>
                         <td>
-                            <img class="frame-img-cover " src="{{ item.frame.image.url }}" alt="{{ item.frame.name }}">
-                            <p class="my-0">{{ item.frame.name }}</p>
-                            <p class="my-0">{{ item.frame.size }}</p>
-                            <p class="my-0"><strong>€{{ item.frame.price|floatformat:"2g" }}</strong></p>
-                        </td>
-                        <td>
-                            <!-- <p class="my-0 text-center">{{ item.quantity }}</p> -->
-
-                            <p class="my-0 text-center">
-                                <!-- <label for="quantity">Quantity:</label> -->
-                                <select name="quantity" class="quantity" data-record_id={{item.artwork.id}}-{{item.frame.id}}>
-                                    {% for i in max_qty %}
-                                    <option value={{i}} {% if item.quantity == i %} selected="" {% endif %}>{{i}}
-                                    </option>
+                            <p>
+                                <select name="frame" class="select-frame"
+                                    data-record_id={{item.artwork.id}}-{{item.frame.id}}>
+                                    {% for frame in frames %}
+                                        <option value={{frame.id}} {% if item.frame.id == frame.id %} selected=""
+                                            {% endif %}> {{frame.get_description}}
+                                        </option>
                                     {% endfor %}
                                 </select>
                             </p>
-
+                            <img class="frame-img-cover " src="{{ item.frame.image.url }}" alt="{{ item.frame.name }}">
+                            <p class="my-0">{{ item.frame.name }}</p>
+                            <p class="my-0"><strong>€{{ item.frame.price|floatformat:"2g" }}</strong></p>
                         </td>
-
+                        <td>
+                            <p class="my-0 text-center">
+                                <select name="quantity" class="quantity"
+                                    data-record_id={{item.artwork.id}}-{{item.frame.id}}>
+                                    {% for i in max_qty %}
+                                        <option value={{i}} {% if item.quantity == i %} selected="" {% endif %}>{{i}}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </p>
+                        </td>
                         <td>
                             <p class="my-0"><strong>€{{ item.sub_total|floatformat:"2g" }}</strong></p>
                         </td>
@@ -88,20 +86,12 @@
                     </tr>
                     {% endfor %}
                     <button type="submit" class="hidden" name="change-qty-btn" value="" id="change-qty-btn"></button>
-                    <input type="hidden" value="" name="confirm-id" id="confirm-id">
+                    <button type="submit" class="hidden" name="change-frame-btn" value=""
+                        id="change-frame-btn"></button>
                     <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                 </form>
             </tbody>
         </table>
-
-
-
-
-
-
-
-
-
         <div class="row">
             <div class="col">
                 <div class="row">
@@ -129,14 +119,14 @@
                     </div>
                 </div>
                 {% if coupon_delta > 0 %}
-                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                    Spend <strong>${{ coupon_delta }}</strong> more to qualify to use the discount coupon!
-                </p>
+                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                        Spend <strong>${{ coupon_delta }}</strong> more to qualify to use the discount coupon!
+                    </p>
                 {% else %}
-                <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                    You have over <strong>€{{ coupon_threshold }}</strong> in your bag, remember to get our discount
-                    coupon code above and use at checkout!
-                </p>
+                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
+                        You have over <strong>€{{ coupon_threshold }}</strong> in your bag, remember to get our discount
+                        coupon code above and use at checkout!
+                    </p>
                 {% endif %}
 
                 <div class="col-md-4 mx-auto mb-2 mt-2">
@@ -151,24 +141,23 @@
                         <span>Proceed to Checkout</span>
                         <span><i class="fas fa-euro-sign icon"></i></span>
                     </a>
-
                 </div>
             </div>
         </div>
     </div>
     {% else %}
-    <p class="lead mb-5">Your bag is empty.</p>
-    <a href="{% url 'get_artworks' %}" class="btn btn-ok btn-lg">
-        <span class="icon">
-            <i class="fas fa-chevron-left"></i>
-        </span>
-        <span class="text-uppercase">Keep Shopping</span>
-    </a>
+        <p class="lead mb-5">Your bag is empty.</p>
+        <a href="{% url 'get_artworks' %}" class="btn btn-ok btn-lg">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+        </a>
     {% endif %}
 </div>
 {% endblock %}
 
 {% block postloadjs %}
 {{ block.super }}
-<script src="{% static 'js/artworks.js' %}"></script>
+    <script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}

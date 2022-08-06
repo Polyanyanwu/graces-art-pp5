@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
+""" Module to display, update or delete bag items """
+
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from artworks.models import Artwork, ArtFrame
@@ -64,16 +66,19 @@ def view_bag(request):
     max_qty_rec = get_object_or_404(SystemPreference, code='Q')
     max_qty = int(max_qty_rec.data) + 1
 
+    frames = ArtFrame.objects.all()
+
     return render(request, 'bag/bag.html',
                   {
                         'max_qty':  range(1, max_qty),
+                        'frames': frames,
                   })
 
 
 def update_bag(request):
     """ A view that updates/deletes bag contents
         Data is in the context already """
-    print("update bag post==", request.POST)
+
     bag = request.session.get('bag', {})
     if 'confirm-action-btn' in request.POST:
         # confirmation of remove action
@@ -107,6 +112,43 @@ def update_bag(request):
             frame.save()
             bag[bag_item_key]['frame_id'][frame_id] = int(new_qty)
             messages.success(request, f'Updated quantity of {frame.name}\
+                 in your bag')
+        except Exception as e:
+            messages.error(request, 'Error removing item: contact \
+                site owner if it persists')
+            print(f'Error removing item: {e}')
+
+    if 'change-frame-btn' in request.POST:
+        # change of frame type
+        # need to confirm availability of the new frame quantity
+        try:
+            item_id = request.POST.get('change-frame-btn')
+            old_frame = item_id.split('-')[1].split(':')[0]
+            artwork_id = item_id.split('-')[0]
+            new_frame = int(item_id.split(':')[1])
+            bag_item_key = item_id.split(':')[0]
+            frame_qty = bag[bag_item_key]['frame_id'][old_frame]
+
+            frame = get_object_or_404(ArtFrame, pk=int(int(new_frame)))
+            if frame_qty > frame.qty:
+                messages.warning(request,
+                                 f'The quantity selected for {frame.name} \
+                                 is not available: Only {frame.qty} in stock')
+                return redirect('view_bag')
+            frame.qty -= frame_qty
+            frame.save()
+            # remove the item but increase the quantity
+            # if the new frame exists with the same artwork id
+            bag.pop(bag_item_key)
+            new_frame = str(new_frame)
+            new_bag_key = artwork_id + '-' + new_frame
+
+            if new_bag_key in list(bag.keys()):
+                bag[new_bag_key]['frame_id'][new_frame] += frame_qty
+            else:
+                bag[new_bag_key] = {'frame_id': {new_frame: frame_qty}}
+
+            messages.success(request, f'Updated frame to {frame.name}\
                  in your bag')
         except Exception as e:
             messages.error(request, 'Error removing item: contact \

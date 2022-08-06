@@ -140,7 +140,7 @@ function getTotalDetailCost(frameCost) {
 }
 
 if (document.querySelector('#update-bag-form')) {
-    console.log("entered quantity change")
+
     // Select quantity change on bag display
     const qtyEl = document.querySelectorAll('.quantity');
     qtyEl.forEach(btn => btn.addEventListener('change', function (e) {
@@ -150,4 +150,15 @@ if (document.querySelector('#update-bag-form')) {
         document.getElementById("change-qty-btn").value = rec_id + ":" + qty_changed;
         document.getElementById('change-qty-btn').click();
     })) 
+
+    // Select frame change on bag display
+    const frameEl = document.querySelectorAll('.select-frame');
+    frameEl.forEach(btn => btn.addEventListener('change', function (e) {
+        frameSelected = e.target;
+        const new_frame = frameSelected.options[frameSelected.selectedIndex].value;
+        const rec_id = frameSelected.dataset.record_id;
+        document.getElementById("change-frame-btn").value = rec_id + ":" + new_frame;
+        document.getElementById('change-frame-btn').click();
+    })) 
+
 }
