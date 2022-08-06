@@ -11,9 +11,9 @@
         </div>
     </div>
 </div>
-<div class="container-fluid container-main">
+<div class="container container-main">
     {% if bag_items %}
-    <div class="row">
+    <div class="row" col-sm-12 col-md-10 col-offset-1>
 
         <table class="table table-striped">
             <thead>
@@ -41,7 +41,13 @@
 
 
                             <p class="my-0"> <strong>{{ item.artwork.name }}</strong></p>
-                            <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong></p>
+                            {% if item.artwork.on_sale %}
+                                <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong>
+                                <span class=" strikeout my-0 ms-2">€{{ item.artwork.price|floatformat:2}}</span>
+                                </p>
+                            {% else %}
+                                <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong></p>
+                            {% endif %}
                             <button type="submit" class="btn btn-select" name="wish_list" id="wish-list-btn">Move to
                                 Wishlist</button>
                             <!-- <button type="submit" class="btn btn-cancel" name="remove_rec" value={{item.artwork.id}}-{{item.frame.id}}
@@ -65,7 +71,7 @@
 
                             <p class="my-0 text-center">
                                 <!-- <label for="quantity">Quantity:</label> -->
-                                <select name="quantity" id="quantity">
+                                <select name="quantity" class="quantity" data-record_id={{item.artwork.id}}-{{item.frame.id}}>
                                     {% for i in max_qty %}
                                     <option value={{i}} {% if item.quantity == i %} selected="" {% endif %}>{{i}}
                                     </option>
@@ -80,21 +86,11 @@
                         </td>
                         </td>
                     </tr>
-                    <input type="hidden" value={{item.artwork.id}}-{{item.frame.id}} name="bag_item_id">
-                    <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
-                            data-name={{item.artwork.id}}-{{item.frame.id}}>Edit
-                        </button>
-                    </td>
                     {% endfor %}
-                    <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
-                    <input type="hidden" value="" name="name_selected" id="name_selected">
+                    <button type="submit" class="hidden" name="change-qty-btn" value="" id="change-qty-btn"></button>
                     <input type="hidden" value="" name="confirm-id" id="confirm-id">
                     <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                 </form>
-
-                <input type="hidden" value="" name="name_selected" id="name_selected">
-                <input type="hidden" value="" name="confirm-id" id="confirm-id">
-
             </tbody>
         </table>
 

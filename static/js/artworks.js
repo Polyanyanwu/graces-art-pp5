@@ -138,3 +138,16 @@ function getTotalDetailCost(frameCost) {
     }
     return total;
 }
+
+if (document.querySelector('#update-bag-form')) {
+    console.log("entered quantity change")
+    // Select quantity change on bag display
+    const qtyEl = document.querySelectorAll('.quantity');
+    qtyEl.forEach(btn => btn.addEventListener('change', function (e) {
+        qtySelected = e.target;
+        const qty_changed = qtySelected.options[qtySelected.selectedIndex].value;
+        const rec_id = qtySelected.dataset.record_id;
+        document.getElementById("change-qty-btn").value = rec_id + ":" + qty_changed;
+        document.getElementById('change-qty-btn').click();
+    })) 
+}

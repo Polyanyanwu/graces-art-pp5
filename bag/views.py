@@ -71,15 +71,13 @@ def view_bag(request):
 
 
 def update_bag(request):
-    """ A view that renders the bag contents page
+    """ A view that updates/deletes bag contents
         Data is in the context already """
     print("update bag post==", request.POST)
-
+    bag = request.session.get('bag', {})
     if 'confirm-action-btn' in request.POST:
         # confirmation of remove action
         try:
-
-            bag = request.session.get('bag', {})
             item_id = request.POST.get('confirm-id')
             artwork_id = item_id.split('-')[0]
             artwork = get_object_or_404(Artwork, pk=artwork_id)
@@ -88,8 +86,30 @@ def update_bag(request):
             request.session['bag'] = bag
         except Exception as e:
             messages.error(request, f'Error removing item: {e}')
+
+    if 'change-qty-btn' in request.POST:
+        # change of bag item quantity
+        # need to confirm availability of the new frame quantity
+        try:
+            item_id = request.POST.get('change-qty-btn')
+            frame_id = item_id.split('-')[1].split(':')[0]
+            new_qty = int(item_id.split(':')[1])
+            bag_item_key = item_id.split(':')[0]
+            old_qty = bag[bag_item_key]['frame_id'][frame_id]
+
+            frame = get_object_or_404(ArtFrame, pk=int(int(frame_id)))
+            if new_qty > old_qty and (new_qty - old_qty) > frame.qty:
+                messages.warning(request,
+                                 f'The quantity selected for {frame.name} \
+                                 is not available: Only {frame.qty} in stock')
+                return redirect('view_bag')
+            frame.qty -= (new_qty - old_qty)
+            frame.save()
+            bag[bag_item_key]['frame_id'][frame_id] = int(new_qty)
+            messages.success(request, f'Updated quantity of {frame.name}\
+                 in your bag')
+        except Exception as e:
+            messages.error(request, 'Error removing item: contact \
+                site owner if it persists')
+            print(f'Error removing item: {e}')
     return redirect('view_bag')
-    # return render(request, 'bag/bag.html',
-    #               {
-    #                     'max_qty':  range(1, max_qty),
-    #               })
