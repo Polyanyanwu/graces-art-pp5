@@ -1,14 +1,17 @@
 """ Home page views """
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from django.contrib import messages
 from utility.models import SystemPreference
-# Create your views here.
+from .forms import ContactUsForm
 
 
 def index(request):
     """ A view to return the index page """
 
     return render(request, 'home/index.html')
+
 
 @login_required
 def coupons(request):
@@ -33,3 +36,39 @@ def coupons(request):
                     'threshold_amt': threshold_amt,
                     'threshold_discount': threshold_discount,
                   })
+
+
+def contact_us(request):
+    """ View to receive contact us message """
+
+    # form = ContactUsForm()
+    if request.user.is_authenticated:
+        email = get_object_or_404(User, username=request.user).email
+    else:
+        email = ""
+
+    if request.method == 'POST':
+        form = ContactUsForm(data=request.POST)
+        if form.is_valid():
+            form_message = form.save(commit=False)
+            if request.user.is_authenticated:
+                user = User.objects.get(username=request.user)
+                form_message.user = user
+            form_message.save()
+            messages.info(request, 'Thank you for your message')
+            return redirect('home')
+        else:
+            messages.info(request, 'Please check your\
+                submission and try again')
+            email = request.POST.get('email')
+    else:
+        data = {'message_body': "", 'sender': email, 'subject': 'information'}
+        form = ContactUsForm(initial=data)
+    return render(
+        request,
+        "home/contact_us.html",
+        {
+                "form": form,
+                "email": email
+            }
+        )

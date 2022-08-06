@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", startUp);
 const toastRemove = function () {
     "use strict";
     const toast = document.querySelector('.custom-toast');
-    const toastPersist = document.querySelector('.toast-persist');
-    console.log("toasts persist=="+ toastPersist);
-    if (toast != null && toastPersist!= null) {
+    const toastPersist = document.querySelector('#toast-persist');
+
+    if (toast != null && toastPersist == null) {
         if (toast.classList.contains('show')) {
             setTimeout(function () {
                 toast.classList.remove('show')
-            }, 5000); // 10 seconds
+            }, 5000); // 5 seconds
         }
     }
 };

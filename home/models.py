@@ -22,5 +22,8 @@ class ContactUs(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL,
                              null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = "Contact Us"
+
     def __str__(self):
         return str(self.sender)
