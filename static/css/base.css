@@ -50,9 +50,9 @@ main {
     color: var(--rich-black);
 }
 
-.voucher-banner {
+.voucher-banner, .voucher-banner a {
     font-family: 'Edu NSW ACT Foundation', cursive;
-    color: var(--baby-powder);
+    color: var(--baby-powder)!important;
     background-color: var(--rich-black);
 }
 
@@ -382,8 +382,9 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    #voucher-banner h4 {
+    .voucher-banner h4, voucher-banner a {
         font-size: 1rem;
+        color: white;
     }
 
     footer h4,

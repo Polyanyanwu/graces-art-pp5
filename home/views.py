@@ -19,7 +19,6 @@ def coupons(request):
             ('T1', 'Threshold Amount'),
             ('C2', 'Threshold discount percentage')
     """
-    print("entered page")
     welcome_code = get_object_or_404(SystemPreference, code='CF').data
     welcome_code_discount = get_object_or_404(SystemPreference, code='C1').data
     threshold_code = get_object_or_404(SystemPreference, code='CR').data

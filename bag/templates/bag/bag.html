@@ -89,6 +89,7 @@
                     <button type="submit" class="hidden" name="change-frame-btn" value=""
                         id="change-frame-btn"></button>
                     <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+                    <input type="hidden" value="" name="confirm-id" id="confirm-id">
                 </form>
             </tbody>
         </table>
@@ -120,16 +121,16 @@
                 </div>
                 {% if coupon_delta > 0 %}
                     <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                        Spend <strong>${{ coupon_delta }}</strong> more to qualify to use the discount coupon!
+                        Spend <strong>${{ coupon_delta|floatformat:"2g" }}</strong> more to qualify to use the discount coupon!
                     </p>
                 {% else %}
                     <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                        You have over <strong>€{{ coupon_threshold }}</strong> in your bag, remember to get our discount
+                        You have over <strong>€{{ coupon_threshold|floatformat:"2g" }}</strong> in your bag, remember to get our discount
                         coupon code above and use at checkout!
                     </p>
                 {% endif %}
 
-                <div class="col-md-4 mx-auto mb-2 mt-2">
+                <div class="col-sm-12 col-md-7 col-lg-6 col-xl-5 mx-auto mb-2 mt-2">
                     <a href="{% url 'get_artworks' %}" class="btn btn-ok mt-1">
                         <span>
                             <i class="fas fa-angle-double-left"></i>
