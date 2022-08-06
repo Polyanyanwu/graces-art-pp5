@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from artworks.models import Artwork, ArtFrame
@@ -55,3 +55,10 @@ def add_to_bag(request, artwork_id):
         return redirect(redirect_url)
     request.session['bag'] = bag
     return redirect(redirect_url)
+
+
+def view_bag(request):
+    """ A view that renders the bag contents page
+        Data is in the context already """
+
+    return render(request, 'bag/bag.html')
