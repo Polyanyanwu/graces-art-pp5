@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 
 from artworks.models import Artwork, ArtFrame
+from utility.models import SystemPreference
 
 
 def add_to_bag(request, artwork_id):
@@ -60,5 +61,21 @@ def add_to_bag(request, artwork_id):
 def view_bag(request):
     """ A view that renders the bag contents page
         Data is in the context already """
+    max_qty_rec = get_object_or_404(SystemPreference, code='Q')
+    max_qty = int(max_qty_rec.data) + 1
 
-    return render(request, 'bag/bag.html')
+    return render(request, 'bag/bag.html',
+                  {
+                        'max_qty':  range(1, max_qty),
+                  })
+
+
+def update_bag(request):
+    """ A view that renders the bag contents page
+        Data is in the context already """
+    print("update bag post==", request.POST)
+    return redirect('view_bag')
+    # return render(request, 'bag/bag.html',
+    #               {
+    #                     'max_qty':  range(1, max_qty),
+    #               })
