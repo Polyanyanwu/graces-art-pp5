@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from django.contrib import messages
 
 from artworks.models import Artwork, ArtFrame
@@ -74,6 +74,20 @@ def update_bag(request):
     """ A view that renders the bag contents page
         Data is in the context already """
     print("update bag post==", request.POST)
+
+    if 'confirm-action-btn' in request.POST:
+        # confirmation of remove action
+        try:
+
+            bag = request.session.get('bag', {})
+            item_id = request.POST.get('confirm-id')
+            artwork_id = item_id.split('-')[0]
+            artwork = get_object_or_404(Artwork, pk=artwork_id)
+            bag.pop(item_id)
+            messages.success(request, f'Removed {artwork.name} from your bag')
+            request.session['bag'] = bag
+        except Exception as e:
+            messages.error(request, f'Error removing item: {e}')
     return redirect('view_bag')
     # return render(request, 'bag/bag.html',
     #               {
