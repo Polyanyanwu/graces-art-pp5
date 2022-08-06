@@ -1,0 +1,16 @@
+Dear Sir/Madame
+
+We received your message detailed below:
+
+Subject: {{ details.subject }}
+Date Sent: {{ details.date_time }}
+
+Message:
+{{ details.message_body }}
+
+We shall respond within few days. Feel free to contact us by Whatsapp if you have not heard from us after 3 days.
+
+Thank you!
+
+
+Graces Art Prints

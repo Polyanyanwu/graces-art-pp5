@@ -2,6 +2,9 @@
 
 from django.db import models
 from django.contrib.auth.models import User
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 class ContactUs(models.Model):
@@ -23,7 +26,26 @@ class ContactUs(models.Model):
                              null=True, blank=True)
 
     class Meta:
+        """ verbose name of the table """
         verbose_name_plural = "Contact Us"
 
     def __str__(self):
         return str(self.sender)
+
+    def send_contact_message(self):
+        """
+        Send confirmation email when a contact completes a contact form
+        """
+
+        sender = self.sender
+        subject = 'Your message to us'
+        body = render_to_string(
+            'home/messages/contact_email.txt',
+            {'details': self})
+        print("body==", body)
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [sender]
+        )
