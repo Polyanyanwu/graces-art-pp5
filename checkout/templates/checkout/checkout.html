@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid gx-4 ">
     <div class="row">
         <div class="col text-center">
-            <h4>Shopping Bag</h4>
+            <h4>Checkout</h4>
             <hr>
         </div>
     </div>
@@ -15,89 +16,76 @@
     {% if bag_items %}
     <div class="row">
         <div class="col-12 col-lg-6 order-lg-last mb-5">
-            <table class="table table-striped">
+            <p class="text-muted">Order Summary ({{ product_count }})</p>
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">#</th>
                         <th scope="col">Artwork</th>
                         <th scope="col">Frame</th>
-                        <th scope="col" class="text-center">Quantity</th>
+                        <th scope="col" class="text-center">Qty</th>
                         <th scope="col">Subtotal</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <form action="{% url 'update_bag' %}" method="POST" id="update-bag-form">
-                        {% csrf_token %}
-                        {% for item in bag_items %}
-                        <tr>
-                            <th scope="row">{{forloop.counter }}</th>
-                            <td>
 
-                                {% if item.artwork.image %}
-                                <img class="img-cover" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
-                                {% else %}
-                                <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
-                                {% endif %}
-                                <p class="my-0"> <strong>{{ item.artwork.name }}</strong></p>
-                                {% if item.artwork.on_sale %}
-                                <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong>
-                                    <span class=" strikeout my-0 ms-2">€{{ item.artwork.price|floatformat:2}}</span>
-                                </p>
-                                {% else %}
-                                <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong></p>
-                                {% endif %}
-                                <button type="submit" class="btn btn-select" name="wish_list" id="wish-list-btn">Move to
-                                    Wishlist</button>
-                                <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
-                                    data-bs-target="#confirmModal"
-                                    data-message="Please confirm removing the {{item.artwork.name}} from the shopping bag"
-                                    data-record_id={{item.artwork.id}}-{{item.frame.id}}>Remove
-                                </button>
-                            </td>
-                            <td>
-                                <p>
-                                    <select name="frame" class="select-frame"
-                                        data-record_id={{item.artwork.id}}-{{item.frame.id}}>
-                                        {% for frame in frames %}
-                                        <option value={{frame.id}} {% if item.frame.id == frame.id %} selected=""
-                                            {% endif %}> {{frame.get_description}}
-                                        </option>
-                                        {% endfor %}
-                                    </select>
-                                </p>
-                                <img class="frame-img-cover " src="{{ item.frame.image.url }}"
-                                    alt="{{ item.frame.name }}">
-                                <p class="my-0">{{ item.frame.name }}</p>
-                                <p class="my-0"><strong>€{{ item.frame.price|floatformat:"2g" }}</strong></p>
-                            </td>
-                            <td>
-                                <p class="my-0 text-center">
-                                    <select name="quantity" class="quantity"
-                                        data-record_id={{item.artwork.id}}-{{item.frame.id}}>
-                                        {% for i in max_qty %}
-                                        <option value={{i}} {% if item.quantity == i %} selected="" {% endif %}>{{i}}
-                                        </option>
-                                        {% endfor %}
-                                    </select>
-                                </p>
-                            </td>
-                            <td>
-                                <p class="my-0"><strong>€{{ item.sub_total|floatformat:"2g" }}</strong></p>
-                            </td>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        <button type="submit" class="hidden" name="change-qty-btn" value=""
-                            id="change-qty-btn"></button>
-                        <button type="submit" class="hidden" name="change-frame-btn" value=""
-                            id="change-frame-btn"></button>
-                        <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
-                        <input type="hidden" value="" name="confirm-id" id="confirm-id">
-                    </form>
+                    {% for item in bag_items %}
+                    <tr>
+                        <th scope="row">{{forloop.counter }}</th>
+                        <td>
+
+                            {% if item.artwork.image %}
+                            <img class="img-tiny" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
+                            {% else %}
+                            <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
+                            {% endif %}
+                            <p class="my-0"> <strong>{{ item.artwork.name }}</strong></p>
+                            {% if item.artwork.on_sale %}
+                            <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong>
+                                <span class=" strikeout my-0 ms-2">€{{ item.artwork.price|floatformat:2}}</span>
+                            </p>
+                            {% else %}
+                            <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong></p>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <img class="img-tiny-frame" src="{{ item.frame.image.url }}" alt="{{ item.frame.name }}">
+                            <p class="my-0">{{ item.frame.name }}</p>
+                            <p class="my-0"><strong>€{{ item.frame.price|floatformat:"2g" }}</strong></p>
+                        </td>
+                        <td>
+                            {{ item.quantity }}
+                        </td>
+                        <td>
+                            <p class="my-0"><strong>€{{ item.sub_total|floatformat:"2g" }}</strong></p>
+                        </td>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    <button type="submit" class="hidden" name="change-qty-btn" value="" id="change-qty-btn"></button>
+                    <button type="submit" class="hidden" name="change-frame-btn" value=""
+                        id="change-frame-btn"></button>
+                    <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+                    <input type="hidden" value="" name="confirm-id" id="confirm-id">
+
                 </tbody>
             </table>
             <div class="row">
                 <div class="col">
+
+                    <form action="{% url 'checkout' %}" method="POST" id="update-checkout-voucher">
+                        <div class="row">
+                            {% csrf_token %}
+                            <div class="col-4">
+                                {{ form.discount_code }}
+                            </div>
+                            <div class="col-2 ms-1">
+                                <button type="submit" class="btn-ok" name="change-frame-btn" value=""
+                                    id="change-frame-btn">Apply</button>
+                            </div>
+
+                        </div>
+                    </form>
                     <div class="row">
                         <div class="col-6">
                             <p class="my-0 text-end"><strong>Total:</strong></p>
@@ -122,32 +110,7 @@
                             <p class="my-0 highlight"><strong>€{{ grand_total|floatformat:"2g" }}</strong></p>
                         </div>
                     </div>
-                    {% if coupon_delta > 0 %}
-                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                        Spend <strong>${{ coupon_delta|floatformat:"2g" }}</strong> more to qualify to use the discount
-                        coupon!
-                    </p>
-                    {% else %}
-                    <p class="mb-0 p-2 bg-warning shadow-sm text-black text-center">
-                        You have over <strong>€{{ coupon_threshold|floatformat:"2g" }}</strong> in your bag, remember to
-                        get our discount
-                        coupon code above and use at checkout!
-                    </p>
-                    {% endif %}
 
-                    <div class="col-sm-12 col-md-7 col-lg-6 col-xl-5 mx-auto mb-2 mt-2">
-                        <a href="{% url 'get_artworks' %}" class="btn btn-ok mt-1">
-                            <span>
-                                <i class="fas fa-angle-double-left"></i>
-                            </span>
-                            <span>Keep Shopping</span>
-                        </a>
-                        <a href="#" class="btn btn-ok mt-1">
-                            <span><i class="fas fa-lock icon"></i></span>
-                            <span>Proceed to Checkout</span>
-                            <span><i class="fas fa-euro-sign icon"></i></span>
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -160,11 +123,70 @@
             <span class="text-uppercase">Keep Shopping</span>
         </a>
         {% endif %}
+
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Please fill out the form below to complete your order</p>
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
+                {% csrf_token %}
+                <fieldset class="rounded px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                    {{ form.first_name | as_crispy_field }}
+                    {{ form.last_name | as_crispy_field }}
+                    {{ form.email | as_crispy_field }}
+                </fieldset>
+                <fieldset class="rounded px-3 mb-5">
+                    <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
+                    {{ form.phone | as_crispy_field }}
+                    {{ form.street_address1 | as_crispy_field }}
+                    {{ form.street_address2 | as_crispy_field }}
+                    {{ form.town_city | as_crispy_field }}
+                    {{ form.county_region | as_crispy_field }}
+                    {{ form.postal_code | as_crispy_field }}
+                    {{ form.country | as_crispy_field }}
+                    <div class="form-check form-check-inline float-right mr-0">
+                        {% if user.is_authenticated %}
+                        <label class="form-check-label" for="id-save-info">Save this delivery information to my
+                            profile</label>
+                        <input class="form-check-input ml-2 mr-0" type="checkbox" id="id-save-info" name="save-info"
+                            checked>
+                        {% else %}
+                        <label class="form-check-label" for="id-save-info">
+                            <a class="text-info" href="{% url 'account_signup' %}">Create an account</a> or
+                            <a class="text-info" href="{% url 'account_login' %}">login</a> to save this information
+                        </label>
+                        {% endif %}
+                    </div>
+                </fieldset>
+
+                <div class="submit-button text-right mt-5 mb-2">
+                    <a href="{% url 'view_bag' %}" class="btn btn-outline-black btn-select">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="font-weight-bold">Adjust Bag</span>
+                    </a>
+                    <button id="submit-button" class="btn btn-black btn-ok">
+                        <span class="font-weight-bold">Complete Order</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </button>
+                    <p class="small highlight my-0">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </span>
+                        <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+
     </div>
 </div>
-<div class="col-12 col-lg-6">
-    
-</div>
+
+
+
 {% endblock %}
 
 {% block postloadjs %}
