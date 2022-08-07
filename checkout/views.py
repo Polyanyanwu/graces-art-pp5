@@ -41,6 +41,11 @@ def checkout(request):
                 messages.warning(request, "Your total shopping does not \
                     qualify for this discount, buy more things first!")
                 return redirect('checkout')
+            elif discount == -2:
+                    # not signed in user
+                messages.warning(request, "To apply discount vouchers \
+                    please login first!")
+                return redirect('checkout')            
             current_grand_total -= discount
     context = {
         'form': form,
@@ -56,6 +61,8 @@ def _get_discount(request, discount_code, order_total):
     # check if there is discount coupon
     discount = 0
     if discount_code:
+        if not request.user.is_authenticated:
+            return -2
         threshold_code = get_object_or_404(SystemPreference,
                                            code='CR').data
         threshold_per = Decimal(get_object_or_404(

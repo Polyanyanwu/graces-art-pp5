@@ -2,6 +2,12 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block extra_title %}- checkout{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid gx-4 ">
@@ -75,11 +81,15 @@
                     <form action="{% url 'checkout' %}" method="POST" id="update-checkout-voucher">
                         <div class="row">
                             {% csrf_token %}
-                            <div class="col-4">
-                                {{ form.discount_code }}
+                            <div class="col-6">
+                                <span>{{ form.discount_code  | as_crispy_field }}</span>
+                                <!-- <span>                                
+                                    <button type="submit" class="btn-ok" name="apply-discount-btn" value=""
+                                    id="apply-discount-btn">Apply</button>
+                                </span> -->
                             </div>
-                            <div class="col-2 ms-1">
-                                <button type="submit" class="btn-ok" name="apply-discount-btn" value=""
+                            <div class="col-2">
+                                <button type="submit" class="btn btn-ok" name="apply-discount-btn" value=""
                                     id="apply-discount-btn">Apply</button>
                             </div>
                         </div>
@@ -137,13 +147,13 @@
             <p class="text-muted">Please fill out the form below to complete your order</p>
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 {% csrf_token %}
-                <fieldset class="rounded px-3 mb-5">
+                <fieldset class="rounded px-3 mb-2">
                     <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
                     {{ form.first_name | as_crispy_field }}
                     {{ form.last_name | as_crispy_field }}
                     {{ form.email | as_crispy_field }}
                 </fieldset>
-                <fieldset class="rounded px-3 mb-5">
+                <fieldset class="rounded px-3 mb-3">
                     <legend class="fieldset-label small text-black px-2 w-auto">Delivery</legend>
                     {{ form.phone | as_crispy_field }}
                     {{ form.street_address1 | as_crispy_field }}
