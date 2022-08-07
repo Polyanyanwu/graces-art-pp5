@@ -1,10 +1,11 @@
 """ Models for storing orders """
 
 import uuid
-
-from django.db import models
-from django.db.models import Sum
 from decimal import Decimal
+from django.db import models
+from django.shortcuts import get_object_or_404
+from django.db.models import Sum
+
 from django_countries.fields import CountryField
 
 from artworks.models import Artwork, ArtFrame
@@ -66,13 +67,42 @@ class Order(models.Model):
                            Sum('line_item_total'))['line_item_total__sum'] or 0
 
         self.delivery_cost = Decimal(int(get_object_or_404(SystemPreference,
-                                code='DP').data) * self.order_total / 100)
+                                     code='DP').data) * self.order_total / 100)
         max_delivery_cost = Decimal(get_object_or_404(SystemPreference,
                                     code='DC').data)
         if self.delivery_cost > max_delivery_cost:
             self.delivery_cost = max_delivery_cost
 
-        self.grand_total = self.order_total + self.delivery_cost
+        # check if there is discount coupon
+        if self.discount_code:
+            threshold_code = get_object_or_404(SystemPreference,
+                                               code='CR').data
+            threshold_per = Decimal(get_object_or_404(
+                                    SystemPreference, code='C2').data)
+            threshold_amt = Decimal(get_object_or_404(
+                                    SystemPreference, code='T1').data)
+            welcome_code = get_object_or_404(SystemPreference,
+                                             code='CF').data
+            welcome_per = Decimal(get_object_or_404(
+                                  SystemPreference, code='C1').data)
+
+            if self.discount_code == welcome_code:
+                # check if he has used this code before
+                if self.user_profile:
+                    if not self.user_profile.used_welcome_coupon:
+                        self.discount = Decimal(welcome_per/100
+                                                * self.order_total)
+                        self.user_profile.used_welcome_coupon = True
+                        self.user_profile.save()
+            elif self.discount_code == threshold_code:
+                if self.order_total >= threshold_amt:
+                    self.discount = Decimal(threshold_per/100
+                                            * self.order_total)
+            else:
+                self.discount = 0
+
+        self.grand_total = self.order_total + \
+            self.delivery_cost - self.discount
         self.save()
 
     def save(self, *args, **kwargs):

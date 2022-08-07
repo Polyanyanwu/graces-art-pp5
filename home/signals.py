@@ -10,6 +10,6 @@ from .models import ContactUs
 @receiver(post_save, sender=ContactUs)
 def send_email_confirm_for_contact_us(sender, instance, created, **kwargs):
     """ Send email confirmation when user contacts successfully"""
-    print("signal called")
+
     if created:
         instance.send_contact_message()
