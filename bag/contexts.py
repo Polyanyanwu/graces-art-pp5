@@ -41,6 +41,7 @@ def bag_contents(request):
             'artwork': artwork,
             'frame': frame,
             'artwork_price': price,
+            'frame_price': frame.price,
             'sub_total': product_subtotal,
         })
     delivery_cost = Decimal(int(get_object_or_404(SystemPreference,

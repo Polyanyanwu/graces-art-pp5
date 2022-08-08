@@ -130,6 +130,10 @@ class OrderLineItem(models.Model):
     line_item_total = models.DecimalField(max_digits=8,
                                           decimal_places=2, null=False,
                                           blank=False, editable=False)
+    artwork_price = models.DecimalField(max_digits=10, decimal_places=2,
+                                        null=False, default=0)
+    frame_price = models.DecimalField(max_digits=10, decimal_places=2,
+                                      null=False, default=0)
 
     def save(self, *args, **kwargs):
         """
@@ -137,14 +141,14 @@ class OrderLineItem(models.Model):
         and update the order total.
         """
 
-        if self.artwork.on_sale:
-            sale_price = float(self.artwork.get_sale_price())
-            self.line_item_total = self.quantity * (Decimal(sale_price)
-                                                    + self.frame.price)
-        else:
-            self.line_item_total = Decimal(self.quantity *
-                                           (self.artwork.price
-                                            + self.frame.price))
+        # if self.artwork.on_sale:
+        #     sale_price = float(self.artwork.get_sale_price())
+        #     self.line_item_total = self.quantity * (Decimal(sale_price)
+        #                                             + self.frame.price)
+        # else:
+        self.line_item_total = Decimal(self.quantity *
+                                       (self.artwork_price
+                                        + self.frame_price))
         super().save(*args, **kwargs)
 
     def __str__(self):

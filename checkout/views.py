@@ -31,7 +31,6 @@ def checkout(request):
     discount_code = None
     discount = 0
     if request.method == 'POST':
-        print(request.POST)
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -90,11 +89,17 @@ def checkout(request):
                                               pk=list(frame_detail['frame_id']
                                                       .keys())[0])
                     quantity = list(frame_detail['frame_id'].values())[0]
+                    artwork_price = artwork.price
+                    if artwork.on_sale:
+                        artwork_price = artwork.get_sale_price()
+
                     order_line_item = OrderLineItem(
                         order=order,
                         artwork=artwork,
                         frame=frame,
                         quantity=quantity,
+                        frame_price=frame.price,
+                        artwork_price=artwork_price,
                     )
                     order_line_item.save()
                 request.session['save_info'] = 'save-info' in request.POST

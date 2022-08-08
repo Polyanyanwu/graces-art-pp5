@@ -61,14 +61,14 @@
                             <p class="mb-0 text-black font-weight-bold"> Artwork: {{ item.artwork.name }}</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0">{{ item.quantity }} @ €{{ item.artwork.get_sale_price }} each</p>
+                            <p class="mb-0">{{ item.quantity }} @ €{{ item.artwork_price }} each</p>
                         </div>
 
                         <div class="col-12 col-md-4">
                             <p class="mb-0 text-black font-weight-bold"> Frame : {{ item.frame.name }}</p>
                         </div>
                         <div class="col-12 col-md-8 text-md-right">
-                            <p class="mb-0"> {{ item.quantity }} @ €{{ item.frame.price }} each</p>
+                            <p class="mb-0"> {{ item.quantity }} @ €{{ item.frame_price }} each</p>
                         </div>
                     </div>
                     <hr>
@@ -188,7 +188,7 @@
                 {% if order.discount > 0 %}
                 <div class="row">
                     <div class="col-12 col-md-4">
-                        <p class="mb-0 text-black font-weight-bold">Delivery</p>
+                        <p class="mb-0 text-black font-weight-bold">Discount</p>
                     </div>
                     <div class="col-12 col-md-8 text-md-right">
                         <p class="mb-0">€{{ order.discount |floatformat:"2g"}}</p>
