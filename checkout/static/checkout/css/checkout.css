@@ -32,8 +32,8 @@ adapted from the Boutique ADo of Code Institute*/
 }
 
 
-#payment-form .form-control,
-#card-element,
+.order-form-container .form-control,
+#card-element, #id_discount_code,
 #update-checkout-voucher input {
   color: #000;
   border: 1px solid #000;

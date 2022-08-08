@@ -67,7 +67,6 @@ def checkout(request):
                 return redirect('checkout')
             current_grand_total -= discount
             bag_content['grand_total'] = current_grand_total
-        form = OrderForm()
     else:
         # load existing customer data from profile
         if request.user.is_authenticated:
@@ -96,7 +95,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
         )
-        print(intent)
+        # print(intent)
     context = {
         'form': form,
         'current_grand_total': current_grand_total,
@@ -126,7 +125,7 @@ def _get_discount(request, discount_code, order_total):
                                 SystemPreference, code='C1').data)
 
         if discount_code == welcome_code:
-            # check if he has used this code before
+            # check if the code has been used before
             if request.user.is_authenticated:
                 profile = UserProfile.objects.get(user=request.user)
                 if not profile.used_welcome_coupon:
