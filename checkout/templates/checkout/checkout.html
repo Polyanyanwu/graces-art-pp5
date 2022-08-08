@@ -110,7 +110,7 @@
                                 <p class="my-0 highlight"><strong>€{{ discount|floatformat:"2g" }}</strong>
                                     {% if discount > 0 %}
                                     <span> <input type="text" class="text-muted small" readonly
-                                            name="disc_code_readonly" value={{discount_code}}></span>
+                                            name="disc_code_readonly" value={{discount_code}} id="disc_code_readonly"> </span>
                                     {% endif %}
                                 </p>
                             </div>

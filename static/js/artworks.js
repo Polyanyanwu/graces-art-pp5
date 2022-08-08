@@ -95,7 +95,6 @@ function artDetails() {
 
             const frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
             const frameId = frameDetail.split(":")[0];
-            console.log(frameId);
             frameIdEl.value = frameId;
             const costVal = frameDetail.split(":")[1];
             imgVal = frameDetail.split(":")[2];
@@ -132,9 +131,9 @@ function getTotalDetailCost(frameCost) {
     const qty = parseInt(qtyEl.options[qtyEl.selectedIndex].value);
     let total = 0;
     if (salePrice) {
-        total = parseFloat(frameCost) + parseFloat(salePrice.textContent) * qty;
+        total = (parseFloat(frameCost) + parseFloat(salePrice.textContent)) * qty;
     } else {
-        total = parseFloat(frameCost) + parseFloat(price.textContent) * qty;
+        total = (parseFloat(frameCost) + parseFloat(price.textContent)) * qty;
     }
     return total;
 }
