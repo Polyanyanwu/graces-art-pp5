@@ -1,16 +1,18 @@
 """ Module to process checkout and payment """
 
 from decimal import Decimal
+import json
+import stripe
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
-import stripe
-import json
+
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
+from profiles.forms import UserProfileForm
 from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
-from .models import OrderLineItem
+from .models import OrderLineItem, Order
 from .forms import OrderForm
 
 
@@ -96,8 +98,8 @@ def checkout(request):
                     )
                     order_line_item.save()
                 request.session['save_info'] = 'save-info' in request.POST
-                # return redirect(reverse('checkout_success',
-                #                 args=[order.order_number]))
+                return redirect(reverse('checkout_success',
+                                args=[order.order_number]))
             else:
                 messages.error(request, 'There was an error with your form. \
                     Please double check your information.')
@@ -176,3 +178,47 @@ def _get_discount(request, discount_code, order_total):
             else:
                 discount = -1
     return discount
+
+
+def checkout_success(request, order_number):
+    """
+    Feedback on successful checkouts
+    and update profile if indicated by user
+    """
+    save_info = request.session.get('save_info')
+    order = get_object_or_404(Order, order_number=order_number)
+
+    if request.user.is_authenticated:
+        profile = UserProfile.objects.get(user=request.user)
+        # Attach the user's profile to the order
+        order.user_profile = profile
+        order.save()
+
+        # Save the user's info
+        if save_info:
+            profile_data = {
+
+                'first_name': order.first_name,
+                'last_name': order.last_name,
+                'phone': order.phone,
+                'country': order.country,
+                'postal_code': order.postal_code,
+                'town_city': order.town_city,
+                'street_address1': order.street_address1,
+                'street_address2': order.street_address2,
+                'county_region': order.county_region,
+            }
+            profile_form = UserProfileForm(profile_data, instance=profile)
+            if profile_form.is_valid():
+                profile_form.save(request)
+
+    messages.success(request, f'Order was successfully processed! \
+        Your order number is {order_number}. A confirmation \
+        email will be sent to {order.email}.')
+    if 'bag' in request.session:
+        del request.session['bag']
+
+    return render(request, 'checkout/checkout_success.html',
+                  {
+                    'order': order,
+                  })
