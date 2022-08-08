@@ -23,11 +23,25 @@ def checkout(request):
     bag_content = bag_contents(request)
     current_grand_total = bag_content['grand_total']
 
-    form = OrderForm()
     template = 'checkout/checkout.html'
     discount_code = None
     discount = 0
     if request.method == 'POST':
+        print(request.POST)
+        form_data = {
+            'first_name': request.POST['first_name'],
+            'last_name': request.POST['last_name'],
+            'email': request.POST['email'],
+            'phone': request.POST['phone'],
+            'country': request.POST['country'],
+            'postal_code': request.POST['postal_code'],
+            'town_city': request.POST['town_city'],
+            'street_address1': request.POST['street_address1'],
+            'street_address2': request.POST['street_address2'],
+            'county_region': request.POST['county_region'],
+        }
+        form = OrderForm(form_data)
+
         if 'apply-discount-btn' in request.POST:
             discount_code = request.POST.get('discount_code')
             if not discount_code or len(discount_code.strip()) == 0:
@@ -53,15 +67,36 @@ def checkout(request):
                 return redirect('checkout')
             current_grand_total -= discount
             bag_content['grand_total'] = current_grand_total
-
-    stripe.api_key = stripe_secret_key
-    total = bag_content['grand_total']
-    stripe_total = round(total * 100)
-    intent = stripe.PaymentIntent.create(
-        amount=stripe_total,
-        currency=settings.STRIPE_CURRENCY,
-    )
-    print(intent)
+        form = OrderForm()
+    else:
+        # load existing customer data from profile
+        if request.user.is_authenticated:
+            try:
+                profile = UserProfile.objects.get(user=request.user)
+                form = OrderForm(initial={
+                    'first_name': profile.first_name,
+                    'last_name': profile.last_name,
+                    'email': profile.user.email,
+                    'phone': profile.phone,
+                    'country': profile.country,
+                    'postal_code': profile.postal_code,
+                    'town_city': profile.town_city,
+                    'street_address1': profile.street_address1,
+                    'street_address2': profile.street_address2,
+                    'county_region': profile.county_region,
+                })
+            except UserProfile.DoesNotExist:
+                form = OrderForm()
+        else:
+            form = OrderForm()
+        stripe.api_key = stripe_secret_key
+        total = bag_content['grand_total']
+        stripe_total = round(total * 100)
+        intent = stripe.PaymentIntent.create(
+            amount=stripe_total,
+            currency=settings.STRIPE_CURRENCY,
+        )
+        print(intent)
     context = {
         'form': form,
         'current_grand_total': current_grand_total,
