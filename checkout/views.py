@@ -9,6 +9,7 @@ import json
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
 from utility.models import SystemPreference
+from artworks.models import Artwork, ArtFrame
 from .forms import OrderForm
 
 
@@ -67,6 +68,36 @@ def checkout(request):
                 return redirect('checkout')
             current_grand_total -= discount
             bag_content['grand_total'] = current_grand_total
+
+    elif 'order-submit-button' in request.POST:
+        if form.is_valid():
+            order = form.save(commit=False)
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            order.original_bag = json.dumps(bag)
+            order.save()
+
+            for item_id, frame_detail in bag.items():
+                artwork_id = item_id.split('-')[0]
+                artwork = get_object_or_404(Artwork, pk=artwork_id)
+                frame = get_object_or_404(ArtFrame,
+                                          pk=list(frame_detail['frame_id']
+                                                  .keys())[0])
+                quantity = list(frame_detail['frame_id'].values())[0]
+                order_line_item = OrderLineItem(
+                    order=order,
+                    artwork=artwork,
+                    frame=frame,
+                    quantity=quantity,
+                )
+                order_line_item.save()
+            request.session['save_info'] = 'save-info' in request.POST
+            # return redirect(reverse('checkout_success',
+            #                 args=[order.order_number]))
+        else:
+            messages.error(request, 'There was an error with your form. \
+                Please double check your information.')
+
     else:
         # load existing customer data from profile
         if request.user.is_authenticated:
