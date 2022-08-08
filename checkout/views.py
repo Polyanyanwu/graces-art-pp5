@@ -88,13 +88,13 @@ def checkout(request):
                 form = OrderForm()
         else:
             form = OrderForm()
-        stripe.api_key = stripe_secret_key
-        total = bag_content['grand_total']
-        stripe_total = round(total * 100)
-        intent = stripe.PaymentIntent.create(
-            amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
-        )
+    stripe.api_key = stripe_secret_key
+    total = bag_content['grand_total']
+    stripe_total = round(total * 100)
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
         # print(intent)
     context = {
         'form': form,
@@ -102,6 +102,7 @@ def checkout(request):
         'discount': discount,
         'discount_code': discount_code,
         'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)

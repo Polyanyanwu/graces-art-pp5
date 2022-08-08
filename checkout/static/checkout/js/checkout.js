@@ -45,3 +45,38 @@ card.addEventListener('change', function (event) {
     }
 });
 
+
+// Handle form submit
+const form = document.getElementById('payment-form');
+const submitOrderBtn = document.getElementById('submit-button');
+
+
+submitOrderBtn.addEventListener('click', function(e) {
+    console.log("payment form submit event==")
+    console.log("payment form submit event=="+ e.target)
+    e.preventDefault();
+    // prevent multiple submission
+    card.update({ 'disabled': true});
+    $('#submit-button').attr('disabled', true);
+    stripe.confirmCardPayment(clientSecret, {
+        payment_method: {
+            card: card,
+        }
+    }).then(function(result) {
+        if (result.error) {
+            const errorDiv = document.getElementById('card-errors');
+            const html = `
+                <span class="icon" role="alert">
+                <i class="fas fa-times"></i>
+                </span>
+                <span>${result.error.message}</span>`;
+            $(errorDiv).html(html);
+            card.update({ 'disabled': false});
+            $('#submit-button').attr('disabled', false);
+        } else {
+            if (result.paymentIntent.status === 'succeeded') {
+                form.submit();
+            }
+        }
+    });
+});
