@@ -4,6 +4,8 @@ from decimal import Decimal
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.conf import settings
 from django.contrib import messages
+import stripe
+import json
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
 from utility.models import SystemPreference
@@ -12,13 +14,11 @@ from .forms import OrderForm
 
 def checkout(request):
     bag = request.session.get('bag', {})
-
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
     if not bag:
         messages.error(request, "Your bag is empty at the moment")
         return redirect(reverse('get_artworks'))
-
-    stripe_public_key = settings.STRIPE_PUBLIC_KEY
-    stripe_secret_key = settings.STRIPE_SECRET_KEY
 
     bag_content = bag_contents(request)
     current_grand_total = bag_content['grand_total']
@@ -50,8 +50,18 @@ def checkout(request):
                 # not signed in user
                 messages.warning(request, "To apply discount vouchers \
                     please login first!")
-                return redirect('checkout')            
+                return redirect('checkout')
             current_grand_total -= discount
+            bag_content['grand_total'] = current_grand_total
+
+    stripe.api_key = stripe_secret_key
+    total = bag_content['grand_total']
+    stripe_total = round(total * 100)
+    intent = stripe.PaymentIntent.create(
+        amount=stripe_total,
+        currency=settings.STRIPE_CURRENCY,
+    )
+    print(intent)
     context = {
         'form': form,
         'current_grand_total': current_grand_total,
