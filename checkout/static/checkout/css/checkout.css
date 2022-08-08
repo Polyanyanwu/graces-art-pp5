@@ -23,31 +23,33 @@ adapted from the Boutique ADo of Code Institute*/
 }
 
 .stripe-style-input::placeholder {
-    color: #aab7c4;
+  color: #aab7c4;
 }
 
 .fieldset-label {
-    position: relative;
-    right: .5rem;
+  position: relative;
+  right: .5rem;
 }
 
 
 #payment-form .form-control,
-#card-element, #update-checkout-voucher input{
-    color: #000;
-    border: 1px solid #000;
+#card-element,
+#update-checkout-voucher input {
+  color: #000;
+  border: 1px solid #000;
+  border-radius: .25rem;
 }
 
 select,
 select option {
-    color: #000000;
+  color: #000000;
 }
 
 select:invalid,
 select option[value=""] {
-    color: #aab7c4 !important;
+  color: #aab7c4 !important;
 }
 
 .form-group {
-    margin-bottom: .5rem;
-  }
+  margin-bottom: .5rem;
+}

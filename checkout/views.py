@@ -2,6 +2,7 @@
 
 from decimal import Decimal
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.conf import settings
 from django.contrib import messages
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
@@ -15,6 +16,10 @@ def checkout(request):
     if not bag:
         messages.error(request, "Your bag is empty at the moment")
         return redirect(reverse('get_artworks'))
+
+    stripe_public_key = settings.STRIPE_PUBLIC_KEY
+    stripe_secret_key = settings.STRIPE_SECRET_KEY
+
     bag_content = bag_contents(request)
     current_grand_total = bag_content['grand_total']
 
@@ -42,7 +47,7 @@ def checkout(request):
                     qualify for this discount, buy more things first!")
                 return redirect('checkout')
             elif discount == -2:
-                    # not signed in user
+                # not signed in user
                 messages.warning(request, "To apply discount vouchers \
                     please login first!")
                 return redirect('checkout')            
@@ -52,6 +57,7 @@ def checkout(request):
         'current_grand_total': current_grand_total,
         'discount': discount,
         'discount_code': discount_code,
+        'stripe_public_key': stripe_public_key,
     }
 
     return render(request, template, context)

@@ -219,6 +219,14 @@ if use_aws == 'True':
 ACCOUNT_LOGIN_ON_PASSWORD_RESET = True
 ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True
 
+
+# Stripe
+STRIPE_CURRENCY = 'euro'
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY', '')
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET', '')
+
+
 # Email settings
 if development:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
