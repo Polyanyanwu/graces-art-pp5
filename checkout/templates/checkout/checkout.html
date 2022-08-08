@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                {% for item in bag_items %}
+                    {% for item in bag_items %}
                     <tr>
                         <th scope="row">{{forloop.counter }}</th>
                         <td>
@@ -109,7 +109,8 @@
                             <div class="col-6">
                                 <p class="my-0 highlight"><strong>€{{ discount|floatformat:"2g" }}</strong>
                                     {% if discount > 0 %}
-                                    <span class="text-muted small">{{discount_code}}</span>
+                                    <span> <input type="text" class="text-muted small" readonly
+                                            name="disc_code_readonly" value={{discount_code}}></span>
                                     {% endif %}
                                 </p>
                             </div>
