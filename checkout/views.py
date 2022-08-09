@@ -8,6 +8,7 @@ from django.shortcuts import (
 from django.conf import settings
 from django.contrib import messages
 from django.views.decorators.http import require_POST
+from django.contrib.auth.decorators import login_required
 
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
@@ -249,3 +250,13 @@ def cache_stripe_checkout_data(request):
         messages.error(request, 'Sorry, your payment cannot be \
             processed right now. Please try again later.')
         return HttpResponse(content=ex, status=400)
+
+
+@login_required
+def customer_order_history(request):
+    """ Display customers order history """
+    orders = Order.objects.filter(user_profile__user=request.user)
+    return render(request, 'checkout/customer_order_history.html',
+                  {
+                    'orders': orders,
+                  })
