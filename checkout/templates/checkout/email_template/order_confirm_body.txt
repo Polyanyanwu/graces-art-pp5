@@ -1,0 +1,23 @@
+Hello {{ order.first_name }} {{ order.last_name }}
+
+This is to confirm your order at Graces Art Print. Your order information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: ${{ order.order_total }}
+Discount: ${{ order.discount }}
+Delivery: ${{ order.delivery_cost }}
+Grand Total: ${{ order.grand_total }}
+
+Your order will be shipped to {{ order.street_address1 }} in {{ order.town_city }}, {{ order.country.name }}.
+
+The phone number you gave us is {{ order.phone }}.
+
+If you have any questions, feel free to contact us at {{ contact_email }} or through Contact Us link on our website.
+
+Thank you for your order!
+
+Sincerely,
+
+Graces Art Print
