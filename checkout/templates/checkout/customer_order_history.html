@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% load crispy_forms_tags %}
+
 {% load get_order_status %}
 {% block extra_title %}- Order History {% endblock %}
 
@@ -32,9 +32,43 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <tr>
+                                <form method="POST" action="{% url 'customer_order_history' %}">
+                                    {% csrf_token %}
+                                <th scope="row"></th>
+                                <td><input type="date" class="small mb-1"  value={{query_dict.start_date}} name="start_date" placeholder="Start Date">
+                                    <span>To</span>
+                                    <input type="date"  class="small mb-1" value={{query_dict.end_date}} name="end_date" placeholder="End Date">
+                                </td>
+                                <td>
+                                    <button type="submit" name="search-btn" class="btn my-btn" title="Click to search">
+                                        <i class="fa-solid fa-magnifying-glass"></i>
+                                    </button>
+                                </td>
+                                <td></td>
+                                <td></td>
+                                <td>
+                                    <select name="order_status" id="order_status" aria-placeholder="Select Status"
+                                        title="Select Status">
+                                        <option value="">All status</option>
+                                        <option {% if query_dict.order_status == 'O' %}  selected="" {% endif %} value="O">Ordered</option>
+                                        <option {% if query_dict.order_status == 'F' %}  selected="" {% endif %}  value="F">Fulfilled</option>
+                                        <option {% if query_dict.order_status == 'C' %}  selected="" {% endif %}  value="C">Cancelled</option>
+                                        <option {% if query_dict.order_status == 'R' %}  selected="" {% endif %}  value="R">Returned</option>
+                                    </select>
+                                </td>
+                                <td></td>
+                                <td><input type="text"  class="small mb-1"
+                                    value={% if query_dict.art_or_frame_name != None %} 
+                                    {{query_dict.art_or_frame_name}} {% else %} '' 
+                                    {% endif %} name="art_or_frame_name" placeholder="Artwork or Frame name"></td>
+                            </tr>
+                        </form>
+
                             {% for order in orders %}
                             <tr>
-                                <th scope="row">{{forloop.counter }}</th>
+                                <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
                                 <td>{{order.date | date:'d M, Y'}}</td>
                                 <td>{{ order.order_total  |floatformat:"2g"}}</td>
                                 <td>{{ order.delivery_cost |floatformat:"2g" }}</td>
@@ -61,7 +95,7 @@
     </div>
 </div>
 </div>
-<!-- <nav aria-label="Page navigation">
+<nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
         {% if orders.has_previous %}
         <li><a href="?page={{ orders.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
@@ -73,5 +107,5 @@
         </li>
         {% endif %}
     </ul>
-</nav> -->
+</nav>
 {% endblock %}

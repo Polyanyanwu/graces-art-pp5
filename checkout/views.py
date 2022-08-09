@@ -3,12 +3,14 @@
 from decimal import Decimal
 import json
 import stripe
+from datetime import datetime
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.conf import settings
 from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
@@ -17,6 +19,7 @@ from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
 from .models import OrderLineItem, Order
 from .forms import OrderForm
+from .query_utils import query_order
 
 
 def checkout(request):
@@ -255,8 +258,19 @@ def cache_stripe_checkout_data(request):
 @login_required
 def customer_order_history(request):
     """ Display customers order history """
-    orders = Order.objects.filter(user_profile__user=request.user)
+    # orders = Order.objects.filter(user_profile__user=request.user)
+
+    orders = query_order(request, 'customer_order_history')
+    if orders.count() > 0:
+        orders = orders.filter(user_profile__user=request.user)
+    query_dict = request.session.get("customer_order_history")
+
+    paginator = Paginator(orders, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
     return render(request, 'checkout/customer_order_history.html',
                   {
-                    'orders': orders,
+                    'orders': page_obj,
+                    'query_dict': query_dict,
                   })
