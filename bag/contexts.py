@@ -56,7 +56,7 @@ def bag_contents(request):
     if float(total) < coupon_threshold:
         coupon_delta = Decimal(coupon_threshold - float(total))
 
-    grand_total = delivery_cost + total
+    grand_total = round(delivery_cost + total, 2)
 
     context = {
         'bag_items': bag_items,
