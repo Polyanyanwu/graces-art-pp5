@@ -20,4 +20,6 @@ urlpatterns = [
          name='update_order_status'),
     path('notice/', views.view_notification,
          name='view_notification'),
+    path('return_request/', views.request_order_return,
+         name='request_order_return'),
 ]

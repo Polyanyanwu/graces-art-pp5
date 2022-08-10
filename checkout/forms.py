@@ -4,7 +4,7 @@
 
 
 from django import forms
-from .models import Order
+from .models import Order, ReturnOrder
 
 
 class OrderForm(forms.ModelForm):
@@ -45,3 +45,18 @@ class OrderForm(forms.ModelForm):
                 self.fields[field].widget.attrs['placeholder'] = placeholder
             self.fields[field].widget.attrs['class'] = 'stripe-style-input'
             self.fields[field].label = False
+
+
+class ReturnOrderForm(forms.ModelForm):
+    """ Return Order model form """
+    reason = forms.CharField(widget=forms.Textarea(attrs={'rows': '5'}))
+
+    class Meta:
+        """ Return Order Form meta """
+        model = ReturnOrder
+        fields = ('order', 'reason',)
+        readonly_fields = ('order', )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['order'].widget.attrs['disabled'] = True

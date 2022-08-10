@@ -18,7 +18,7 @@ from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
 from .models import OrderLineItem, Order, OrderStatus, Notification
-from .forms import OrderForm
+from .forms import OrderForm, ReturnOrderForm
 from .query_utils import query_order
 
 
@@ -416,11 +416,16 @@ def request_order_return(request):
         The order number or email address is used to retrieve the order
         since there could be anonymous users
         """
-
-    orders = query_order(request, 'request_order_return')
+    form = ReturnOrderForm()
+    orders = None
+    if request.method == 'POST':
+        orders = query_order(request, 'request_order_return')
+    if orders.count() > 0:
+        orders.filter(status__code='O')
     # query_dict = request.session.get("request_order_return")
 
     return render(request, 'checkout/request_return_order.html',
                   {
                     'orders': orders,
+                    'form': form,
                   })
