@@ -3,8 +3,10 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.views import View
 from utility.models import SystemPreference
-from .forms import ContactUsForm
+from .forms import ContactUsForm, ReviewForm
+from .models import Review
 
 
 def index(request):
@@ -72,3 +74,30 @@ def contact_us(request):
                 "email": email
             }
         )
+
+
+class ReviewView(View):
+    """ Accept and display review records,
+        requires login for post messages"""
+
+    def get(self, request, *args, **kwargs):
+        """ Display reviews to users """
+        reviews = Review.objects.all().order_by('-date')
+        form = ReviewForm()
+        return render(request, 'home/reviews.html',
+                      {'reviews': reviews,
+                       'form': form, })
+
+    @login_required
+    def post(self, request, *args, **kwargs):
+        """ save review messages """
+        form = ReviewForm(data=request.POST)
+        if form.is_valid():
+            form_data = form.save(commit=False)
+            form_data.user = request.user
+            form_data.save()
+            messages.info(request, 'Thank you for your review')
+            return redirect('home')
+        else:
+            messages.info(request, 'Please check your\
+                submission and try again')
