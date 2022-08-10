@@ -292,7 +292,7 @@ def order_details_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'checkout/customer_order_history.html',
+    return render(request, 'checkout/order_details_list.html',
                   {
                     'orders': page_obj,
                     'query_dict': query_dict,

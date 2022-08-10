@@ -34,7 +34,7 @@
                         </thead>
                         <tbody>
 
-                            <tr>
+                            <tr class="table-dark">
                                 <form method="POST" action="{% url 'customer_order_history' %}">
                                     {% csrf_token %}
                                 <th scope="row"></th>
@@ -43,7 +43,7 @@
                                     <input type="date"  class="small mb-1" value={{query_dict.end_date}} name="end_date" placeholder="End Date">
                                 </td>
                                 <td>
-                                    <input type="text"  class="small mb-1" 
+                                    <input type="text"  class="small mb-1 w-100" 
                                     value={% if query_dict.order_number != None %} 
                                     {{query_dict.order_number}} {% else %} '' 
                                     {% endif %} 
@@ -54,6 +54,7 @@
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </td>
+                                <td></td>
                                 <td></td>
                                 <td>
                                     <select name="order_status" id="order_status" aria-placeholder="Select Status"
