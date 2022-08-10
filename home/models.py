@@ -58,3 +58,26 @@ class ContactUs(models.Model):
                 subject=subject + ": " + user.get_fullname(),
                 message=body,
                 user=user)
+
+
+class Review(models.Model):
+    """ Data model for User Reviews """
+
+    RATINGS = [
+            ('0', 0),
+            ('1', 1),
+            ('2', 2),
+            ('3', 3),
+            ('4', 4),
+            ('5', 5),
+        ]
+
+    user = models.ForeignKey(User, on_delete=models.SET_NULL,
+                             null=True, blank=True)
+    rating = models.SmallIntegerField(choices=RATINGS, default='0',
+                                      null=False, blank=False)
+    message = models.TextField(null=False, blank=False)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return str(self.rating)
