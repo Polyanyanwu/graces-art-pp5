@@ -17,7 +17,7 @@ from profiles.forms import UserProfileForm
 from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
-from .models import OrderLineItem, Order
+from .models import OrderLineItem, Order, OrderStatus
 from .forms import OrderForm
 from .query_utils import query_order
 
@@ -330,9 +330,17 @@ def update_order_status(request):
                           'email': order.email,
                           'status': order.status.code,
                           }
-            # return redirect("update_order_status")
-            # print(request.POST)
-            # return redirect("update_order_status")
+        elif 'confirm-action-btn' in request.POST:
+            # for update after user confirms the update prompt
+            order = Order.objects.get(
+                    order_number=request.POST.get('confirm-id'))
+            status = get_object_or_404(
+                     OrderStatus, code=request.POST.get('new_order_status'))
+            order.status = status
+            order.save()
+            messages.success(request, f"The order status for \
+                {order.order_number} has been updated successfully \
+                    to {status.description}")
 
     orders = query_order(request, 'update_order_status')
     query_dict = request.session.get("update_order_status")

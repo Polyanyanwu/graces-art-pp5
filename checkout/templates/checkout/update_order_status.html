@@ -16,7 +16,8 @@
     </div>
     <div class="row justify-content-center">
         <form method="POST" action="{% url 'update_order_status' %}">
-        <div class="row justify-content-center">
+            {% csrf_token %}
+            <div class="row justify-content-center">
 
                 <div class="col-6 col-md-4">
                     <div class="row">
@@ -24,7 +25,7 @@
                             <p>Order Status</p>
                         </div>
                         <div class="col-8">
-                            <select name="update_order_status" id="update_order_status"
+                            <select name="new_order_status" id="update_order_status"
                                 aria-placeholder="Update Order Status" title="Select Status to Update">
                                 {% for o_status in None|order_status %}
                                 <option {% if edit_order.status == o_status.code %} selected="" {% endif %}
@@ -46,7 +47,8 @@
                             <p>Order Total</p>
                         </div>
                         <div class="col-8">
-                            <input type="text" class="text-muted" name="order_total" readonly value={{edit_order.order_total}}>
+                            <input type="text" class="text-muted" name="order_total" readonly
+                                value={{edit_order.order_total}}>
                         </div>
                     </div>
                     <div class="row">
@@ -54,7 +56,8 @@
                             <p>Discount</p>
                         </div>
                         <div class="col-8">
-                            <input type="text" class="text-muted" name="discount" readonly value={{edit_order.discount}}>
+                            <input type="text" class="text-muted" name="discount" readonly
+                                value={{edit_order.discount}}>
                         </div>
                     </div>
                     <div class="row">
@@ -62,7 +65,8 @@
                             <p>Grand Total</p>
                         </div>
                         <div class="col-8">
-                            <input type="text" class="text-muted" name="grand_total" readonly value={{edit_order.grand_total}}>
+                            <input type="text" class="text-muted" name="grand_total" readonly
+                                value={{edit_order.grand_total}}>
                         </div>
                     </div>
                     <div class="row">
@@ -70,7 +74,8 @@
                             <p>Order Number</p>
                         </div>
                         <div class="col-8">
-                            <input class="text-muted small w-100" type="text" name="order_number" readonly value={{edit_order.order_number}}>
+                            <input class="text-muted small w-100" type="text" name="update_order_number" readonly
+                                value={{edit_order.order_number}}>
                         </div>
                     </div>
                     <div class="row">
@@ -78,20 +83,22 @@
                             <p>Email</p>
                         </div>
                         <div class="col-8">
-                            <input class="text-muted w-100" type="text" name="email" readonly value={{edit_order.email}}>
+                            <input class="text-muted w-100" type="text" name="email" readonly
+                                value={{edit_order.email}}>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-4">
                         </div>
                         <div class="col-8">
-                            <button type="submit" name="update-status" class="btn btn-ok"
-                                title="Click to change status">
-                                <i class="fa-solid fa-floppy-disk icon me-1"></i> Update
+                            <button type="button" class="btn btn-ok" data-bs-toggle="modal" id="confirm-single"
+                                data-bs-target="#confirmModal" title="Click to change status"
+                                data-message="Please confirm updating the {{edit_order.order_number}} status."
+                                data-record_id={{edit_order.order_number}}><i
+                                    class="fa-solid fa-floppy-disk icon me-1"></i> Update
                             </button>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-12 col-md-8">
                     <table class="table table-striped">
@@ -100,17 +107,13 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Date</th>
                                 <th scope="col">Order Number & Email</th>
-                                <!-- <th scope="col">Email</th> -->
                                 <th scope="col">Status</th>
                                 <th scope="col">Line Items</th>
                                 <th scope="col">Action</th>
                             </tr>
                         </thead>
                         <tbody>
-
                             <tr class="table-dark">
-
-                                {% csrf_token %}
                                 <th scope="row"></th>
                                 <td><input type="date" class="small mb-1" value={{query_dict.start_date}}
                                         name="start_date" placeholder="Start Date">
@@ -148,38 +151,39 @@
                                 </td>
                                 </td>
                             </tr>
-            </form>
+        </form>
+        <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+        <input type="hidden" value="" name="confirm-id" id="confirm-id">
+        {% for order in orders %}
+        <tr>
+            <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
+            <td>{{order.date | date:'d M, Y'}}</td>
+            <td class="small">{{ order.order_number }}
+                <p class="small"></p>{{ order.email }}</p>
 
-            {% for order in orders %}
-            <tr>
-                <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
-                <td>{{order.date | date:'d M, Y'}}</td>
-                <td class="small">{{ order.order_number }}
-                    <p class="small"></p>{{ order.email }}</p>
+            </td>
 
-                </td>
-
-                <td>{{ order.status }}</td>
-                <td>
-                    {% for item in order.line_items.all %}
-                    <p class="mb-0">Artwork: {{ item.artwork.name }} @
-                        €{{ item.artwork_price |floatformat:"2g" }} </p>
-                    <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}
-                    </p>
-                    <p class="mb-0">Qty: {{ item.quantity }} </p>
-                    {% endfor %}
-                </td>
-                <td>
-                    <button type="submit" name="select-btn" class="btn btn-select" 
-                        title="Click to edit" value ={{order.order_number}}>
-                        Select
-                    </button></td>
-            </tr>
-            {% endfor %}
-            </tbody>
-            </table>
-        </div>
+            <td>{{ order.status }}</td>
+            <td>
+                {% for item in order.line_items.all %}
+                <p class="mb-0">Artwork: {{ item.artwork.name }} @
+                    €{{ item.artwork_price |floatformat:"2g" }} </p>
+                <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}
+                </p>
+                <p class="mb-0">Qty: {{ item.quantity }} </p>
+                {% endfor %}
+            </td>
+            <td>
+                <button type="submit" name="select-btn" class="btn btn-select" title="Click to edit"
+                    value={{order.order_number}}>
+                    Select
+                </button></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        </table>
     </div>
+</div>
 </div>
 </div>
 </div>

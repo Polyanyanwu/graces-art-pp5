@@ -42,7 +42,6 @@ if (document.getElementById('confirm-single')) {
         Confirmation(msg,
             function yes() {
                 const rec_id = e.target.dataset.record_id;
-                console.log("record id======", rec_id);
                 document.getElementById("confirm-id").value = rec_id;
                 document.getElementById('confirm-action-btn').click();
             },
