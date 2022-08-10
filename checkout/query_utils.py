@@ -18,11 +18,10 @@ def query_order(request, calling_module, order_status=None):
     if request.method == 'GET':
         query_dict = request.session.get(calling_module)
         if query_dict:
-            print("query dict==", query_dict)
             sdate = query_dict['start_date']
             edate = query_dict['end_date']
             order_status = query_dict['order_status']
-            username = query_dict['username']
+            order_number = query_dict['order_number']
             start_date = datetime.strptime(
                 sdate, "%Y-%m-%d").date() if sdate else None
             end_date = datetime.strptime(
@@ -35,7 +34,6 @@ def query_order(request, calling_module, order_status=None):
             else:
                 return Order.objects.all().order_by('-date')
     else:
-        print(request.POST)
         order_status = request.POST.get('order_status') if request.POST.get(
             'order_status') else None
 
@@ -49,8 +47,8 @@ def query_order(request, calling_module, order_status=None):
         end_date = datetime.strptime(
             edate, "%Y-%m-%d").date() if edate else None
 
-        username = request.POST.get('user_name') if request.POST.get(
-            'user_name') else None
+        order_number = request.POST.get('order_number') if request.POST.get(
+            'order_number') else None
         art_or_frame_name = request.POST.get(
                             'art_or_frame_name') if request.POST.get(
             'art_or_frame_name') else None
@@ -58,9 +56,14 @@ def query_order(request, calling_module, order_status=None):
         query_dict['start_date'] = sdate
         query_dict['end_date'] = edate
         query_dict['order_status'] = order_status
-        query_dict['username'] = username
+        query_dict['order_number'] = order_number
         query_dict['art_or_frame_name'] = art_or_frame_name
         request.session[calling_module] = query_dict
+
+    if order_number:
+        order = Order.objects.filter(order_number=order_number)
+        if order.count() > 0:
+            return order
 
     order = Order.objects.all().order_by('-date')
     if start_date and end_date:
@@ -73,11 +76,6 @@ def query_order(request, calling_module, order_status=None):
     elif end_date:
         order = order.filter(date__date=end_date).order_by(
             '-date')
-    if username:
-        order = order.filter(
-            (Q(user_profile__first_name__icontains=username)
-                | Q(user_profile__last_name__icontains=username))).order_by(
-                    '-date')
     if order_status:
         order = order.filter(
             status=order_status)

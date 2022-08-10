@@ -23,6 +23,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Date</th>
+                                <th scope="col">Order Number</th>
                                 <th scope="col">Order Total</th>
                                 <th scope="col">Delivery</th>
                                 <th scope="col">Discount</th>
@@ -42,11 +43,17 @@
                                     <input type="date"  class="small mb-1" value={{query_dict.end_date}} name="end_date" placeholder="End Date">
                                 </td>
                                 <td>
+                                    <input type="text"  class="small mb-1" 
+                                    value={% if query_dict.order_number != None %} 
+                                    {{query_dict.order_number}} {% else %} '' 
+                                    {% endif %} 
+                                    name="order_number" placeholder="Order Number">
+                                </td>
+                                <td>
                                     <button type="submit" name="search-btn" class="btn my-btn" title="Click to search">
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </td>
-                                <td></td>
                                 <td></td>
                                 <td>
                                     <select name="order_status" id="order_status" aria-placeholder="Select Status"
@@ -70,6 +77,7 @@
                             <tr>
                                 <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
                                 <td>{{order.date | date:'d M, Y'}}</td>
+                                <td class="small">{{ order.order_number }}</td>
                                 <td>{{ order.order_total  |floatformat:"2g"}}</td>
                                 <td>{{ order.delivery_cost |floatformat:"2g" }}</td>
                                 <td>{{ order.discount |floatformat:"2g"}}</td>
@@ -82,7 +90,6 @@
                                     <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}</p>
                                     <p class="mb-0">Qty: {{ item.quantity }} </p>
                                     <p class="mb-1 highlight">Sub Total: €{{ item.line_item_total |floatformat:"2g"}}  </p> 
-                                    <!-- <hr> -->
                                     {% endfor %}
                                 </td>
                             </tr>

@@ -258,7 +258,6 @@ def cache_stripe_checkout_data(request):
 @login_required
 def customer_order_history(request):
     """ Display customers order history """
-    # orders = Order.objects.filter(user_profile__user=request.user)
 
     orders = query_order(request, 'customer_order_history')
     if orders.count() > 0:
