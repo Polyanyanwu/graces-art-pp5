@@ -409,3 +409,18 @@ def view_notification(request):
                     'subject': subject,
                     'message': message,
                   })
+
+
+def request_order_return(request):
+    """ Request return of an order if its within the acceptable period
+        The order number or email address is used to retrieve the order
+        since there could be anonymous users
+        """
+
+    orders = query_order(request, 'request_order_return')
+    # query_dict = request.session.get("request_order_return")
+
+    return render(request, 'checkout/request_return_order.html',
+                  {
+                    'orders': orders,
+                  })

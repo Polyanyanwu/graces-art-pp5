@@ -27,6 +27,7 @@ def query_order(request, calling_module, order_status=None):
             end_date = datetime.strptime(
                 edate, "%Y-%m-%d").date() if edate else None
             art_or_frame_name = query_dict['art_or_frame_name']
+            email = query_dict['email']
         else:
             if order_status:
                 return Order.objects.filter(
@@ -52,12 +53,15 @@ def query_order(request, calling_module, order_status=None):
         art_or_frame_name = request.POST.get(
                             'art_or_frame_name') if request.POST.get(
             'art_or_frame_name') else None
+        email = request.POST.get('email') if request.POST.get(
+            'email') else None
         query_dict = {}
         query_dict['start_date'] = sdate
         query_dict['end_date'] = edate
         query_dict['order_status'] = order_status
         query_dict['order_number'] = order_number
         query_dict['art_or_frame_name'] = art_or_frame_name
+        query_dict['email'] = email
         request.session[calling_module] = query_dict
 
     if order_number:
@@ -77,8 +81,10 @@ def query_order(request, calling_module, order_status=None):
         order = order.filter(date__date=end_date).order_by(
             '-date')
     if order_status:
-        order = order.filter(
-            status=order_status)
+        order = order.filter(status=order_status)
+
+    if email:
+        order = order.filter(email=email)
 
     if art_or_frame_name:
         order = order.filter(
