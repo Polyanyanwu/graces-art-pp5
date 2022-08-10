@@ -3,7 +3,6 @@
 from decimal import Decimal
 import json
 import stripe
-from datetime import datetime
 from django.shortcuts import (
     render, redirect, reverse, get_object_or_404, HttpResponse)
 from django.conf import settings
@@ -15,6 +14,7 @@ from django.core.paginator import Paginator
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
+from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
 from .models import OrderLineItem, Order
@@ -262,6 +262,30 @@ def customer_order_history(request):
     orders = query_order(request, 'customer_order_history')
     if orders.count() > 0:
         orders = orders.filter(user_profile__user=request.user)
+    query_dict = request.session.get("customer_order_history")
+
+    paginator = Paginator(orders, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'checkout/customer_order_history.html',
+                  {
+                    'orders': page_obj,
+                    'query_dict': query_dict,
+                  })
+
+
+@login_required
+def order_details_list(request):
+    """ Display all customers order history """
+
+    # check that user is administrator/operator
+    rights = check_in_group(request.user, ("administrator", "operator"))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+
+    orders = query_order(request, 'order_details_enquiry')
     query_dict = request.session.get("customer_order_history")
 
     paginator = Paginator(orders, 3)

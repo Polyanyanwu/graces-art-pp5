@@ -14,5 +14,6 @@ urlpatterns = [
          name='cache_stripe_checkout_data'),
     path('customer_history/', views.customer_order_history,
          name='customer_order_history'),
-
+    path('order_details/', views.order_details_list,
+         name='order_details_list'),
 ]
