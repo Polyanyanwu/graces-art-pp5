@@ -13,7 +13,7 @@ from django.core.mail import send_mail
 
 from artworks.models import Artwork, ArtFrame
 from profiles.models import UserProfile
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, Notification
 
 
 class StripeWebhookHandler:
@@ -38,6 +38,16 @@ class StripeWebhookHandler:
             settings.DEFAULT_FROM_EMAIL,
             [customer_email]
         )
+
+    def _write_notification(self, order):
+        # Write notification record
+        if order.user_profile:
+            message = f"We received your Order number{order.order_number}"
+            message += f" in the sum of {order.grand_total}"
+            Notification.objects.create(
+                subject="Placed Order #:" + order.order_number,
+                message=message,
+                user=order.user_profile)
 
     def handle_event(self, event):
         """ Handle generic/unknown/unexpected webhook event """
@@ -123,6 +133,7 @@ class StripeWebhookHandler:
 
         if order_exists:
             self._send_email_confirmation(order)
+            self._write_notification(order)
             return HttpResponse(
                 content=f'Webhook received: {event["type"]} | SUCCESS:\
                      Verified order already in the database',
@@ -175,6 +186,7 @@ class StripeWebhookHandler:
                     content=f'Webhook received: {event["type"]} | ERROR: {e}',
                     status=500)
         self._send_email_confirmation(order)
+        self._write_notification(order)
         return HttpResponse(
             content=f'Webhook received {event["type"]} | \
                       SUCCESS: Created in webhook', status=200)
