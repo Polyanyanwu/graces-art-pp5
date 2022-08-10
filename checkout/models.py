@@ -62,9 +62,6 @@ class Order(models.Model):
     status = models.ForeignKey(OrderStatus, on_delete=models.SET_NULL,
                                null=True, blank=True,
                                related_name='order_status', default="O")
-    
-    # status = models.CharField(max_length=1,
-    #                           choices=STATUS_CHOICES, default="O")
 
     def _generate_order_number(self):
         """

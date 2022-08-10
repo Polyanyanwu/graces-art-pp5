@@ -17,7 +17,7 @@ from profiles.forms import UserProfileForm
 from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
-from .models import OrderLineItem, Order, OrderStatus
+from .models import OrderLineItem, Order, OrderStatus, Notification
 from .forms import OrderForm
 from .query_utils import query_order
 
@@ -338,6 +338,17 @@ def update_order_status(request):
                      OrderStatus, code=request.POST.get('new_order_status'))
             order.status = status
             order.save()
+
+            # Write notification record
+            print("user.profile==", order.user_profile)
+            if order.user_profile:
+                message = f"The status of your Order number{order.order_number}"
+                message += f" has changed to {order.status}"
+                Notification.objects.create(
+                    subject="Order Status Change #: " + order.order_number,
+                    message=message,
+                    user=order.user_profile)
+
             messages.success(request, f"The order status for \
                 {order.order_number} has been updated successfully \
                     to {status.description}")
