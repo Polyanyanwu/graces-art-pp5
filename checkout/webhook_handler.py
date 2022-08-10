@@ -43,7 +43,7 @@ class StripeWebhookHandler:
         # Write notification record
         if order.user_profile:
             message = f"We received your Order number{order.order_number}"
-            message += f" in the sum of {order.grand_total}"
+            message += f" in the sum of  €{order.grand_total}"
             Notification.objects.create(
                 subject="Placed Order #:" + order.order_number,
                 message=message,

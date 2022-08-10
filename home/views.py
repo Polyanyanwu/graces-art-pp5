@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views import View
 from utility.models import SystemPreference
+from django.core.paginator import Paginator
 from .forms import ContactUsForm, ReviewForm
 from .models import Review
 
@@ -76,7 +77,7 @@ def contact_us(request):
         )
 
 
-class ReviewView(View):
+class WriteReviewView(View):
     """ Accept and display review records,
         requires login for post messages"""
 
@@ -84,14 +85,19 @@ class ReviewView(View):
         """ Display reviews to users """
         reviews = Review.objects.all().order_by('-date')
         form = ReviewForm()
-        return render(request, 'home/reviews.html',
-                      {'reviews': reviews,
+        paginator = Paginator(reviews, 3)  # Show 10 per page.
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        return render(request, 'home/write_review.html',
+                      {'reviews': page_obj,
                        'form': form, })
 
-    @login_required
     def post(self, request, *args, **kwargs):
-        """ save review messages """
+        """ save review messages
+            Requires login which was done in the URL
+        """
         form = ReviewForm(data=request.POST)
+
         if form.is_valid():
             form_data = form.save(commit=False)
             form_data.user = request.user
@@ -101,3 +107,22 @@ class ReviewView(View):
         else:
             messages.info(request, 'Please check your\
                 submission and try again')
+            form = ReviewForm(request.POST)
+            reviews = Review.objects.all().order_by('-date')
+            paginator = Paginator(reviews, 3)  # Show 10 per page.
+            page_number = request.GET.get('page')
+            page_obj = paginator.get_page(page_number)
+        return render(request, 'home/write_review.html',
+                      {'reviews': page_obj,
+                       'form': form, })
+
+
+def view_reviews(request):
+    """ Display reviews to users """
+    reviews = Review.objects.all().order_by('-date')
+
+    paginator = Paginator(reviews, 3)  # Show 10 per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'home/review.html',
+                  {'reviews': page_obj, })

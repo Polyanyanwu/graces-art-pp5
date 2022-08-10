@@ -64,12 +64,12 @@ class Review(models.Model):
     """ Data model for User Reviews """
 
     RATINGS = [
-            ('0', 0),
-            ('1', 1),
-            ('2', 2),
-            ('3', 3),
-            ('4', 4),
-            ('5', 5),
+            ('0', '0'), # zeo will fail validation
+            (1, 'One star'),
+            (2, 'Two star'),
+            (3, 'Three star'),
+            (4, 'Four star'),
+            (5, 'Five star'),
         ]
 
     user = models.ForeignKey(User, on_delete=models.SET_NULL,

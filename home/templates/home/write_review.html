@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load get_star_rating %}
+
+{% block extra_title %}- Reviews {% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid container-main">
+    <div class="row">
+        <div class="col text-center">
+            <h4>Customer Reviews</h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <form method="POST" action="{% url 'write_review' %}">
+            {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-6 text-md-right">
+                    {{form|crispy}}
+                    <div class="d-flex justify-content-left">
+                        <a class="btn btn-cancel btn-ok mt-2 btn-sm me-5" href="{% url 'home' %}">Cancel</a>
+                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2 btn-sm"
+                            name="save_record">Save</button>
+
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    {% for review in reviews %}
+                    <div class="row">
+                        <div class="col-8">
+                            <p class="fw-bold">{{review.user.get_full_name}}</p>
+                        </div>
+                        <div class="col-4">
+                            {% for ind in review.rating|rating_main %}
+                            <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
+                            {% endfor %}
+                            {% for ind in review.rating|rating_bal %}
+                            <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <p>{{review.message}}</p>
+                        </div>
+                        <div class="col-4">
+                            <p>{{review.date|date:'d M, Y H:m'}}</p>
+                        </div>
+                    </div>
+                    <hr>
+                    {% endfor %}
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if reviews.has_previous %}
+        <li><a href="?page={{ reviews.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
+        </li>
+        {% endif %}
+        {% if reviews.has_next %}
+        <li><a href="?page={{ reviews.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}

@@ -11,4 +11,3 @@ def get_order_status(code):
     """ Template tag used to get all order status
     """
     return OrderStatus.objects.all()
-
