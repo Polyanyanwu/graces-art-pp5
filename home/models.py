@@ -44,7 +44,6 @@ class ContactUs(models.Model):
         body = render_to_string(
             'home/messages/contact_email.txt',
             {'details': self})
-        print("body==", body)
         send_mail(
             subject,
             body,

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- notifications {% endblock %}
+{% block postloadjs %}
+    <script src="{% static 'js/artworks.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid container-main">
+    <div class="row">
+        <div class="col text-center">
+            <h4>My Notifications</h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <form action="{% url 'view_notification' %}" method="POST" id="notification-form">
+            {% csrf_token %}
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-4 bg-secondary">
+                    <div class="row mb-3 mt-4">
+                        <div class="col-2">
+                            <p class="text-end text-white">Subject</p>
+                        </div>
+                        <div class="col-10">
+                           <p class="text-white">{{subject}}</p> 
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-2">
+                            <p class="text-end text-white">Message</p>
+                        </div>
+                        <div class="col-10">
+                            <p class="text-white">{{message|safe}}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Subject</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for notice in notices %}
+                            <tr>
+                                <th scope="row">{{forloop.counter0|add:notices.start_index}}</th>
+                                <td>{{notice.notice_date}}</td>
+                                <td>{{ notice.subject }}</td>
+                                <td>
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
+                                        data-bs-target="#confirmModal"
+                                        data-message="Please confirm deleting the {{notice.subject}} notification. This action is not reversible?"
+                                        data-record_id={{notice.id}}>Delete
+                                    </button>
+                                <td><button type="submit" name="select-rec" class="btn btn-ok btn-sm"
+                                       value={{ notice.id }} data-name={{ notice.id }}>Details
+                                    </button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <input type="hidden" value="" name="confirm-id" id="confirm-id">
+                            <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+</div>
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if notices.has_previous %}
+        <li><a href="?page={{ notices.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
+            <span class="ms-5">Page {{ notices.number }} of {{ notices.paginator.num_pages }}</span>
+        </li>
+        {% endif %}
+        {% if notices.has_next %}
+        <li><a href="?page={{ notices.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}

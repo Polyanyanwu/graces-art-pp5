@@ -18,4 +18,6 @@ urlpatterns = [
          name='order_details_list'),
     path('order_status/', views.update_order_status,
          name='update_order_status'),
+    path('notice/', views.view_notification,
+         name='view_notification'),
 ]
