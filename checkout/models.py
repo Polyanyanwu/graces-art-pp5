@@ -13,6 +13,16 @@ from profiles.models import UserProfile
 from utility.models import SystemPreference
 
 
+class OrderStatus(models.Model):
+    """ Order status list maintained by admin/operator"""
+    code = models.CharField(primary_key=True,
+                            default='O', max_length=1)
+    description = models.CharField(max_length=20, unique=True, blank=False)
+
+    def __str__(self):
+        return str(self.description)
+
+
 class Order(models.Model):
     """ Model that for storing orders from customers """
 
@@ -49,8 +59,12 @@ class Order(models.Model):
     original_bag = models.TextField(null=False, blank=False, default='')
     stripe_pid = models.CharField(max_length=254, null=False, blank=False,
                                   default='')
-    status = models.CharField(max_length=1,
-                              choices=STATUS_CHOICES, default="O")
+    status = models.ForeignKey(OrderStatus, on_delete=models.SET_NULL,
+                               null=True, blank=True,
+                               related_name='order_status', default="O")
+    
+    # status = models.CharField(max_length=1,
+    #                           choices=STATUS_CHOICES, default="O")
 
     def _generate_order_number(self):
         """
@@ -173,3 +187,15 @@ class ReturnOrder(models.Model):
 
     def __str__(self):
         return f'{self.order.order_number}'
+
+
+class Notification(models.Model):
+    """ Notifications detail records """
+    notice_date = models.DateTimeField(auto_now_add=True)
+    subject = models.CharField(max_length=200, blank=False)
+    message = models.TextField()
+    user = models.ForeignKey(UserProfile, on_delete=models.CASCADE,
+                             related_name="notice_for")
+
+    def __str__(self):
+        return str(self.subject)

@@ -1,7 +1,7 @@
 """ Admin module for orders """
 
 from django.contrib import admin
-from .models import Order, OrderLineItem
+from .models import Order, OrderLineItem, OrderStatus
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
@@ -32,3 +32,10 @@ class OrderAdmin(admin.ModelAdmin):
                     'grand_total',)
 
     ordering = ('-date',)
+
+
+@admin.register(OrderStatus)
+class OrderStatusAdmin(admin.ModelAdmin):
+    """ Order Status model """
+    model = OrderStatus
+    fields = ('code', 'description')

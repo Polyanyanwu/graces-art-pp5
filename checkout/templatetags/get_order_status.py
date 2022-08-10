@@ -1,19 +1,14 @@
 """ template tag for getting order status """
 
 from django import template
+from checkout.models import OrderStatus
 
 register = template.Library()
 
 
 @register.filter(name='order_status')
 def get_order_status(code):
-    """ Template tag used to get descriptive order status
+    """ Template tag used to get all order status
     """
-    if code == "O":
-        return "Ordered"
-    elif code == "R":
-        return "Returned"
-    elif code == "F":
-        return "Fulfilled"
-    elif code == "C":
-        return "Cancelled"
+    return OrderStatus.objects.all()
+

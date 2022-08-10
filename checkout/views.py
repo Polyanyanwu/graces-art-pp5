@@ -309,6 +309,31 @@ def update_order_status(request):
         messages.error(request, (rights))
         return redirect('/')
 
+    edit_order = {'delivery': "",
+                  'order_total': "",
+                  'discount': "",
+                  'grand_total': "",
+                  'order_number': "",
+                  'email': "",
+                  'status': "",
+                  }
+
+    if request.method == "POST":
+        if 'select-btn' in request.POST:
+            order = Order.objects.get(
+                    order_number=request.POST.get('select-btn'))
+            edit_order = {'delivery': order.delivery_cost,
+                          'order_total': order.order_total,
+                          'discount': order.discount,
+                          'grand_total': order.grand_total,
+                          'order_number': order.order_number,
+                          'email': order.email,
+                          'status': order.status.code,
+                          }
+            # return redirect("update_order_status")
+            # print(request.POST)
+            # return redirect("update_order_status")
+
     orders = query_order(request, 'update_order_status')
     query_dict = request.session.get("update_order_status")
 
@@ -320,4 +345,5 @@ def update_order_status(request):
                   {
                     'orders': page_obj,
                     'query_dict': query_dict,
+                    'edit_order': edit_order,
                   })
