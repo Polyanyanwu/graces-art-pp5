@@ -143,7 +143,6 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
-    # print(intent)
     context = {
         'form': form,
         'current_grand_total': current_grand_total,
@@ -336,22 +335,26 @@ def update_order_status(request):
                     order_number=request.POST.get('confirm-id'))
             status = get_object_or_404(
                      OrderStatus, code=request.POST.get('new_order_status'))
-            order.status = status
-            order.save()
+            if order.status.code == status.code:
+                messages.warning(request, "You choose same status as before.\
+                     Select a different status and try again")
+            else:
+                order.status = status
+                order.save()
 
-            # Write notification record
-            print("user.profile==", order.user_profile)
-            if order.user_profile:
-                message = f"The status of your Order number{order.order_number}"
-                message += f" has changed to {order.status}"
-                Notification.objects.create(
-                    subject="Order Status Change #: " + order.order_number,
-                    message=message,
-                    user=order.user_profile)
+                # Write notification record
+                if order.user_profile:
+                    message = "The status of your Order number "
+                    message += f"{order.order_number} has changed to \
+                        {order.status}"
+                    Notification.objects.create(
+                        subject="Order Status Change #: " + order.order_number,
+                        message=message,
+                        user=order.user_profile)
 
-            messages.success(request, f"The order status for \
-                {order.order_number} has been updated successfully \
-                    to {status.description}")
+                messages.success(request, f"The order status for \
+                    {order.order_number} has been updated successfully \
+                        to {status.description}")
 
     orders = query_order(request, 'update_order_status')
     query_dict = request.session.get("update_order_status")
@@ -365,4 +368,44 @@ def update_order_status(request):
                     'orders': page_obj,
                     'query_dict': query_dict,
                     'edit_order': edit_order,
+                  })
+
+
+@login_required
+def view_notification(request):
+    """ Display/delete customers notifications """
+    user_profile = get_object_or_404(UserProfile, user=request.user)
+    notices = Notification.objects.filter(user=user_profile).order_by(
+                                          '-notice_date')
+    if notices.count() > 0:
+        subject = notices[0].subject
+        message = notices[0].message
+    else:
+        subject = ""
+        message = ""
+    if request.method == "POST":
+        if 'select-rec' in request.POST:
+            rec_id = request.POST.get('select-rec')
+            select_notice = get_object_or_404(Notification, id=rec_id)
+            subject = select_notice.subject
+            message = select_notice.message
+        elif 'confirm-action-btn' in request.POST:
+            # from delete action
+            id_sent = request.POST.get('confirm-id')
+            select_notice = get_object_or_404(Notification, id=id_sent)
+            subj = select_notice.subject
+            select_notice.delete()
+            messages.success(request,
+                             ('Message with subject: ' + subj +
+                              ' was successfully deleted!'))
+
+    paginator = Paginator(notices, 6)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'checkout/notifications.html',
+                  {
+                    'notices': page_obj,
+                    'subject': subject,
+                    'message': message,
                   })
