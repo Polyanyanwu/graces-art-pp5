@@ -28,6 +28,12 @@ class UserProfile(models.Model):
     def __str__(self):
         return self.user.username
 
+    def get_fullname(self):
+        """ Return user ull name """
+        firstname = self.first_name or ""
+        lastname = self.last_name or ""
+        return firstname + " " + lastname
+
 
 @receiver(post_save, sender=User)
 def create_or_update_user_profile(sender, instance, created, **kwargs):

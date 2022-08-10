@@ -5,6 +5,8 @@ from django.contrib.auth.models import User
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
 from django.conf import settings
+from checkout.models import Notification
+from profiles.models import UserProfile
 
 
 class ContactUs(models.Model):
@@ -49,3 +51,11 @@ class ContactUs(models.Model):
             settings.DEFAULT_FROM_EMAIL,
             [sender]
         )
+
+    # Write notification record
+        if self.user:
+            user = UserProfile.objects.get(user=self.user)
+            Notification.objects.create(
+                subject=subject + ": " + user.get_fullname(),
+                message=body,
+                user=user)
