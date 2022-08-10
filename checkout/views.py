@@ -286,13 +286,37 @@ def order_details_list(request):
         return redirect('/')
 
     orders = query_order(request, 'order_details_enquiry')
-    query_dict = request.session.get("customer_order_history")
+    query_dict = request.session.get("order_details_enquiry")
 
     paginator = Paginator(orders, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
     return render(request, 'checkout/order_details_list.html',
+                  {
+                    'orders': page_obj,
+                    'query_dict': query_dict,
+                  })
+
+
+@login_required
+def update_order_status(request):
+    """ Update order status """
+
+    # check that user is administrator/operator
+    rights = check_in_group(request.user, ("administrator", "operator"))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+
+    orders = query_order(request, 'update_order_status')
+    query_dict = request.session.get("update_order_status")
+
+    paginator = Paginator(orders, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'checkout/update_order_status.html',
                   {
                     'orders': page_obj,
                     'query_dict': query_dict,

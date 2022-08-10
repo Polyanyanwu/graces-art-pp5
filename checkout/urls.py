@@ -16,4 +16,6 @@ urlpatterns = [
          name='customer_order_history'),
     path('order_details/', views.order_details_list,
          name='order_details_list'),
+    path('order_status/', views.update_order_status,
+         name='update_order_status'),
 ]
