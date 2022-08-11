@@ -64,7 +64,7 @@ class Review(models.Model):
     """ Data model for User Reviews """
 
     RATINGS = [
-            ('0', '0'), # zeo will fail validation
+            ('0', '0'),  # zeo will fail validation
             (1, 'One star'),
             (2, 'Two star'),
             (3, 'Three star'),

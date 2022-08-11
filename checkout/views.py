@@ -438,7 +438,7 @@ def request_order_return(request):
             order_date = f_order.date
             delta = (now - order_date).days
             date_str = f_order.date.strftime("%d-%b-%Y %H:%M")
-            if delta >= return_days:
+            if delta > return_days:
                 messages.error(request, f"Sorry you can no longer request \
                     for return of this order placed on {date_str}. \
                         You had within {return_days} days to do so")
@@ -473,8 +473,8 @@ def request_order_return(request):
 
     orders = query_order(request, 'request_order_return')
     if orders.count() > 0:
-        orders = orders.filter(user_profile__user=request.user)
-        orders.filter(status__code='O')
+        orders = orders.filter(user_profile__user=request.user, status__code='O')
+        # orders = orders.filter(status__code='O')
 
     query_dict = request.session.get("request_order_return")
     paginator = Paginator(orders, 3)
@@ -490,4 +490,70 @@ def request_order_return(request):
                     'form_order_delivery': form_order_delivery,
                     'form_order_discount': form_order_discount,
                     'form_order_grand': form_order_grand,
+                  })
+
+
+@login_required
+def review_order_return(request):
+    """ Review request to return order
+        Approve or reject only operator/admin
+    """
+    # check that user is administrator/operator
+    rights = check_in_group(request.user, ("administrator", "operator"))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+
+    return_req = None
+    return_order = None
+
+    if request.method == 'POST':
+        if 'select-btn' in request.POST:
+            order_num = request.POST.get('select-btn')
+            return_order = get_object_or_404(Order, order_number=order_num)
+            return_qs = ReturnOrder.objects.filter(order=return_order)
+            if return_qs.count() > 0:
+                return_req = return_qs[0]
+            else:
+                # maybe the status was changed not by customer
+                messages.warning(request, "No customer request data exits!")
+                return redirect("review_order_return")
+
+        if 'confirm-action-btn' in request.POST:
+            # confirm rejection of request
+            order_num = request.POST.get('confirm-id')
+            if not order_num:
+                messages.warning(request, "Please select an order first")
+                return redirect("review_order_return")
+            else:
+                return_rec = get_object_or_404(
+                             ReturnOrder, order__order_number=order_num)
+                return_order = get_object_or_404(Order, order_number=order_num)
+                user = UserProfile.objects.get(user=request.user)
+                return_rec.reviewed_by = user
+                return_rec.review_comments = request.POST.get(
+                                             'review-comments')
+                return_rec.save()
+                # set the status back to Ordered
+                status = get_object_or_404(OrderStatus, code="O")
+                return_order.status = status
+                return_order.save()
+                return_order = None
+                messages.success(request, "Your rejection of the request has \
+                    been saved. An email will be sent to the customer!")
+
+    orders = query_order(request, 'review_order_return')
+    if orders.count() > 0:
+        orders = orders.filter(status__code='R')
+
+    query_dict = request.session.get("review_order_return")
+    paginator = Paginator(orders, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'checkout/review_order_return.html',
+                  {
+                    'orders': page_obj,
+                    'query_dict': query_dict,
+                    'return_order': return_order,
+                    'return_req': return_req,
                   })

@@ -182,6 +182,7 @@ class ReturnOrder(models.Model):
     reviewed_by = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
                                     null=True, blank=True,
                                     related_name='review_user')
+    review_comments = models.CharField(max_length=200, null=True, blank=True)
     approved = models.BooleanField(null=True, blank=True)
     date_approved = models.DateTimeField(auto_now=True)
 

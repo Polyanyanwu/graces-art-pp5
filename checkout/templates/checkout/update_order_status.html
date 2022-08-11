@@ -168,8 +168,15 @@
             <td>
                 {% for item in order.line_items.all %}
                 <p class="mb-0">Artwork: {{ item.artwork.name }} @
-                    €{{ item.artwork_price |floatformat:"2g" }} </p>
+                    €{{ item.artwork_price |floatformat:"2g" }} 
+                    {% if item.artwork.image %}
+                    <img class="img-tiny" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
+                    {% else %}
+                    <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
+                    {% endif %}
+                </p>
                 <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}
+                    <img class="img-tiny-frame" src="{{ item.frame.image.url }}" alt="{{ item.frame.name }}">
                 </p>
                 <p class="mb-0">Qty: {{ item.quantity }} </p>
                 {% endfor %}

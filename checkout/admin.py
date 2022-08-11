@@ -1,7 +1,7 @@
 """ Admin module for orders """
 
 from django.contrib import admin
-from .models import Order, OrderLineItem, OrderStatus, Notification
+from .models import Order, OrderLineItem, OrderStatus, Notification, ReturnOrder
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
@@ -48,3 +48,11 @@ class NotificationAdmin(admin.ModelAdmin):
     model = Notification
     fields = ('subject', 'message', 'user')
     list_display = ('notice_date', 'subject', 'user')
+
+
+@admin.register(ReturnOrder)
+class ReturnOrderAdmin(admin.ModelAdmin):
+    """ Return Order model """
+    model = ReturnOrder
+    # fields = '__all__'
+    # list_display = ('notice_date', 'subject', 'user')

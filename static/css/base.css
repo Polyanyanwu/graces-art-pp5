@@ -305,6 +305,10 @@ input,
     border-bottom-color: #6c757d !important;
 } */
 
+/* Input for review return order comments */
+#floatingTextarea2{
+    height: 100px;
+}
 .arrow-success {
     border-bottom-color: #28a745 !important;
 }

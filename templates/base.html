@@ -99,7 +99,7 @@
                   <!-- Operator sub menu -->
                   {% if request.user|belong_group:"operator" %}
                   <li><a class="dropdown-item" href="{% url 'update_order_status' %}">Update Order Status</a></li>
-                  <li><a class="dropdown-item" href="#">Review Return Order</a></li>
+                  <li><a class="dropdown-item" href="{% url 'review_order_return' %}">Review Return Order</a></li>
                   <li><a class="dropdown-item" href="{% url 'order_details_list' %}">Order Details List</a></li>
                   <li><a class="dropdown-item" href="#">
                       <hr></a></li>

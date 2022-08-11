@@ -22,4 +22,6 @@ urlpatterns = [
          name='view_notification'),
     path('return_request/', views.request_order_return,
          name='request_order_return'),
+    path('review_order_return/', views.review_order_return,
+         name='review_order_return'),
 ]
