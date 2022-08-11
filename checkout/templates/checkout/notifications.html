@@ -22,7 +22,7 @@
                 <div class="col-12 col-md-4 bg-secondary">
                     <div class="row mb-3 mt-4">
                         <div class="col-2">
-                            <p class="text-end text-white">Subject</p>
+                            <p class="text-white text-danger">Subject</p>
                         </div>
                         <div class="col-10">
                            <p class="text-white">{{subject}}</p> 
@@ -30,10 +30,10 @@
                     </div>
                     <div class="row">
                         <div class="col-2">
-                            <p class="text-end text-white">Message</p>
+                            <p class="text-white">Message</p>
                         </div>
-                        <div class="col-10">
-                            <p class="text-white">{{message|safe}}</p>
+                        <div class="col-10 text-white">
+                            <p class="text-white">{{message|linebreaks|safe}}</p>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                             {% for notice in notices %}
                             <tr>
                                 <th scope="row">{{forloop.counter0|add:notices.start_index}}</th>
-                                <td>{{notice.notice_date}}</td>
+                                <td>{{notice.notice_date| date:'d M, Y H:m a'}}</td>
                                 <td>{{ notice.subject }}</td>
                                 <td>
                                     <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
