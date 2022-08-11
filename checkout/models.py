@@ -204,11 +204,16 @@ class ReturnOrder(models.Model):
             [sender]
         )
 
-    # Write notification record
+        # Write notification record
         Notification.objects.create(
             subject=subject + ": " + self.user.get_fullname(),
             message=body,
             user=self.user)
+
+        # Update order status
+        order_status = OrderStatus.objects.get(code='R')
+        self.order.status = order_status
+        self.order.save()
 
 
 class Notification(models.Model):

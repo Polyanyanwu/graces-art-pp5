@@ -1,6 +1,7 @@
 """ Module to process checkout and payment """
 
 from decimal import Decimal
+from datetime import datetime, timezone
 import json
 import stripe
 from django.shortcuts import (
@@ -428,11 +429,24 @@ def request_order_return(request):
         if 'select-btn' in request.POST:
             form_order_num = request.POST.get('select-btn')
             f_order = get_object_or_404(Order, order_number=form_order_num)
-            form_order_total = f_order.order_total
-            form_order_delivery = f_order.delivery_cost
-            form_order_discount = f_order.discount
-            form_order_grand = f_order.grand_total
-            form = ReturnOrderForm(initial={'order': f_order.order_number})
+
+            # check if the order date is within allowed return date
+            return_days = int(get_object_or_404(
+                              SystemPreference, code="R").data)
+            now = datetime.now(timezone.utc)
+            order_date = f_order.date
+            delta = (now - order_date).days
+            date_str = f_order.date.strftime("%d-%b-%Y %H:%M")
+            if delta >= return_days:
+                messages.error(request, f"Sorry you can no longer request \
+                    for return of this order placed on {date_str}. \
+                        You had within {return_days} days to do so")
+            else:
+                form_order_total = f_order.order_total
+                form_order_delivery = f_order.delivery_cost
+                form_order_discount = f_order.discount
+                form_order_grand = f_order.grand_total
+                form = ReturnOrderForm(initial={'order': f_order.order_number})
 
     if 'confirm-action-btn' in request.POST:
         # save confirmation
