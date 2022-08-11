@@ -1,0 +1,17 @@
+Dear {{order.user_profile.get_fullname}}
+
+A decision ahs been reached on your request to return the following order:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+Request Date: {{return_rec.request_date}}
+Grand Total: €{{ order.grand_total }}
+
+Decision: {{decision}}
+
+Comment/Instruction: {{return_rec.review_comments}} 
+
+Thank you!
+
+
+Graces Art Prints

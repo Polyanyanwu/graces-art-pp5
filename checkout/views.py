@@ -12,6 +12,8 @@ from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
 
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
@@ -567,6 +569,28 @@ def review_order_return(request):
                                              'review-comments')
                 return_rec.save()
                 # status remains are Returned until changed to shipped later
+
+                # send email confirmation
+                send_to = return_rec.user.user.email
+                subject = 'Approval of Return Order: '\
+                    + return_order.order_number
+                body = render_to_string(
+                    'checkout/email_template/return_request_decision.txt',
+                    {'order': return_order,
+                     'return_rec': return_rec,
+                     'decision': 'Approved'})
+                send_mail(
+                    subject,
+                    body,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [send_to]
+                )
+
+                # Write notification record
+                Notification.objects.create(
+                    subject=subject + ": " + return_order.user_profile.get_fullname(),
+                    message=body,
+                    user=return_order.user_profile)
                 return_order = None
                 messages.success(request, "Your approval of the request has \
                     been saved. An email will be sent to the customer!")
