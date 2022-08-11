@@ -54,9 +54,8 @@ class ReturnOrderForm(forms.ModelForm):
     class Meta:
         """ Return Order Form meta """
         model = ReturnOrder
-        fields = ('order', 'reason',)
-        readonly_fields = ('order', )
+        fields = ('reason',)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['order'].widget.attrs['disabled'] = True
+        self.fields['reason'].widget.attrs['placeholder'] = 'enter your reason'

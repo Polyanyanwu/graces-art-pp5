@@ -5,6 +5,9 @@ from decimal import Decimal
 from django.db import models
 from django.shortcuts import get_object_or_404
 from django.db.models import Sum
+from django.template.loader import render_to_string
+from django.core.mail import send_mail
+from django.conf import settings
 
 from django_countries.fields import CountryField
 
@@ -184,6 +187,28 @@ class ReturnOrder(models.Model):
 
     def __str__(self):
         return f'{self.order.order_number}'
+
+    def send_return_request_email(self):
+        """
+        Send confirmation email when a contact completes a request to return form
+        """
+        sender = self.user.user.email
+        subject = 'Request to Return Order: ' + self.order.order_number
+        body = render_to_string(
+            'checkout/email_template/return_request.txt',
+            {'order': self.order})
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [sender]
+        )
+
+    # Write notification record
+        Notification.objects.create(
+            subject=subject + ": " + self.user.get_fullname(),
+            message=body,
+            user=self.user)
 
 
 class Notification(models.Model):

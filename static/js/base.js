@@ -44,6 +44,8 @@ if (document.getElementById('confirm-single')) {
                 const rec_id = e.target.dataset.record_id;
                 document.getElementById("confirm-id").value = rec_id;
                 document.getElementById('confirm-action-btn').click();
+                const modal_backdrop = $(".modal-backdrop")
+                modal_backdrop.hide();
             },
             function no() {
                 return;

@@ -17,7 +17,8 @@ from profiles.forms import UserProfileForm
 from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
-from .models import OrderLineItem, Order, OrderStatus, Notification
+from .models import (
+    OrderLineItem, Order, OrderStatus, Notification, ReturnOrder)
 from .forms import OrderForm, ReturnOrderForm
 from .query_utils import query_order
 
@@ -411,21 +412,61 @@ def view_notification(request):
                   })
 
 
+@login_required
 def request_order_return(request):
     """ Request return of an order if its within the acceptable period
         The order number or email address is used to retrieve the order
-        since there could be anonymous users
-        """
+    """
     form = ReturnOrderForm()
-    orders = None
-    if request.method == 'POST':
-        orders = query_order(request, 'request_order_return')
-    if orders.count() > 0:
-        orders.filter(status__code='O')
-    # query_dict = request.session.get("request_order_return")
+    form_order_num = ""
+    form_order_total = ""
+    form_order_delivery = ""
+    form_order_grand = ""
+    form_order_discount = ""
 
+    if request.method == 'POST':
+        if 'select-btn' in request.POST:
+            form_order_num = request.POST.get('select-btn')
+            f_order = get_object_or_404(Order, order_number=form_order_num)
+            form_order_total = f_order.order_total
+            form_order_delivery = f_order.delivery_cost
+            form_order_discount = f_order.discount
+            form_order_grand = f_order.grand_total
+            form = ReturnOrderForm(initial={'order': f_order.order_number})
+
+    if 'confirm-action-btn' in request.POST:
+        # save confirmation
+        form = ReturnOrderForm(data=request.POST)
+        print(form)
+        print(request.POST)
+        if form.is_valid():
+            order_num = request.POST.get('form-order-no')
+            print("order-number==", order_num)
+            return_rec = form.save(commit=False)
+            return_order = get_object_or_404(Order, order_number=order_num)
+            user = UserProfile.objects.get(user=request.user)
+            return_rec.order = return_order
+            return_rec.user = user
+            return_rec.save()
+            messages.success(request, "Your request has been sent. An email will be sent to your registered email address with us!")
+
+    orders = query_order(request, 'request_order_return')
+    if orders.count() > 0:
+        orders = orders.filter(user_profile__user=request.user)
+        orders.filter(status__code='O')
+
+    query_dict = request.session.get("request_order_return")
+    paginator = Paginator(orders, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
     return render(request, 'checkout/request_return_order.html',
                   {
-                    'orders': orders,
+                    'orders': page_obj,
                     'form': form,
+                    'query_dict': query_dict,
+                    'form_order_num': form_order_num,
+                    'form_order_total': form_order_total,
+                    'form_order_delivery': form_order_delivery,
+                    'form_order_discount': form_order_discount,
+                    'form_order_grand': form_order_grand,
                   })

@@ -106,7 +106,7 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Date</th>
-                                <th scope="col">Order Number & Email</th>
+                                <th scope="col">Order Number / Email</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Line Items</th>
                                 <th scope="col">Action</th>
@@ -120,6 +120,7 @@
                                     <span>To</span>
                                     <input type="date" class="small mb-1" value={{query_dict.end_date}} name="end_date"
                                         placeholder="End Date">
+                                </td>
                                 <td>
                                     <input type="text" class="small mb-1 w-100"
                                         value={% if query_dict.order_number != None %} {{query_dict.order_number}}

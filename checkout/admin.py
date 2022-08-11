@@ -39,6 +39,7 @@ class OrderStatusAdmin(admin.ModelAdmin):
     """ Order Status model """
     model = OrderStatus
     fields = ('code', 'description')
+    list_display = ('code', 'description')
 
 
 @admin.register(Notification)
