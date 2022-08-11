@@ -427,9 +427,10 @@ def request_order_return(request):
 
     if request.method == 'POST':
         if 'select-btn' in request.POST:
-            form_order_num = request.POST.get('select-btn')
-            f_order = get_object_or_404(Order, order_number=form_order_num)
-
+            order_num = request.POST.get('select-btn')
+            f_order = get_object_or_404(Order, order_number=order_num)
+            existing_req = ReturnOrder.objects.filter(
+                order=f_order).order_by('-request_date')
             # check if the order date is within allowed return date
             return_days = int(get_object_or_404(
                               SystemPreference, code="R").data)
@@ -441,11 +442,17 @@ def request_order_return(request):
                 messages.error(request, f"Sorry you can no longer request \
                     for return of this order placed on {date_str}. \
                         You had within {return_days} days to do so")
+            elif existing_req.count() > 0:
+                d_str = existing_req[0].request_date.strftime("%d-%b-%Y %H:%M")
+                messages.error(request, f"Sorry you have an existing request \
+                    to return this order. Request was on {d_str}. \
+                        You will soon hear from us")
             else:
                 form_order_total = f_order.order_total
                 form_order_delivery = f_order.delivery_cost
                 form_order_discount = f_order.discount
                 form_order_grand = f_order.grand_total
+                form_order_num = order_num
                 form = ReturnOrderForm(initial={'order': f_order.order_number})
 
     if 'confirm-action-btn' in request.POST:
