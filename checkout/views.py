@@ -11,6 +11,7 @@ from django.contrib import messages
 from django.views.decorators.http import require_POST
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
+from django.db.models import Q
 
 from bag.contexts import bag_contents
 from profiles.models import UserProfile
@@ -514,6 +515,13 @@ def review_order_return(request):
             return_qs = ReturnOrder.objects.filter(order=return_order)
             if return_qs.count() > 0:
                 return_req = return_qs[0]
+                print("approved===", return_req.approved)
+                if return_req.approved is not None:
+                    # it has been reviewed before
+                    messages.warning(request, "This request has been reviewed! \
+                        Please change the status when shipped or delivered")
+                    return_req = None
+                    return redirect("review_order_return")          
             else:
                 # maybe the status was changed not by customer
                 messages.warning(request, "No customer request data exits!")
@@ -533,6 +541,7 @@ def review_order_return(request):
                 return_rec.reviewed_by = user
                 return_rec.review_comments = request.POST.get(
                                              'review-comments')
+                return_rec.approved = False
                 return_rec.save()
                 # set the status back to Ordered
                 status = get_object_or_404(OrderStatus, code="O")
@@ -542,9 +551,31 @@ def review_order_return(request):
                 messages.success(request, "Your rejection of the request has \
                     been saved. An email will be sent to the customer!")
 
+        if 'approve-btn' in request.POST:
+            order_num = request.POST.get('approve-btn')
+            if not order_num:
+                messages.warning(request, "Please select an order first")
+                return redirect("review_order_return")
+            else:
+                return_rec = get_object_or_404(
+                             ReturnOrder, order__order_number=order_num)
+                return_order = get_object_or_404(Order, order_number=order_num)
+                user = UserProfile.objects.get(user=request.user)
+                return_rec.reviewed_by = user
+                return_rec.approved = True
+                return_rec.review_comments = request.POST.get(
+                                             'review-comments')
+                return_rec.save()
+                # status remains are Returned until changed to shipped later
+                return_order = None
+                messages.success(request, "Your approval of the request has \
+                    been saved. An email will be sent to the customer!")
+
     orders = query_order(request, 'review_order_return')
     if orders.count() > 0:
-        orders = orders.filter(status__code='R')
+        orders = orders.filter(
+            Q(return_order__approved=None) &
+            Q(status__code='R'))
 
     query_dict = request.session.get("review_order_return")
     paginator = Paginator(orders, 3)
