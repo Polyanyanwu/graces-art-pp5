@@ -1,14 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 
-<!-- {% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %} -->
-
+{% load get_star_rating %}
 {% block content %}
 <div class="overlay"></div>
 <div class="container-fluid container-main">
@@ -104,8 +97,15 @@
                                     </p>
                                     {% endif %}
                                     {% if artwork.rating %}
-                                    <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ artwork.rating }} /
-                                        5</small>
+                                        {% for ind in artwork.rating|rating_dec_main %}
+                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
+                                        {% endfor %}
+                                        {% if artwork.rating|rating_dec_fraction %}
+                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
+                                        {% endif %}
+                                        {% for ind in artwork.rating|rating_dec_bal %}
+                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
+                                        {% endfor %}
                                     {% else %}
                                     <small class="text-muted">No Rating</small>
                                     {% endif %}

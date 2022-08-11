@@ -461,11 +461,8 @@ def request_order_return(request):
     if 'confirm-action-btn' in request.POST:
         # save confirmation
         form = ReturnOrderForm(data=request.POST)
-        print(form)
-        print(request.POST)
         if form.is_valid():
             order_num = request.POST.get('form-order-no')
-            print("order-number==", order_num)
             return_rec = form.save(commit=False)
             return_order = get_object_or_404(Order, order_number=order_num)
             user = UserProfile.objects.get(user=request.user)
@@ -517,7 +514,6 @@ def review_order_return(request):
             return_qs = ReturnOrder.objects.filter(order=return_order)
             if return_qs.count() > 0:
                 return_req = return_qs[0]
-                print("approved===", return_req.approved)
                 if return_req.approved is not None:
                     # it has been reviewed before
                     messages.warning(request, "This request has been reviewed! \
