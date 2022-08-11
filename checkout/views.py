@@ -549,6 +549,29 @@ def review_order_return(request):
                 status = get_object_or_404(OrderStatus, code="O")
                 return_order.status = status
                 return_order.save()
+
+                # send email confirmation
+                send_to = return_rec.user.user.email
+                subject = 'Rejection of Return Order: '\
+                    + return_order.order_number
+                body = render_to_string(
+                    'checkout/email_template/return_request_decision.txt',
+                    {'order': return_order,
+                     'return_rec': return_rec,
+                     'decision': 'Not Approved'})
+                send_mail(
+                    subject,
+                    body,
+                    settings.DEFAULT_FROM_EMAIL,
+                    [send_to]
+                )
+
+                # Write notification record
+                Notification.objects.create(
+                    subject=subject + ": " + return_order.user_profile.get_fullname(),
+                    message=body,
+                    user=return_order.user_profile)
+
                 return_order = None
                 messages.success(request, "Your rejection of the request has \
                     been saved. An email will be sent to the customer!")
