@@ -60,11 +60,20 @@ if (document.querySelectorAll('.confirm-many')) {
     rec_btn.forEach(btn => btn.addEventListener('click', function (e) {
         "use strict";
         const msg = e.target.dataset.message;
+        console.log("entered click event")
         Confirmation(msg,
             function yes() {
                 const rec_id = e.target.dataset.record_id;
+                const actionBtn = document.getElementById('confirm-action-btn')
+                let btnName = ""
+                console.log("btn name==="+ e.target.dataset.btnName)
+                if(e.target.dataset.btnName) btnName = e.target.dataset.btnName;
                 document.getElementById("confirm-id").value = rec_id;
-                document.getElementById('confirm-action-btn').click();
+                if (btnName){
+                    actionBtn.setAttribute('name', btnName)
+                    actionBtn.setAttribute('value', rec_id)
+                }
+                actionBtn.click();
             },
             function no() {
                 return;

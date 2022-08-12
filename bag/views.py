@@ -94,6 +94,25 @@ def update_bag(request):
         except Exception as e:
             messages.error(request, f'Error removing item: {e}')
 
+    elif 'confirm-moveto-wishlist' in request.POST:
+        # confirmation of move to wishlist action
+        try:
+            rec = request.POST.get('confirm-moveto-wishlist')
+            item_id = rec.split(':')[0]
+            qty = int(rec.split(':')[1])
+            artwork_id = item_id.split('-')[0]
+            frame_id = item_id.split('-')[1]
+            artwork = get_object_or_404(Artwork, pk=artwork_id)
+            frame = get_object_or_404(ArtFrame, pk=frame_id)
+            frame.qty += qty
+            frame.save()
+            bag.pop(item_id)
+            request.session['bag'] = bag
+            add_to_wishlist(request, artwork_id)
+
+        except Exception as e:
+            messages.error(request, f'Error removing item: {e}')
+
     if 'change-qty-btn' in request.POST:
         # change of bag item quantity
         # need to confirm availability of the new frame quantity

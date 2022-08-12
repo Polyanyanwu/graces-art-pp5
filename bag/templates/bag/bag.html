@@ -45,12 +45,21 @@
                             {% else %}
                                 <p class="my-0"><strong>€{{ item.artwork_price|floatformat:"2g" }}</strong></p>
                             {% endif %}
-                            <button type="submit" class="btn btn-select" name="wish_list" id="wish-list-btn">Move to
-                                Wishlist</button>
+                            <!-- <button type="submit" class="btn btn-select" name="wish_list" id="wish-list-btn">Move to
+                                Wishlist</button> -->
+                            <button type="button" class="btn btn-select btn-sm confirm-many" data-bs-toggle="modal"
+                                data-bs-target="#confirmModal"
+                                data-btn-name="confirm-moveto-wishlist"
+                                data-message="Please confirm moving the {{item.artwork.name}} to wishlist"
+                                data-record_id={{item.artwork.id}}-{{item.frame.id}}:{{item.quantity}}>Move to Wishlist
+                            </button>
+
+
                             <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
                                 data-bs-target="#confirmModal"
+                                data-btn-name="confirm-action-btn"
                                 data-message="Please confirm removing the {{item.artwork.name}} from the shopping bag"
-                                data-record_id={{item.artwork.id}}-{{item.frame.id}}>Remove
+                                data-record_id={{item.artwork.id}}-{{item.frame.id}}:{{item.quantity}} >Remove
                             </button>
                         </td>
                         <td>
