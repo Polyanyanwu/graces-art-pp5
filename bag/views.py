@@ -2,9 +2,11 @@
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 from artworks.models import Artwork, ArtFrame
 from utility.models import SystemPreference
+from bag.models import WishList
 
 
 def add_to_bag(request, artwork_id):
@@ -155,3 +157,31 @@ def update_bag(request):
                 site owner if it persists')
             print(f'Error removing item: {e}')
     return redirect('view_bag')
+
+
+def add_to_wishlist(request, artwork_id):
+    """ Add an artwork to wishlist """
+
+    redirect_url = request.META.get('HTTP_REFERER')
+    if not request.user.is_authenticated:
+        messages.info(request, "You need to login before using this feature")
+        return redirect(redirect_url)
+
+    artwork = get_object_or_404(Artwork, pk=artwork_id)
+    existing = WishList.objects.filter(artwork=artwork)
+
+    if existing.count() > 0:
+        messages.info(request, f"{existing[0].artwork.name} \
+            already in your wishlist")
+        return redirect(redirect_url)
+    try:
+        WishList.objects.create(
+            artwork=artwork,
+            user=request.user)
+        messages.success(request, f"{artwork.name} \
+            has been added to your wishlist")
+    except Exception as ex:
+        print("Error adding wishlist", ex)
+        messages.error(request, f"{artwork.name} could \
+            not be added now. Try later or contact site owner")
+    return redirect(redirect_url)

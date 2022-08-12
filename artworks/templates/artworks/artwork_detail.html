@@ -113,7 +113,7 @@
                             </span>
                             <span>Keep Shopping</span>
                         </a>
-                        <button type="submit" class="btn btn-select mt-3" name="add-to-wishlist">Add to Wishlist</button>
+                        <a href="{% url 'add_to_wishlist' artwork.id %}" class="btn btn-select mt-3">Add to Wishlist</a>
                         <button type="submit" class="btn btn-dark mt-3" name="add-to-bag">Add to Bag</button>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
