@@ -1,10 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+
 {% block extra_title %}- art_styles {% endblock %}
-{% block postloadjs %}
-<script src="{% static 'js/artworks.js' %}"></script>
-{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -33,12 +32,9 @@
                     <div class="d-flex justify-content-left">
                         <button type="submit" class="btn btn-cancel btn-ok mt-2 btn-sm me-5" name="cancel_ops" value="Cancel"
                         formnovalidate>Cancel</button>
-                        <button type="submit" class="btn btn-secondary mt-2 me-2 btn-sm" name="create_new_record">New</button>
-                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2 btn-sm" name="save_record">Save</button>
-
+                        <button type="submit" class="btn btn-secondary mt-2 me-5 btn-sm" name="create_new_record">New</button>
+                        <button type="submit" class="btn btn-primary btn-ok mt-2 ms-5 btn-sm" name="save_record">Save</button>
                     </div>
-                    <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
-                    <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
                 </div>
                 <div class="col-12 col-md-6">
                     <table class="table table-striped">
@@ -96,4 +92,7 @@
         {% endif %}
     </ul>
 </nav>
+{% endblock %}
+{% block postloadjs %}
+    <script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}

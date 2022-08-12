@@ -5,9 +5,11 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views import View
 from django.core.paginator import Paginator
+from django.http import HttpResponseRedirect
 
 from utility.models import SystemPreference
-from .forms import ContactUsForm, ReviewForm
+from profiles.user_belong import check_in_group
+from .forms import ContactUsForm, ReviewForm, FAQForm
 from .models import Review, FAQ
 
 
@@ -136,3 +138,69 @@ def view_faq(request):
 
     return render(request, 'home/faq.html',
                   {'faqs': faqs})
+
+
+@login_required
+def maintain_faq(request):
+    """ Maintain FAQ """
+    # check that user is administrator
+    rights = check_in_group(request.user, ("administrator",))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
+
+    faqs = FAQ.objects.all()
+    use_instance = True
+    if faqs.count() == 0:
+        use_instance = False
+        form = FAQForm()
+    if request.method == 'POST':
+        if 'select_rec' in request.POST:
+            id_sent = int(request.POST.get('name_selected'))
+            art_genre = get_object_or_404(FAQ, pk=id_sent)
+            request.session['current_rec'] = id_sent
+            form = FAQForm(instance=art_genre)
+        elif 'create_new_record' in request.POST:
+            form = FAQForm()
+            request.session['current_rec'] = ""
+        elif 'cancel_ops' in request.POST:
+            if use_instance:
+                form = FAQForm(instance=faqs[0])
+                request.session['current_rec'] = faqs[0].id
+            HttpResponseRedirect('home/maintain_faq.html')
+        elif 'confirm-action-btn' in request.POST:
+            # action is only delete action
+            name_sent = request.POST.get('confirm-id')
+            faq = get_object_or_404(FAQ, id=name_sent)
+            name = faq.question
+            faq.delete()
+            messages.success(request,
+                             ('FAQ ' + name +
+                              ' was successfully deleted!'))
+            if faqs.count() > 0:
+                form = FAQForm(instance=faqs[0])
+                request.session['current_rec'] = faqs[0].id
+        elif 'save_record' in request.POST:
+            if request.session.get('current_rec'):
+                # editing a record which id was put in session
+                faq_id = int(request.session.get('current_rec'))
+                faq = FAQ.objects.get(pk=faq_id)
+                form = FAQForm(request.POST, instance=faq)
+            else:
+                form = FAQForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request,
+                                 ('Your FAQ was successfully saved!'))
+            else:
+                messages.error(request, ('Please correct the error below.'))
+    else:
+        if faqs.count() > 0:
+            form = FAQForm(instance=faqs[0])
+    paginator = Paginator(faqs, 10)  # Show 10 bookings per page.
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'home/maintain_faq.html', {
+        'form': form,
+        'faqs': page_obj,
+    })

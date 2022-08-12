@@ -107,15 +107,16 @@
 
                   <!-- Administrator Role Options -->
                   {% if request.user|belong_group:"administrator" %}
-                  <li><a class="dropdown-item" href="{% url 'maintain_artists' %}">Maintain Artist</a></li>
-                  <li><a class="dropdown-item" href="{% url 'maintain_art_style' %}">Maintain Style</a></li>
-                  <li><a class="dropdown-item" href="{% url 'maintain_art_genre' %}">Maintain Genre</a></li>
+
                   <li><a class="dropdown-item" href="{% url 'general_info' %}">Maintain General Information</a></li>
                   <li><a class="dropdown-item" href="{% url 'system_preference' %}">Maintain System Preferences</a></li>
                   <li><a class="dropdown-item" href="{% url 'update_group' %}">Assign User Roles</a></li>
+                  <li><a class="dropdown-item" href="{% url 'maintain_faq' %}">Maintain FAQs</a></li>
+                  <li><a class="dropdown-item" href="#"><hr></a></li>
 
-                  <li><a class="dropdown-item" href="#">
-                      <hr></a></li>
+                  <li><a class="dropdown-item" href="{% url 'maintain_artists' %}">Maintain Artist</a></li>
+                  <li><a class="dropdown-item" href="{% url 'maintain_art_style' %}">Maintain Style</a></li>
+                  <li><a class="dropdown-item" href="{% url 'maintain_art_genre' %}">Maintain Genre</a></li>
                   <li><a class="dropdown-item" href="{% url 'add_artwork' %}">Add Artwork</a></li>
                   <li><a class="dropdown-item" href="{% url 'edit_delete_artwork' %}">Edit/Delete Artwork</a></li>
                   <li><a class="dropdown-item" href="{% url 'maintain_art_frame' %}">Maintain Art Frame</a></li>

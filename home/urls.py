@@ -14,4 +14,5 @@ urlpatterns = [
          name='write_review'),
     path('review', views.view_reviews, name='reviews'),
     path('faq', views.view_faq, name='faqs'),
+    path('faqm', views.maintain_faq, name='maintain_faq'),
 ]

@@ -52,7 +52,6 @@
                         <tbody>
                             {% for artist in artists %}
                             <tr>
-                                <!-- <th scope="row">{{ forloop.counter }}</th> -->
                                 <th scope="row">{{forloop.counter0|add:artists.start_index}}</th>
                                 <td>{{artist.name}}</td>
                                 <td>{{ artist.friendly_name }}</td>

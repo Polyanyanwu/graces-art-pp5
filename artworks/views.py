@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db import transaction
-from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
@@ -142,7 +141,7 @@ def maintain_art_style(request):
     else:
         if use_instance:
             form = ArtStyleForm(instance=art_styles[0])
-    paginator = Paginator(art_styles, 10)  # Show 15 bookings per page.
+    paginator = Paginator(art_styles, 10)  # Show 10 bookings per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'artworks/art_style.html', {
