@@ -3,6 +3,7 @@
 """
 
 from django.contrib import admin
+from django_summernote.admin import SummernoteModelAdmin
 from .models import ContactUs, FAQ
 
 
@@ -16,9 +17,10 @@ class ContactUsAdmin(admin.ModelAdmin):
 
 
 @admin.register(FAQ)
-class FAQAdmin(admin.ModelAdmin):
+class FAQAdmin(SummernoteModelAdmin):
     ''' Maintain FAQ  '''
     model = FAQ
     list_display = ('last_view_date', 'question')
     search_fields = ['question']
-    list_filter = ('question', 'explanation')
+    list_filter = ('question', )
+    summernote_fields = ('explanation',)
