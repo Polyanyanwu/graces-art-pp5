@@ -85,8 +85,14 @@ def update_bag(request):
     if 'confirm-action-btn' in request.POST:
         # confirmation of remove action
         try:
-            item_id = request.POST.get('confirm-id')
+            rec = request.POST.get('confirm-action-btn')
+            item_id = rec.split(':')[0]
+            qty = int(rec.split(':')[1])
             artwork_id = item_id.split('-')[0]
+            frame_id = item_id.split('-')[1]
+            frame = get_object_or_404(ArtFrame, pk=frame_id)
+            frame.qty += qty
+            frame.save()
             artwork = get_object_or_404(Artwork, pk=artwork_id)
             bag.pop(item_id)
             messages.success(request, f'Removed {artwork.name} from your bag')
