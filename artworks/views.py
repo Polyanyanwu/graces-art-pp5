@@ -32,41 +32,46 @@ def maintain_artist(request):
     if request.method == 'POST':
         if 'select_rec' in request.POST:
             id_sent = request.POST.get('name_selected')
-            artist = get_object_or_404(Artist, name=id_sent)
+            artist = get_object_or_404(Artist, id=id_sent)
             form = ArtistForm(instance=artist)
             request.session['current_rec'] = id_sent
         elif 'create_new_record' in request.POST:
             form = ArtistForm()
+            request.session['current_rec'] = ""
         elif 'cancel_ops' in request.POST:
             if use_instance:
                 form = ArtistForm(instance=artists[0])
+                request.session['current_rec'] = artists[0].id
             HttpResponseRedirect('artworks/artist.html')
         elif 'confirm-action-btn' in request.POST:
             # action is only delete action
-            name_sent = request.POST.get('confirm-id')
-            artist = get_object_or_404(Artist, name=name_sent)
+            id_sent = request.POST.get('confirm-id')
+            artist = get_object_or_404(Artist, id=id_sent)
+            name = artist.name
             artist.delete()
+            request.session['current_rec'] = ""
             messages.success(request,
-                             ('Artist ' + name_sent +
+                             ('Artist ' + name +
                               ' was successfully deleted!'))
-            if use_instance:
+            if artists.count():
                 form = ArtistForm(instance=artists[0])
         elif 'save_record' in request.POST:
-            form = ArtistForm(data=request.POST)
+
+            if request.session.get('current_rec'):
+                # editing a record which id was put in session
+                artist_id = int(request.session.get('current_rec'))
+                artist = Artist.objects.get(pk=artist_id)
+                form = ArtistForm(request.POST, instance=artist)
+            else:
+                form = ArtistForm(request.POST)
             if form.is_valid():
-                try:
-                    artist = Artist.objects.get(name=request.POST.get('name'))
-                    artist.name = request.POST.get('name')
-                    artist.friendly_name = request.POST.get('friendly_name')
-                    artist.save()
-                except ObjectDoesNotExist:
-                    form.save()
+                form.save()
                 messages.success(request,
                                  ('Your Artist was successfully saved!'))
             else:
                 messages.error(request, ('Please correct the error below.'))
     else:
-        if use_instance:
+        if artists.count():
             form = ArtistForm(instance=artists[0])
     paginator = Paginator(artists, 10)  # Show 15 bookings per page.
     page_number = request.GET.get('page')
