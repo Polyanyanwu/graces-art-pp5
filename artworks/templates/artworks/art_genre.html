@@ -3,7 +3,7 @@
 {% load crispy_forms_tags %}
 {% block extra_title %}- art_genre {% endblock %}
 {% block postloadjs %}
-    <script src="{% static 'js/artworks.js' %}"></script>
+<script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}
 {% block page_header %}
 <div class="container header-container">
@@ -27,14 +27,14 @@
         <form action="{% url 'maintain_art_genre' %}" method="POST" id="art-genre-maintain-form">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4">
-
                     {% csrf_token %}
                     {{ form|crispy }}
-                    <div class="d-flex justify-content-center">
-                        <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button>
-                        <button type="submit" class="btn btn-primary btn-ok mt-2 me-2" name="save_record">Save</button>
-                        <button type="submit" class="btn btn-cancel btn-ok mt-2" name="cancel_ops" value="Cancel"
+                    <div class="d-flex">
+                        <button type="submit" class="btn btn-sm btn-secondary mt-2 me-2" name="create_new_record">New</button>
+
+                        <button type="submit" class="btn btn-sm btn-cancel mt-2 me-5" name="cancel_ops" value="Cancel"
                             formnovalidate>Cancel</button>
+                        <button type="submit" class="btn btn-sm btn-ok mt-2 ms-5" name="save_record">Save</button>
                     </div>
                     <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
                     <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
@@ -56,14 +56,14 @@
                                 <td>{{art_genre.name}}</td>
                                 <td>{{ art_genre.friendly_name }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
-                                        data-bs-target="#confirmModal"
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many"
+                                        data-bs-toggle="modal" data-bs-target="#confirmModal"
                                         data-message="Please confirm deleting the {{art_genre.name}} Art Genre. This action is not reversible?"
-                                        data-record_id={{art_genre.name}}>Delete
+                                        data-record_id={{art_genre.id}}>Delete
                                     </button>
 
                                 <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
-                                        data-name={{ art_genre.name }}>Edit
+                                        data-name={{ art_genre.id }}>Edit
                                     </button>
                                 </td>
                                 </td>
@@ -73,7 +73,8 @@
                             <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
                             <input type="hidden" value="" name="name_selected" id="name_selected">
                             <input type="hidden" value="" name="confirm-id" id="confirm-id">
-                            <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+                            <button type="submit" class="hidden" name="confirm-action-btn"
+                                id="confirm-action-btn"></button>
                         </tbody>
                     </table>
                 </div>

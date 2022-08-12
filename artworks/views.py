@@ -31,9 +31,10 @@ def maintain_artist(request):
         form = ArtistForm()
     if request.method == 'POST':
         if 'select_rec' in request.POST:
-            name_sent = request.POST.get('name_selected')
-            artist = get_object_or_404(Artist, name=name_sent)
+            id_sent = request.POST.get('name_selected')
+            artist = get_object_or_404(Artist, name=id_sent)
             form = ArtistForm(instance=artist)
+            request.session['current_rec'] = id_sent
         elif 'create_new_record' in request.POST:
             form = ArtistForm()
         elif 'cancel_ops' in request.POST:
@@ -162,44 +163,49 @@ def maintain_art_genre(request):
         form = ArtGenreForm()
     if request.method == 'POST':
         if 'select_rec' in request.POST:
-            name_sent = request.POST.get('name_selected')
-            art_genre = get_object_or_404(ArtGenre, name=name_sent)
+            id_sent = int(request.POST.get('name_selected'))
+            art_genre = get_object_or_404(ArtGenre, pk=id_sent)
+            request.session['current_rec'] = id_sent
             form = ArtGenreForm(instance=art_genre)
         elif 'create_new_record' in request.POST:
             form = ArtGenreForm()
+            request.session['current_rec'] = ""
         elif 'cancel_ops' in request.POST:
             if use_instance:
                 form = ArtGenreForm(instance=art_genres[0])
+                request.session['current_rec'] = art_genres[0].id
             HttpResponseRedirect('artworks/art_genre.html')
         elif 'confirm-action-btn' in request.POST:
             # action is only delete action
             name_sent = request.POST.get('confirm-id')
-            art_genre = get_object_or_404(ArtGenre, name=name_sent)
+            art_genre = get_object_or_404(ArtGenre, id=name_sent)
+            name = art_genre.friendly_name
             art_genre.delete()
             messages.success(request,
-                             ('Art Genre ' + name_sent +
+                             ('Art Genre ' + name +
                               ' was successfully deleted!'))
-            if use_instance:
+            if art_genres.count() > 0:
                 form = ArtGenreForm(instance=art_genres[0])
+                request.session['current_rec'] = art_genres[0].id
         elif 'save_record' in request.POST:
-            form = ArtGenreForm(data=request.POST)
+            if request.session.get('current_rec'):
+                # editing a record which id was put in session
+                genre_id = int(request.session.get('current_rec'))
+                art_genre = ArtGenre.objects.get(pk=genre_id)
+                form = ArtGenreForm(request.POST,
+                                    instance=art_genre)
+            else:
+                form = ArtGenreForm(request.POST)
             if form.is_valid():
-                try:
-                    art_genre = ArtGenre.objects.get(
-                                name=request.POST.get('name'))
-                    art_genre.name = request.POST.get('name')
-                    art_genre.friendly_name = request.POST.get('friendly_name')
-                    art_genre.save()
-                except ObjectDoesNotExist:
-                    form.save()
+                form.save()
                 messages.success(request,
                                  ('Your Art Genre was successfully saved!'))
             else:
                 messages.error(request, ('Please correct the error below.'))
     else:
-        if use_instance:
+        if art_genres.count() > 0:
             form = ArtGenreForm(instance=art_genres[0])
-    paginator = Paginator(art_genres, 10)  # Show 15 bookings per page.
+    paginator = Paginator(art_genres, 10)  # Show 10 bookings per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'artworks/art_genre.html', {
