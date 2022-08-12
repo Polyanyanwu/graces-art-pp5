@@ -1,6 +1,7 @@
 """ Contact form for receiving contact us messages """
 from django import forms
-from .models import ContactUs, Review
+from django_summernote.widgets import SummernoteWidget
+from .models import ContactUs, Review, FAQ
 
 
 class ContactUsForm(forms.ModelForm):
@@ -23,3 +24,13 @@ class ReviewForm(forms.ModelForm):
         """ Form meta class """
         model = Review
         fields = ('rating', 'message')
+
+
+class FAQForm(forms.ModelForm):
+    """ Frequently Asked Questions """
+    explanation = forms.CharField(widget=SummernoteWidget())
+
+    class Meta:
+        """ FAQ Form Meta """
+        model = FAQ
+        fields = ('question', 'explanation')

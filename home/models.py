@@ -81,3 +81,14 @@ class Review(models.Model):
 
     def __str__(self):
         return str(self.rating)
+
+
+class FAQ(models.Model):
+    """ Data model for Frequently Asked Questions """
+
+    question = models.CharField(max_length=300, null=False, blank=False)
+    explanation = models.TextField(null=False, blank=False)
+    last_view_date = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.question)
