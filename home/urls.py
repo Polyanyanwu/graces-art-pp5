@@ -13,4 +13,5 @@ urlpatterns = [
     path('write_review', login_required(views.WriteReviewView.as_view()),
          name='write_review'),
     path('review', views.view_reviews, name='reviews'),
+    path('faq', views.view_faq, name='faqs'),
 ]

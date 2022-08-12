@@ -4,10 +4,11 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.views import View
-from utility.models import SystemPreference
 from django.core.paginator import Paginator
+
+from utility.models import SystemPreference
 from .forms import ContactUsForm, ReviewForm
-from .models import Review
+from .models import Review, FAQ
 
 
 def index(request):
@@ -126,3 +127,12 @@ def view_reviews(request):
     page_obj = paginator.get_page(page_number)
     return render(request, 'home/review.html',
                   {'reviews': page_obj, })
+
+
+def view_faq(request):
+    """ Display frequently asked questions to users """
+    print("at request")
+    faqs = FAQ.objects.all()
+
+    return render(request, 'home/faq.html',
+                  {'faqs': faqs})

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_title %}- faq {% endblock %}
+
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid container-main">
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2 text-center">
+            <h4>Welcome to Our Help Centre</h4>
+            <h6>Here you can find answers to some of the questions we hear most often from customers</h6>
+            <hr>
+        </div>
+    </div>
+    <div class="col-12 col-md-8 offset-md-2">
+        {% for faq in faqs %}
+        <div class="row">
+            <div class="col-12 col-md-5">
+                <p class="fw-bolder">
+                    {{faq.question|safe}}
+                </p>
+            </div>
+            <div class="col-12 col-md-7">
+                <p>
+                    {{faq.explanation|safe}}
+                </p>
+            </div>
+            <hr>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="back-to-top-btn shadow-sm border red-border">
+    <a class="back-to-top-link d-flex h-100" title="Back to top">
+        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+    </a>
+</div>
+
+{% endblock %}
