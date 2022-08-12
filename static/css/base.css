@@ -125,6 +125,12 @@ a {
     cursor: auto;
 }
 
+.img-mid {
+    object-fit: cover;
+    width: 120px;
+    height: 60px;
+}
+
 .frame-img-cover {
     object-fit: cover;
     width: 120px;

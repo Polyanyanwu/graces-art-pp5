@@ -3,6 +3,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 
 from artworks.models import Artwork, ArtFrame
 from utility.models import SystemPreference
@@ -210,3 +211,24 @@ def add_to_wishlist(request, artwork_id):
         messages.error(request, f"{artwork.name} could \
             not be added now. Try later or contact site owner")
     return redirect(redirect_url)
+
+
+@login_required
+def view_wishlist(request):
+    """ View your wishlist """
+
+    wishlists = WishList.objects.filter(user=request.user).order_by('-date')
+    if request.method == 'POST':
+        wishlist_id = request.POST.get('confirm-delete-wishlist')
+        try:
+            wishlist = WishList.objects.get(id=wishlist_id)
+            wishlist.delete()
+            messages.success(request, "The artwork has been \
+                removed from your wishlist")
+        except ObjectDoesNotExist:
+            messages.success(request, "The artwork is no \
+                longer in your wishlist")
+    return render(request, 'bag/wishlist.html',
+                  {
+                    'wishlists': wishlists,
+                  })

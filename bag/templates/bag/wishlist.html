@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+{% load get_star_rating %}
+
+{% block extra_title %}- wishlist {% endblock %}
+
+{% block content %}
+<div class="overlay"></div>
+<div class="container-fluid container-main ">
+    <div class="row justify-content-center">
+        <div class="col text-center">
+            <h4>My Wishlist</h4>
+            <hr>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="row justify-content-center">
+            <form action="{% url 'view_wishlist' %}" method="POST">
+                {% csrf_token %}
+                <div class="col-12 col-md-10 offset-md-1">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Image</th>
+                                <th scope="col">Artist</th>
+                                <th scope="col">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for wl in wishlists %}
+                            <tr>
+                                <th scope="row">{{forloop.counter}}</th>
+                                <td>{{wl.artwork.name}}</td>
+                                <td>
+                                    {% if wl.artwork.image %}
+                                    <a href="{{ wl.artwork.image.url }}" target="_blank">
+                                        <img class="card-img-top img-fluid img-mid" src="{{ wl.artwork.image.url }}"
+                                            alt="{{ wl.artwork.name }}">
+                                    </a>
+                                    <p class="my-0">
+                                        {% if wl.artwork.rating %}
+                                        {% for ind in wl.artwork.rating|rating_dec_main %}
+                                        <span class="ms-0 mx-0"><i
+                                                class="fa-solid fa-star mx-0 small text-danger"></i></span>
+                                        {% endfor %}
+                                        {% if wl.artwork.rating|rating_dec_fraction %}
+                                        <span class="ms-0 mx-0"><i
+                                                class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
+                                        {% endif %}
+                                        {% for ind in wl.artwork.rating|rating_dec_bal %}
+                                            <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
+                                        {% endfor %}
+                                        {% else %}
+                                            <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                    </p>
+                                    {% else %}
+                                    <img class="card-img-top img-fluid img-mid" src="{{ MEDIA_URL }}no_image.jpg"
+                                        alt="{{ wl.artwork.name }}">
+                                    {% endif %}
+                                </td>
+                                <td>{{ wl.artwork.artist.friendly_name }}</td>
+                                <td>
+                                    {% if wl.artwork.on_sale %}
+                                    <span class="strikeout mb-0 text-left ">€{{ wl.artwork.price|floatformat:2}}</span>
+                                    <span class="highlight ms-2">
+                                        €{{wl.artwork.get_sale_price|floatformat:2}}</span>
+                                    {% else %}
+                                    <p class="mb-0 text-left highlight">€{{ wl.artwork.price }}</p>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many"
+                                        data-bs-toggle="modal" data-bs-target="#confirmModal"
+                                        data-btn-name="confirm-delete-wishlist"
+                                        data-message="Please confirm deleting the {{wl.artwork.name}} from wishlist"
+                                        data-record_id={{wl.id}}>Delete
+                                    </button>
+                                <td>
+                                    <a href="{% url 'artwork_detail' wl.artwork.id %}"
+                                        class="btn btn-ok btn-sm edit-btn">Buy Now</a>
+                                </td>
+                                </td>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                            <button type="submit" class="hidden" name="" id="confirm-action-btn"></button>
+                        </tbody>
+                    </table>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        {% if art_genres.has_previous %}
+        <li><a href="?page={{ art_genres.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
+            <span class="ms-5">Page {{ art_genres.number }} of {{ art_genres.paginator.num_pages }}</span>
+        </li>
+        {% endif %}
+        {% if art_genres.has_next %}
+        <li><a href="?page={{ art_genres.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
+        </li>
+        {% endif %}
+    </ul>
+</nav>
+{% endblock %}

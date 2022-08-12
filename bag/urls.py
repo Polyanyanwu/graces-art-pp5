@@ -10,4 +10,5 @@ urlpatterns = [
     path('ub', views.update_bag, name='update_bag'),
     path('wishlist/<int:artwork_id>/', views.add_to_wishlist,
          name='add_to_wishlist'),
+    path('view_wishlist', views.view_wishlist, name='view_wishlist'),
 ]

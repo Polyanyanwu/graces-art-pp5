@@ -68,7 +68,8 @@ if (document.querySelectorAll('.confirm-many')) {
                 let btnName = ""
                 console.log("btn name==="+ e.target.dataset.btnName)
                 if(e.target.dataset.btnName) btnName = e.target.dataset.btnName;
-                document.getElementById("confirm-id").value = rec_id;
+                if(document.getElementById("confirm-id"))
+                    document.getElementById("confirm-id").value = rec_id;
                 if (btnName){
                     actionBtn.setAttribute('name', btnName)
                     actionBtn.setAttribute('value', rec_id)
