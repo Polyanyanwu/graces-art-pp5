@@ -15,13 +15,12 @@ body {
     background: url('/media/index_background.png') no-repeat center center fixed;
     background-size: cover;
     background-position-y: 8.4rem;
-    /* height: calc(100vh - 164px)!important; */
     font-family: 'Exo', sans-serif;
     font-weight: 400;
 }
 
 main {
-    height: calc(100vh - 160px);
+    height: calc(100vh - 143.6px);
     position: fixed;
     width: 100%;
     margin-top: 160px;
@@ -146,7 +145,7 @@ a {
 }
 
 
-
+/* Mailchimp styling */
 #mc_embed_signup {
     background-color: var(--bs-gray-200);
     clear: left;
@@ -159,6 +158,12 @@ a {
 #mc_embed_signup .helper_text {
     padding: 0;
     background-color: var(--bs-gray-200);
+}
+
+/* Reduce size of Mailchimp logo */
+img, svg {
+    vertical-align: middle;
+    width: 100px;
 }
 
 /* from Bulma -walkthrough project*/
@@ -197,18 +202,10 @@ a {
     min-height: calc(100% - 185px);
 }
 
-/* .container-main {
-
-} */
-
 .scroll-nav {
     max-height: 400px;
     overflow: scroll;
 }
-
-/* .product-container{
-    overscroll-behavior: contain;
-} */
 
 /* overwrite bootstrap display of down pointing arrow */
 .dropstart .dropdown-toggle::before {
@@ -304,16 +301,6 @@ input,
     right: 36px;
 }
 
-/* Convenience classes - colors copied from Bootstrap */
-/* Code Institute Boutique walk through site */
-/* .arrow-primary {
-    border-bottom-color: #007bff !important;
-}
-
-.arrow-secondary {
-    border-bottom-color: #6c757d !important;
-} */
-
 /* Input for review return order comments */
 #floatingTextarea2 {
     height: 100px;
@@ -323,25 +310,6 @@ input,
     border-bottom-color: #28a745 !important;
 }
 
-/* .arrow-danger {
-    border-bottom-color: #dc3545 !important;
-} */
-
-/* .arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.arrow-light {
-    border-bottom-color: #f8f9fa !important;
-}
-
-.arrow-dark {
-    border-bottom-color: #343a40 !important;
-} */
 
 .container-fluid {
     padding: 0;
@@ -463,8 +431,6 @@ footer a:hover {
         color: white;
     }
 
-
-
     /* toast messages */
     .message-container {
         width: 80vw;
@@ -487,8 +453,7 @@ footer a:hover {
 }
 
 
-/* pad the top a bit when navbar is collapsed on mobile */
-/* @media (max-width: 991px) { */
+/* bring up the footer a bit on very small screen on mobile */
     @media (max-width: 498px) {
         main{
             margin-top: 146px;
