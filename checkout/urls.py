@@ -24,4 +24,6 @@ urlpatterns = [
          name='request_order_return'),
     path('review_order_return/', views.review_order_return,
          name='review_order_return'),
+    path('cancel_order', views.request_cancel_order,
+         name='cancel_order'),
 ]

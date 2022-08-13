@@ -135,16 +135,20 @@
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
                   <li><a class="dropdown-item" href="{% url 'update_profile' %}">My Profile</a></li>
-                  <li><a class="dropdown-item" href="{% url 'account_email' %}">Update Email</a></li>
+                  <li>
+                    <hr class="dropdown-divider">
+                  </li>
                   <li><a class="dropdown-item" href="{% url 'customer_order_history' %}">Order History</a></li>
                   <li><a class="dropdown-item" href="{% url 'request_order_return' %}">Return Order</a></li>
-                  <li><a class="dropdown-item" href="{% url 'view_notification' %}">Notifications</a></li>
+                  <li><a class="dropdown-item" href="{% url 'cancel_order' %}">Cancel Order</a></li>
                   <li><a class="dropdown-item" href="{% url 'view_wishlist' %}">My Wishlist</a></li>
                   <li>
                     <hr class="dropdown-divider">
                   </li>
-                  <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+                  <li><a class="dropdown-item" href="{% url 'view_notification' %}">Notifications</a></li>
                   <li><a class="dropdown-item" href="{% url 'account_reset_password' %}">Reset Password</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_email' %}">Update Email</a></li>
+                  <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 </ul>
               </li>
 

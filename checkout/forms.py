@@ -4,7 +4,7 @@
 
 
 from django import forms
-from .models import Order, ReturnOrder
+from .models import Order, ReturnOrder, CancelOrder
 
 
 class OrderForm(forms.ModelForm):
@@ -58,4 +58,19 @@ class ReturnOrderForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['reason'].widget.attrs['placeholder'] = 'enter your reason'
+        self.fields['reason'].widget.attrs['placeholder'] = 'Enter your reason'
+
+
+class CancelOrderForm(forms.ModelForm):
+    """ Cancel Order model form """
+    reason = forms.CharField(widget=forms.Textarea(attrs={'rows': '4'}))
+
+    class Meta:
+        """ Cancel Order Form meta """
+        model = CancelOrder
+        fields = ('reason',)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        place_h = 'Do let us know why to enable us serve you better in future'
+        self.fields['reason'].widget.attrs['placeholder'] = place_h

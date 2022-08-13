@@ -22,8 +22,9 @@ from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
 from artworks.models import Artwork, ArtFrame
 from .models import (
-    OrderLineItem, Order, OrderStatus, Notification, ReturnOrder)
-from .forms import OrderForm, ReturnOrderForm
+    OrderLineItem, Order, OrderStatus,
+    CancelOrder, Notification, ReturnOrder)
+from .forms import OrderForm, ReturnOrderForm, CancelOrderForm
 from .query_utils import query_order
 
 
@@ -631,4 +632,83 @@ def review_order_return(request):
                     'query_dict': query_dict,
                     'return_order': return_order,
                     'return_req': return_req,
+                  })
+
+
+@login_required
+def request_cancel_order(request):
+    """ Request cancel of an order if its within the acceptable period
+        The order number or email address is used to retrieve the order
+    """
+    form = CancelOrderForm()
+    form_order_num = ""
+    form_order_total = ""
+    form_order_delivery = ""
+    form_order_grand = ""
+    form_order_discount = ""
+
+    if request.method == 'POST':
+        if 'select-btn' in request.POST:
+            order_num = request.POST.get('select-btn')
+            f_order = get_object_or_404(Order, order_number=order_num)
+            existing_req = CancelOrder.objects.filter(
+                order=f_order).order_by('-date')
+            # check if the order date is within allowed return date
+            return_days = int(get_object_or_404(
+                              SystemPreference, code="C").data)
+            print("cancel days==", return_days, " date==", f_order.date)
+            now = datetime.now(timezone.utc)
+            order_date = f_order.date
+            delta = (now - order_date).days
+            print("date diff===", delta)
+            date_str = f_order.date.strftime("%d-%b-%Y %H:%M")
+            if delta > return_days:
+                messages.error(request, f"Sorry you can no longer cancel \
+                    this order placed on {date_str}. \
+                        You had within {return_days} days to do so")
+            elif existing_req.count() > 0:
+                d_str = existing_req[0].date.strftime("%d-%b-%Y %H:%M")
+                messages.error(request, f"Sorry you have already cancelled \
+                    this order. Request was on {d_str}.")
+            else:
+                form_order_total = f_order.order_total
+                form_order_delivery = f_order.delivery_cost
+                form_order_discount = f_order.discount
+                form_order_grand = f_order.grand_total
+                form_order_num = order_num
+                form = CancelOrderForm(initial={'order': f_order.order_number})
+
+    if 'confirm-action-btn' in request.POST:
+        # save confirmation
+        form = CancelOrderForm(data=request.POST)
+        if form.is_valid():
+            order_num = request.POST.get('form-order-no')
+            cancel_rec = form.save(commit=False)
+            cancel_order = get_object_or_404(Order, order_number=order_num)
+            user = UserProfile.objects.get(user=request.user)
+            cancel_rec.order = cancel_order
+            cancel_rec.user = user
+            cancel_rec.save()
+            messages.success(request, "Your order has been cancelled. An email \
+                has been sent to your registered email address with us!")
+
+    orders = query_order(request, 'cancel_order')
+    if orders.count() > 0:
+        orders = orders.filter(Q(user_profile__user=request.user) &
+                               Q(status__code='O')).order_by('-date')
+
+    query_dict = request.session.get("cancel_order")
+    paginator = Paginator(orders, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'checkout/cancel_order.html',
+                  {
+                    'orders': page_obj,
+                    'form': form,
+                    'query_dict': query_dict,
+                    'form_order_num': form_order_num,
+                    'form_order_total': form_order_total,
+                    'form_order_delivery': form_order_delivery,
+                    'form_order_discount': form_order_discount,
+                    'form_order_grand': form_order_grand,
                   })
