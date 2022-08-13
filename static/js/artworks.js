@@ -85,12 +85,14 @@ function artDetails() {
     if (document.querySelector('#select_frame')) {
         const frameCost = document.querySelector('#frame-cost');
         const selectFrame = document.querySelector('#select_frame');
-        const selectedImg = document.querySelector('#selected-img');
-        const frameHref = document.querySelector('#frame_href');
+        // const selectedImg = document.querySelector('#selected-img');
+        // const frameHref = document.querySelector('#frame_href');
         const artFrameCost = document.querySelector('#art-and-frame');
         const totalCostEl = document.querySelector('#total-cost');
         const qtyEl = document.getElementById('quantity');
         const frameIdEl = document.getElementById('frame-id');
+        const frameSelectActionBtn = document.getElementById('frame-action-btn');
+
         selectFrame.addEventListener('change', function (e) {
 
             const frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
@@ -98,7 +100,7 @@ function artDetails() {
                 artFrameCost.textContent =""
                 totalCostEl.textContent =""
                 frameCost.textContent=""
-                selectedImg.src ="/media/no_image.jpg"
+                // selectedImg.src ="/media/no_image.jpg"
                 return
             }
 
@@ -106,8 +108,8 @@ function artDetails() {
             frameIdEl.value = frameId;
             const costVal = frameDetail.split(":")[1];
             imgVal = frameDetail.split(":")[2];
-            selectedImg.src = imgVal;
-            frameHref.href = imgVal;
+            // selectedImg.src = imgVal;
+            // frameHref.href = imgVal;
             frameCost.textContent = "€" + costVal;
             if (document.querySelector('#sale-price')) {
                 artFrameCost.textContent = "€" + (parseFloat(costVal) + parseFloat(document.querySelector('#sale-price').textContent)).toFixed(2);
@@ -116,6 +118,8 @@ function artDetails() {
             }
             const totalCost = getTotalDetailCost(costVal);
             totalCostEl.textContent = "€" + totalCost.toFixed(2);
+            frameSelectActionBtn.setAttribute('value', frameId + ":" + qtyEl.options[qtyEl.selectedIndex].value);
+            frameSelectActionBtn.click();
 
         })
 

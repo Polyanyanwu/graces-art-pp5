@@ -15,7 +15,9 @@ def add_to_bag(request, artwork_id):
         its frame to the shopping bag
     """
     redirect_url = request.POST.get('redirect_url')
-    frame_id = request.POST.get('frame')
+    frame_data = request.POST.get('frame_data')
+    frame_id = frame_data.split(":")[0]
+
     if not frame_id:
         messages.warning(request,
                          'Please select a Frame before adding to bag')

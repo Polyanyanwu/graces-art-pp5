@@ -26,9 +26,19 @@
                 {% endif %}
             </div>
             <div>
-                <a href="" target="_blank" id="frame_href">
-                    <img id="selected-img" class="card-img-top frame-img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="Artwork Frame">
+
+                {% if selected_frame %}
+                <a href="{{ selected_frame.image.url }}" target="_blank">
+                    <img class="card-img-top frame-img-cover" src="{{ selected_frame.image.url }}"
+                        alt="{{ selected_frame.name }}">
                 </a>
+                {% else %}
+                <img class="card-img-top frame-img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="Frame Image">
+                {% endif %}
+                
+                <!-- <a href="" target="_blank" id="frame_href">
+                    <img id="selected-img" class="card-img-top frame-img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="Artwork Frame">
+                </a> -->
             </div>
         </div>
         <div class="col-12 col-md-7 col-lg-4">
@@ -92,29 +102,40 @@
                     {% csrf_token %}
                     <p class="mb-1">
                         <label for="select_frame">Frame:</label>
-                        <select name="frame" id="select_frame">
+                        <select name="frame_data" id="select_frame">
                             <option value=0> ---</option>
                             {% for frame in frames %}
+                            {% if selected_frame.id == frame.id %} 
+                            <option selected value={{frame.id}}:{{frame.price}}:{{frame.image.url}}> {{frame.get_description}}
+                            </option>
+                            {% else %} 
                             <option value={{frame.id}}:{{frame.price}}:{{frame.image.url}}> {{frame.get_description}}
                             </option>
+                            {% endif %} 
                             {% endfor %}
                         </select>
-                        <span class="highlight" id="frame-cost"></span>
+                        <span class="highlight" id="frame-cost">{{selected_frame.price}}</span>
                     </p>
                     <p class="small">
                         <em><a class= "text-muted mt-5" rel="external" href="https://www.bgastore.ie/" target="_blank">
                             If your desired art frame is not listed, check this site, make a choice and contact us</a></em>
                     </p>
-                    <p class="mb-1">Artwork + Frame: <span id="art-and-frame" class="highlight"></span> </p>
+                    <p class="mb-1">Artwork + Frame: <span id="art-and-frame" class="highlight">{{art_and_frame}}</span> </p>
                     <p class="mb-1">
                         <label for="quantity">Quantity:</label>
                         <select name="quantity" id="quantity">
                             {% for i in max_qty %}
+                            {% if i == qty %}
+                            <option selected value={{i}}>{{i}}</option>
+                            {% else %} 
                             <option value={{i}}>{{i}}</option>
+                            {% endif %}
+
+                            
                             {% endfor %}
                         </select>
                     </p>
-                    <p class="mb-1">Total: <span id="total-cost" class="highlight"></span> </p>
+                    <p class="mb-1">Total: <span id="total-cost" class="highlight">{{total}}</span> </p>
                     <div>
                         <a href="{% url 'get_artworks' %}" class="btn btn-ok mt-3">
                             <span>
@@ -126,9 +147,14 @@
                         <button type="submit" class="btn btn-dark mt-3" name="add-to-bag">Add to Bag</button>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                    <input type="hidden" name="frame" value="" id="frame-id">
-                </form>
+                    <input type="hidden" name="frame_id" value="" id="frame-id">
 
+                </form>
+                <!-- form to receive frame changes and dynamically load image -->
+                <form class="form" action="{% url 'artwork_detail' artwork.id %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" name="frame-action-btn" class="hidden" id="frame-action-btn"></button>
+                    </form>
             </div>
         </div>
     </div>

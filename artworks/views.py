@@ -274,8 +274,24 @@ def artwork_detail(request, artwork_id):
     """ A view to obtain individual artwork details
         and frames to enable user add to bag, or wish list
     """
-
+    art_and_frame = ""
+    selected_frame = None
+    qty = 1
     artwork = get_object_or_404(Artwork, pk=artwork_id)
+    total = ""
+    if request.method == 'POST':
+        data = request.POST.get('frame-action-btn')
+        frame_id = data.split(':')[0]
+        qty = int(data.split(':')[1])
+        selected_frame = ArtFrame.objects.get(id=frame_id)
+        price = artwork.price
+        if artwork.on_sale:
+            price = artwork.get_sale_price()
+        total = (selected_frame.price + price) * qty
+
+    if selected_frame:
+        art_and_frame = selected_frame.price + artwork.price
+
     frames = ArtFrame.objects.all()
     max_qty_rec = get_object_or_404(SystemPreference, code='Q')
     max_qty = int(max_qty_rec.data) + 1
@@ -285,6 +301,10 @@ def artwork_detail(request, artwork_id):
                     'artwork': artwork,
                     'frames': frames,
                     'max_qty': range(1, max_qty),
+                    'selected_frame': selected_frame,
+                    'art_and_frame': art_and_frame,
+                    'qty': qty,
+                    'total': total,
                   })
 
 
