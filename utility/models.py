@@ -10,6 +10,7 @@ class SystemPreference(models.Model):
             ('S', 'Sales Percentage'),
             ('D', 'Description of Current Sales'),
             ('R', 'Return Valid Days'),
+            ('C', 'Cancellation Valid Days'),
             ('Q', 'Maximum Customer Selectable Quantity'),
             ('CF', 'Customer welcome Coupon Code'),
             ('CR', 'Customer Threshold Coupon Code'),

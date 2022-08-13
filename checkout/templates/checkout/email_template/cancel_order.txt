@@ -1,0 +1,19 @@
+Dear {{order.user_profile.get_fullname}}
+
+Regrettably we received your request to cancel the order with details below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: €{{ order.order_total }}
+Discount: €{{ order.discount }}
+Delivery: €{{ order.delivery_cost }}
+Grand Total: €{{ order.grand_total }}
+
+We shall process your refund into the card that was used during the order.
+We hope to serve you again in future.
+
+Thank you!
+
+
+Graces Art Prints

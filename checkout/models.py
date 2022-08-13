@@ -191,7 +191,7 @@ class ReturnOrder(models.Model):
 
     def send_return_request_email(self):
         """
-        Send confirmation email when a contact completes a request to return form
+        Send confirmation email when a user completes a request to return order
         """
         sender = self.user.user.email
         subject = 'Request to Return Order: ' + self.order.order_number
@@ -227,3 +227,45 @@ class Notification(models.Model):
 
     def __str__(self):
         return str(self.subject)
+
+
+class CancelOrder(models.Model):
+    """ Model to store cancel order """
+    order = models.ForeignKey(Order, null=False, blank=False,
+                              on_delete=models.CASCADE,
+                              related_name='cancel_order')
+    reason = models.CharField(max_length=200, null=False, blank=False)
+    user = models.ForeignKey(UserProfile, on_delete=models.SET_NULL,
+                             null=True, blank=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.order.order_number}'
+
+    def send_cancel_confirm_email(self):
+        """
+        Send confirmation email when a user
+         completes a cancel order successfully
+        """
+        send_to = self.user.user.email
+        subject = 'Order cancellation: ' + self.order.order_number
+        body = render_to_string(
+            'checkout/email_template/cancel_order.txt',
+            {'order': self.order})
+        send_mail(
+            subject,
+            body,
+            settings.DEFAULT_FROM_EMAIL,
+            [send_to]
+        )
+
+        # Write notification record
+        Notification.objects.create(
+            subject=subject + ": " + self.user.get_fullname(),
+            message=body,
+            user=self.user)
+
+        # Update order status
+        order_status = OrderStatus.objects.get(code='C')
+        self.order.status = order_status
+        self.order.save()
