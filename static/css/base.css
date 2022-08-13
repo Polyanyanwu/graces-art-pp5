@@ -21,7 +21,7 @@ body {
 }
 
 main {
-    height: calc(100vh - 160px) !important;
+    height: calc(100vh - 160px);
     position: fixed;
     width: 100%;
     margin-top: 160px;
@@ -376,6 +376,21 @@ footer a:hover {
     color: var(--jet)
 }
 
+/* Fix footer scroll */
+@media (max-width: 1228px) {
+    footer h4, footer h3
+     {
+        font-size: 1rem;
+    }
+    #mc_embed_signup{
+        width:400px;
+    }
+    img, svg {
+        vertical-align: middle;
+        width: 100px;
+    }
+}
+
 /* fixed top navbar only on medium and up */
 @media (min-width: 992px) {
     .fixed-top-desktop-only {
@@ -396,14 +411,16 @@ footer a:hover {
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
-@media (max-width: 991px) {
+/* @media (max-width: 991px) { */
+@media (max-width: 997px) {
     .header-container {
         padding-top: 146px;
     }
 
     body {
-        height: calc(100vh - 126px) !important;
+        height: calc(100vh - 110px) !important;
         font-size: 0.7rem;
+        background-position-y: 4.4rem;
     }
 
     .navbar-toggler-icon {
@@ -432,10 +449,6 @@ footer a:hover {
         font-weight: bold;
     }
 
-    .header-container {
-        padding-top: 180px;
-    }
-
     .go-shop-btn {
         background: var(--rich-black);
         color: var(--tart-orange);
@@ -450,10 +463,7 @@ footer a:hover {
         color: white;
     }
 
-    footer h4,
-    h3 {
-        font-size: 1rem;
-    }
+
 
     /* toast messages */
     .message-container {
@@ -465,11 +475,26 @@ footer a:hover {
     }
 
     main {
-        margin-top: 145px;
+        margin-top: 110px;
+        height: calc(100vh - 110px)!important;
     }
 
     .auth-container,
     .container-main {
-        min-height: calc(100% - 385px);
+        /* min-height: calc(100vh - 110px); */
+        min-height: calc(100vh - 300px);
     }
 }
+
+
+/* pad the top a bit when navbar is collapsed on mobile */
+/* @media (max-width: 991px) { */
+    @media (max-width: 498px) {
+        main{
+            margin-top: 146px;
+        }
+        .auth-container,
+        .container-main {
+            min-height: calc(100vh - 400px);
+        }
+    }
