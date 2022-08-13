@@ -94,6 +94,14 @@ function artDetails() {
         selectFrame.addEventListener('change', function (e) {
 
             const frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
+            if (frameDetail.split(":")[0] == '0'){
+                artFrameCost.textContent =""
+                totalCostEl.textContent =""
+                frameCost.textContent=""
+                selectedImg.src ="/media/no_image.jpg"
+                return
+            }
+
             const frameId = frameDetail.split(":")[0];
             frameIdEl.value = frameId;
             const costVal = frameDetail.split(":")[1];
