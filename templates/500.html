@@ -4,16 +4,18 @@
 {% block extra_title %}- 500 Error{% endblock %}
 
 {% block content %}
-<div class="container container-main">
+
+
+<div class="overlay"></div>
+<div class="container-fluid container-main">
     <div class="row">
         <div class="col-12">
             <h2 class="text-center page-heading">Oh oo something has gone wrong!</h2>
         </div>
     </div>
-
     <div class="row justify-content-center">
         <div class="col-10 text-center mt-5">
-            <img class="img-fluid" src="{% MEDIA_URL }}error-500.png' %}" alt="server error image.">
+            <img class="img-fluid" src="{{ MEDIA_URL }}}error-500.png' %}" alt="server error image.">
         </div>
         <div class="col-12 text-center">
             <p class="mx-auto mt-3">

@@ -4,16 +4,17 @@
 {% block extra_title %}- 404 Page Error{% endblock %}
 
 {% block content %}
-<div class="container container-main">
+
+<div class="overlay"></div>
+<div class="container-fluid container-main">
     <div class="row">
         <div class="col-12">
             <h2 class="text-center page-heading">404 Page not found!</h2>
         </div>
     </div>
-
     <div class="row justify-content-center">
         <div class="col-10 text-center mt-5">
-            <img class="img-fluid" src="{% MEDIA_URL }}error_404.jpg %}" alt="Error 404 page not found.">
+            <img class="img-fluid" src="{{ MEDIA_URL }}error_404.jpg %}" alt="Error 404 page not found.">
         </div>
         <div class="col-12 text-center">
             <p class="mx-auto mt-3">Its like you entered an invalid address leading nowhere!</p>

@@ -4,23 +4,25 @@
 {% block extra_title %}- Forbidden{% endblock %}
 
 {% block content %}
-<div class="container container-main">
+
+<div class="overlay"></div>
+<div class="container-fluid container-main">
     <div class="row">
         <div class="col-12">
             <h2 class="text-center page-heading">You are not Authorized!</h2>
         </div>
     </div>
-
-    <div class="row justify-content-center">
+    <div class="ro">
         <div class="col-10 text-center mt-5">
-            <img class="img-fluid" src="{% MEDIA_URL }}error_403.png %}" alt="Error 403 forbidden.">
+            <img class="img-fluid" src="{{ MEDIA_URL }}error_403.png %}" alt="Error 403 forbidden.">
         </div>
+    </div>
+    <div class="row">
         <div class="col-12 text-center">
             <p class="mx-auto mt-3">You are trying to access a resource where you do not have the permission. Contact
                 the site owner</p>
         </div>
     </div>
-
     <div class="row justify-content-center">
         <div class="col-10 text-center">
             <p class="text-center  mx-auto">
