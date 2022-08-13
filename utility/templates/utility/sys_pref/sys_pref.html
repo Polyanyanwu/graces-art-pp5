@@ -6,10 +6,9 @@ The access restriction is implemented in the view -->
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+
 {% block extra_title %}- Sys Param {% endblock %}
-{% block postloadjs %}
-  <script src="{% static 'js/utility.js' %}"></script>
-{% endblock %}
+
 {% block page_header %}
     <div class="container header-container">
         <div class="row">
@@ -51,6 +50,7 @@ The access restriction is implemented in the view -->
                         <td>{{ item.pref_verbose }}</td>
                         <td>{{ item.data }}</td>
                         <td> <button class="btn btn-sm btn-select select-pref" data-code = {{item.code}} >Select</button>
+                        </td>
                       </tr>
                       {% endfor %}
                     </tbody>
@@ -62,4 +62,7 @@ The access restriction is implemented in the view -->
         </div>
     </div>
 </div>
+{% endblock %}
+{% block postloadjs %}
+  <script src="{% static 'js/utility.js' %}"></script>
 {% endblock %}
