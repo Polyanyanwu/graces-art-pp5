@@ -63,13 +63,6 @@
                 <tbody>
                     <tr class="table-dark">
                         <th scope="row"></th>
-                        <!-- <td>
-                            <input type="text" class="small mb-1 w-100" value={% if query_dict.order_number != None %}
-                                {{query_dict.order_number}} {% else %} '' {% endif %} name="order_number"
-                                placeholder="Order Number">
-                        </td> -->
-
-
                         <td>
                             <input type="text" class="small mb-1 w-100" value={% if query_dict.order_number != None %}
                                 {{query_dict.order_number}} {% else %} '' {% endif %} name="order_number"
@@ -88,11 +81,6 @@
                             <input type="date" class="small mb-1" value={{query_dict.end_date}} name="end_date"
                                 placeholder="End Date">
                         </td>
-                        <!-- <td>
-                            <input type="text" class="small mb-1 w-100" value={% if query_dict.email != None %}
-                                {{query_dict.email}} {% else %} '' {% endif %} name="email" placeholder="Email Address">
-                            </button>
-                        </td> -->
                         <td></td>
                         <td> <button type="submit" formnovalidate name="search-btn" class="btn my-btn"
                                 title="Click to search">
@@ -101,7 +89,7 @@
 
                     {% for order in orders %}
                     <tr>
-                        <th scope="row">{{forloop.counter}}</th>
+                        <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
                         <td class="small">{{ order.order_number }}
                           <p> {{ order.email }}</p> 
                         </td>

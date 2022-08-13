@@ -469,12 +469,13 @@ def request_order_return(request):
             return_rec.order = return_order
             return_rec.user = user
             return_rec.save()
-            messages.success(request, "Your request has been sent. An email will be sent to your registered email address with us!")
+            messages.success(request, "Your request has been sent. An email \
+                will be sent to your registered email address with us!")
 
     orders = query_order(request, 'request_order_return')
     if orders.count() > 0:
-        orders = orders.filter(user_profile__user=request.user, status__code='O')
-        # orders = orders.filter(status__code='O')
+        orders = orders.filter(Q(user_profile__user=request.user) &
+                               Q(status__code='R'))
 
     query_dict = request.session.get("request_order_return")
     paginator = Paginator(orders, 3)
