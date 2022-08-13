@@ -50,9 +50,10 @@ main {
     color: var(--rich-black);
 }
 
-.voucher-banner, .voucher-banner a {
+.voucher-banner,
+.voucher-banner a {
     font-family: 'Edu NSW ACT Foundation', cursive;
-    color: var(--baby-powder)!important;
+    color: var(--baby-powder) !important;
     background-color: var(--rich-black);
 }
 
@@ -79,7 +80,7 @@ a {
 }
 
 .highlight {
-    color: var(--tart-orange)!important;
+    color: var(--tart-orange) !important;
     font-weight: bold;
 }
 
@@ -154,7 +155,8 @@ a {
     padding: 0;
 }
 
-#mc_embed_signup .mc-field-group, #mc_embed_signup .helper_text {
+#mc_embed_signup .mc-field-group,
+#mc_embed_signup .helper_text {
     padding: 0;
     background-color: var(--bs-gray-200);
 }
@@ -223,7 +225,8 @@ a {
     z-index: -1;
 }
 
-.btn-ok, #mc-embedded-subscribe {
+.btn-ok,
+#mc-embedded-subscribe {
     color: var(--baby-powder);
     background-color: var(--jet);
 }
@@ -291,10 +294,10 @@ input,
 /* from CSS-tricks.com: https://css-tricks.com/snippets/css/css-triangle/ */
 /* Code Institute Boutique walk through site */
 .up-arrow {
-    width: 0; 
-    height: 0; 
+    width: 0;
+    height: 0;
     border-left: 4px solid transparent;
-    border-right: 4px solid transparent; 
+    border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     position: absolute;
     top: -10px;
@@ -312,9 +315,10 @@ input,
 } */
 
 /* Input for review return order comments */
-#floatingTextarea2{
+#floatingTextarea2 {
     height: 100px;
 }
+
 .arrow-success {
     border-bottom-color: #28a745 !important;
 }
@@ -339,9 +343,10 @@ input,
     border-bottom-color: #343a40 !important;
 } */
 
-.container-fluid{
-    padding:0;
+.container-fluid {
+    padding: 0;
 }
+
 .custom-toast {
     overflow: visible;
 }
@@ -439,7 +444,8 @@ footer a:hover {
         font-size: 1rem;
     }
 
-    .voucher-banner h4, voucher-banner a {
+    .voucher-banner h4,
+    voucher-banner a {
         font-size: 1rem;
         color: white;
     }
@@ -448,14 +454,22 @@ footer a:hover {
     h3 {
         font-size: 1rem;
     }
+
     /* toast messages */
     .message-container {
         width: 80vw;
     }
+
     #mc_embed_signup {
         width: 300px;
     }
+
     main {
-        margin-top: 190px;
+        margin-top: 145px;
+    }
+
+    .auth-container,
+    .container-main {
+        min-height: calc(100% - 385px);
     }
 }
