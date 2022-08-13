@@ -31,35 +31,36 @@
   </li>
 
   {% if user.is_authenticated %}
-
-  <li class="nav-item dropdown list-inline-item dropdown-menu-start">
-    <a class="nav-link dropdown-toggle d-block d-lg-none" href="#" id="navbarDropdownMenuLink6" role="button"
+  <li class="nav-item dropdown dropstart">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
       data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
       <div class="text-center">
         <div><i class="fas fa-user-plus fa-lg"></i></div>
         <p class="my-0">Admin/Ops</p>
       </div>
     </a>
-    <ul class="dropdown-menu " aria-labelledby="navbarDropdownMenuLink6">
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
       <!-- Operator sub menu -->
       {% if request.user|belong_group:"operator" %}
-      <li><a class="dropdown-item" href="#">Update Order Status</a></li>
-      <li><a class="dropdown-item" href="#">Review Return Order</a></li>
-      <li><a class="dropdown-item" href="#">Order Details List</a></li>
+      <li><a class="dropdown-item" href="{% url 'update_order_status' %}">Update Order Status</a></li>
+      <li><a class="dropdown-item" href="{% url 'review_order_return' %}">Review Return Order</a></li>
+      <li><a class="dropdown-item" href="{% url 'order_details_list' %}">Order Details List</a></li>
       <li><a class="dropdown-item" href="#">
           <hr></a></li>
       {% endif %}
 
       <!-- Administrator Role Options -->
       {% if request.user|belong_group:"administrator" %}
-      <li><a class="dropdown-item" href="{% url 'maintain_artists' %}">Maintain Artist</a></li>
-      <li><a class="dropdown-item" href="{% url 'maintain_art_style' %}">Maintain Style</a></li>
-      <li><a class="dropdown-item" href="{% url 'maintain_art_genre' %}">Maintain Genre</a></li>
+
       <li><a class="dropdown-item" href="{% url 'general_info' %}">Maintain General Information</a></li>
       <li><a class="dropdown-item" href="{% url 'system_preference' %}">Maintain System Preferences</a></li>
       <li><a class="dropdown-item" href="{% url 'update_group' %}">Assign User Roles</a></li>
-      <li><a class="dropdown-item" href="#">
-          <hr></a></li>
+      <li><a class="dropdown-item" href="{% url 'maintain_faq' %}">Maintain FAQs</a></li>
+      <li><a class="dropdown-item" href="#"><hr></a></li>
+
+      <li><a class="dropdown-item" href="{% url 'maintain_artists' %}">Maintain Artist</a></li>
+      <li><a class="dropdown-item" href="{% url 'maintain_art_style' %}">Maintain Style</a></li>
+      <li><a class="dropdown-item" href="{% url 'maintain_art_genre' %}">Maintain Genre</a></li>
       <li><a class="dropdown-item" href="{% url 'add_artwork' %}">Add Artwork</a></li>
       <li><a class="dropdown-item" href="{% url 'edit_delete_artwork' %}">Edit/Delete Artwork</a></li>
       <li><a class="dropdown-item" href="{% url 'maintain_art_frame' %}">Maintain Art Frame</a></li>
@@ -67,40 +68,44 @@
     </ul>
   </li>
 
-  <li class="nav-item dropdown list-inline-item dropdown-menu-start">
-    <a class="nav-link dropdown-toggle d-block d-lg-none" href="#" id="navbarDropdownMenuLink7" role="button"
+  <li class="nav-item dropdown dropstart">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
       data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
       <div class="text-center">
         <div><i class="fas fa-user icon"></i></div>
         <p class="my-0">My Account</p>
       </div>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink7">
-      <li><a class="dropdown-item" href="#">My Profile</a></li>
-      <li><a class="dropdown-item" href="#">Update Email</a></li>
-      <li><a class="dropdown-item" href="#">Order History</a></li>
-      <li><a class="dropdown-item" href="#">Return Order</a></li>
-      <li><a class="dropdown-item" href="#">Notifications</a></li>
-      <li><a class="dropdown-item" href="#">Wish list</a></li>
+    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+      <li><a class="dropdown-item" href="{% url 'update_profile' %}">My Profile</a></li>
       <li>
         <hr class="dropdown-divider">
       </li>
-      <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
+      <li><a class="dropdown-item" href="{% url 'customer_order_history' %}">Order History</a></li>
+      <li><a class="dropdown-item" href="{% url 'request_order_return' %}">Return Order</a></li>
+      <li><a class="dropdown-item" href="{% url 'cancel_order' %}">Cancel Order</a></li>
+      <li><a class="dropdown-item" href="{% url 'view_wishlist' %}">My Wishlist</a></li>
+      <li>
+        <hr class="dropdown-divider">
+      </li>
+      <li><a class="dropdown-item" href="{% url 'view_notification' %}">Notifications</a></li>
       <li><a class="dropdown-item" href="{% url 'account_reset_password' %}">Reset Password</a></li>
+      <li><a class="dropdown-item" href="{% url 'account_email' %}">Update Email</a></li>
+      <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
     </ul>
   </li>
 
   {% else %}
   <!-- only show sign up and login button if user is not already signed in -->
-  <li class="nav-item dropdown list-inline-item">
-    <a class="nav-link dropdown-toggle d-block d-lg-none" href="#" id="navbarDropdownMenuLink11" role="button"
+  <li class="nav-item dropdown dropstart">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button"
       data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
       <div class="text-center">
         <div><i class="fas fa-user icon"></i></div>
         <p class="my-0">My Account</p>
       </div>
     </a>
-    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink11">
+    <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink3">
       <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
       <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
     </ul>
