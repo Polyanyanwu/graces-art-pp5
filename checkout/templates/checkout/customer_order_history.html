@@ -76,7 +76,7 @@
                         {% for order in orders %}
                         <tr>
                             <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
-                            <td>{{order.date | date:'d M, Y'}}</td>
+                            <td>{{order.date | date:'d M, Y H:i a'}}</td>
                             <td class="small">{{ order.order_number }}</td>
                             <td>{{ order.order_total  |floatformat:"2g"}}</td>
                             <td>{{ order.delivery_cost |floatformat:"2g" }}</td>

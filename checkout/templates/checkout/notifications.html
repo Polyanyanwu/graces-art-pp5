@@ -51,7 +51,7 @@
                             {% for notice in notices %}
                             <tr>
                                 <th scope="row">{{forloop.counter0|add:notices.start_index}}</th>
-                                <td>{{notice.notice_date| date:'d M, Y H:m a'}}</td>
+                                <td>{{notice.notice_date| date:'d M, Y H:i a'}}</td>
                                 <td>{{ notice.subject }}</td>
                                 <td>
                                     <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"

@@ -93,7 +93,7 @@
                         <td class="small">{{ order.order_number }}
                           <p> {{ order.email }}</p> 
                         </td>
-                        <td>{{order.date | date:'d M, Y'}}</td>
+                        <td>{{order.date | date:'d M, Y H:i a'}}</td>
 
                         <td>
                             {% for item in order.line_items.all %}
