@@ -476,7 +476,7 @@ def request_order_return(request):
     orders = query_order(request, 'request_order_return')
     if orders.count() > 0:
         orders = orders.filter(Q(user_profile__user=request.user) &
-                               Q(status__code='R'))
+                               Q(status__code='O'))
 
     query_dict = request.session.get("request_order_return")
     paginator = Paginator(orders, 3)

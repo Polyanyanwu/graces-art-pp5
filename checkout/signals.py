@@ -35,4 +35,5 @@ def email_on_cancel_order(sender, instance, created, **kwargs):
         cancels an order
     """
     if created:
-        instance.send_cancel_confirm_email()
+        if instance.order:
+            instance.send_cancel_confirm_email()
