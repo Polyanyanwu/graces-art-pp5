@@ -1,20 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <!-- <div class="container">
-        <div class="row">
-            <div class="col"></div>
-        </div>
-    </div> -->
-{% endblock %}
-
 {% block content %}
     <div class="container-fluid container-main">
         <div class="row h-100">
             <div class="col-6 col-md-4 my-auto">
                 <h3 class="main-logo text-black">
-                    Buy your classical art framed. Arts by the most famous artists in the world delivered at your door step
+                    {{msg|safe}} 
                 </h3>
                 <div class="my-5">
                     <h5>

@@ -6,8 +6,9 @@ from django.contrib import messages
 from django.views import View
 from django.core.paginator import Paginator
 from django.http import HttpResponseRedirect
+from django.core.exceptions import ObjectDoesNotExist
 
-from utility.models import SystemPreference
+from utility.models import SystemPreference, HomeMessage
 from profiles.user_belong import check_in_group
 from .forms import ContactUsForm, ReviewForm, FAQForm
 from .models import Review, FAQ
@@ -15,8 +16,15 @@ from .models import Review, FAQ
 
 def index(request):
     """ A view to return the index page """
+    home_msg = ""
+    try:
+        # fetch the landing page message from the db
+        home_msg = HomeMessage.objects.get(code='H')
+    except ObjectDoesNotExist as exc:
+        messages.info(request, "Welcome to Graces Art Print")
+        print(exc)
 
-    return render(request, 'home/index.html')
+    return render(request, 'home/index.html', {'msg': home_msg})
 
 
 @login_required
