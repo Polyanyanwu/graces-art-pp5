@@ -85,37 +85,23 @@ function artDetails() {
     if (document.querySelector('#select_frame')) {
         const frameCost = document.querySelector('#frame-cost');
         const selectFrame = document.querySelector('#select_frame');
-        // const selectedImg = document.querySelector('#selected-img');
-        // const frameHref = document.querySelector('#frame_href');
-        const artFrameCost = document.querySelector('#art-and-frame');
         const totalCostEl = document.querySelector('#total-cost');
         const qtyEl = document.getElementById('quantity');
-        const frameIdEl = document.getElementById('frame-id');
         const frameSelectActionBtn = document.getElementById('frame-action-btn');
 
         selectFrame.addEventListener('change', function (e) {
 
             const frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
             if (frameDetail.split(":")[0] == '0'){
-                artFrameCost.textContent =""
                 totalCostEl.textContent =""
-                frameCost.textContent=""
-                // selectedImg.src ="/media/no_image.jpg"
+                frameSelectActionBtn.setAttribute('value', "None" + ":" + '0');
+                frameSelectActionBtn.click();
                 return
             }
 
             const frameId = frameDetail.split(":")[0];
-            frameIdEl.value = frameId;
             const costVal = frameDetail.split(":")[1];
-            imgVal = frameDetail.split(":")[2];
-            // selectedImg.src = imgVal;
-            // frameHref.href = imgVal;
             frameCost.textContent = "€" + costVal;
-            if (document.querySelector('#sale-price')) {
-                artFrameCost.textContent = "€" + (parseFloat(costVal) + parseFloat(document.querySelector('#sale-price').textContent)).toFixed(2);
-            } else {
-                artFrameCost.textContent = "€" + (parseFloat(costVal) + parseFloat(document.querySelector('#price').textContent)).toFixed(2);
-            }
             const totalCost = getTotalDetailCost(costVal);
             totalCostEl.textContent = "€" + totalCost.toFixed(2);
             frameSelectActionBtn.setAttribute('value', frameId + ":" + qtyEl.options[qtyEl.selectedIndex].value);
@@ -124,28 +110,24 @@ function artDetails() {
         })
 
         qtyEl.addEventListener('change', function (e) {
-
-            frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
-            if (frameDetail !== "0") {
-                // if a frame has been selected 
-                costVal = frameDetail.split(":")[1];
-                const totalCost = getTotalDetailCost(costVal);
-                totalCostEl.textContent = "€" + totalCost.toFixed(2);
+            const artFrameCost = document.querySelector('#art-and-frame');
+            if(artFrameCost.textContent){
+                const totalCost = getTotalDetailCost();
+                totalCostEl.textContent =  totalCost.toFixed(2);
             }
         })
     }
 }
 
-function getTotalDetailCost(frameCost) {
-    const salePrice = document.getElementById('sale-price');
-    const price = document.getElementById('price');
+function getTotalDetailCost() {
     const qtyEl = document.getElementById('quantity');
+    const artFrameCost = document.querySelector('#art-and-frame').textContent;
     const qty = parseInt(qtyEl.options[qtyEl.selectedIndex].value);
-    let total = 0;
-    if (salePrice) {
-        total = (parseFloat(frameCost) + parseFloat(salePrice.textContent)) * qty;
-    } else {
-        total = (parseFloat(frameCost) + parseFloat(price.textContent)) * qty;
+
+    if (artFrameCost){
+        total = parseFloat(artFrameCost) * qty;
+    }else{
+        total = 0
     }
     return total;
 }

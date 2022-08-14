@@ -275,19 +275,21 @@ def artwork_detail(request, artwork_id):
         and frames to enable user add to bag, or wish list
     """
     art_and_frame = ""
-    selected_frame = None
+    selected_frame = ""
     qty = 1
     artwork = get_object_or_404(Artwork, pk=artwork_id)
-    total = ""
+    total_price = ""
     if request.method == 'POST':
+        print(request.POST)
         data = request.POST.get('frame-action-btn')
         frame_id = data.split(':')[0]
-        qty = int(data.split(':')[1])
-        selected_frame = ArtFrame.objects.get(id=frame_id)
-        price = artwork.price
-        if artwork.on_sale:
-            price = artwork.get_sale_price()
-        total = (selected_frame.price + price) * qty
+        if frame_id != 'None':
+            qty = int(data.split(':')[1])
+            selected_frame = ArtFrame.objects.get(id=frame_id)
+            price = artwork.price
+            if artwork.on_sale:
+                price = artwork.get_sale_price()
+            total_price = (selected_frame.price + price) * qty
 
     if selected_frame:
         art_and_frame = selected_frame.price + artwork.price
@@ -304,7 +306,7 @@ def artwork_detail(request, artwork_id):
                     'selected_frame': selected_frame,
                     'art_and_frame': art_and_frame,
                     'qty': qty,
-                    'total': total,
+                    'total_price': total_price,
                   })
 
 

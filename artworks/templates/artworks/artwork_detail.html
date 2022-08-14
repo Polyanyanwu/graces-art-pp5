@@ -14,7 +14,8 @@
                         alt="{{ artwork.name }}">
                 </a>
                 {% else %}
-                <img class="card-img-top img-fluid img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="{{ artwork.name }}">
+                <img class="card-img-top img-fluid img-cover" src="{{ MEDIA_URL }}no_image.jpg"
+                    alt="{{ artwork.name }}">
                 {% endif %}
 
             </div>
@@ -35,10 +36,6 @@
                 {% else %}
                 <img class="card-img-top frame-img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="Frame Image">
                 {% endif %}
-                
-                <!-- <a href="" target="_blank" id="frame_href">
-                    <img id="selected-img" class="card-img-top frame-img-cover" src="{{ MEDIA_URL }}no_image.jpg" alt="Artwork Frame">
-                </a> -->
             </div>
         </div>
         <div class="col-12 col-md-7 col-lg-4">
@@ -69,32 +66,29 @@
                 {% endif %}
 
                 {% if artwork.rating %}
-                    {% for ind in artwork.rating|rating_dec_main %}
-                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
-                    {% endfor %}
-                    {% if artwork.rating|rating_dec_fraction %}
-                        <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
-                    {% endif %}
-                    {% for ind in artwork.rating|rating_dec_bal %}
-                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
-                    {% endfor %}
-                {% else %}
-                    <small class="text-muted">No Rating</small>
+                {% for ind in artwork.rating|rating_dec_main %}
+                <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
+                {% endfor %}
+                {% if artwork.rating|rating_dec_fraction %}
+                <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
                 {% endif %}
-                
+                {% for ind in artwork.rating|rating_dec_bal %}
+                <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
+                {% endfor %}
+                {% else %}
+                <small class="text-muted">No Rating</small>
+                {% endif %}
+
                 {% if artwork.on_sale %}
                 <p class="small">
                     <span>Base price: </span>
-                    <span class=" strikeout mb-0 text-left">€</span>
-                    <span class=" strikeout mb-0 text-left">{{ artwork.price|floatformat:2}}</span>
-                    <span class=" highlight ms-2">€</span>
-                    <span class=" highlight" id="sale-price">{{artwork.get_sale_price|floatformat:2}}</span>
+                    <span class=" strikeout mb-0 text-left">€{{ artwork.price|floatformat:"2g"}}</span>
+                    <span class=" highlight" id="sale-price">€{{artwork.get_sale_price|floatformat:"2g"}}</span>
                 </p>
                 {% else %}
                 <p class="small">
                     <span>Base price: </span>
-                    <span class=" mb-0 text-left highlight">€</span>
-                    <span class="mb-0 text-left highlight" id="price">{{ artwork.price }}</span>
+                    <span class="mb-0 text-left highlight" id="price">€{{ artwork.price |floatformat:"2g" }}</span>
                 </p>
                 {% endif %}
 
@@ -105,37 +99,51 @@
                         <select name="frame_data" id="select_frame">
                             <option value=0> ---</option>
                             {% for frame in frames %}
-                            {% if selected_frame.id == frame.id %} 
-                            <option selected value={{frame.id}}:{{frame.price}}:{{frame.image.url}}> {{frame.get_description}}
+                            {% if selected_frame.id == frame.id %}
+                            <option selected value={{frame.id}}:{{frame.price}}:{{frame.image.url}}>
+                                {{frame.get_description}}
                             </option>
-                            {% else %} 
+                            {% else %}
                             <option value={{frame.id}}:{{frame.price}}:{{frame.image.url}}> {{frame.get_description}}
                             </option>
-                            {% endif %} 
+                            {% endif %}
                             {% endfor %}
                         </select>
-                        <span class="highlight" id="frame-cost">{{selected_frame.price}}</span>
+                        {% if selected_frame %}
+                        <span class="highlight small" id="frame-cost">€{{selected_frame.price |floatformat:"2g"}}</span>
+                        {% else %}
+                        <span class="highlight" id="frame-cost"></span>
+                        {% endif %}
                     </p>
                     <p class="small">
-                        <em><a class= "text-muted mt-5" rel="external" href="https://www.bgastore.ie/" target="_blank">
-                            If your desired art frame is not listed, check this site, make a choice and contact us</a></em>
+                        <em><a class="text-muted mt-5" rel="external" href="https://www.bgastore.ie/" target="_blank">
+                                If your desired art frame is not listed, check this site, make a choice and contact
+                                us</a></em>
                     </p>
-                    <p class="mb-1">Artwork + Frame: <span id="art-and-frame" class="highlight">{{art_and_frame}}</span> </p>
+                    {% if art_and_frame %}
+                    <p class="mb-1">Artwork + Frame: <span class="highlight me-0">€</span><span id="art-and-frame" 
+                        class="highlight small">{{art_and_frame}}</span></p>
+                    {% else %}
+                    <p class="mb-1">Artwork + Frame: <span id="art-and-frame" class="highlight">{{art_and_frame}}</span>
+                    </p>
+                    {% endif %}
                     <p class="mb-1">
                         <label for="quantity">Quantity:</label>
                         <select name="quantity" id="quantity">
                             {% for i in max_qty %}
                             {% if i == qty %}
                             <option selected value={{i}}>{{i}}</option>
-                            {% else %} 
+                            {% else %}
                             <option value={{i}}>{{i}}</option>
                             {% endif %}
-
-                            
                             {% endfor %}
                         </select>
                     </p>
-                    <p class="mb-1">Total: <span id="total-cost" class="highlight">{{total}}</span> </p>
+                    <p class="mb-1"> Total: 
+                        {% if total_price > 0 %} <span class="highlight me-0">€</span>{% endif %}<span id="total-cost" 
+                        class="highlight mx-0">{{total_price|floatformat:"2g"}}</span>
+                    </p>
+
                     <div>
                         <a href="{% url 'get_artworks' %}" class="btn btn-ok mt-3">
                             <span>
@@ -154,7 +162,7 @@
                 <form class="form" action="{% url 'artwork_detail' artwork.id %}" method="POST">
                     {% csrf_token %}
                     <button type="submit" name="frame-action-btn" class="hidden" id="frame-action-btn"></button>
-                    </form>
+                </form>
             </div>
         </div>
     </div>
@@ -163,5 +171,5 @@
 
 {% block postloadjs %}
 {{ block.super }}
-<script src="{% static 'js/artworks.js' %}"></script>
+    <script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}
