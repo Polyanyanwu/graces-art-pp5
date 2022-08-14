@@ -10,6 +10,7 @@ from django.http import HttpResponse
 from django.conf import settings
 from django.template.loader import render_to_string
 from django.core.mail import send_mail
+from django.core.exceptions import ObjectDoesNotExist
 
 from artworks.models import Artwork, ArtFrame
 from profiles.models import UserProfile
@@ -127,7 +128,7 @@ class StripeWebhookHandler:
                 )
                 order_exists = True
                 break
-            except Order.DoesNotExist:
+            except ObjectDoesNotExist:
                 attempt += 1
                 time.sleep(1)
 
