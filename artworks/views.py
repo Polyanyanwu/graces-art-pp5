@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db import transaction
+from django.core.exceptions import ObjectDoesNotExist
 from django.core.paginator import Paginator
 from profiles.user_belong import check_in_group
 from utility.models import SystemPreference
@@ -251,7 +252,11 @@ def get_artworks(request):
                 search_type = 'Style: ' + artworks[0].genre.friendly_name
         if 'sales' in request.GET:
             artworks = artworks.filter(on_sale=True)
-            search_type = 'Sales'
+            try:
+                sales_name = SystemPreference.objects.get(code="D")
+                search_type = sales_name.data
+            except ObjectDoesNotExist:
+                search_type = 'Sales'
         if 'qry' in request.GET:
             criteria = request.GET['qry']
             if not criteria:
