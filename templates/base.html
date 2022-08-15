@@ -89,15 +89,15 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 list-inline">
               {% if user.is_authenticated %}
               {% if request.user|belong_group:"operator" or request.user|belong_group:"administrator" %}
-              <li class="nav-item dropdown dropstart">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+              <li class="nav-item dropdown dropdown-menu-end">
+                <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
                   <div class="text-center">
                     <div><i class="fas fa-user-plus fa-lg"></i></div>
                     <p class="my-0">Admin/Ops</p>
                   </div>
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                   <!-- Operator sub menu -->
                   {% if request.user|belong_group:"operator" %}
                     <li><a class="dropdown-item" href="{% url 'update_order_status' %}">Update Order Status</a></li>
@@ -125,15 +125,15 @@
                 </ul>
               </li>
               {% endif %}
-              <li class="nav-item dropdown dropstart">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
+              <li class="nav-item dropdown dropdown-menu-end">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink2" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
                   <div class="text-center">
                     <div><i class="fas fa-user icon"></i></div>
                     <p class="my-0">My Account</p>
                   </div>
                 </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink2">
                   <li><a class="dropdown-item" href="{% url 'update_profile' %}">My Profile</a></li>
                   <li>
                     <hr class="dropdown-divider">
@@ -153,15 +153,15 @@
               </li>
               {% else %}
               <!-- only show register and login button if user is not already signed in -->
-              <li class="nav-item dropdown dropstart">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button"
+              <li class="nav-item dropdown dropdown-menu-end">
+                <a class="nav-link" href="#" id="navbarDropdownMenuLink3" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
                   <div class="text-center">
                     <div><i class="fas fa-user icon"></i></div>
                     <p class="my-0">My Account</p>
                   </div>
                 </a>
-                <ul class="dropdown-menu dropdown-menu-start" aria-labelledby="navbarDropdownMenuLink3">
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink3">
                   <li><a class="dropdown-item" href="{% url 'account_signup' %}">Register</a></li>
                   <li><a class="dropdown-item" href="{% url 'account_login' %}">Login</a></li>
                 </ul>
