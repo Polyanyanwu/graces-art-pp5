@@ -52,6 +52,7 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [**List of Artworks**](#list-of-artworks)
       - [**Artwork Details**](#artwork-details)
       - [**Shopping Bag**](#shopping-bag)
+      - [**Discount Vouchers**](#discount-vouchers)
       - [**Checkout/Payment**](#checkoutpayment)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
@@ -367,9 +368,34 @@ If the artwork is moved to wishlist or removed, the line item will be removed fr
 
 The user may finally opt to "proceed to checkout" where payment is made and the order is placed or click on "keep shopping" to return to the artworks list.
 
+#### **Discount Vouchers**
+
+The site provides discount coupon codes that the user can copy available either by clicking the banner or the discount link on the menu bar. 
+
+![Discount Codes](/docs/images/discount.png)
+
+The code is used at checkout to obtain necessary discounts.
+
 #### **Checkout/Payment**
 
-The Checkout page opens when a user clicks "Proceed to Checkout" from the Shopping Bag page or from the Add to Bag success summary display. The checkout page invites the user to fill out the form for the delivery details and the card number for the payment. The discount field is also open for the user to put a discount code copied from the discount available at the banner of every page. If the discount code is correct and the conditions are met, the discount is applied. 
+The Checkout page opens when a user clicks "Proceed to Checkout" from the Shopping Bag page or from the Add to Bag success summary display. The checkout page invites the user to fill out the form for the delivery details and the card number for the payment. The discount field is also open for the user to put a discount code copied from the discount available at the banner of every page. If the discount code is correct and the conditions are met, the discount is applied.
+
+![Checkout](/docs/images/checkout_login.png)
+
+Two types of discount codes are published on the site - a welcome code usable only once and a threshold code for purchases up to an amount set by the administrator of the site. Validation is done for correctness of the code and the limits and appropriate messages displayed to the user.
+
+If the user logged in, a checkbox is available under the delivery details for the user to request updating the details on the profile with the information entered on the form. If the user is not logged, a link is provided requesting the user to create an account or login to save the delivery information.
+
+![Checkout Not Logged in](/docs/images/checkout_no_login.png)
+
+To make payment the user will enter data in all the mandatory fields, which are indicated by a * in the placeholder of the fields. To test the payment flow use the Stripe test card "4242 4242 4242 4242", enter a month and year in future and 5-digit usa zip code. The payment will be accepted an a confirmation page is displayed.
+
+![Successful Checkout](/docs/images/checkout_success_msg.png)
+
+An email is also forwarded to the email address filled on the checkout details. The Notifications is updated if the user logged in during the order placement process.
+
+If there are errors on the card, it is displayed under the card for the user to see and correct.
+E.g "Your postal code is incomplete", "Your card number is invalid", etc
 
 ## **Testing**
 
@@ -384,3 +410,7 @@ The full details of the tests carried out is available at [Tests Carried Out](/d
 There is no known current bugs in the system after an exhaustive testing.
 
 ### **Resolved Bugs**
+
+- The app was not giving a feedback to user when an invalid discount code is entered at checkout and the app required the user to fill all mandatory fields on the delivery details before processing the discount code. This was resolved at commit[a94d1c](https://github.com/Polyanyanwu/graces-art-pp5/commit/a94d1c12bad5fc1994131abfabe0e02a71acc681) through giving the message when the code is wrong and disabling form validation when the apply button is clicked.
+
+- 
