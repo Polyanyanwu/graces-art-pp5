@@ -50,6 +50,12 @@ The Graces Art Print is a web application that enables users to purchase an artw
     - [**The Landing Page**](#the-landing-page)
     - [Public User Functionalities](#public-user-functionalities)
       - [**List of Artworks**](#list-of-artworks)
+      - [**Artwork Details**](#artwork-details)
+      - [**Shopping Bag**](#shopping-bag)
+  - [**Testing**](#testing)
+  - [**Bugs**](#bugs)
+    - [**Current Bugs**](#current-bugs)
+    - [**Resolved Bugs**](#resolved-bugs)
 
 ## **Objectives of the Site**
 
@@ -323,3 +329,54 @@ A "search artwork by name" form is at the top for the user to enter any substrin
 ### Public User Functionalities
 
 #### **List of Artworks**
+
+After a user has clicked on any of the menu items (All Products, Artist, Genre or Sales) or inputted and clicked on the search ico, a list of matching artworks are displayed to the user.
+
+![Artwork List](/docs/images/artwork_list.png)
+
+Each artwork has an image, the price, artist, genre, style and store rating of the artwork. If the user is in the administrator group, an Edit/Delete link is visible and could direct the administrator to the edit/delete artwork page. Artworks that are on sale have the original and sale price displayed side by side.
+
+The artworks displayed could be sorted by clicking on the "Sort by.." dropdown list. The options are as shown below:
+![Artwork Sort Criteria](/docs/images/sort_main.png)
+
+Selecting any of the sort criteria will sort the displayed artworks accordingly.
+
+#### **Artwork Details**
+
+Clicking on the artwork image displayed in the list of artworks will open the detail display where the user is able to select a frame to use for the printing job.
+Selecting a different frame recomputes the total cost taking note of the quantity selected. The user can change the quantity or frame before choosing to click on "Add to Bag", "Add to Wishlist" or "Keep Shopping". Clicking on wishlist will add the artwork to the users wishlist if the user is logged in, if not a message is given to the user that "You need to login to use this feature".
+
+![Artwork detail](/docs/images/artwork_details.png)
+
+Clicking on "Keep Shopping" will return the user to the list of artworks. Clicking on "Add to Bag" will add the artwork with the chosen frame to the shopping bag and display a summary of the current contents of the bag. Validations are executed to ensure user doesn't add artwork with no frame. The quantity is 1 by default.
+
+![Add to Bag Success](/docs/images/add_bag_success.png)
+
+The summary bag shown above has an advise at the bottom for the user to buy more and qualify to use discount voucher or if the total is already above the discount voucher minimum, a reminder to use the voucher at checkout is given. The bag also has the delivery cost computed and displayed. The delivery cost maximum is setup by the Admin in the config (System Preferences). The bag icon at the top right edge of the page will display the total cost of existing items in the bag at anytime. The color of the icon will change from grey to orange-red when the bag total is greater than zero.
+
+#### **Shopping Bag**
+
+The shopping bag keeps track of artwork and frame that a user has added to the shopping bag. It could be accessed either from the artwork details page (by clicking an artwork from the list) or clicking on the bag icon at the top right edge of every page. If the bag has no items in it clicking the bag icon will display the Shopping Bag page with the message "Your bag is empty" and a button for "Keep Shopping"
+
+If the bag has items in it the shopping items are displayed with the artwork, frame, quantity and sub-total of each line item. A user may decide to change the frame or quantity, move the artwork to wishlist or remove the artwork and its line items from the shopping bag.
+
+![Shopping Bag](/docs/images/shopping_bag.png)
+
+If the artwork is moved to wishlist or removed, the line item will be removed from the shopping bag. Below the line items, the total price, delivery cost and Grand total is computed and displayed. A message reminding the user to get discount voucher if the shopping is above the threshold amount is displayed or a message suggesting increasing the shopping to reach the discount threshold is displayed.
+
+The user may finally opt to "proceed to checkout" where payment is made and the order is placed or click on "keep shopping" to return to the artworks list.
+
+
+## **Testing**
+
+Manual tests were continuously done on the application during development and as new features are added. Test scripts were developed and used in carrying out most of the manual tests. Being an Agile approach project, I concentrated on delivering the user stories and testing them while the documentation on come of the tests is coming at the close of the project. The code has been validated for syntactic correctness using industry standard methods like W3C, JSHint, PEP8.
+
+The full details of the tests carried out is available at [Tests Carried Out](/docs/testing.md)
+
+## **Bugs**
+
+### **Current Bugs**
+
+There is no known current bugs in the system after an exhaustive testing.
+
+### **Resolved Bugs**
