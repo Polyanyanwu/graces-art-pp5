@@ -1,12 +1,12 @@
-# **GRACES ART WEBSITE**
+# **GRACES ART PRINT WEBSITE**
 
-The Graces Art is a web application that enables users to purchase an artwork for printing. The purchased artwork would be delivered to the user's supplied address.  
+The Graces Art Print is a web application that enables users to purchase an artwork and frame for printing. The purchased artwork and frame would be used to produce a framed artwork delivered to the user's supplied address.  
 
-![Graces Art](/docs/images/responsive.png)
+![Graces Art Print](/docs/images/graces_art_main.png)
 
 ## Live Site
 
-[Graces Art Live](https://graces-art.herokuapp.com)
+[Graces Art Print Live](https://graces-art.herokuapp.com)
 
 ## Repository
 
@@ -14,7 +14,7 @@ The Graces Art is a web application that enables users to purchase an artwork fo
 
 ## Table of Contents
 
-- [**GRACES ART WEBSITE**](#graces-art-website)
+- [**GRACES ART PRINT WEBSITE**](#graces-art-print-website)
   - [Live Site](#live-site)
   - [Repository](#repository)
   - [Table of Contents](#table-of-contents)
@@ -31,6 +31,8 @@ The Graces Art is a web application that enables users to purchase an artwork fo
     - [**User Stories**](#user-stories)
     - [GitHub Projects](#github-projects)
     - [**Wireframes**](#wireframes)
+    - [**Color Scheme**](#color-scheme)
+    - [**Fonts**](#fonts)
   - [**Database Design**](#database-design)
   - [**Flowchart**](#flowchart)
   - [**Search Engine Optimization**](#search-engine-optimization)
@@ -43,6 +45,7 @@ The Graces Art is a web application that enables users to purchase an artwork fo
       - [**Email Marketing**](#email-marketing)
       - [**Paid Advertising and Influencer Marketing**](#paid-advertising-and-influencer-marketing)
     - [Facebook Page](#facebook-page)
+  - [**Features Implemented**](#features-implemented)
 
 ## **Objectives of the Site**
 
@@ -154,6 +157,18 @@ Major bugs encountered in the course of the development were raised on GitHub as
 
 Wireframes were designed at the onset of the project and guided the development of the application. The full wireframes are [provided HERE](/docs/wireframe.md)
 
+### **Color Scheme**
+
+In order to enhance the user experience and have consistent look and feel throughout the website, I chose a color scheme through the [Colors.co](https://coolors.co/). The color palette used is shown below:
+
+![Color Pallet](/docs/pp5_color.png)
+
+### **Fonts**
+
+The font for the website is "Exo" and "Edu NSW ACT Foundation', cursive", which was chosen from [Google fonts](https://fonts.google.com/specimen/Exo?query=exo). This font looks great to me for a website where the user need not struggle to see details of the site. THe Edu cursive was used for the logo and banner while the Exo was used for the body.
+
+![Font](/docs/pp5_fonts.png)
+
 ## **Database Design**
 
 The database used in this project is a relational database, Postgres provided by Heroku.
@@ -259,3 +274,5 @@ A Facebook business page was created for the e-commerce business available at [F
 ![Facebook Page1](docs/facebook1.png)
 
 ![Facebook Page2](docs/facebook2.png)
+
+## **Features Implemented**
