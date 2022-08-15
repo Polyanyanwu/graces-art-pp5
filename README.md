@@ -35,6 +35,13 @@ The Graces Art is a web application that enables users to purchase an artwork fo
   - [**Flowchart**](#flowchart)
   - [**Search Engine Optimization**](#search-engine-optimization)
     - [**Keywords Research**](#keywords-research)
+  - [**E-commerce Business Model**](#e-commerce-business-model)
+    - [**Web Marketing Strategies**](#web-marketing-strategies)
+      - [**Search Engine Optimization (SEO)**](#search-engine-optimization-seo)
+      - [**Content Marketing**](#content-marketing)
+      - [**Social Media**](#social-media)
+      - [**Email Marketing**](#email-marketing)
+      - [**Paid Advertising and Influencer Marketing**](#paid-advertising-and-influencer-marketing)
 
 ## **Objectives of the Site**
 
@@ -213,3 +220,33 @@ In view of the above, my keywords for the Graces Art Prints website is given bel
 | Buy printed artwork            | Buy classical art printed               |
 
 The above keywords would be included in the meta of the website and be considered in the relevant pages as they form the core of the product that is being marketed by the website.
+
+## **E-commerce Business Model**
+
+The business is an online shop where users browse and select classical artwork and a frame to print the artwork on. The shipping cost is a percentage of the total but has an upper limit. There are selected items on sale at each time available at the Sales page that has link visible at all pages. There are also discount codes which any visitor to the site can download and use at checkout. The footer contains links to information about us, frequently asked questions and other relevant information including a Mailchimp email subscription form. We intend to take online orders, produce the work and ship to customers.
+
+### **Web Marketing Strategies**
+
+I considered different approaches to web marketing and visited sites of similar online shops taking cognisance of the Code Institute course notes on WEb Marketing. Below is my marketing strategies.
+
+#### **Search Engine Optimization (SEO)**
+
+The e-commerce business is an online retail type and search engine optimization will enable users easily find it online. I researched on relevant keywords for the business and developed both short-tail and long-tail keywords that was included at the header of all the pages and in the relevant content. For example I included the keywords “classical art framed”, “famous artists” in the welcome message on the landing page.
+
+#### **Content Marketing**
+
+Providing enticing content to my prospects is very essential since my customers are lovers of art and beauty. I intent to record videos of previous work done by the company and some on the production process.  These videos would be made available through the Facebook and YouTube pages to reach a greater audience. Pages on the website could also have such information for visitors. The site runs sales most of the time. The items on sale are available via a click of a link on all pages. Discounts vouchers are available for all users to view and copy from the site.
+
+#### **Social Media**
+
+The business will use organic social media marketing as it is quite suitable for new businesses like this that is digital online shop. This will enable the business interact with prospects and put a human touch to the marketing effort. The site has a [Facebook page](href="https://www.facebook.com/Graces-Art-Print-110351491783521), which will be monitored for users comments and feedback and responded to accordingly. If short videos or images of latest work work are produced at any time, it will be posted on the Facebook page. Additionally, the business will use WhatsApp platform to chat with users that need special attention or clarifications. When the business picks up paid Facebook promotions will be added.
+
+#### **Email Marketing**
+
+The business will use email marketing and is collecting email addresses on the website using the Mailchimp plugin. Emails will be sent to subscribers as the need arises and when new offers are available. To avoid spam, the emails will not be too frequent.
+
+#### **Paid Advertising and Influencer Marketing**
+
+Paid advertising and influencer marketing is not part of the strategy at the beginning since they could be expensive to run. Moreover the target customers may not be influenced by paid adverts or someone else saying much about us and our products. What will speak more for the business is showcasing previous work on videos, images on social media and web pages where customers could be attracted watching such content.
+
+Affiliate marketing is not feasible at the onset. However, I have included link to another online shop [(BGA)](https://www.bgastore.ie/) where our users can see other frame options. As the business unfolds, we can earn commission from such referral and also engage that organization to refer people to us for print jobs.

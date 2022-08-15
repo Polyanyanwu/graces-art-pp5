@@ -4,5 +4,4 @@ Disallow: /bag/
 Disallow: /checkout/
 Disallow: /utility/
 Disallow: /profiles/
-
 Sitemap: https://graces-art.herokuapp.com/sitemap.xml
