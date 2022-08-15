@@ -52,6 +52,7 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [**List of Artworks**](#list-of-artworks)
       - [**Artwork Details**](#artwork-details)
       - [**Shopping Bag**](#shopping-bag)
+      - [**Checkout/Payment**](#checkoutpayment)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -366,6 +367,9 @@ If the artwork is moved to wishlist or removed, the line item will be removed fr
 
 The user may finally opt to "proceed to checkout" where payment is made and the order is placed or click on "keep shopping" to return to the artworks list.
 
+#### **Checkout/Payment**
+
+The Checkout page opens when a user clicks "Proceed to Checkout" from the Shopping Bag page or from the Add to Bag success summary display. The checkout page invites the user to fill out the form for the delivery details and the card number for the payment. The discount field is also open for the user to put a discount code copied from the discount available at the banner of every page. If the discount code is correct and the conditions are met, the discount is applied. 
 
 ## **Testing**
 

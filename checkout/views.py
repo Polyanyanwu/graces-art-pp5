@@ -81,6 +81,11 @@ def checkout(request):
                 messages.warning(request, "To apply discount vouchers \
                     please login first!")
                 return redirect('checkout')
+            elif discount == 0:
+                # invalid code
+                messages.warning(request, "The code you inputted is not\
+                    valid. Check and try again!")
+                return redirect('checkout')
             current_grand_total -= discount
             bag_content['grand_total'] = current_grand_total
 
