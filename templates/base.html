@@ -88,6 +88,7 @@
           <div class="collapse navbar-collapse justify-content-end" id="navbarText">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0 list-inline">
               {% if user.is_authenticated %}
+              {% if request.user|belong_group:"operator" or request.user|belong_group:"administrator" %}
               <li class="nav-item dropdown dropstart">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
@@ -99,32 +100,31 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   <!-- Operator sub menu -->
                   {% if request.user|belong_group:"operator" %}
-                  <li><a class="dropdown-item" href="{% url 'update_order_status' %}">Update Order Status</a></li>
-                  <li><a class="dropdown-item" href="{% url 'review_order_return' %}">Review Return Order</a></li>
-                  <li><a class="dropdown-item" href="{% url 'order_details_list' %}">Order Details List</a></li>
-                  <li><a class="dropdown-item" href="#">
-                      <hr></a></li>
+                    <li><a class="dropdown-item" href="{% url 'update_order_status' %}">Update Order Status</a></li>
+                    <li><a class="dropdown-item" href="{% url 'review_order_return' %}">Review Return Order</a></li>
+                    <li><a class="dropdown-item" href="{% url 'order_details_list' %}">Order Details List</a></li>
+                    <li><a class="dropdown-item" href="#">
+                        <hr></a></li>
                   {% endif %}
 
                   <!-- Administrator Role Options -->
                   {% if request.user|belong_group:"administrator" %}
+                    <li><a class="dropdown-item" href="{% url 'general_info' %}">Maintain General Information</a></li>
+                    <li><a class="dropdown-item" href="{% url 'system_preference' %}">Maintain System Preferences</a></li>
+                    <li><a class="dropdown-item" href="{% url 'update_group' %}">Assign User Roles</a></li>
+                    <li><a class="dropdown-item" href="{% url 'maintain_faq' %}">Maintain FAQs</a></li>
+                    <li><a class="dropdown-item" href="#"><hr></a></li>
 
-                  <li><a class="dropdown-item" href="{% url 'general_info' %}">Maintain General Information</a></li>
-                  <li><a class="dropdown-item" href="{% url 'system_preference' %}">Maintain System Preferences</a></li>
-                  <li><a class="dropdown-item" href="{% url 'update_group' %}">Assign User Roles</a></li>
-                  <li><a class="dropdown-item" href="{% url 'maintain_faq' %}">Maintain FAQs</a></li>
-                  <li><a class="dropdown-item" href="#"><hr></a></li>
-
-                  <li><a class="dropdown-item" href="{% url 'maintain_artists' %}">Maintain Artist</a></li>
-                  <li><a class="dropdown-item" href="{% url 'maintain_art_style' %}">Maintain Style</a></li>
-                  <li><a class="dropdown-item" href="{% url 'maintain_art_genre' %}">Maintain Genre</a></li>
-                  <li><a class="dropdown-item" href="{% url 'add_artwork' %}">Add Artwork</a></li>
-                  <li><a class="dropdown-item" href="{% url 'edit_delete_artwork' %}">Edit/Delete Artwork</a></li>
-                  <li><a class="dropdown-item" href="{% url 'maintain_art_frame' %}">Maintain Art Frame</a></li>
+                    <li><a class="dropdown-item" href="{% url 'maintain_artists' %}">Maintain Artist</a></li>
+                    <li><a class="dropdown-item" href="{% url 'maintain_art_style' %}">Maintain Style</a></li>
+                    <li><a class="dropdown-item" href="{% url 'maintain_art_genre' %}">Maintain Genre</a></li>
+                    <li><a class="dropdown-item" href="{% url 'add_artwork' %}">Add Artwork</a></li>
+                    <li><a class="dropdown-item" href="{% url 'edit_delete_artwork' %}">Edit/Delete Artwork</a></li>
+                    <li><a class="dropdown-item" href="{% url 'maintain_art_frame' %}">Maintain Art Frame</a></li>
                   {% endif %}
                 </ul>
               </li>
-
+              {% endif %}
               <li class="nav-item dropdown dropstart">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink2" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
@@ -151,9 +151,8 @@
                   <li><a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a></li>
                 </ul>
               </li>
-
               {% else %}
-              <!-- only show sign up and login button if user is not already signed in -->
+              <!-- only show register and login button if user is not already signed in -->
               <li class="nav-item dropdown dropstart">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink3" role="button"
                   data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
@@ -228,17 +227,17 @@
   {% if messages %}
   <div class="message-container">
     {% for message in messages %}
-    {% with message.level as level %}
-    {% if level == 40 %}
-    {% include 'includes/toasts/toast_error.html' %}
-    {% elif level == 30 %}
-    {% include 'includes/toasts/toast_warning.html' %}
-    {% elif level == 25 %}
-    {% include 'includes/toasts/toast_success.html' %}
-    {% else %}
-    {% include 'includes/toasts/toast_info.html' %}
-    {% endif %}
-    {% endwith %}
+      {% with message.level as level %}
+        {% if level == 40 %}
+          {% include 'includes/toasts/toast_error.html' %}
+        {% elif level == 30 %}
+          {% include 'includes/toasts/toast_warning.html' %}
+        {% elif level == 25 %}
+          {% include 'includes/toasts/toast_success.html' %}
+        {% else %}
+          {% include 'includes/toasts/toast_info.html' %}
+        {% endif %}
+      {% endwith %}
     {% endfor %}
   </div>
   {% endif %}
@@ -247,7 +246,6 @@
 
   <main>
   {% block content %}
-
 
 
   {% endblock %}  

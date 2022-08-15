@@ -46,6 +46,7 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [**Paid Advertising and Influencer Marketing**](#paid-advertising-and-influencer-marketing)
     - [Facebook Page](#facebook-page)
   - [**Features Implemented**](#features-implemented)
+    - [**Sign Up \& Login**](#sign-up--login)
 
 ## **Objectives of the Site**
 
@@ -276,3 +277,28 @@ A Facebook business page was created for the e-commerce business available at [F
 ![Facebook Page2](docs/facebook2.png)
 
 ## **Features Implemented**
+
+The website enables visitors order the printing of artwork using desired frame. Although it is not required to sign-up with the website to complete a purchase, functionalities like "Return or Cancellation of Order" requires a login at the time of ordering. To login successfully a user need to sign-up with a valid email address. There are three roles for the application public, operator and administrator. We shall discuss the features under these three roles in addition to the sign up process.
+
+### **Sign Up & Login**
+
+When the website opens to a new user, My Account and bag icon is displayed on the right edge. Clicking the My Account will open the menu having "Register" and "Login" items.
+![Signup](/docs/images/welcome.png)
+
+Click on the Register menu item will display the "Create an Account" page where the user details and email are inputted. All the fields are required and the email will be verified before a user is able to login.
+
+![Register Profile](/docs/images/register.png)
+
+Once the form is completed, the user is informed that an email has been forwarded to the given address for verification. The email will usually be received within few minutes depending on the network situation.
+
+![Verify Email](/docs/images/verify_email.png)
+
+Clicking on the link provided in the email verification will direct the user to a page to click to verify the email. Once the user clicks on the Confirm button, the user is routed to the Login page.
+
+The user can login with either the username or email address provided during the register account. If the credentials inputted are correct, an acknowledgement of the successful login is given at the top right edge. My Account icon only will display if the user is public or My Account and Admin/Ops icon is additionally displayed if the user belong to the Administrator or Operator group.
+
+![Success Login](/docs/images/success_signin.png)
+
+If the username/email and password provided do not match, a message is displayed to the user and login is not permitted.
+
+[>> Bact to TOC](#table-of-contents)
