@@ -16,13 +16,11 @@ def add_to_bag(request, artwork_id):
     """
     redirect_url = request.POST.get('redirect_url')
     frame_data = request.POST.get('frame_data')
-    frame_id = frame_data.split(":")[0]
-
-    if not frame_id:
+    if frame_data == '0':
         messages.warning(request,
                          'Please select a Frame before adding to bag')
         return redirect(redirect_url)
-
+    frame_id = frame_data.split(":")[0]
     artwork = get_object_or_404(Artwork, pk=artwork_id)
     frame = get_object_or_404(ArtFrame, pk=int(frame_id))
     quantity = int(request.POST.get('quantity'))
@@ -49,7 +47,6 @@ def add_to_bag(request, artwork_id):
                                 {frame.name} to your bag',
                              extra_tags='bag_item_changed')
         else:
-            print(type(artwork_id), type(frame_id))
             bag[str(artwork_id) + "-" + frame_id] = \
                 {'frame_id': {frame_id: quantity}}
             messages.success(request,

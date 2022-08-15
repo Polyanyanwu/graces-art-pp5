@@ -96,6 +96,7 @@
                                         </a>
                                     </p>
                                     {% endif %}
+                                    <a href="{% url 'reviews' %}">
                                     {% if artwork.rating %}
                                         {% for ind in artwork.rating|rating_dec_main %}
                                         <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
@@ -104,11 +105,14 @@
                                         <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
                                         {% endif %}
                                         {% for ind in artwork.rating|rating_dec_bal %}
-                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
+                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-secondary"></i></span>
                                         {% endfor %}
                                     {% else %}
                                     <small class="text-muted">No Rating</small>
                                     {% endif %}
+                                    </a>
+
+
                                     {% if request.user.is_superuser %}
                                     <small class="ml-3">
                                         <a href="{% url 'edit_delete_artwork_single' artwork.id %}">Edit|Delete</a>

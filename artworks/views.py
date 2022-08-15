@@ -285,7 +285,6 @@ def artwork_detail(request, artwork_id):
     artwork = get_object_or_404(Artwork, pk=artwork_id)
     total_price = ""
     if request.method == 'POST':
-        print(request.POST)
         data = request.POST.get('frame-action-btn')
         frame_id = data.split(':')[0]
         if frame_id != 'None':

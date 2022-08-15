@@ -47,6 +47,9 @@ The Graces Art Print is a web application that enables users to purchase an artw
     - [Facebook Page](#facebook-page)
   - [**Features Implemented**](#features-implemented)
     - [**Sign Up \& Login**](#sign-up--login)
+    - [**The Landing Page**](#the-landing-page)
+    - [Public User Functionalities](#public-user-functionalities)
+      - [**List of Artworks**](#list-of-artworks)
 
 ## **Objectives of the Site**
 
@@ -302,3 +305,21 @@ The user can login with either the username or email address provided during the
 If the username/email and password provided do not match, a message is displayed to the user and login is not permitted.
 
 [>> Bact to TOC](#table-of-contents)
+
+### **The Landing Page**
+
+The landing page of the website presents the user with a welcome message and Shop Now button. The footer section shows four columns: Information (about us, FAQ, Contact US, and Reviews); the Legal colum has Terms & Conditions and Privacy Policy. The Social Media column has links to Facebook page of the website, the Github page of the developer and an Instagram icon not linked yet. The right edge has the "My Account" only for public users or "My Account" and "Admin/Ops" for Administrator and Operator group members.
+
+![Public User Welcome](/docs/images/main_page.png)
+
+ In addition dropdown menus give the user the option of browsing the collection of artworks. Clicking the "All Products" dropdown menu will display the options for sorting By Price, Rating, Style or All Artworks without sorting. Clicking on the Artist dropdown menu will give a list of all artist whose artworks are being sold. The list is dynamically generated from the database. Clicking on the Genre dropdown menu will present all art genre for the user to select the one of interest. Selecting any of the sort or filter categories will display a page of the artworks meeting the selected criteria.
+
+ On the landing page too is the Discount coupons and Sales menu items. Clicking the Discount Coupons will open a page where the user can copy the relevant discount coupon that could be used on the site. The coupons could also be displayed by clicking the banner thats speaks to "Fabulous discounts.." on all pages. 
+
+A "search artwork by name" form is at the top for the user to enter any substring of the artwork name or the artist name and have the site respond with a page containing the list of artworks matching the entered criteria.
+
+![Public Menu Items](/docs/images/public_menu.png)
+
+### Public User Functionalities
+
+#### **List of Artworks**
