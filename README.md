@@ -42,6 +42,7 @@ The Graces Art is a web application that enables users to purchase an artwork fo
       - [**Social Media**](#social-media)
       - [**Email Marketing**](#email-marketing)
       - [**Paid Advertising and Influencer Marketing**](#paid-advertising-and-influencer-marketing)
+    - [Facebook Page](#facebook-page)
 
 ## **Objectives of the Site**
 
@@ -250,3 +251,11 @@ The business will use email marketing and is collecting email addresses on the w
 Paid advertising and influencer marketing is not part of the strategy at the beginning since they could be expensive to run. Moreover the target customers may not be influenced by paid adverts or someone else saying much about us and our products. What will speak more for the business is showcasing previous work on videos, images on social media and web pages where customers could be attracted watching such content.
 
 Affiliate marketing is not feasible at the onset. However, I have included link to another online shop [(BGA)](https://www.bgastore.ie/) where our users can see other frame options. As the business unfolds, we can earn commission from such referral and also engage that organization to refer people to us for print jobs.
+
+### Facebook Page
+
+A Facebook business page was created for the e-commerce business available at [Facebook](href="https://www.facebook.com/Graces-Art-Print-110351491783521). The Facebook page features the logo, landing page, link to the website, location city of the business, brief description of the business where some of the keywords were used. The type of business was put as Arts & Crafts and an initial post introducing the business was made. Find below screenshots of the Facebook page.
+
+![Facebook Page1](docs/facebook1.png)
+
+![Facebook Page2](docs/facebook2.png)
