@@ -1,0 +1,1087 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>https://graces-art.herokuapp.com/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/signup/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/login/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/bag/vb</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?sort=price&amp;direction=asc</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?sort=rating&amp;direction=des</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?sort=style&amp;direction=asc</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=akseli_gallen_kallela</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=alphonse_mucha</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=andrea_del_castagno</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=andrea_del_verrocchio</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=andy_warhol</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=benozzo_gozzoli</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=derek_boshier</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=domenico_veneziano</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=eduardo_paolozzi</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=edward_hopper</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=eric_fischl</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=fairfield_porter</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=fra_angelico</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=franz_kline</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=george_luks</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=georges_braque</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=giovanni_bellini</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=gustave_moreau</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=jackson_pollock</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=jacopo_bellini</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=jamie_wyeth</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=john_french_sloan</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=juan_gris</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=kuzma_petrov_vodkin</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=leonardo_da_vinci</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=lucian_freud</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=marcel_duchamp</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=martiros_saryan</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=maurice_denis</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=mikhail_nesterov</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=norman_bluhm</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=odilon_redon</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=oskar_kokoschka</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=pablo_picasso</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=paolo_uccello</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=peter_phillips</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=piero_della_francesca</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=rafael_zabaleta</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=r_b_Kitaj</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=richard_whitney</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=walasse_ting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?artist=william_james_glackens</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=abstract_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=allegorical_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=genre_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=caricature</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=cityscape</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=figurative</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=flower_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=illustration</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=landscape</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=literary_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=marina</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=mythological_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=nude_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=portrait</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=religious_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=sketch_and_study</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=still_life</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?genre=symbolic_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/login/?next=/coupon</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?sales=True</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/utility/au/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/faq</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/contact</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/review</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/utility/terms/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/utility/pp/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/password/reset/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/105/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=symbolism</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/10/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=action_painting</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/86/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=synthetic_cubism</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/23/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=Contemporary_Realism</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/18/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/26/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/24/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/25/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/3/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/2/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/4/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/1/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/104/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/63/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=baroque</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/110/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=Expressionism</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/27/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/111/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/109/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/108/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/107/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/106/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/100/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/99/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/64/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/81/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/67/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/66/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/65/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/98/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/112/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/17/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/15/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/14/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/13/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/12/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/130/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/6/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/9/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/7/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/8/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/5/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/43/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=early_renaissance</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/44/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/113/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/11/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/59/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/60/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/61/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/62/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/82/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/83/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/95/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/96/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/97/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/114/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/shop?style=pop_art</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/116/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/118/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/119/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/121/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/115/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/120/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/21/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/22/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/28/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/29/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/30/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/19/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/31/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/32/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/20/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/92/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/16/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/76/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/77/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/78/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/79/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/80/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/74/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/87/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/75/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/37/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/93/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/94/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/36/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/35/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/102/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/103/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/34/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/33/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/49/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/50/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/52/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/53/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/54/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/55/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/56/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/57/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/58/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/88/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/117/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/71/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/39/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/101/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/47/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/122/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/38/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/70/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/69/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/72/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/68/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/40/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/85/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/73/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/41/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/42/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/48/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/84/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/51/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/89/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/90/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/91/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/46/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/artworks/45/</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/signup/?next=%2Fcoupon</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/login/?next=/write_review</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/review?page=2</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/login/?next=%2Fcoupon</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/signup/?next=%2Fwrite_review</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/review?page=1</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://graces-art.herokuapp.com/accounts/login/?next=%2Fwrite_review</loc>
+  <lastmod>2022-08-14T18:02:36+00:00</lastmod>
+  <priority>0.41</priority>
+</url>
+
+
+</urlset>
