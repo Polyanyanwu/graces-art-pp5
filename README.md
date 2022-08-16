@@ -58,6 +58,11 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [**Checkout/Payment**](#checkoutpayment)
     - [**My Account Menu**](#my-account-menu)
       - [My Profile](#my-profile)
+      - [Order History](#order-history)
+      - [Return Order](#return-order)
+      - [Cancel Order](#cancel-order)
+      - [My Wishlist](#my-wishlist)
+      - [Notifications](#notifications)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -434,6 +439,59 @@ Clicking on "My Profile" will open the Update Your Profile Details form.
 
 The form gives the user the ability to update contact information that will be suggested by default during checkout. Click "Save" button to save the details entered or cancel to return to the landing page or any menu item to navigate elsewhere.
 
+#### Order History
+
+The logged in user can select "Order History" from the "My Account" menu and a list of the orders placed by the user is displayed.
+
+![Order History](/docs/images/order_history_public.png)
+
+The user can filter the list by date, order number, status or artwork/frame name. Pagination is provided to navigate between pages of the list where there is enough orders for that. Apart from the order number that is unique and returns a single record where it exists, the user can combine any of the other filter criteria like date and status.
+
+#### Return Order
+
+The logged in user can select "Return Order" from the "My Account" menu and the "Request Return Order" page opens.
+
+![Customer Return Order](/docs/images/request_return_order.png)
+
+A list of existing orders for the user is displayed with only orders that have status as "Ordered". The list could be filtered by Order Number, Email or Order date.
+
+Orders can only be returned before a given number of days has elapsed. Selecting an order that is no longer within the date will display an error message informing the user that they can no longer return the order.
+
+![Customer Return Order Feedback](/docs/images/return_feedback.png)
+
+Click on the select button to load the Order details on the left side of the page and afterwards enter the reason for the return and click "Send Request". A success message is displayed and an email is forwarded to the user's email.
+The request will be reviewed bya user with Operator group membership and email sent to the user with instructions on returning the order.
+
+#### Cancel Order
+
+The logged in user can select "Cancel Order" from the "My Account" menu and the "Cancel Order Request" page opens.
+
+![Customer Cancel Order](/docs/images/cancel_order_req.png)
+
+A list of existing orders for the user is displayed with only orders that have status as "Ordered". The list could be filtered by Order Number, Email or Order date.
+
+Orders can only be cancelled before a given number of days has elapsed. Selecting an order that is no longer within the date will display an error message informing the user that they can no longer cancel the order.
+
+![Customer Return Order Feedback](/docs/images/cancel_order_feedback.png)
+
+Click on the select button to load the Order details on the left side of the page and afterwards enter the reason for the cancellation and click "Send Request". A success message is displayed and an email is forwarded to the user's email and the order will be cancelled.
+
+#### My Wishlist
+
+The logged in user can select "My Wishlist" from the "My Account" menu and the "My Wishlist" page opens. It displays a list of all artworks the user has added to the wishlist either from the Artwork Details page or the Shopping Bag.
+
+![Wishlist](/docs/images/my_wishlist.png)
+
+The user can delete any item from the wish list after confirming Okay when the confirmation modal window opens following clicking the "Delete" button beside a wishlist item.
+
+#### Notifications
+
+The logged in user can select "Notifications" from the "My Account" menu and the "My Notifications" page opens. It displays a list of copy of emails regarding return and cancellation of orders and an acknowledgement that order was placed or order status changed.
+
+![Notifications](/docs/images/notifications.png)
+
+The user can delete any item from the Notifications after confirming Okay when the confirmation modal window opens following clicking the "Delete" button beside a notification item.
+
 ## **Testing**
 
 Manual tests were continuously done on the application during development and as new features are added. Test scripts were developed and used in carrying out most of the manual tests. Being an Agile approach project, I concentrated on delivering the user stories and testing them while the documentation on come of the tests is coming at the close of the project. The code has been validated for syntactic correctness using industry standard methods like W3C, JSHint, PEP8.
@@ -450,8 +508,10 @@ There is no known current bugs in the system after an exhaustive testing.
 
 - The app was not giving a feedback to user when an invalid discount code is entered at checkout and the app required the user to fill all mandatory fields on the delivery details before processing the discount code. This was resolved at commit[a94d1c](https://github.com/Polyanyanwu/graces-art-pp5/commit/a94d1c12bad5fc1994131abfabe0e02a71acc681) through giving the message when the code is wrong and disabling form validation when the apply button is clicked.
 
-- Whn a selects Update Email from the My Account menu, the existing email address was not being listed. This was caused by '''.form-inner-content label:not([for='id_remember']) {
+- When a user selects Update Email from the My Account menu, the existing email address was not being listed. This was caused by ```.form-inner-content label:not([for='id_remember']) {
     display: none;
-}''' that was used to hide Allauth labels for Profile and login forms. But the email addresses needs the label to display existing emails. I had to introduce a class for the label and enabled the display via commit [4aba12](https://github.com/Polyanyanwu/graces-art-pp5/commit/4aba12235e88ec9b6cfe9092bee27af1ccfc37b2)
+}``` that was used to hide Allauth labels for Profile and login forms. But the email addresses needs the label to display existing emails. I had to introduce a class for the label and enabled the display via commit [4aba12](https://github.com/Polyanyanwu/graces-art-pp5/commit/4aba12235e88ec9b6cfe9092bee27af1ccfc37b2)
 
--
+- The public user on small device screens could see "Admin/Ops" icon. It was resolved by checking for the user group before displaying the icon via commit [d763d](https://github.com/Polyanyanwu/graces-art-pp5/commit/d763da907d41f33ca7d65150bd901f4fee942e0d).
+
+-  
