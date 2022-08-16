@@ -47,6 +47,8 @@ The Graces Art Print is a web application that enables users to purchase an artw
     - [Facebook Page](#facebook-page)
   - [**Features Implemented**](#features-implemented)
     - [**Sign Up \& Login**](#sign-up--login)
+      - [Reset Password](#reset-password)
+      - [Update Email Address](#update-email-address)
     - [**The Landing Page**](#the-landing-page)
     - [Public User Functionalities](#public-user-functionalities)
       - [**List of Artworks**](#list-of-artworks)
@@ -54,6 +56,8 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [**Shopping Bag**](#shopping-bag)
       - [**Discount Vouchers**](#discount-vouchers)
       - [**Checkout/Payment**](#checkoutpayment)
+    - [**My Account Menu**](#my-account-menu)
+      - [My Profile](#my-profile)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -314,6 +318,25 @@ If the username/email and password provided do not match, a message is displayed
 
 [>> Bact to TOC](#table-of-contents)
 
+#### Reset Password
+
+From the "My Account" menu, the user can select "Reset Password" which opens a form for the user to enter the email address and click Reset My Password button.
+![Reset Password](/docs/images/password_reset_input.png)
+
+The user will receive a confirmation message that the password reset link has been sent by email and will follow the instructions to complete the password reset.
+
+![Reset Password Confirmation](/docs/images/password_reset.png)
+
+#### Update Email Address
+
+From the "My Account" menu, the user can select "Update Email" and the E-mail Addresses page will open with a list of all email addresses associated with the user account. The user can add additional emails or remove.
+
+![Update Email](/docs/images/add_email.png)
+
+If the email to add is already in use by any user in the system, the addition is disallowed with an error message. If the email address is okay, an email is sent to it for the user to confirm.
+
+Clicking on the link in the email sent will open a page for the user to click "Confirm" after which the email is added in the list of the users email and could be used as username to login to the application.
+
 ### **The Landing Page**
 
 The landing page of the website presents the user with a welcome message and Shop Now button. The footer section shows four columns: Information (about us, FAQ, Contact US, and Reviews); the Legal colum has Terms & Conditions and Privacy Policy. The Social Media column has links to Facebook page of the website, the Github page of the developer and an Instagram icon not linked yet. The right edge has the "My Account" only for public users or "My Account" and "Admin/Ops" for Administrator and Operator group members.
@@ -397,6 +420,20 @@ An email is also forwarded to the email address filled on the checkout details. 
 If there are errors on the card, it is displayed under the card for the user to see and correct.
 E.g "Your postal code is incomplete", "Your card number is invalid", etc
 
+### **My Account Menu**
+
+Apart from the shopping and checkout described above, the logged in user has other features accessible through the My Account menu shown below:
+
+![My Account Menu](/docs/images/public_menu.png)
+
+#### My Profile
+
+Clicking on "My Profile" will open the Update Your Profile Details form.
+
+![Profile Details Form](/docs/images/update_profile.png)
+
+The form gives the user the ability to update contact information that will be suggested by default during checkout. Click "Save" button to save the details entered or cancel to return to the landing page or any menu item to navigate elsewhere.
+
 ## **Testing**
 
 Manual tests were continuously done on the application during development and as new features are added. Test scripts were developed and used in carrying out most of the manual tests. Being an Agile approach project, I concentrated on delivering the user stories and testing them while the documentation on come of the tests is coming at the close of the project. The code has been validated for syntactic correctness using industry standard methods like W3C, JSHint, PEP8.
@@ -413,4 +450,8 @@ There is no known current bugs in the system after an exhaustive testing.
 
 - The app was not giving a feedback to user when an invalid discount code is entered at checkout and the app required the user to fill all mandatory fields on the delivery details before processing the discount code. This was resolved at commit[a94d1c](https://github.com/Polyanyanwu/graces-art-pp5/commit/a94d1c12bad5fc1994131abfabe0e02a71acc681) through giving the message when the code is wrong and disabling form validation when the apply button is clicked.
 
-- 
+- Whn a selects Update Email from the My Account menu, the existing email address was not being listed. This was caused by '''.form-inner-content label:not([for='id_remember']) {
+    display: none;
+}''' that was used to hide Allauth labels for Profile and login forms. But the email addresses needs the label to display existing emails. I had to introduce a class for the label and enabled the display via commit [4aba12](https://github.com/Polyanyanwu/graces-art-pp5/commit/4aba12235e88ec9b6cfe9092bee27af1ccfc37b2)
+
+-
