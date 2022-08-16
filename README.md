@@ -65,6 +65,8 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [Notifications](#notifications)
     - [Operator User Functionalities](#operator-user-functionalities)
       - [Update Order Status](#update-order-status)
+      - [Review Return Order](#review-return-order)
+      - [Order Details List](#order-details-list)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -506,7 +508,26 @@ Apart from the "My Account" menu available to all users of the application, the 
 
 Selecting this menu option from the Admin/Ops menu will display a list of all existing orders. The list could be filtered by Order Number, Email, Status, Order Date, artwork/frame name and any one or more combinations of the criteria.
 
-To update an order status, the user clicks on "Select" button at the right edge of the row of the order listed. Further details of the order is show on the form at the left. The user will then select the status to change to from the dropdown Order Status 
+![Update Order Status](/docs/images/update_order_status.png)
+
+To update an order status, the user clicks on "Select" button at the right edge of the row of the orders listed. Further details of the order is show on the form at the left. The user will then select the status to change to from the dropdown Order Status. The user then clicks Update button, a confirmation modal is displayed for the user to confirm or cancel the request. If Ok is clicked, validations will be carried out to ensure that an order was selected and that the status is different from the current status of the Order.
+
+#### Review Return Order
+
+When customers request to return orders, the Operator will use this menu item to display existing requests from customers.
+Selecting this menu option from the Admin/Ops menu will display a list of all existing request for return of orders. The list could be filtered by Order Number, Email or Order Date range.
+
+![Review Return Order](/docs/images/review_return_order.png)
+
+Clicking the "Select" button will display details of the order for that request and the reason given by the Order owner. The Operator could decide to click "Reject" or "Approve". Comments of the reviewer is required on the form before the buttons. When any of the decision buttons are clicked, a confirmation modal window will be displayed for the user to click Okay to proceed or Cancel to discontinue. Validations are carried out and if the form is okay, the request is accordingly rejected or approved and an email is sent to the user plus a notification record created for the user.
+
+#### Order Details List
+
+This menu option enables the Operator user to query the application for details of any order. Selecting this menu option from the Admin/Ops menu will display a list of all existing orders. The list could be filtered by Order Number, Email, Status, Order Date, artwork/frame name and any one or more combinations of the criteria.
+
+![Order Enquiries](/docs/images/order_enquiries.png)
+
+The report shows each line item on the right edge with details of its artwork, frame and quantity. The date, order number, order total, delivery cost, discount, status and grand total are displayed for each of the Orders on the list.
 
 ## **Testing**
 
@@ -529,5 +550,7 @@ There is no known current bugs in the system after an exhaustive testing.
 }``` that was used to hide Allauth labels for Profile and login forms. But the email addresses needs the label to display existing emails. I had to introduce a class for the label and enabled the display via commit [4aba12](https://github.com/Polyanyanwu/graces-art-pp5/commit/4aba12235e88ec9b6cfe9092bee27af1ccfc37b2)
 
 - The public user on small device screens could see "Admin/Ops" icon. It was resolved by checking for the user group before displaying the icon via commit [d763d](https://github.com/Polyanyanwu/graces-art-pp5/commit/d763da907d41f33ca7d65150bd901f4fee942e0d).
+
+- The Update order status page returns error 500 when user clicks Update without first selecting an Order to update. Fixed by checking that an order number has been selected before searching the order table for the order, commit code [ea6b8](https://github.com/Polyanyanwu/graces-art-pp5/commit/ea6b873df9a8403d3ef12db154215afe4e593cd9).
 
 -  
