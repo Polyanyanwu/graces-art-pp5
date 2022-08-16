@@ -31,7 +31,7 @@
   </li>
 
   {% if user.is_authenticated %}
-
+  {% if request.user|belong_group:"operator" or request.user|belong_group:"administrator" %}
   <li class="nav-item dropdown list-inline-item dropdown-menu-start">
     <a class="nav-link dropdown-toggle d-block d-lg-none" href="#" id="navbarDropdownMenuLink6" role="button"
       data-bs-toggle="dropdown" aria-expanded="false" title="Admin & Operator Menu Dropdown">
@@ -67,7 +67,7 @@
       {% endif %}
     </ul>
   </li>
-
+  {% endif %}
   <li class="nav-item dropdown list-inline-item dropdown-menu-start">
     <a class="nav-link dropdown-toggle d-block d-lg-none" href="#" id="navbarDropdownMenuLink7" role="button"
       data-bs-toggle="dropdown" aria-expanded="false" title="User Account Dropdown">
