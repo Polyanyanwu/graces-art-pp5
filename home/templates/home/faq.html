@@ -14,28 +14,28 @@
             <hr>
         </div>
     </div>
-    <div class="col-12 col-md-8 offset-md-2">
-        {% for faq in faqs %}
-        <div class="row">
-            <div class="col-12 col-md-5">
-                <p class="fw-bolder">
-                    {{faq.question|safe}}
-                </p>
+    <div class="row">
+        <div class="col-12 col-md-8 offset-md-2">
+            {% for faq in faqs %}
+            <div class="row">
+                <div class="col-12 col-md-5">
+                    <p class="fw-bolder">
+                        {{faq.question}}
+                    </p>
+                </div>
+                <div class="col-12 col-md-7">
+                        {{faq.explanation|safe}}
+                </div>
+                <hr>
             </div>
-            <div class="col-12 col-md-7">
-                <p>
-                    {{faq.explanation|safe}}
-                </p>
-            </div>
-            <hr>
             {% endfor %}
         </div>
     </div>
-</div>
-<div class="back-to-top-btn shadow-sm border red-border">
-    <a class="back-to-top-link d-flex h-100" title="Back to top">
-        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-    </a>
+    <div class="back-to-top-btn shadow-sm border red-border">
+        <a class="back-to-top-link d-flex h-100" title="Back to top">
+            <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
+        </a>
+    </div>
 </div>
 
 {% endblock %}
