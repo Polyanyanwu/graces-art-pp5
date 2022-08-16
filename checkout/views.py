@@ -342,13 +342,19 @@ def update_order_status(request):
                           }
         elif 'confirm-action-btn' in request.POST:
             # for update after user confirms the update prompt
-            order = Order.objects.get(
-                    order_number=request.POST.get('confirm-id'))
+            order_id = request.POST.get('confirm-id')
+            if not order_id:
+                messages.warning(request, "Please select an order.\
+                    before updating and try again")
+                return redirect('update_order_status')
+
+            order = Order.objects.get(order_number=order_id)
             status = get_object_or_404(
                      OrderStatus, code=request.POST.get('new_order_status'))
             if order.status.code == status.code:
                 messages.warning(request, "You choose same status as before.\
                      Select a different status and try again")
+                return redirect('update_order_status')
             else:
                 order.status = status
                 order.save()
@@ -661,11 +667,9 @@ def request_cancel_order(request):
             # check if the order date is within allowed return date
             return_days = int(get_object_or_404(
                               SystemPreference, code="C").data)
-            print("cancel days==", return_days, " date==", f_order.date)
             now = datetime.now(timezone.utc)
             order_date = f_order.date
             delta = (now - order_date).days
-            print("date diff===", delta)
             date_str = f_order.date.strftime("%d-%b-%Y %H:%M")
             if delta > return_days:
                 messages.error(request, f"Sorry you can no longer cancel \

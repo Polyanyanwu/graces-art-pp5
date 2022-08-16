@@ -63,6 +63,8 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [Cancel Order](#cancel-order)
       - [My Wishlist](#my-wishlist)
       - [Notifications](#notifications)
+    - [Operator User Functionalities](#operator-user-functionalities)
+      - [Update Order Status](#update-order-status)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -360,7 +362,7 @@ A "search artwork by name" form is at the top for the user to enter any substrin
 
 #### **List of Artworks**
 
-After a user has clicked on any of the menu items (All Products, Artist, Genre or Sales) or inputted and clicked on the search ico, a list of matching artworks are displayed to the user.
+After a user has clicked on any of the menu items (All Products, Artist, Genre or Sales) or inputted and clicked on the search icon, a list of matching artworks are displayed to the user.
 
 ![Artwork List](/docs/images/artwork_list.png)
 
@@ -491,6 +493,20 @@ The logged in user can select "Notifications" from the "My Account" menu and the
 ![Notifications](/docs/images/notifications.png)
 
 The user can delete any item from the Notifications after confirming Okay when the confirmation modal window opens following clicking the "Delete" button beside a notification item.
+
+### Operator User Functionalities
+
+Apart from the "My Account" menu available to all users of the application, the user that belongs to the Operator group has access to the "Admin/Ops" menu and under the menu the user can:
+
+1. Update Order Status
+2. Review Return Order
+3. Order Details List
+
+#### Update Order Status
+
+Selecting this menu option from the Admin/Ops menu will display a list of all existing orders. The list could be filtered by Order Number, Email, Status, Order Date, artwork/frame name and any one or more combinations of the criteria.
+
+To update an order status, the user clicks on "Select" button at the right edge of the row of the order listed. Further details of the order is show on the form at the left. The user will then select the status to change to from the dropdown Order Status 
 
 ## **Testing**
 
