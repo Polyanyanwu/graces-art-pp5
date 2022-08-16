@@ -3,24 +3,17 @@
 {% load crispy_forms_tags %}
 {% block extra_title %}- art_frames {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
+
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid gx-4 ">
+
+<div class="container-fluid container-main">
     <div class="row">
         <div class="col text-center">
             <h4>Maintain Art Frames</h4>
             <hr>
         </div>
     </div>
-</div>
-<div class="container-fluid">
     <div class="row justify-content-center">
         <form action="{% url 'maintain_art_frame' %}" method="POST" id="art-frame-maintain-form"
                 enctype="multipart/form-data">

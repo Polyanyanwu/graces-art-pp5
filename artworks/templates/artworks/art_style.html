@@ -4,24 +4,16 @@
 
 {% block extra_title %}- art_styles {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid gx-4 ">
+
+<div class="container-fluid container-main">
     <div class="row">
         <div class="col text-center">
             <h4>Maintain Art Styles</h4>
             <hr>
         </div>
     </div>
-</div>
-<div class="container-fluid">
     <div class="row justify-content-center">
         <form action="{% url 'maintain_art_style' %}" method="POST" id="art_style-maintain-form">
             <div class="row justify-content-center">
@@ -77,7 +69,6 @@
             </div>
         </form>
     </div>
-</div>
 </div>
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">

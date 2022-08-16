@@ -36,13 +36,10 @@
 
                 </div>
                 <div class="col-12 col-md-4">
-                    <p class="mt-3 text-center text-md-left">
+                    <div class="mt-3 text-center text-md-left">
                         {% if search_type %} <h3 class=" ms-4"> <strong>{{search_type}}</strong></h3> {% endif %}
-                    </p>
-
+                    </div>
                 </div>
-
-
             </div>
 
             <div class="row">
@@ -67,11 +64,10 @@
                             <div class="row">
                                 <div class="col">
                                     {% if artwork.on_sale %}
-                                    <span
-                                        class="lead strikeout mb-0 text-left ">€{{ artwork.price|floatformat:2}}</span>
-                                    <span class="lead highlight ms-2"> €{{artwork.get_sale_price|floatformat:2}}</span>
+                                        <span class="lead strikeout mb-0 text-left ">€{{ artwork.price|floatformat:2}}</span>
+                                        <span class="lead highlight ms-2"> €{{artwork.get_sale_price|floatformat:2}}</span>
                                     {% else %}
-                                    <p class="lead mb-0 text-left highlight">€{{ artwork.price }}</p>
+                                        <span class="lead mb-0 text-left highlight">€{{ artwork.price }}</span>
                                     {% endif %}
 
                                     {% if artwork.artist %}
@@ -99,16 +95,16 @@
                                     <a href="{% url 'reviews' %}">
                                     {% if artwork.rating %}
                                         {% for ind in artwork.rating|rating_dec_main %}
-                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
+                                            <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
                                         {% endfor %}
                                         {% if artwork.rating|rating_dec_fraction %}
-                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
+                                            <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
                                         {% endif %}
                                         {% for ind in artwork.rating|rating_dec_bal %}
-                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-secondary"></i></span>
+                                            <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-secondary"></i></span>
                                         {% endfor %}
                                     {% else %}
-                                    <small class="text-muted">No Rating</small>
+                                        <small class="text-muted">No Rating</small>
                                     {% endif %}
                                     </a>
 
@@ -118,7 +114,6 @@
                                         <a href="{% url 'edit_delete_artwork_single' artwork.id %}">Edit|Delete</a>
                                     </small>
                                     {% endif %}
-
                                 </div>
                             </div>
                         </div>

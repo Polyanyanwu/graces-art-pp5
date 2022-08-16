@@ -67,6 +67,7 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [Update Order Status](#update-order-status)
       - [Review Return Order](#review-return-order)
       - [Order Details List](#order-details-list)
+    - [Administrator User Functionalities](#administrator-user-functionalities)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -528,6 +529,12 @@ This menu option enables the Operator user to query the application for details 
 ![Order Enquiries](/docs/images/order_enquiries.png)
 
 The report shows each line item on the right edge with details of its artwork, frame and quantity. The date, order number, order total, delivery cost, discount, status and grand total are displayed for each of the Orders on the list.
+
+### Administrator User Functionalities
+
+The members of the Administrator group are responsible to maintain the configuration of the system for efficient operation of the application. A user with administrator group membership will see the below menu when the Admin/Ops icon is clicked:
+
+![Administrator menu](/docs/images/admin_menu.png)
 
 ## **Testing**
 

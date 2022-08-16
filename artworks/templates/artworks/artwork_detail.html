@@ -43,40 +43,40 @@
                 <h4 class="mb-0">{{ artwork.name }}</h4>
 
                 {% if artwork.genre %}
-                <p class="small mt-1 mb-0">
-                    <a class="text-muted" href="{% url 'get_artworks' %}?genre={{ artwork.genre.name }}">
-                        Genre: {{ artwork.genre.friendly_name }}
-                    </a>
-                </p>
+                    <p class="small mt-1 mb-0">
+                        <a class="text-muted" href="{% url 'get_artworks' %}?genre={{ artwork.genre.name }}">
+                            Genre: {{ artwork.genre.friendly_name }}
+                        </a>
+                    </p>
                 {% endif %}
                 {% if artwork.style %}
-                <p class="small mt-1 mb-0">
-                    <a class="text-muted" href="{% url 'get_artworks' %}?style={{ artwork.style.name }}">
-                        Style: {{ artwork.style.friendly_name }}
-                    </a>
-                </p>
+                    <p class="small mt-1 mb-0">
+                        <a class="text-muted" href="{% url 'get_artworks' %}?style={{ artwork.style.name }}">
+                            Style: {{ artwork.style.friendly_name }}
+                        </a>
+                    </p>
                 {% endif %}
 
                 {% if artwork.artist %}
-                <p class="small mt-1 mb-0">
-                    <a class="text-muted" href="{% url 'get_artworks' %}?artist={{artwork.artist}}">
-                        <i class="fas fa-user-edit"></i> {{ artwork.artist.friendly_name }}
-                    </a>
-                </p>
+                    <p class="small mt-1 mb-0">
+                        <a class="text-muted" href="{% url 'get_artworks' %}?artist={{artwork.artist}}">
+                            <i class="fas fa-user-edit"></i> {{ artwork.artist.friendly_name }}
+                        </a>
+                    </p>
                 {% endif %}
 
                 {% if artwork.rating %}
-                {% for ind in artwork.rating|rating_dec_main %}
-                <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
-                {% endfor %}
-                {% if artwork.rating|rating_dec_fraction %}
-                <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
-                {% endif %}
-                {% for ind in artwork.rating|rating_dec_bal %}
-                <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
-                {% endfor %}
+                    {% for ind in artwork.rating|rating_dec_main %}
+                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small text-danger"></i></span>
+                    {% endfor %}
+                    {% if artwork.rating|rating_dec_fraction %}
+                        <span class="ms-0 mx-0"><i class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
+                    {% endif %}
+                    {% for ind in artwork.rating|rating_dec_bal %}
+                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
+                    {% endfor %}
                 {% else %}
-                <small class="text-muted">No Rating</small>
+                    <small class="text-muted">No Rating</small>
                 {% endif %}
 
                 {% if artwork.on_sale %}
@@ -86,10 +86,10 @@
                     <span class=" highlight" id="sale-price">€{{artwork.get_sale_price|floatformat:"2g"}}</span>
                 </p>
                 {% else %}
-                <p class="small">
-                    <span>Base price: </span>
-                    <span class="mb-0 text-left highlight" id="price">€{{ artwork.price |floatformat:"2g" }}</span>
-                </p>
+                    <p class="small">
+                        <span>Base price: </span>
+                        <span class="mb-0 text-left highlight" id="price">€{{ artwork.price |floatformat:"2g" }}</span>
+                    </p>
                 {% endif %}
 
                 <form class="form" action="{% url 'add_to_bag' artwork.id %}" method="POST">

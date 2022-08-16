@@ -3,24 +3,16 @@
 {% load crispy_forms_tags %}
 {% block extra_title %}- Edit Artworks {% endblock %}
 
-{% block page_header %}
-<div class="container header-container">
-    <div class="row">
-        <div class="col"></div>
-    </div>
-</div>
-{% endblock %}
 {% block content %}
 <div class="overlay"></div>
-<div class="container-fluid gx-4 ">
+
+<div class="container-fluid container-main">
     <div class="row">
         <div class="col text-center">
             <h4>Edit / Delete Single Artwork</h4>
             <hr>
         </div>
     </div>
-</div>
-<div class="container-fluid">
     <div class="row justify-content-center">
         <form action="{% url 'edit_delete_artwork_single' artwork.id %}" method="POST" id="artist-maintain-form"
             enctype="multipart/form-data">
@@ -30,14 +22,13 @@
                     {% csrf_token %}
 
                     {% for field in form %}
-                    {% if field.name != 'image' %}
-                    {{ field | as_crispy_field }}
-                    {% else %}
-                    {{ field }}
-                    {% endif %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
                     {% endfor %}
                     <div class="d-flex justify-content-center">
-                        <!-- <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button> -->
                         <button type="submit" class="btn btn-primary btn-ok mt-2 me-2 mb-2"
                             name="save_record">Save</button>
                         <button type="submit" class="btn btn-secondary me-2 btn-sm mb-2 mt-2" name="cancel_ops"
@@ -66,8 +57,8 @@
         </form>
     </div>
 </div>
+{% endblock %}
 
 {% block postloadjs %}
-<script src="{% static 'js/artworks.js' %}"></script>
-{% endblock %}
+    <script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}
