@@ -265,6 +265,9 @@ input,
 .form-inner-content label:not([for='id_remember']) {
     display: none;
 }
+.allauth-email-label{
+    display:block!important;
+}
 
 .form-inner-content div input,
 .form-inner-content div select {
