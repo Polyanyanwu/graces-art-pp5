@@ -87,6 +87,7 @@ The Graces Art Print is a web application that enables users to purchase an artw
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
     - [**Resolved Bugs**](#resolved-bugs)
+  - [**Deployment**](#deployment)
 
 ## **Objectives of the Site**
 
@@ -712,4 +713,6 @@ There is no known current bugs in the system after an exhaustive testing.
 
 - Edit artwork gives Error 500 when SKU is edited. Fixed by using the Artwork ID to fetch the record and passing the ID properly through a context variable. See Commit [dbabea](https://github.com/Polyanyanwu/graces-art-pp5/commit/dbabeae8be439caebfcaf5d8bc1a231539a3714f)
 
-- 
+## **Deployment**
+
+The application was deployed to [Heroku](https://heroku.com) where all the code and database is hosted. The static files were hosted on [Amazon S3 Object Storage](https://aws.amazon.com/s3/). [Strip](https://dashboard.stripe.com) was used for card payment collection. Details of the fork, clone and deployment process [is available here](/docs/deploy/deployment.md)
