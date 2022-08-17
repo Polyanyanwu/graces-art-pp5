@@ -78,6 +78,11 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [Maintain Art Genre](#maintain-art-genre)
       - [Add Artwork](#add-artwork)
       - [Edit / Delete Artworks](#edit--delete-artworks)
+      - [Maintain Art Frames](#maintain-art-frames)
+    - [The Footer Information](#the-footer-information)
+      - [Newsletter Subscription Form](#newsletter-subscription-form)
+      - [Contact Us](#contact-us)
+      - [Reviews](#reviews)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -594,7 +599,7 @@ A record can be deleted by clicking the Delete button and responding to the conf
 
 This option enables the addition, deletion or editing of Art Styles data in the system. Each artwork has an art style attached to it and the data is maintained here.
 
-![Maintain Maintain Art Styles](/docs/images/maintain_style.png)
+![Maintain Art Styles](/docs/images/maintain_style.png)
 
 A record can be deleted by clicking the Delete button and responding to the confirmation modal which prompts up. To edit an existing record click on the Edit button, which loads the contents on the panel for editing. The New button creates a blank record. The Cancel button discards the current editing and repositions the data to the first record on the list.
 
@@ -602,7 +607,7 @@ A record can be deleted by clicking the Delete button and responding to the conf
 
 This option enables the addition, deletion or editing of Art Genre data in the system. Each artwork has an art genre attached to it and the data is maintained here.
 
-![Maintain Maintain Art Genre](/docs/images/maintain_genre.png)
+![Maintain Art Genre](/docs/images/maintain_genre.png)
 
 A record can be deleted by clicking the Delete button and responding to the confirmation modal which prompts up. To edit an existing record click on the Edit button, which loads the contents on the panel for editing. The New button creates a blank record. The Cancel button discards the current editing and repositions the data to the first record on the list.
 
@@ -618,7 +623,60 @@ This option enables the editing or deletion of an existing artwork.
 
 ![Edit / Delete Artworks](/docs/images/edit_artwork.png)
 
-A list of existing artworks is displayed on the right side of the page including small image of the artwork. Click on the Edit button to load the record on the form by the left for editing. Click Save button to save the record after changes.
+A list of existing artworks is displayed on the right side of the page including small image of the artwork. Click on the Edit button to load the record on the form by the left for editing. Click Save button to save the record after changes. The user can find an artwork to edit by entering the SKU or any substring of the Name and clicking the google search icon. The filtered records are displayed for the user to select the desired one to edit or delete. Validations are done before saving and errors encountered are reported to the user.
+
+Clicking the Delete button will prompt for the confirmation of the deletion before effecting the deletion.
+
+#### Maintain Art Frames
+
+This option enables the addition, deletion or editing of Art Frame data in the system. Purchase of an artwork requires an associated art frame.
+
+![Maintain Art Frame](/docs/images/maintain_artframe.png)
+
+A record can be deleted by clicking the Delete button and responding to the confirmation modal which prompts up. To edit an existing record click on the Edit button, which loads the contents on the panel for editing. The New button creates a blank record. The Cancel button discards the current editing and repositions the data to the first record on the list.
+
+### The Footer Information
+
+The footer is available on every page and contains information on:
+
+- About Us
+- Frequently asked questions
+- Contact Us form
+- Reviews by users of the website
+- Terms & Conditions
+- Privacy Policy
+- Social Media icons with links to the Facebook page of the business, my Github address and Instagram link not yet active.
+- Subscribe form for users to subscribe for newsletters
+  
+![Footer](/docs/images/footer.png)
+
+The About Us, FAQ, Terms & Conditions and Privacy Policy are information displayed for the users education. Example is the FAQ shown below:
+
+#### Newsletter Subscription Form
+
+The footer has a form to collect email addresses of visitors to the site who opts to subscribe to receive newsletters/offers information via email. Entering a valid email addresses (meeting email format not necessarily verified) is accepted and entered into the Mailchimp data for the website.
+
+![FAQ](/docs/images/faq.png)
+
+The information in the About Us information (and other footer information) displayed below and accessible by clicking the About Us link at the footer was read from the DB as entered by the Administrator via the Maintain General Information page.
+
+![About Us](/docs/images/aboutUs.png)
+
+#### Contact Us
+
+The Contact Us page accessible by clicking Contact Us at the footer enables the user to send any message to the site owner.
+
+![Contact Us](/docs/images/contactUs.png)
+
+Login is not required but if the user is logged in, the email address is entered by default. A copy of the message is sent to the email address of the person that filled the form.
+
+#### Reviews
+
+The users may decide to view reviews of the services of the site owner by clicking the Reviews link at the footer or clicking the star icons below artwork images.
+
+![Reviews](/docs/images/reviews.png)
+
+Viewing a review doesn't require user login but writing a review does. To write a review, the logged in user will click on "Write a Review" from the Customer Reviews page and if logged in, the Customer Reviews page is opened with a form to the left for the user to write a review. If the user is not logged in, the Sign In page is opened for the user to login before the Reviews page is opened.
 
 ## **Testing**
 
@@ -644,4 +702,6 @@ There is no known current bugs in the system after an exhaustive testing.
 
 - The Update order status page returns error 500 when user clicks Update without first selecting an Order to update. Fixed by checking that an order number has been selected before searching the order table for the order, commit code [ea6b8](https://github.com/Polyanyanwu/graces-art-pp5/commit/ea6b873df9a8403d3ef12db154215afe4e593cd9).
 
--  
+- Edit artwork gives Error 500 when SKU is edited. Fixed by using the Artwork ID to fetch the record and passing the ID properly through a context variable. See Commit [dbabea](https://github.com/Polyanyanwu/graces-art-pp5/commit/dbabeae8be439caebfcaf5d8bc1a231539a3714f)
+
+- 
