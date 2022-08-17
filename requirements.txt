@@ -6,6 +6,7 @@ Django==3.2
 django-allauth==0.50.0
 django-countries==7.2.1
 django-crispy-forms==1.14.0
+django-extensions==3.2.0
 django-storages==1.12.3
 django-summernote==0.8.20.0
 fontawesomefree==5.15.3
@@ -14,6 +15,7 @@ jmespath==1.0.1
 oauthlib==3.2.0
 Pillow==9.2.0
 psycopg2==2.9.3
+pydot==1.4.2
 PyJWT==2.4.0
 python3-openid==3.2.0
 pytz==2022.1

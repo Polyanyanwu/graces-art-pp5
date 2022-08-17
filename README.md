@@ -219,6 +219,10 @@ The initial design database Entity Diagram is given below:
 
 ![Database Entity Diagram](/docs/graces_art_ed.png)
 
+There were few modifications to the initial database model leading to the final implemented model shown below:
+
+![Final Entity Diagram](/docs/graces_art_db.png)
+
 ## **Flowchart**
 
 The initial flowchart for the user interaction with the website has been produced to guide the application development. As the site unfolds, it may differ slightly as requirements may change in the course of development.
