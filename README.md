@@ -71,7 +71,6 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [Maintain General Information](#maintain-general-information)
       - [Maintain System Preferences](#maintain-system-preferences)
       - [Assign User Roles/Groups](#assign-user-rolesgroups)
-      - [Assign User Roles](#assign-user-roles)
       - [Maintain FAQs](#maintain-faqs)
       - [Maintain Artists](#maintain-artists)
       - [Maintain Art Styles](#maintain-art-styles)
@@ -83,6 +82,7 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [Newsletter Subscription Form](#newsletter-subscription-form)
       - [Contact Us](#contact-us)
       - [Reviews](#reviews)
+    - [Future Features to Implement](#future-features-to-implement)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -569,8 +569,6 @@ Clicking on the Select button loads the record on the upper section of the page 
 
 #### Assign User Roles/Groups
 
-#### Assign User Roles
-
 The administrator can use this option to put or remove any user from any group. The form that is displayed is shown below:
 
 ![Assign User Roles/Groups](/docs/images/user_role.png)
@@ -677,6 +675,16 @@ The users may decide to view reviews of the services of the site owner by clicki
 ![Reviews](/docs/images/reviews.png)
 
 Viewing a review doesn't require user login but writing a review does. To write a review, the logged in user will click on "Write a Review" from the Customer Reviews page and if logged in, the Customer Reviews page is opened with a form to the left for the user to write a review. If the user is not logged in, the Sign In page is opened for the user to login before the Reviews page is opened.
+
+### Future Features to Implement
+
+- It will be desirable to include social authentication to ease the user experience.
+  
+- I did not have time to include summary performance reports for the store owner to know some statistics on the sales of artworks and frames, which artworks and frames sell the most. This information could then be displayed to the visitors to the site to know which products the public buy the most.
+  
+- The list of messages sent by users through Contact Us form could be made available to the administrator via the UI instead of through the Admin Panel. Again this was not feasible due to time constraints of the project.
+
+[>> Bact to TOC](#table-of-contents)
 
 ## **Testing**
 
