@@ -355,7 +355,8 @@ def edit_delete_artwork(request):
             id_sent = request.POST.get('name_selected')
             artwork = get_object_or_404(Artwork, pk=int(id_sent))
             form = ArtworkForm(instance=artwork)
-            confirm_id = artwork.id
+            artwork_id = artwork.id
+
         elif 'confirm-action-btn' in request.POST:
             # action is only delete action
             id_sent = request.POST.get('confirm-id')
@@ -368,10 +369,12 @@ def edit_delete_artwork(request):
             artworks = Artwork.objects.all().order_by('artist')
             if artworks.count() > 0:
                 form = ArtworkForm(instance=artworks[0])
+                artwork_id = artworks[0].id
                 HttpResponseRedirect('artworks/edit_delete_artwork.html')
         elif 'cancel_ops' in request.POST:
             if recs_available:
                 form = ArtworkForm(instance=artworks[0])
+                artwork_id = artworks[0].id
             HttpResponseRedirect('artworks/edit_delete_artwork.html')
         elif 'save_record' in request.POST:
             art_id = int(request.POST.get('confirm-id'))
@@ -389,40 +392,46 @@ def edit_delete_artwork(request):
                 artworks = Artwork.objects.filter(sku=sku)
                 if artworks.count() > 0:
                     form = ArtworkForm(instance=artworks[0])
+                    artwork_id = artworks[0].id
                 else:
                     artworks = Artwork.objects.all().order_by('artist')
                     if artworks.count() > 0:
                         form = ArtworkForm(instance=artworks[0])
+                        artwork_id = artworks[0].id
             else:
                 name = request.POST.get('q_name')
                 if name:
                     artworks = Artwork.objects.filter(name__icontains=name)
                     if artworks.count() > 0:
                         form = ArtworkForm(instance=artworks[0])
+                        artwork_id = artworks[0].id
                     else:
                         artworks = Artwork.objects.all().order_by('artist')
                         if artworks.count() > 0:
                             form = ArtworkForm(instance=artworks[0])
+                            artwork_id = artworks[0].id
     else:
         artworks = Artwork.objects.all().order_by('artist')
-        recs_available = artworks.count() > 0
-        if recs_available:
+        if artworks.count() > 0:
             form = ArtworkForm(instance=artworks[0])
-            confirm_id = artworks[0].id
+            artwork_id = artworks[0].id
     paginator = Paginator(artworks, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    if 'confirm_id' not in locals():
+    if 'artwork_id' not in locals():
+        # if it has not been initialized as a variable
+        # check if it already has a value from a
+        # previous POST and get the value
         if request.POST.get('confirm-id'):
-            confirm_id = request.POST.get('confirm-id')
+            artwork_id = request.POST.get('confirm-id')
         else:
-            confirm_id = ""
+            artwork_id = ""
 
     return render(request, 'artworks/edit_delete_artwork.html', {
         'form': form,
         'artworks': page_obj,
-        'confirm_id': confirm_id,
+        'confirm_id': artwork_id,
     })
 
 
