@@ -68,6 +68,16 @@ The Graces Art Print is a web application that enables users to purchase an artw
       - [Review Return Order](#review-return-order)
       - [Order Details List](#order-details-list)
     - [Administrator User Functionalities](#administrator-user-functionalities)
+      - [Maintain General Information](#maintain-general-information)
+      - [Maintain System Preferences](#maintain-system-preferences)
+      - [Assign User Roles/Groups](#assign-user-rolesgroups)
+      - [Assign User Roles](#assign-user-roles)
+      - [Maintain FAQs](#maintain-faqs)
+      - [Maintain Artists](#maintain-artists)
+      - [Maintain Art Styles](#maintain-art-styles)
+      - [Maintain Art Genre](#maintain-art-genre)
+      - [Add Artwork](#add-artwork)
+      - [Edit / Delete Artworks](#edit--delete-artworks)
   - [**Testing**](#testing)
   - [**Bugs**](#bugs)
     - [**Current Bugs**](#current-bugs)
@@ -535,6 +545,80 @@ The report shows each line item on the right edge with details of its artwork, f
 The members of the Administrator group are responsible to maintain the configuration of the system for efficient operation of the application. A user with administrator group membership will see the below menu when the Admin/Ops icon is clicked:
 
 ![Administrator menu](/docs/images/admin_menu.png)
+
+#### Maintain General Information
+
+This option enables the administrator to input and maintain information needed on the footer of the website and the welcome message on the landing page. Information like About Us, FAQ, Privacy Policy, etc. The page uses Django Summernote which enables formatting of the text.
+
+![Maintain General Information](/docs/images/maintain_gen_info.png)
+
+The code is a dropdown selection field for the information to maintain and changes the content accordingly when selected. Clicking the save button will update the contents. The home button takes the user back to the landing page while the Cancel button will discard the current changes on the information panel.
+
+#### Maintain System Preferences
+
+The System Preferences page is used to maintain the configuration of the system. It is used to maintain config details like Sales Percentage, Maximum Delivery Cost, Cancellation of order valid days, etc. All the config settings on this page affect the operations of the whole website and is only administrators that have access to this page.
+
+![Maintain System Preferences](/docs/images/sys_pref.png)
+
+Clicking on the Select button loads the record on the upper section of the page for the administrator to update the Data field. The expected type of data is shown and validation is carried out to ensure the valid data type is entered by the administrator.
+
+#### Assign User Roles/Groups
+
+#### Assign User Roles
+
+The administrator can use this option to put or remove any user from any group. The form that is displayed is shown below:
+
+![Assign User Roles/Groups](/docs/images/user_role.png)
+
+The administrator first selects a user and the groups the user belongs to is displayed, if any. To remove existing group click Remove button. To add a group select the group from the group dropdown and click Add.
+
+[>> Bact to TOC](#table-of-contents)
+
+#### Maintain FAQs
+
+This page is used to maintain the Frequently Asked Questions displayed via a link at the footer. The Administrator can create new question and provide the answer in the content panel.
+
+![Maintain FAQs](/docs/images/maintain_faq.png)
+
+New record can be created by clicking New button, the Cancel button discards the current editing, Save button saves the currently edited record. A record can be deleted by clicking the Delete button and responding to the confirmation modal which prompts up. To edit an existing record click on the Edit button, which loads the contents on the panel for editing.
+
+#### Maintain Artists
+
+This option enables the addition, deletion or editing of Artists data in the system. Each artwork has an artist attached to it and the data is maintained here.
+
+![Maintain Artists](/docs/images/maintain_artist.png)
+
+A record can be deleted by clicking the Delete button and responding to the confirmation modal which prompts up. To edit an existing record click on the Edit button, which loads the contents on the panel for editing. The New button creates a blank record. The Cancel button discards the current editing and repositions the data to the first record on the list.
+
+#### Maintain Art Styles
+
+This option enables the addition, deletion or editing of Art Styles data in the system. Each artwork has an art style attached to it and the data is maintained here.
+
+![Maintain Maintain Art Styles](/docs/images/maintain_style.png)
+
+A record can be deleted by clicking the Delete button and responding to the confirmation modal which prompts up. To edit an existing record click on the Edit button, which loads the contents on the panel for editing. The New button creates a blank record. The Cancel button discards the current editing and repositions the data to the first record on the list.
+
+#### Maintain Art Genre
+
+This option enables the addition, deletion or editing of Art Genre data in the system. Each artwork has an art genre attached to it and the data is maintained here.
+
+![Maintain Maintain Art Genre](/docs/images/maintain_genre.png)
+
+A record can be deleted by clicking the Delete button and responding to the confirmation modal which prompts up. To edit an existing record click on the Edit button, which loads the contents on the panel for editing. The New button creates a blank record. The Cancel button discards the current editing and repositions the data to the first record on the list.
+
+#### Add Artwork
+
+This page is used to add new artwork to the site. The first 9 characters of the SKU is generated automatically as data on the artist, genre and style is entered. The user is expected to complete the last 3 characters. The SKU is validated to ensure it is 12 characters and unique.
+
+![Add Artwork](/docs/images/add_artwork.png)
+
+#### Edit / Delete Artworks
+
+This option enables the editing or deletion of an existing artwork.
+
+![Edit / Delete Artworks](/docs/images/edit_artwork.png)
+
+A list of existing artworks is displayed on the right side of the page including small image of the artwork. Click on the Edit button to load the record on the form by the left for editing. Click Save button to save the record after changes.
 
 ## **Testing**
 

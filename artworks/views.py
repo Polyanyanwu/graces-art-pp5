@@ -350,13 +350,12 @@ def edit_delete_artwork(request):
     artworks = Artwork.objects.all().order_by('artist')
     recs_available = artworks.count() > 0
 
-    # artwork = None
-    # form = None
     if request.method == 'POST':
         if 'select_rec' in request.POST:
             id_sent = request.POST.get('name_selected')
             artwork = get_object_or_404(Artwork, pk=int(id_sent))
             form = ArtworkForm(instance=artwork)
+            confirm_id = artwork.id
         elif 'confirm-action-btn' in request.POST:
             # action is only delete action
             id_sent = request.POST.get('confirm-id')
@@ -375,7 +374,8 @@ def edit_delete_artwork(request):
                 form = ArtworkForm(instance=artworks[0])
             HttpResponseRedirect('artworks/edit_delete_artwork.html')
         elif 'save_record' in request.POST:
-            artwork = get_object_or_404(Artwork, sku=request.POST.get('sku'))
+            art_id = int(request.POST.get('confirm-id'))
+            artwork = get_object_or_404(Artwork, id=art_id)
             form = ArtworkForm(request.POST, request.FILES, instance=artwork)
             if form.is_valid():
                 form.save()
@@ -408,12 +408,21 @@ def edit_delete_artwork(request):
         recs_available = artworks.count() > 0
         if recs_available:
             form = ArtworkForm(instance=artworks[0])
+            confirm_id = artworks[0].id
     paginator = Paginator(artworks, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
+
+    if 'confirm_id' not in locals():
+        if request.POST.get('confirm-id'):
+            confirm_id = request.POST.get('confirm-id')
+        else:
+            confirm_id = ""
+
     return render(request, 'artworks/edit_delete_artwork.html', {
         'form': form,
         'artworks': page_obj,
+        'confirm_id': confirm_id,
     })
 
 

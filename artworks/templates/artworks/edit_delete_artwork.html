@@ -23,11 +23,11 @@
                     {% csrf_token %}
 
                     {% for field in form %}
-                    {% if field.name != 'image' %}
-                    {{ field | as_crispy_field }}
-                    {% else %}
-                    {{ field }}
-                    {% endif %}
+                        {% if field.name != 'image' %}
+                            {{ field | as_crispy_field }}
+                        {% else %}
+                            {{ field }}
+                        {% endif %}
                     {% endfor %}
                     <div class="d-flex justify-content-center">
                         <!-- <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button> -->
@@ -100,7 +100,7 @@
                             {% endfor %}
                             <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
                             <input type="hidden" value="" name="name_selected" id="name_selected">
-                            <input type="hidden" value="" name="confirm-id" id="confirm-id">
+                            <input type="hidden" value={{confirm_id}} name="confirm-id" id="confirm-id">
                             <button type="submit" class="hidden" name="confirm-action-btn"
                                 id="confirm-action-btn"></button>
                         </tbody>
