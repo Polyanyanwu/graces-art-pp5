@@ -35,6 +35,10 @@ The Graces Art Print is a web application that enables users to purchase an artw
     - [**Fonts**](#fonts)
   - [**Database Design**](#database-design)
   - [**Flowchart**](#flowchart)
+  - [**Technologies Used**](#technologies-used)
+    - [**Frameworks and Libraries**](#frameworks-and-libraries)
+    - [**Ancillary Technologies**](#ancillary-technologies)
+    - [**VSCode Extensions Used**](#vscode-extensions-used)
   - [**Search Engine Optimization**](#search-engine-optimization)
     - [**Keywords Research**](#keywords-research)
   - [**E-commerce Business Model**](#e-commerce-business-model)
@@ -229,6 +233,65 @@ The initial flowchart for the user interaction with the website has been produce
 
 ![Flowchart](/docs/graces_art_flowchart.png)
 
+## **Technologies Used**
+  
+  The main technologies used are:
+
+  1. Python3 (Django is a framework based on Python, which was used extensively in the views to deliver the application logic)
+  2. HTML (used to display the pages - Django templates make use of HTML)
+  3. Jinja template language
+  4. CSS (used in styling some of the HTML)
+  5. Javascript
+
+### **Frameworks and Libraries**
+
+- Django framework, which is a very powerful open source project. The documentation of Django is on the [Official Django Site](https://www.djangoproject.com/).
+- [Django Allauth Package](https://django-allauth.readthedocs.io/en/latest/installation.html) was used for the user signup, password management and related functionality.
+- [Bootstrap V5.1](https://getbootstrap.com/docs/5.1/getting-started/introduction/) was used in styling and positioning the HTML elements on the pages.
+- [jQuery 3.6](https://jquery.com/) for rendering the modal confirmation of actions on the application and the checkout page.
+- [Font Awesome - fontawesomefree V 5.15.3](https://fontawesome.com/) was used to deliver the icons in the pages.
+- [Stripe Payments infrastructure for the internet](https://stripe.com/en-ie) enabled use of their test payment system for this development.
+- [Amazon S3 Object Storage](https://aws.amazon.com/s3/) was used in rendering static files and images on the website.
+- [Django Storages](https://django-storages.readthedocs.io/en/latest/)  which is a collection of custom storage backends for Django enabled connecting to the Amazon S3 storage.
+- [Boto3 Amazon SDK for Python](https://boto3.amazonaws.com/v1/documentation/api/latest/index.html)
+- [Strip](https://dashboard.stripe.com) was used for card payment collection.
+- [Summernote](https://summernote.org/) enabled the Admin to create WYSIWYG Terms of Use, Privacy Policy, FAQ, landing page message, About Us, etc which makes them become dynamic and loaded form database records.
+- [Django Crispy Forms)(https://django-crispy-forms.readthedocs.io/en/latest/) was helpful to display some of the forms on the pages.
+- [Dj-database-url](https://pypi.org/project/dj-database-url/) assisted with accessing the database.
+- [Psycopg2](https://pypi.org/project/psycopg2/) was the PostgreSQL database adapter for the Python programming language that was used in the project.
+- [Django Extensions](https://django-extensions.readthedocs.io/en/latest/graph_models.html) enabled auto generation of database model graph.
+- [Graphviz](http://www.graphviz.org/) and Pydoc used to generate database model graph
+
+### **Ancillary Technologies**
+
+- [Balsamiq](https://balsamiq.com/) was used to create  the Wireframes for the application.
+- [Google Fonts](https://fonts.google.com/) was used for the fonts in the application.
+- [TinyPNG](https://tinypng.com/) for resizing all the images.
+- [Am I Responsive](https://ui.dev/amiresponsive?url=https://graces-buffet.herokuapp.com/) was used to create the Mockup image at the top of the README.
+- [PEP8 validation](http://pep8online.com/) : A Python code online validation application.
+- [JShint](https://jshint.com/) : for validation of the Javascript used.
+- [W3C Markup Validation Service](validator.w3.org) : A free application that was used to check the HTML and CSS files for errors.
+- [Visual Studio Code](https://code.visualstudio.com/): The code editor used for the application development. With numerous [extensions](#vscode-extensions-used) available it is an excellent environment for writing efficient codes.
+- [Git](https://git-scm.com/) : For Version control.
+- [GitPod](https://www.gitpod.io/) : the Integrated Development Environment.
+- [GitHub](https://github.com/)  for hosting the repository.
+- [Heroku](https://www.heroku.com/home) : hosting the live website.
+
+### **VSCode Extensions Used**
+
+Some VSCode extensions were used during the development of the application. They are:
+
+- [Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)
+This extension assisted to give meaningful messages on the Python code regarding structure and syntax.
+- [Markdown All in One](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
+This assisted with production of this README with Table of Contents in particular.
+- [markdown lint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+This extension assisted with the structure of README content.
+- [Code Spell Checker](https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker)
+This was very useful to check spelling errors in the code.
+
+[>> Bact to TOC](#table-of-contents)
+
 ## **Search Engine Optimization**
 
 ### **Keywords Research**
@@ -375,7 +438,7 @@ The landing page of the website presents the user with a welcome message and Sho
 
  In addition dropdown menus give the user the option of browsing the collection of artworks. Clicking the "All Products" dropdown menu will display the options for sorting By Price, Rating, Style or All Artworks without sorting. Clicking on the Artist dropdown menu will give a list of all artist whose artworks are being sold. The list is dynamically generated from the database. Clicking on the Genre dropdown menu will present all art genre for the user to select the one of interest. Selecting any of the sort or filter categories will display a page of the artworks meeting the selected criteria.
 
- On the landing page too is the Discount coupons and Sales menu items. Clicking the Discount Coupons will open a page where the user can copy the relevant discount coupon that could be used on the site. The coupons could also be displayed by clicking the banner thats speaks to "Fabulous discounts.." on all pages. 
+ On the landing page too is the Discount coupons and Sales menu items. Clicking the Discount Coupons will open a page where the user can copy the relevant discount coupon that could be used on the site. The coupons could also be displayed by clicking the banner thats speaks to "Fabulous discounts.." on all pages.
 
 A "search artwork by name" form is at the top for the user to enter any substring of the artwork name or the artist name and have the site respond with a page containing the list of artworks matching the entered criteria.
 
