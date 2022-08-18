@@ -7,7 +7,7 @@
 {% block content %}
 <div class="overlay"></div>
 
-<div class="container-fluid container-main">
+<div class="container-flex container-main">
     <div class="row">
         <div class="col text-center">
             <h4>Maintain FAQs</h4>
@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <form action="{% url 'maintain_faq' %}" method="POST">
             <div class="row justify-content-center">
-                <div class="col-12 col-md-8">
+                <div class="col-12 col-md-10 col-lg-6 offset-lg-1">
 
                     {% csrf_token %}
                     {{ form|crispy }}
@@ -30,13 +30,14 @@
                             name="save_record">Save</button>
                     </div>
                 </div>
-                <div class="col-12 col-md-4">
+                <div class="col-12 col-md-10 col-lg-3 offset-lg-1">
                     <table class="table table-striped">
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Question</th>
                                 <th scope="col">Action</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,6 +51,8 @@
                                         data-message="Please confirm deleting the {{faq.question}} FAQ. This action is not reversible?"
                                         data-record_id={{faq.id}}>Delete
                                     </button>
+                                    </td>
+                                    <td>
                                     <button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
                                         data-name={{ faq.id }}>Edit
                                     </button>

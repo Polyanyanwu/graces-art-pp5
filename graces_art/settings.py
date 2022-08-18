@@ -133,7 +133,7 @@ SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode, default
     'iframe': True,
     # Change editor size
-    'width': '760',
+    'width': '600',
     'height': '360',
 }
 # Database

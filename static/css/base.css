@@ -64,6 +64,7 @@ main {
     text-align: center;
 }
 
+/* Disable text decoration for all links */
 a {
     text-decoration: none;
 }
@@ -92,7 +93,6 @@ a {
     color: var(--baby-powder);
     min-width: 150px;
     font-weight: 500;
-    /* font-size: 1.5rem; */
 }
 
 
@@ -161,7 +161,8 @@ a {
 }
 
 /* Reduce size of Mailchimp logo */
-img, svg {
+img,
+svg {
     vertical-align: middle;
     width: 100px;
 }
@@ -265,8 +266,9 @@ input,
 .form-inner-content label:not([for='id_remember']) {
     display: none;
 }
-.allauth-email-label{
-    display:block!important;
+
+.allauth-email-label {
+    display: block !important;
 }
 
 .form-inner-content div input,
@@ -349,17 +351,22 @@ footer a:hover {
 
 /* Fix footer scroll */
 @media (max-width: 1228px) {
-    footer h4, footer h3
-     {
+
+    footer h4,
+    footer h3 {
         font-size: 1rem;
     }
-    #mc_embed_signup{
-        width:400px;
+
+    #mc_embed_signup {
+        width: 400px;
     }
-    img, svg {
+
+    img,
+    svg {
         vertical-align: middle;
         width: 100px;
     }
+
 }
 
 /* fixed top navbar only on medium and up */
@@ -382,7 +389,6 @@ footer a:hover {
 }
 
 /* pad the top a bit when navbar is collapsed on mobile */
-/* @media (max-width: 991px) { */
 @media (max-width: 997px) {
     .header-container {
         padding-top: 146px;
@@ -445,7 +451,7 @@ footer a:hover {
 
     main {
         margin-top: 110px;
-        height: calc(100vh - 110px)!important;
+        height: calc(100vh - 110px) !important;
     }
 
     .auth-container,
@@ -457,12 +463,13 @@ footer a:hover {
 
 
 /* bring up the footer a bit on very small screen on mobile */
-    @media (max-width: 498px) {
-        main{
-            margin-top: 146px;
-        }
-        .auth-container,
-        .container-main {
-            min-height: calc(100vh - 400px);
-        }
+@media (max-width: 498px) {
+    main {
+        margin-top: 146px;
     }
+
+    .auth-container,
+    .container-main {
+        min-height: calc(100vh - 400px);
+    }
+}
