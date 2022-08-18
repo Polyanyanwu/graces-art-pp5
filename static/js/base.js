@@ -1,7 +1,9 @@
+/*jshint esversion: 6 */
+
 document.addEventListener("DOMContentLoaded", startUp);
 
 // Timeout function to delay when a message is displayed 
-// to user before removing it from the screen
+// to user before removing it from the screen if the user did not do so after 15 seconds
 
 const toastRemove = function () {
     "use strict";
@@ -11,8 +13,8 @@ const toastRemove = function () {
     if (toast != null && toastPersist == null) {
         if (toast.classList.contains('show')) {
             setTimeout(function () {
-                toast.classList.remove('show')
-            }, 5000); // 5 seconds
+                toast.classList.remove('show');
+            }, 15000); // 15 seconds
         }
     }
 };
@@ -44,7 +46,7 @@ if (document.getElementById('confirm-single')) {
                 const rec_id = e.target.dataset.record_id;
                 document.getElementById("confirm-id").value = rec_id;
                 document.getElementById('confirm-action-btn').click();
-                const modal_backdrop = $(".modal-backdrop")
+                const modal_backdrop = document.querySelector(".modal-backdrop");
                 modal_backdrop.hide();
             },
             function no() {
@@ -60,19 +62,17 @@ if (document.querySelectorAll('.confirm-many')) {
     rec_btn.forEach(btn => btn.addEventListener('click', function (e) {
         "use strict";
         const msg = e.target.dataset.message;
-        console.log("entered click event")
         Confirmation(msg,
             function yes() {
                 const rec_id = e.target.dataset.record_id;
-                const actionBtn = document.getElementById('confirm-action-btn')
-                let btnName = ""
-                console.log("btn name==="+ e.target.dataset.btnName)
+                const actionBtn = document.getElementById('confirm-action-btn');
+                let btnName = "";
                 if(e.target.dataset.btnName) btnName = e.target.dataset.btnName;
                 if(document.getElementById("confirm-id"))
                     document.getElementById("confirm-id").value = rec_id;
                 if (btnName){
-                    actionBtn.setAttribute('name', btnName)
-                    actionBtn.setAttribute('value', rec_id)
+                    actionBtn.setAttribute('name', btnName);
+                    actionBtn.setAttribute('value', rec_id);
                 }
                 actionBtn.click();
             },
@@ -99,38 +99,21 @@ function copyDiscountCode() {
     thresholdCodeBtn.addEventListener('click', (e) => {
         e.preventDefault();
         navigator.clipboard.writeText(thresholdCodeEl.value);
-        alertMe("Copied the text: " + thresholdCodeEl.value);
+        alert("Copied the text: " + thresholdCodeEl.value);
     });
 }
 
 function startUp() {
     toastRemove();
     if (document.querySelector('.discount-header')){
-        copyDiscountCode()
+        copyDiscountCode();
     }
 
     // If back to top link is on the page, listen for click events
     if (document.querySelector('.back-to-top-btn')){
         document.querySelector('.back-to-top-link').addEventListener('click', function(e){
             document.querySelector('.container-main').scrollIntoView();
-        })
+        });
         }
 }
 
-(function ($) {
-    window.fnames = new Array();
-    window.ftypes = new Array();
-    fnames[0] = 'EMAIL';
-    ftypes[0] = 'email';
-    fnames[1] = 'FNAME';
-    ftypes[1] = 'text';
-    fnames[2] = 'LNAME';
-    ftypes[2] = 'text';
-    fnames[3] = 'ADDRESS';
-    ftypes[3] = 'address';
-    fnames[4] = 'PHONE';
-    ftypes[4] = 'phone';
-    fnames[5] = 'BIRTHDAY';
-    ftypes[5] = 'birthday';
-}(jQuery));
-var $mcj = jQuery.noConflict(true);
