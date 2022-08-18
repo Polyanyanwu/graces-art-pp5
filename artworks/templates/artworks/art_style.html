@@ -18,14 +18,15 @@
         <form action="{% url 'maintain_art_style' %}" method="POST" id="art_style-maintain-form">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4">
-
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="d-flex justify-content-left">
-                        <button type="submit" class="btn btn-cancel btn-ok mt-2 btn-sm me-5" name="cancel_ops" value="Cancel"
-                        formnovalidate>Cancel</button>
-                        <button type="submit" class="btn btn-secondary mt-2 me-5 btn-sm" name="create_new_record">New</button>
-                        <button type="submit" class="btn btn-primary btn-ok mt-2 ms-5 btn-sm" name="save_record">Save</button>
+                        <button type="submit" class="btn btn-cancel btn-ok mt-2 btn-sm me-5" name="cancel_ops"
+                            value="Cancel" formnovalidate>Cancel</button>
+                        <button type="submit" class="btn btn-secondary mt-2 me-5 btn-sm"
+                            name="create_new_record">New</button>
+                        <button type="submit" class="btn btn-primary btn-ok mt-2 ms-5 btn-sm"
+                            name="save_record">Save</button>
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -36,6 +37,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Friendly Name</th>
                                 <th scope="col">Action</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -45,8 +47,8 @@
                                 <td>{{art_style.name}}</td>
                                 <td>{{ art_style.friendly_name }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
-                                        data-bs-target="#confirmModal"
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many"
+                                        data-bs-toggle="modal" data-bs-target="#confirmModal"
                                         data-message="Please confirm deleting the {{art_style.name}} Art Style. This action is not reversible?"
                                         data-record_id={{art_style.id}}>Delete
                                     </button>
@@ -55,16 +57,14 @@
                                         data-name={{ art_style.id }}>Edit
                                     </button>
                                 </td>
-                                </td>
-                                </td>
                             </tr>
                             {% endfor %}
-                            <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
-                            <input type="hidden" value="" name="name_selected" id="name_selected">
-                            <input type="hidden" value="" name="confirm-id" id="confirm-id">
-                            <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                         </tbody>
                     </table>
+                    <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
+                    <input type="hidden" value="" name="name_selected" id="name_selected">
+                    <input type="hidden" value="" name="confirm-id" id="confirm-id">
+                    <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                 </div>
             </div>
         </form>

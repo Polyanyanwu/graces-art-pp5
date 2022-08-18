@@ -15,33 +15,32 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10">
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Date</th>
-                            <th scope="col">Order Number</th>
-                            <th scope="col">Order Total</th>
-                            <th scope="col">Delivery</th>
-                            <th scope="col">Discount</th>
-                            <th scope="col">Status</th>
-                            <th scope="col">Grand Total</th>
-                            <th scope="col">Line Items</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <form method="POST" action="{% url 'customer_order_history' %}">
+                {% csrf_token %}
+                <div class="col-12 col-md-10 offset-md-1">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Date</th>
+                                <th scope="col">Order Number</th>
+                                <th scope="col">Order Total</th>
+                                <th scope="col">Delivery</th>
+                                <th scope="col">Discount</th>
+                                <th scope="col">Status</th>
+                                <th scope="col">Grand Total</th>
+                                <th scope="col">Line Items</th>
+                            </tr>
+                        </thead>
+                        <tbody>
 
-                        <tr class="table-dark">
-                            <form method="POST" action="{% url 'customer_order_history' %}">
-                                {% csrf_token %}
+                            <tr class="table-dark">
                                 <th scope="row"></th>
-                                <td><input type="date" class="small mb-1" value={{query_dict.start_date}}
-                                        name="start_date" placeholder="Start Date">
+                                <td><input type="date" class="small mb-1" {% if query_dict.start_date %}
+                                        value={{query_dict.start_date}} {% endif %} name="start_date">
                                     <span>To</span>
-                                    <input type="date" class="small mb-1" value={{query_dict.end_date}} name="end_date"
-                                        placeholder="End Date">
+                                    <input type="date" class="small mb-1" {% if query_dict.end_date %}
+                                        value={{query_dict.end_date}} {% endif %} name="end_date">
                                 </td>
                                 <td>
                                     <input type="text" class="small mb-1 w-100"
@@ -56,8 +55,7 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <select name="order_status" id="order_status" aria-placeholder="Select Status"
-                                        title="Select Status">
+                                    <select name="order_status" id="order_status" title="Select Status">
                                         <option value="">All status</option>
                                         {% for o_status in None|order_status %}
                                         <option {% if query_dict.order_status == o_status.code %} selected=""
@@ -69,40 +67,43 @@
                                 <td><input type="text" class="small mb-1"
                                         value={% if query_dict.art_or_frame_name != None %}
                                         {{query_dict.art_or_frame_name}} {% else %} '' {% endif %}
-                                        name="art_or_frame_name" placeholder="Artwork or Frame name"></td>
-                        </tr>
-                        </form>
+                                        name="art_or_frame_name" placeholder="Artwork or Frame name">
+                                    </td>
+                            </tr>
 
-                        {% for order in orders %}
-                        <tr>
-                            <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
-                            <td>{{order.date | date:'d M, Y H:i a'}}</td>
-                            <td class="small">{{ order.order_number }}</td>
-                            <td>{{ order.order_total  |floatformat:"2g"}}</td>
-                            <td>{{ order.delivery_cost |floatformat:"2g" }}</td>
-                            <td>{{ order.discount |floatformat:"2g"}}</td>
-                            <td>{{ order.status }}</td>
-                            <td class="highlight">€{{ order.grand_total |floatformat:"2g"}}</td>
 
-                            <td>
-                                {% for item in order.line_items.all %}
-                                <p class="mb-0">Artwork: {{ item.artwork.name }} @
-                                    €{{ item.artwork_price |floatformat:"2g" }} </p>
-                                <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}
-                                </p>
-                                <p class="mb-0">Qty: {{ item.quantity }} </p>
-                                <p class="mb-1 highlight">Sub Total: €{{ item.line_item_total |floatformat:"2g"}} </p>
-                                {% endfor %}
-                            </td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+                            {% for order in orders %}
+                            <tr>
+                                <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
+                                <td>{{order.date | date:'d M, Y H:i a'}}</td>
+                                <td class="small">{{ order.order_number }}</td>
+                                <td>{{ order.order_total  |floatformat:"2g"}}</td>
+                                <td>{{ order.delivery_cost |floatformat:"2g" }}</td>
+                                <td>{{ order.discount |floatformat:"2g"}}</td>
+                                <td>{{ order.status }}</td>
+                                <td class="highlight">€{{ order.grand_total |floatformat:"2g"}}</td>
+
+                                <td>
+                                    {% for item in order.line_items.all %}
+                                    <p class="mb-0">Artwork: {{ item.artwork.name }} @
+                                        €{{ item.artwork_price |floatformat:"2g" }} </p>
+                                    <p class="mb-0">Frame: {{ item.frame.name }} @
+                                        €{{ item.frame_price |floatformat:"2g"}}
+                                    </p>
+                                    <p class="mb-0">Qty: {{ item.quantity }} </p>
+                                    <p class="mb-1 highlight">Sub Total: €{{ item.line_item_total |floatformat:"2g"}}
+                                    </p>
+                                    {% endfor %}
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    </div>
+            </form>
     </div>
 </div>
-</div>
+
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
         {% if orders.has_previous %}

@@ -31,18 +31,16 @@ class UserProfileForm(forms.ModelForm):
             'street_address1': 'Street Address 1',
             'street_address2': 'Street Address 2',
             'county_region': 'County, State or Locality',
-            'used_welcome_coupon': 'Used Welcome Coupon',
         }
 
         self.fields['first_name'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'country':
+            if field != 'country' and field != 'used_welcome_coupon':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            # self.fields[field].widget.attrs['class'] = 'profile-form-input'
             self.fields[field].label = False
 
     def save(self, request):

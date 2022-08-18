@@ -21,14 +21,13 @@
                     {% csrf_token %}
                     {{ form|crispy }}
                     <div class="d-flex justify-content-left">
-                        <button type="submit" class="btn btn-secondary btn-sm mt-2 me-3" name="create_new_record">New</button>
-                        <button type="submit" class="btn btn-cancel btn-ok mt-2 me-5 btn-sm " name="cancel_ops" value="Cancel"
-                            formnovalidate>Cancel</button>
+                        <button type="submit" class="btn btn-secondary btn-sm mt-2 me-3"
+                            name="create_new_record">New</button>
+                        <button type="submit" class="btn btn-cancel btn-ok mt-2 me-5 btn-sm " name="cancel_ops"
+                            value="Cancel" formnovalidate>Cancel</button>
                         <button type="submit" class="btn btn-ok btn-sm mx-4 mt-2 ms-5" name="save_record">Save</button>
-
                     </div>
                     <button type="submit" class="hidden" name="user_change" id="user-change-button"></button>
-                    <input type="text" value={{users.id}} name="user_id" id="user_id" class="hidden">
                 </div>
                 <div class="col-12 col-md-6">
                     <table class="table table-striped">
@@ -38,6 +37,7 @@
                                 <th scope="col">Name</th>
                                 <th scope="col">Friendly Name</th>
                                 <th scope="col">Action</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -47,26 +47,25 @@
                                 <td>{{artist.name}}</td>
                                 <td>{{ artist.friendly_name }}</td>
                                 <td>
-                                    <button type="button" class="btn btn-cancel btn-sm confirm-many" data-bs-toggle="modal"
-                                        data-bs-target="#confirmModal"
+                                    <button type="button" class="btn btn-cancel btn-sm confirm-many"
+                                        data-bs-toggle="modal" data-bs-target="#confirmModal"
                                         data-message="Please confirm deleting the Artist {{artist.friendly_name}}?"
                                         data-record_id={{artist.id}}>Delete
                                     </button>
-
-                                <td><button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
+                                    </td>
+                                   <td>
+                                    <button type="submit" name="edit" class="btn btn-ok btn-sm edit-btn"
                                         data-name={{ artist.id }}>Edit
                                     </button>
                                 </td>
-                                </td>
-                                </td>
                             </tr>
                             {% endfor %}
-                            <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
-                            <input type="hidden" value="" name="name_selected" id="name_selected">
-                            <input type="hidden" value="" name="confirm-id" id="confirm-id">
-                            <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                         </tbody>
                     </table>
+                    <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
+                    <input type="hidden" name="name_selected" id="name_selected">
+                    <input type="hidden" name="confirm-id" id="confirm-id">
+                    <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                 </div>
             </div>
         </form>

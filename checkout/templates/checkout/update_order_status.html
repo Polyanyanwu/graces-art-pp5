@@ -25,8 +25,7 @@
                             <p>Order Status</p>
                         </div>
                         <div class="col-8">
-                            <select name="new_order_status" id="update_order_status"
-                                aria-placeholder="Update Order Status" title="Select Status to Update">
+                            <select name="new_order_status" id="update_order_status" title="Select Status to Update">
                                 {% for o_status in None|order_status %}
                                 <option {% if edit_order.status == o_status.code %} selected="" {% endif %}
                                     value={{o_status.code}}>{{o_status.description}}</option>
@@ -39,7 +38,8 @@
                             <p>Delivery</p>
                         </div>
                         <div class="col-8">
-                            <input type="text" class="text-muted" readonly value={{edit_order.delivery}}>
+                            <input type="text" class="text-muted" readonly {% if edit_order.delivery %}
+                                value={{edit_order.delivery}} {% endif %}>
                         </div>
                     </div>
                     <div class="row">
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-8">
                             <input type="text" class="text-muted" name="order_total" readonly
-                                value={{edit_order.order_total}}>
+                                {% if edit_order.order_total %} value={{edit_order.order_total}} {% endif %}>
                         </div>
                     </div>
                     <div class="row">
@@ -56,8 +56,8 @@
                             <p>Discount</p>
                         </div>
                         <div class="col-8">
-                            <input type="text" class="text-muted" name="discount" readonly
-                                value={{edit_order.discount}}>
+                            <input type="text" class="text-muted" name="discount" readonly {% if edit_order.discount %}
+                                value={{edit_order.discount}} {% endif %}>
                         </div>
                     </div>
                     <div class="row">
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-8">
                             <input type="text" class="text-muted" name="grand_total" readonly
-                                value={{edit_order.grand_total}}>
+                                {% if edit_order.grand_total %} value={{edit_order.grand_total}} {% endif %}>
                         </div>
                     </div>
                     <div class="row">
@@ -75,7 +75,7 @@
                         </div>
                         <div class="col-8">
                             <input class="text-muted small w-100" type="text" name="update_order_number" readonly
-                                value={{edit_order.order_number}}>
+                                {% if edit_order.order_number %} value={{edit_order.order_number}} {% endif %}>
                         </div>
                     </div>
                     <div class="row">
@@ -83,8 +83,8 @@
                             <p>Email</p>
                         </div>
                         <div class="col-8">
-                            <input class="text-muted w-100" type="text" name="email" readonly
-                                value={{edit_order.email}}>
+                            <input class="text-muted w-100" type="text" name="email" readonly {% if edit_order.email %}
+                                value={{edit_order.email}} {% endif %}>
                         </div>
                     </div>
                     <div class="row">
@@ -94,7 +94,8 @@
                             <button type="button" class="btn btn-ok" data-bs-toggle="modal" id="confirm-single"
                                 data-bs-target="#confirmModal" title="Click to change status"
                                 data-message="Please confirm updating the {{edit_order.order_number}} status."
-                                data-record_id={{edit_order.order_number}}><i
+                                {% if edit_order.order_number %}
+                                data-record_id={{edit_order.order_number}}{% endif %}><i
                                     class="fa-solid fa-floppy-disk icon me-1"></i> Update
                             </button>
                         </div>
@@ -115,11 +116,12 @@
                         <tbody>
                             <tr class="table-dark">
                                 <th scope="row"></th>
-                                <td><input type="date" class="small mb-1" value={{query_dict.start_date}}
-                                        name="start_date" placeholder="Start Date">
+
+                                <td><input type="date" class="small mb-1" {% if query_dict.start_date %}
+                                        value={{query_dict.start_date}} {% endif %} name="start_date">
                                     <span>To</span>
-                                    <input type="date" class="small mb-1" value={{query_dict.end_date}} name="end_date"
-                                        placeholder="End Date">
+                                    <input type="date" class="small mb-1" {% if query_dict.end_date %}
+                                        value={{query_dict.end_date}} {% endif %} name="end_date">
                                 </td>
                                 <td>
                                     <input type="text" class="small mb-1 w-100"
@@ -132,8 +134,7 @@
                                     </p>
                                 </td>
                                 <td>
-                                    <select name="order_status" id="order_status" aria-placeholder="Select Status"
-                                        title="Select Status">
+                                    <select name="order_status" id="order_status" title="Select Status">
                                         <option value="">All status</option>
                                         {% for o_status in None|order_status %}
                                         <option {% if query_dict.order_status == o_status.code %} selected=""
@@ -150,51 +151,55 @@
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </td>
-                                </td>
                             </tr>
+
+                            {% for order in orders %}
+                            <tr>
+                                <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
+                                <td>{{order.date | date:'d M, Y H:i a'}}</td>
+                                <td class="small">{{ order.order_number }}
+                                    <p class="small"></p>{{ order.email }}
+
+                                </td>
+
+                                <td>{{ order.status }}</td>
+                                <td>
+                                    {% for item in order.line_items.all %}
+                                    <p class="mb-0">Artwork: {{ item.artwork.name }} @
+                                        €{{ item.artwork_price |floatformat:"2g" }}
+                                        {% if item.artwork.image %}
+                                        <img class="img-tiny" src="{{ item.artwork.image.url }}"
+                                            alt="{{ item.artwork.name }}">
+                                        {% else %}
+                                        <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg"
+                                            alt="{{ item.artwork.name }}">
+                                        {% endif %}
+                                    </p>
+                                    <p class="mb-0">Frame: {{ item.frame.name }} @
+                                        €{{ item.frame_price |floatformat:"2g"}}
+                                        <img class="img-tiny-frame" src="{{ item.frame.image.url }}"
+                                            alt="{{ item.frame.name }}">
+                                    </p>
+                                    <p class="mb-0">Qty: {{ item.quantity }} </p>
+                                    {% endfor %}
+                                </td>
+                                <td>
+                                    <button type="submit" name="select-btn" class="btn btn-select" title="Click to edit"
+                                        value={{order.order_number}}>
+                                        Select
+                                    </button></td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
+                    <input type="hidden" name="confirm-id" id="confirm-id">
+                </div>
+            </div>
         </form>
-        <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
-        <input type="hidden" value="" name="confirm-id" id="confirm-id">
-        {% for order in orders %}
-        <tr>
-            <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
-            <td>{{order.date | date:'d M, Y H:i a'}}</td>
-            <td class="small">{{ order.order_number }}
-                <p class="small"></p>{{ order.email }}</p>
-
-            </td>
-
-            <td>{{ order.status }}</td>
-            <td>
-                {% for item in order.line_items.all %}
-                <p class="mb-0">Artwork: {{ item.artwork.name }} @
-                    €{{ item.artwork_price |floatformat:"2g" }} 
-                    {% if item.artwork.image %}
-                    <img class="img-tiny" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
-                    {% else %}
-                    <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
-                    {% endif %}
-                </p>
-                <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}
-                    <img class="img-tiny-frame" src="{{ item.frame.image.url }}" alt="{{ item.frame.name }}">
-                </p>
-                <p class="mb-0">Qty: {{ item.quantity }} </p>
-                {% endfor %}
-            </td>
-            <td>
-                <button type="submit" name="select-btn" class="btn btn-select" title="Click to edit"
-                    value={{order.order_number}}>
-                    Select
-                </button></td>
-        </tr>
-        {% endfor %}
-        </tbody>
-        </table>
     </div>
 </div>
-</div>
-</div>
-</div>
+
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
         {% if orders.has_previous %}

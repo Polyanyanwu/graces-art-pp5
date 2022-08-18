@@ -26,6 +26,8 @@
                                 <th scope="col">Image</th>
                                 <th scope="col">Artist</th>
                                 <th scope="col">Price</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -50,10 +52,10 @@
                                                 class="fa-solid fa-star-half-stroke text-danger mx-0 small"></i></span>
                                         {% endif %}
                                         {% for ind in wl.artwork.rating|rating_dec_bal %}
-                                            <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
+                                        <span class="ms-0 mx-0"><i class="fa-solid fa-star mx-0 small"></i></span>
                                         {% endfor %}
                                         {% else %}
-                                            <small class="text-muted">No Rating</small>
+                                        <small class="text-muted">No Rating</small>
                                         {% endif %}
                                     </p>
                                     {% else %}
@@ -82,13 +84,11 @@
                                     <a href="{% url 'artwork_detail' wl.artwork.id %}"
                                         class="btn btn-ok btn-sm edit-btn">Buy Now</a>
                                 </td>
-                                </td>
-                                </td>
                             </tr>
                             {% endfor %}
-                            <button type="submit" class="hidden" name="" id="confirm-action-btn"></button>
                         </tbody>
                     </table>
+                    <button type="submit" class="hidden" id="confirm-action-btn"></button>
                 </div>
             </form>
         </div>

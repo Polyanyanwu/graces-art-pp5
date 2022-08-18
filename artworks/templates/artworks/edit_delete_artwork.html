@@ -19,9 +19,7 @@
             enctype="multipart/form-data">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4">
-
                     {% csrf_token %}
-
                     {% for field in form %}
                         {% if field.name != 'image' %}
                             {{ field | as_crispy_field }}
@@ -30,7 +28,6 @@
                         {% endif %}
                     {% endfor %}
                     <div class="d-flex justify-content-center">
-                        <!-- <button type="submit" class="btn btn-secondary mt-2 me-2" name="create_new_record">New</button> -->
                         <button type="submit" class="btn btn-primary btn-ok mt-2 me-2" name="save_record">Save</button>
                         <button type="submit" class="btn btn-cancel btn-ok mt-2" name="cancel_ops" value="Cancel"
                             formnovalidate>Cancel</button>
@@ -47,11 +44,11 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">On Sale?</th>
                                 <th scope="col">Image</th>
-
+                                <th scope="col">Action</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-
                             <tr>
                                 <th scope="row"></th>
                                 <td><input type="text" value="" name="q_sku" placeholder="SKU"></td>
@@ -60,6 +57,12 @@
                                         <i class="fa-solid fa-magnifying-glass"></i>
                                     </button>
                                 </td>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
                             </tr>
 
                             {% for artwork in artworks %}
@@ -94,33 +97,29 @@
                                         data-name={{ artwork.id }}>Edit
                                     </button>
                                 </td>
-                                </td>
-                                </td>
                             </tr>
                             {% endfor %}
-                            <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
-                            <input type="hidden" value="" name="name_selected" id="name_selected">
-                            <input type="hidden" value={{confirm_id}} name="confirm-id" id="confirm-id">
-                            <button type="submit" class="hidden" name="confirm-action-btn"
-                                id="confirm-action-btn"></button>
                         </tbody>
                     </table>
+                    <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
+                    <input type="hidden" value="" name="name_selected" id="name_selected">
+                    <input type="hidden" value={{confirm_id}} name="confirm-id" id="confirm-id">
+                    <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                 </div>
             </div>
         </form>
     </div>
 </div>
-</div>
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
         {% if artworks.has_previous %}
-        <li><a href="?page={{ artworks.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
-            <span class="ms-5">Page {{ artworks.number }} of {{ artworks.paginator.num_pages }}</span>
-        </li>
+            <li><a href="?page={{ artworks.previous_page_number }}" class="btn btn-secondary btn-sm">&laquo; PREV </a>
+                <span class="ms-5">Page {{ artworks.number }} of {{ artworks.paginator.num_pages }}</span>
+            </li>
         {% endif %}
         {% if artworks.has_next %}
-        <li><a href="?page={{ artworks.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
-        </li>
+            <li><a href="?page={{ artworks.next_page_number }}" class="btn btn-secondary ms-2 btn-sm"> NEXT &raquo;</a>
+            </li>
         {% endif %}
     </ul>
 </nav>

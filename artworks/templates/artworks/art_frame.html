@@ -19,9 +19,7 @@
                 enctype="multipart/form-data">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-4">
-
                     {% csrf_token %}
-
                     {% for field in form %}
                         {% if field.name != 'image' %}
                             {{ field | as_crispy_field }}
@@ -46,6 +44,9 @@
                                 <th scope="col">Price</th>
                                 <th scope="col">Quantity</th>
                                 <th scope="col">Image</th>
+                                <th scope="col">Edit</th>
+                                <th scope="col">Delete</th>
+                                <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,8 +78,7 @@
                                     <button type="button" class="btn btn-cancel btn-sm confirm-many"
                                         data-bs-toggle="modal" data-bs-target="#confirmModal"
                                         data-message="Please confirm deleting the {{art_frame.name}} art frame. This action is not reversible?"
-                                        data-record_id={{art_frame.id}}>Delete
-                                    </button>
+                                        data-record_id={{art_frame.id}}>Delete</button>
                                 <td>
                             </tr>
                             {% endfor %}
@@ -87,13 +87,12 @@
                 </div>
             </div>
             <button type="submit" class="hidden" name="select_rec" id="select-action-btn"></button>
-            <input type="hidden" value="" name="name_selected" id="name_selected">
-            <input type="hidden" value="" name="confirm-id" id="confirm-id">
+            <input type="hidden" name="name_selected" id="name_selected">
+            <input type="hidden" name="confirm-id" id="confirm-id">
             <button type="submit" class="hidden" name="confirm-action-btn"
                 id="confirm-action-btn"></button>
         </form>
     </div>
-</div>
 </div>
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">
@@ -110,5 +109,5 @@
 </nav>
 {% endblock %}
 {% block postloadjs %}
-<script src="{% static 'js/artworks.js' %}"></script>
+    <script src="{% static 'js/artworks.js' %}"></script>
 {% endblock %}

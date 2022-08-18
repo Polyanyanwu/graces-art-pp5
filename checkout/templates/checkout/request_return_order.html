@@ -15,20 +15,19 @@
             <hr>
         </div>
     </div>
-    <div class="row justify-content-center">
-
-
-        <div class="col-12 col-md-5">
-            <form method="POST" action="{% url 'request_order_return' %}" id="return_reason_form">
+    <form method="POST" action="{% url 'request_order_return' %}" id="return_reason_form">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-5">
                 {% csrf_token %}
                 <input type="text" name="form-order-no" placeholder="Order Number" readonly class=" text-muted w-100"
-                    value={{form_order_num}}>
+                    {% if form_order_num %} value={{form_order_num}} {% endif %}>
                 {{form|crispy}}
 
                 <button type="button" class="btn btn-ok" data-bs-toggle="modal" id="confirm-single"
                     data-bs-target="#confirmModal" title="Click to send request"
-                    data-message="Please confirm requesting to return the {{form_order_num}}."
-                    data-record_id={{form_order_num}}><i class="fa-solid fa-floppy-disk icon me-1"></i> Send Request
+                    data-message="Please confirm requesting to return the {{form_order_num}}." {% if form_order_num %}
+                    data-record_id={{form_order_num}} {% endif %}><i class="fa-solid fa-floppy-disk icon me-1"></i> Send
+                    Request
                 </button>
                 <button type="submit" class="hidden" name="confirm-action-btn" id="confirm-action-btn"></button>
                 <input type="hidden" value="" name="confirm-id" id="confirm-id">
@@ -37,7 +36,7 @@
                         class="w-100 text-muted" value=€{{form_order_total}}></p>
 
                 <span>Delivery Cost: </span><input type="text" name="form-order-delivery" readonly
-                    class="w-100 text-muted" value=€{{form_order_delivery}} class="text-muted">
+                    class="w-100 text-muted" value=€{{form_order_delivery}}>
                 <span>Discount: </span><input type="text" name="form-order-discount" readonly class="w-100 text-muted"
                     value=€{{form_order_discount}}>
                 <span>Grand Total: </span><input type="text" name="form-order-grand" readonly class="w-100 text-muted"
@@ -47,88 +46,90 @@
                 <p>{{ order.delivery_cost |floatformat:"2g" }}</p>
                 <p>{{ order.discount |floatformat:"2g"}}</p>
 
+            </div>
+
+            <div class="col-12 col-md-7">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Order Number / Email</th>
+                            <th scope="col">Date</th>
+                            <th scope="col">Line Items</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="table-dark">
+                            <th scope="row"></th>
+                            <td>
+                                <input type="text" class="small mb-1 w-100"
+                                    value={% if query_dict.order_number != None %} {{query_dict.order_number}}
+                                    {% else %} '' {% endif %} name="order_number" placeholder="Order Number">
+                                <p>
+                                    <input type="text" class="small mb-1 w-100" value={% if query_dict.email != None %}
+                                        {{query_dict.email}} {% else %} '' {% endif %} name="email"
+                                        placeholder="Email address">
+                                </p>
+
+                            </td>
+
+                            <td><input type="date" class="small mb-1" {% if query_dict.start_date %}
+                                    value={{query_dict.start_date}} {% endif %} name="start_date">
+                                <span>To</span>
+                                <input type="date" class="small mb-1" {% if query_dict.end_date %}
+                                    value={{query_dict.end_date}} {% endif %} name="end_date">
+                            </td>
+                            <td></td>
+                            <td> <button type="submit" formnovalidate name="search-btn" class="btn my-btn"
+                                    title="Click to search">
+                                    <i class="fa-solid fa-magnifying-glass"></i></button>
+                            </td>
+                        </tr>
+
+                        {% for order in orders %}
+                        <tr>
+                            <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
+                            <td class="small">{{ order.order_number }}
+                                <p> {{ order.email }}</p>
+                            </td>
+                            <td>{{order.date | date:'d M, Y H:i a'}}</td>
+
+                            <td>
+                                {% for item in order.line_items.all %}
+                                <p class="mb-0">Artwork: {{ item.artwork.name }} @
+                                    €{{ item.artwork_price |floatformat:"2g" }}
+                                    {% if item.artwork.image %}
+                                    <img class="img-tiny" src="{{ item.artwork.image.url }}"
+                                        alt="{{ item.artwork.name }}">
+                                    {% else %}
+                                    <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg"
+                                        alt="{{ item.artwork.name }}">
+                                    {% endif %}
+                                </p>
+                                <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}
+                                    <img class="img-tiny-frame" src="{{ item.frame.image.url }}"
+                                        alt="{{ item.frame.name }}">
+                                </p>
+                                <p class="mb-0">Qty: {{ item.quantity }} </p>
+                                <p class="mb-1 highlight">Sub Total: €{{ item.line_item_total |floatformat:"2g"}} </p>
+
+                                {% endfor %}
+                            </td>
+                            <td>
+                                <button type="submit" name="select-btn" class="btn btn-select" title="Click to select"
+                                    value={{order.order_number}} formnovalidate>
+                                    Select
+                                </button>
+                            </td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <div class="col-12 col-md-7">
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Order Number / Email</th>
-                        <th scope="col">Date</th>
-                        <th scope="col">Line Items</th>
-                        <th scope="col">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="table-dark">
-                        <th scope="row"></th>
-                        <td>
-                            <input type="text" class="small mb-1 w-100" value={% if query_dict.order_number != None %}
-                                {{query_dict.order_number}} {% else %} '' {% endif %} name="order_number"
-                                placeholder="Order Number">
-                            <p>
-                                <input type="text" class="small mb-1 w-100" value={% if query_dict.email != None %}
-                                    {{query_dict.email}} {% else %} '' {% endif %} name="email"
-                                    placeholder="Email address">
-                            </p>
-                            
-                        </td>
-
-                        <td><input type="date" class="small mb-1" value={{query_dict.start_date}} name="start_date"
-                                placeholder="Start Date">
-                            <span>To</span>
-                            <input type="date" class="small mb-1" value={{query_dict.end_date}} name="end_date"
-                                placeholder="End Date">
-                        </td>
-                        <td></td>
-                        <td> <button type="submit" formnovalidate name="search-btn" class="btn my-btn"
-                                title="Click to search">
-                                <i class="fa-solid fa-magnifying-glass"></i></td>
-                    </tr>
-
-                    {% for order in orders %}
-                    <tr>
-                        <th scope="row">{{forloop.counter0|add:orders.start_index}}</th>
-                        <td class="small">{{ order.order_number }}
-                          <p> {{ order.email }}</p> 
-                        </td>
-                        <td>{{order.date | date:'d M, Y H:i a'}}</td>
-
-                        <td>
-                            {% for item in order.line_items.all %}
-                            <p class="mb-0">Artwork: {{ item.artwork.name }} @
-                                €{{ item.artwork_price |floatformat:"2g" }} 
-                                {% if item.artwork.image %}
-                                <img class="img-tiny" src="{{ item.artwork.image.url }}" alt="{{ item.artwork.name }}">
-                                {% else %}
-                                <img class="img-tiny" src="{{ MEDIA_URL }}noimage.jpg" alt="{{ item.artwork.name }}">
-                                {% endif %}
-                            </p>
-                            <p class="mb-0">Frame: {{ item.frame.name }} @ €{{ item.frame_price |floatformat:"2g"}}
-                                <img class="img-tiny-frame" src="{{ item.frame.image.url }}" alt="{{ item.frame.name }}">
-                            </p>
-                            <p class="mb-0">Qty: {{ item.quantity }} </p>
-                            <p class="mb-1 highlight">Sub Total: €{{ item.line_item_total |floatformat:"2g"}} </p>
-
-
-
-                            {% endfor %}
-                        </td>
-                        <td>
-                            <button type="submit" name="select-btn" class="btn btn-select" title="Click to select"
-                                value={{order.order_number}} formnovalidate>
-                                Select
-                            </button></td>
-                        </td>
-                    </tr>
-                    {% endfor %}
-
-                </tbody>
-            </table>
-            </form>
-        </div>
-    </div>
+    </form>
 </div>
 <nav aria-label="Page navigation">
     <ul class="pagination justify-content-center">

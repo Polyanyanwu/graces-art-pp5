@@ -43,6 +43,7 @@ def checkout(request):
     discount_code = None
     discount = 0
     if request.method == 'POST':
+        print(request.POST)
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
