@@ -1,6 +1,6 @@
 """ Views for Profile and Group update """
 
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from django.db import transaction
@@ -37,7 +37,13 @@ def update_profile(request):
 @transaction.atomic
 def update_group(request):
     """ Add or remove user from a group
-        Only administrator group members have access to this """
+        Only administrator group members have access to this
+    """
+    # check that user is administrator
+    rights = check_in_group(request.user, ("administrator",))
+    if rights != "OK":
+        messages.error(request, (rights))
+        return redirect('/')
 
     if request.method == 'POST':
         if 'user_change' in request.POST:

@@ -73,7 +73,7 @@ def maintain_artist(request):
     else:
         if artists.count():
             form = ArtistForm(instance=artists[0])
-    paginator = Paginator(artists, 10)  # Show 15 bookings per page.
+    paginator = Paginator(artists, 10)  # Show 10 bookings per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'artworks/artist.html', {
@@ -210,7 +210,7 @@ def maintain_art_genre(request):
     else:
         if art_genres.count() > 0:
             form = ArtGenreForm(instance=art_genres[0])
-    paginator = Paginator(art_genres, 10)  # Show 10 bookings per page.
+    paginator = Paginator(art_genres, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'artworks/art_genre.html', {
@@ -465,7 +465,6 @@ def edit_delete_artwork_single(request, artwork_id):
                                  ('Your Artwork was successfully updated!'))
             else:
                 messages.error(request, ('Please correct the error below.'))
-            # redirect to product details later
     else:
         artwork = get_object_or_404(Artwork, pk=artwork_id)
         form = ArtworkForm(instance=artwork)
@@ -537,7 +536,7 @@ def maintain_art_frame(request):
         if use_instance:
             form = ArtFrameForm(instance=art_frames[0])
             request.session['current_rec'] = art_frames[0].id
-    paginator = Paginator(art_frames, 10)  # Show 10 recs per page.
+    paginator = Paginator(art_frames, 10)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'artworks/art_frame.html', {

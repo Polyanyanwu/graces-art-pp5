@@ -21,5 +21,6 @@ class HomeMessageForm(forms.ModelForm):
     description = forms.CharField(widget=SummernoteWidget())
 
     class Meta:
+        """ Meta for HomeMessage """
         model = HomeMessage
         fields = ('code', 'description')

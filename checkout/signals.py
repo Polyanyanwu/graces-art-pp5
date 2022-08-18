@@ -1,5 +1,7 @@
 """
-Signals that listen for the creation or deletion of an OrderLineItem
+Signals that listen for the creation or deletion of an
+OrderLineItem to update totals
+Cancel Order or Return order so as to send email
 """
 
 from django.db.models.signals import post_save, post_delete

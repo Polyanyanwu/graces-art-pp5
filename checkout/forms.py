@@ -1,5 +1,4 @@
 """ Order form for Checkout
-    Adopted from Code Institute Boutique walk through project
 """
 
 
@@ -8,7 +7,9 @@ from .models import Order, ReturnOrder, CancelOrder
 
 
 class OrderForm(forms.ModelForm):
-    """ Order form setting """
+    """ Order form setting
+        Adopted from Code Institute Boutique walk through project
+    """
     class Meta:
         """ Order Form meta """
         model = Order

@@ -10,10 +10,11 @@ from .models import (
 
 
 @admin.register(SystemPreference)
-class BookingStatusAdmin(admin.ModelAdmin):
+class SystemPreferenceAdmin(admin.ModelAdmin):
     ''' Maintain System Preference '''
     model = SystemPreference
     list_display = ('code', 'data', 'data_type', )
+    readonly_fields = ('code', 'data_type')
 
 
 @admin.register(HomeMessage)

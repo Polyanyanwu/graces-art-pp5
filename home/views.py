@@ -30,11 +30,11 @@ def index(request):
 @login_required
 def coupons(request):
     """ A view to return the coupon toast
-            ('CF', 'Customer welcome Coupon Code'),
-            ('CR', 'Customer Threshold Coupon Code'),
-            ('C1', 'Welcome coupon percentage discount'),
-            ('T1', 'Threshold Amount'),
-            ('C2', 'Threshold discount percentage')
+            'CF' is Customer welcome Coupon Code'
+            'CR' is Customer Threshold Coupon Code',
+            'C1' is Welcome coupon percentage discount',
+            'T1' is Threshold Amount',
+            'C2' is Threshold discount percentage'
     """
     welcome_code = get_object_or_404(SystemPreference, code='CF').data
     welcome_code_discount = get_object_or_404(SystemPreference, code='C1').data
@@ -55,7 +55,6 @@ def coupons(request):
 def contact_us(request):
     """ View to receive contact us message """
 
-    # form = ContactUsForm()
     if request.user.is_authenticated:
         email = get_object_or_404(User, username=request.user).email
     else:
@@ -96,7 +95,7 @@ class WriteReviewView(View):
         """ Display reviews to users """
         reviews = Review.objects.all().order_by('-date')
         form = ReviewForm()
-        paginator = Paginator(reviews, 3)  # Show 10 per page.
+        paginator = Paginator(reviews, 3)
         page_number = request.GET.get('page')
         page_obj = paginator.get_page(page_number)
         return render(request, 'home/write_review.html',
@@ -120,7 +119,7 @@ class WriteReviewView(View):
                 submission and try again')
             form = ReviewForm(request.POST)
             reviews = Review.objects.all().order_by('-date')
-            paginator = Paginator(reviews, 3)  # Show 10 per page.
+            paginator = Paginator(reviews, 3)
             page_number = request.GET.get('page')
             page_obj = paginator.get_page(page_number)
         return render(request, 'home/write_review.html',
@@ -132,7 +131,7 @@ def view_reviews(request):
     """ Display reviews to users """
     reviews = Review.objects.all().order_by('-date')
 
-    paginator = Paginator(reviews, 3)  # Show 10 per page.
+    paginator = Paginator(reviews, 3)  # Show 3 per page.
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
     return render(request, 'home/review.html',

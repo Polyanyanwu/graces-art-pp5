@@ -1,4 +1,4 @@
-""" Contact form for receiving contact us messages """
+""" Forms for home app """
 from django import forms
 from django_summernote.widgets import SummernoteWidget
 from .models import ContactUs, Review, FAQ

@@ -29,6 +29,7 @@ from .query_utils import query_order
 
 
 def checkout(request):
+    """ Receive user's shipping details and payment process """
     bag = request.session.get('bag', {})
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
@@ -43,7 +44,6 @@ def checkout(request):
     discount_code = None
     discount = 0
     if request.method == 'POST':
-        print(request.POST)
         form_data = {
             'first_name': request.POST['first_name'],
             'last_name': request.POST['last_name'],
@@ -601,7 +601,7 @@ def review_order_return(request):
                 return_rec.review_comments = request.POST.get(
                                              'review-comments')
                 return_rec.save()
-                # status remains are Returned until changed to shipped later
+                # status remains as Returned until changed to shipped later
 
                 # send email confirmation
                 send_to = return_rec.user.user.email

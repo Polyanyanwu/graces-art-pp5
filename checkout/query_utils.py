@@ -1,3 +1,8 @@
+""" 
+A utility module used by views that need to filter the Order table
+using given criteria
+"""
+
 from datetime import datetime
 from django.db.models import Q
 from .models import Order

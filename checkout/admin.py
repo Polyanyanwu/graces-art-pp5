@@ -54,5 +54,3 @@ class NotificationAdmin(admin.ModelAdmin):
 class ReturnOrderAdmin(admin.ModelAdmin):
     """ Return Order model """
     model = ReturnOrder
-    # fields = '__all__'
-    # list_display = ('notice_date', 'subject', 'user')

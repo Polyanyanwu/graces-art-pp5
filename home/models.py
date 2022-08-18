@@ -1,4 +1,4 @@
-""" Model for Contact  Us message """
+""" Model for Contact  Us message, FAQ and Reviews """
 
 from django.db import models
 from django.contrib.auth.models import User

@@ -1,4 +1,7 @@
-""" template tag for ratings """
+""" template tag for ratings
+    enables me to produce display of stars for ratings
+    on templates
+"""
 import math
 from django import template
 

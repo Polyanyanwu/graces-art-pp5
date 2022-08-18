@@ -133,6 +133,7 @@ class Order(models.Model):
 
 
 class OrderLineItem(models.Model):
+    """ Detail line item for each Order """
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='line_items')
@@ -155,11 +156,6 @@ class OrderLineItem(models.Model):
         and update the order total.
         """
 
-        # if self.artwork.on_sale:
-        #     sale_price = float(self.artwork.get_sale_price())
-        #     self.line_item_total = self.quantity * (Decimal(sale_price)
-        #                                             + self.frame.price)
-        # else:
         self.line_item_total = Decimal(self.quantity *
                                        (self.artwork_price
                                         + self.frame_price))
