@@ -1,4 +1,4 @@
-""" 
+"""
 A utility module used by views that need to filter the Order table
 using given criteria
 """
@@ -93,7 +93,7 @@ def query_order(request, calling_module, order_status=None):
 
     if art_or_frame_name:
         order = order.filter(
-            (Q(line_items__artwork__name__icontains=art_or_frame_name)
-                | Q(line_items__frame__name__icontains=art_or_frame_name))
+            (Q(line_items__artwork__name__icontains=art_or_frame_name) | Q(
+                line_items__frame__name__icontains=art_or_frame_name))
                 ).order_by('-date')
     return order

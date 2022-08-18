@@ -27,8 +27,8 @@ def bag_contents(request):
         product_count += quantity
         if artwork.on_sale:
             sale_price = float(artwork.get_sale_price())
-            product_subtotal = quantity * (Decimal(sale_price)
-                                           + frame.price)
+            product_subtotal = quantity * (
+                                Decimal(sale_price) + frame.price)
             price = sale_price
         else:
             product_subtotal = Decimal(quantity *

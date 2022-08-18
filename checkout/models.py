@@ -104,14 +104,14 @@ class Order(models.Model):
                 # check if he has used this code before
                 if self.user_profile:
                     if not self.user_profile.used_welcome_coupon:
-                        self.discount = Decimal(welcome_per/100
-                                                * self.order_total)
+                        self.discount = Decimal(
+                            welcome_per/100 * self.order_total)
                         self.user_profile.used_welcome_coupon = True
                         self.user_profile.save()
             elif self.discount_code == threshold_code:
                 if self.order_total >= threshold_amt:
-                    self.discount = Decimal(threshold_per/100
-                                            * self.order_total)
+                    self.discount = Decimal(
+                        threshold_per/100 * self.order_total)
             else:
                 self.discount = 0
 
@@ -156,9 +156,8 @@ class OrderLineItem(models.Model):
         and update the order total.
         """
 
-        self.line_item_total = Decimal(self.quantity *
-                                       (self.artwork_price
-                                        + self.frame_price))
+        self.line_item_total = Decimal(
+            self.quantity * (self.artwork_price + self.frame_price))
         super().save(*args, **kwargs)
 
     def __str__(self):

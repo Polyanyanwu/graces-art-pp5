@@ -1,7 +1,8 @@
 """ Admin module for orders """
 
 from django.contrib import admin
-from .models import Order, OrderLineItem, OrderStatus, Notification, ReturnOrder
+from .models import (
+    Order, OrderLineItem, OrderStatus, Notification, ReturnOrder)
 
 
 class OrderLineItemAdminInline(admin.TabularInline):

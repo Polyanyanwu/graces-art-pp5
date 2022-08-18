@@ -189,14 +189,14 @@ def _get_discount(request, discount_code, order_total):
             if request.user.is_authenticated:
                 profile = UserProfile.objects.get(user=request.user)
                 if not profile.used_welcome_coupon:
-                    discount = Decimal(welcome_per/100
-                                       * order_total)
+                    discount = Decimal(
+                        welcome_per/100 * order_total)
                 else:
                     discount = -9
         elif discount_code == threshold_code:
             if order_total >= threshold_amt:
-                discount = Decimal(threshold_per/100
-                                   * order_total)
+                discount = Decimal(
+                    threshold_per/100 * order_total)
             else:
                 discount = -1
     return discount
@@ -533,7 +533,7 @@ def review_order_return(request):
                     messages.warning(request, "This request has been reviewed! \
                         Please change the status when shipped or delivered")
                     return_req = None
-                    return redirect("review_order_return")          
+                    return redirect("review_order_return")
             else:
                 # maybe the status was changed not by customer
                 messages.warning(request, "No customer request data exits!")
@@ -578,7 +578,8 @@ def review_order_return(request):
 
                 # Write notification record
                 Notification.objects.create(
-                    subject=subject + ": " + return_order.user_profile.get_fullname(),
+                    subject=subject + ": \
+                        " + return_order.user_profile.get_fullname(),
                     message=body,
                     user=return_order.user_profile)
 
@@ -621,7 +622,8 @@ def review_order_return(request):
 
                 # Write notification record
                 Notification.objects.create(
-                    subject=subject + ": " + return_order.user_profile.get_fullname(),
+                    subject=subject + ": \
+                        " + return_order.user_profile.get_fullname(),
                     message=body,
                     user=return_order.user_profile)
                 return_order = None
