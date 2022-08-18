@@ -249,7 +249,7 @@ def get_artworks(request):
         if 'style' in request.GET:
             artworks = artworks.filter(style__name=request.GET['style'])
             if artworks.count() > 0:
-                search_type = 'Style: ' + artworks[0].genre.friendly_name
+                search_type = 'Style: ' + artworks[0].style.friendly_name
         if 'sales' in request.GET:
             artworks = artworks.filter(on_sale=True)
             try:

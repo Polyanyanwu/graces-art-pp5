@@ -17,6 +17,27 @@
       - [P4. Public user want to easily view purchases at any time](#p4-public-user-want-to-easily-view-purchases-at-any-time)
       - [P5. Public user can easily identify deals and special offers to take advantage of savings on items to be purchased](#p5-public-user-can-easily-identify-deals-and-special-offers-to-take-advantage-of-savings-on-items-to-be-purchased)
       - [P6. Public user can sort the list of available artworks](#p6-public-user-can-sort-the-list-of-available-artworks)
+      - [P7. Public user can sort a specific genre, artist or style](#p7-public-user-can-sort-a-specific-genre-artist-or-style)
+      - [P8. Public user can search for an artwork by name to find a specific artwork to purchase](#p8-public-user-can-search-for-an-artwork-by-name-to-find-a-specific-artwork-to-purchase)
+      - [P9. Public user can easily select the frame, size and quantity for an artwork print](#p9-public-user-can-easily-select-the-frame-size-and-quantity-for-an-artwork-print)
+      - [P10. Public user Update the quantity and frame of individual items shopping bag](#p10-public-user-update-the-quantity-and-frame-of-individual-items-shopping-bag)
+      - [P11. Public user Input payment information](#p11-public-user-input-payment-information)
+      - [P12. Public user View a confirmation of an order after checkout](#p12-public-user-view-a-confirmation-of-an-order-after-checkout)
+      - [P13. Public user Give a review of an artwork/services of site owner](#p13-public-user-give-a-review-of-an-artworkservices-of-site-owner)
+      - [P14. Public user View privacy policy of the website](#p14-public-user-view-privacy-policy-of-the-website)
+      - [P15. Public user Subscribe to newsletter](#p15-public-user-subscribe-to-newsletter)
+      - [P16. Public user Contact the site owner](#p16-public-user-contact-the-site-owner)
+      - [P17. Public user See the About Us information](#p17-public-user-see-the-about-us-information)
+      - [P18. Public user See the Terms and Conditions](#p18-public-user-see-the-terms-and-conditions)
+      - [P19 Customer View Order History](#p19-customer-view-order-history)
+      - [P20 Customer Request Return Order](#p20-customer-request-return-order)
+      - [P21 Customer View Notifications](#p21-customer-view-notifications)
+      - [P23 Customer Cancel Order](#p23-customer-cancel-order)
+      - [P24 Customer Save items to my wish list](#p24-customer-save-items-to-my-wish-list)
+      - [FAQ](#faq)
+      - [O1. Operator user View requests for return of delivered artwork](#o1-operator-user-view-requests-for-return-of-delivered-artwork)
+      - [O2. Operator user Update order status](#o2-operator-user-update-order-status)
+      - [O3. Operator user Make enquiry on orders by date range and order status](#o3-operator-user-make-enquiry-on-orders-by-date-range-and-order-status)
 
 ## **Code Validation**
 
@@ -107,7 +128,7 @@ Other Manual Tests done following the Acceptance Criteria established at the com
 - The application is responsive and user can effectively shop around and complete an order
 - The responsiveness was well tested using the Google Chrome developer tools to simulate different screen widths. See also the [mockup image at the start of the README.](/docs/images/graces_art_main.png)
 
-1. **Feedback on user actions are given**
+3. **Feedback on user actions are given**
 
 - Login as public user
 - When you successfully sign in, a message at the top right of the page is displayed informing your of the successful sign in.
@@ -121,20 +142,20 @@ Similarly when a user adds an artwork to the shopping bag, a feedback on the con
 
 [<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
 
-1. User finds links to navigate to other functions easy
+4. User finds links to navigate to other functions easy
 
 - Open the website
 - THe menu bar is accessible from all pages with dropdown items to chose from in most cases. The shopping bag is equally visible at all times.
 
 ![Nav Bar](/docs/testing/page_header.png)
 
-1. Font is legible
+5. Font is legible
 
 All fonts are legible when any page is displayed. Accessibility report from Lighthouse shows an average of 95% on each of the pages of the website.
 
 ![Accessibility Report](/docs/testing/lighthouse.png)
 
-1. Color contrast is effective
+6. Color contrast is effective
 
 The contrast was okay as the accessibility report above shows.
 
@@ -146,7 +167,7 @@ The contrast was okay as the accessibility report above shows.
 
 This requirements were met with tests reported on P1 2. above.
 
-1. Information is easy to find both on small and large screens
+2. Information is easy to find both on small and large screens
 
 This requirements were met with tests reported on P1 2. above.
 
@@ -161,7 +182,7 @@ This requirements were met with tests reported on P1 2. above.
 
 ![Artwork Image](/docs/testing/artwork_image.png)
 
-1. Each artwork displayed has properties- genre, artist, style
+2. Each artwork displayed has properties- genre, artist, style
 
 - The artworks listed in Item P3.1 above have the genre, artist, style and store rating shown under the image of the artwork.
 
@@ -212,5 +233,163 @@ Note the names of the sales is changeable by the Administrator and the sales per
 
 - Open the Graces Art Print website
 - Click on All Artworks, select any of the criteria listed or select from any of Artist, Genre, or sales
+A list of artworks are displayed meeting the criteria you selected, the total number of artworks selected is also shown.
+- From the displayed list, a "Sort by.." dropdown is visible on the right side of the page.
 
-1. Selecting a criteria from the dropdown sorts the displayed artworks accordingly
+![Sort Artwork](/docs/testing/sort_by.jpg)
+
+2. Selecting a criteria from the dropdown sorts the displayed artworks accordingly
+
+- After step 1 above, clicking any of the sort criteria will rearrange the list as appropriate.
+
+#### P7. Public user can sort a specific genre, artist or style
+
+1. Sorting dropdown is visible on pages displaying list of artwork
+
+- Open the Graces Art Print website
+- The Artist and Genre dropdown is visible on the menu bar (I decided to keep it less crowded by not putting the Style dropdown on the menu bar, however the user can click on the style on an displayed artwork and the category will change to that style).
+- Click on any item in the chosen dropdown menu and the list of artworks will change to the selected item criteria.
+- Click on the Genre or Artist or Style of any displayed image and the list criteria is changed to the clicked criteria.
+
+2. Selecting a criteria from the dropdown sorts the displayed artworks accordingly
+
+- From step 1, it is observable that the list indeed changes according to the selected Artist, Genre or clicked Style.
+A typical list displayed when user selects the Landscape genre is shown below:
+
+![Genre list](/docs/testing/selecting_genre.jpg)
+
+#### P8. Public user can search for an artwork by name to find a specific artwork to purchase
+
+1. Input form visible to accept name of artwork on home page
+
+- Open the Graces Art Print website
+- Notice the input form with the placeholder "search artwork by name" at the top of the page. It is part of the header accessible from all pages of the website.
+- Input any part of the artwork name or even the artist name
+- Click on the google search icon
+A list of the artworks which has names matching any part of your input string is listed. E.g, see below result of entering "pab" as the search criteria before clicking the search icon:
+
+![Search](/docs/testing/search.jpg)
+
+2. Clicking on search button returns a list of matching names and total artwork found
+
+- From the image displayed above, it is evident that the artworks are listed and the total number found is stated at the left side of the page.
+
+#### P9. Public user can easily select the frame, size and quantity for an artwork print
+
+1. Clicking on an artwork opens a details page with frame, size and quantity available for selection
+
+- Open the Graces Art Print website
+- Click Shop Now or select any of the criteria from the menu bar to display a list of artworks
+- Click on any artwork
+A details page having a selection field for Frame and one for Quantity is shown
+
+- Select any frame form the dropdown and the price and image of the frame is displayed. Also the total cost of the frame and the artwork is computed and shown
+- Select a different quantity and observe that the cost is recomputed and displayed
+- Select a different quantity and observe the recomputed costs too
+To observe the effect of the quantities on the stock availability, login with a user that belongs to Administrator group and change the frame quantities to small number. The system will not allow you complete add to bag if the frame quantity is not available. Also observe the increase/decrease of the quantity in the Frame table as you increase/decrease the quantity at this shopping page.
+
+![Artwork Details](/docs/images/artwork_details.png)
+
+2. Available frames are indicated
+
+- During development and engagement with the Site Owner, it was advised that best practice is not to display the quantity available but rather indicate if the customer want to order a quantity that is out of stock. So this feature was replaced with advising the customer if a quantity requested is out of stock.
+
+#### P10. Public user Update the quantity and frame of individual items shopping bag
+
+1. Shopping bag details visible when shopping bag icon is clicked
+2. Shopping bag permits update of frame and quantity for each bag item
+
+The test done in [Public User View purchases suffices](#p4-public-user-want-to-easily-view-purchases-at-any-time)
+
+#### P11. Public user Input payment information
+
+1. User address form available on checkout page
+2. Payment card form available on checkout page
+3. Payment accepted or error message displayed
+
+#### P12. Public user View a confirmation of an order after checkout
+
+1. Order confirmation page available after successful checkout
+2. Confirmation page has correct details of the order placed
+
+#### P13. Public user Give a review of an artwork/services of site owner
+
+1. Reviews are visible through a link at the footer
+2. Authenticated user that have purchased artwork in the past could write a review
+
+#### P14. Public user View privacy policy of the website
+
+1. Privacy policy is accessible through a link at the footer
+
+#### P15. Public user Subscribe to newsletter
+
+1. Subscribe button is available at the home page footer
+2. Logged in user will have email input prefilled
+
+#### P16. Public user Contact the site owner
+
+1. Contact us button is available at the footer
+2. Contact us form opens for the user to input the details
+3. If user is authenticated, copy of the message is saved in the notifications page
+
+#### P17. Public user See the About Us information
+
+About us button is available at the footer
+About us page opens for the user to view
+
+#### P18. Public user See the Terms and Conditions
+
+1. Terms & Conditions button is available at the footer
+2. Terms & Conditions page opens for the user to view when the button is clicked
+
+#### P19 Customer View Order History
+
+1. Menu item available to view Order History
+2. Clicking the menu after sign in, the details of my previous orders are available
+
+#### P20 Customer Request Return Order
+
+1. Menu item to request return order available to logged in user
+2. List of qualifying orders are presented when user selects the return order menu
+3. Acknowledgment email is sent to the requesting user
+
+#### P21 Customer View Notifications
+
+1. Menu item for notifications available to user
+2. Clicking on notifications displays the list of notifications and their details
+
+#### P23 Customer Cancel Order
+
+1. User has option to cancel an order using the order number
+2. Order status changes to cancelled if user submits the cancel order form within a given time frame
+
+#### P24 Customer Save items to my wish list
+
+1. Wish list menu item is visible on profile menu
+2. Wish list button is available from artwork details page
+3. Clicking the button adds an item to the wish list
+
+#### FAQ
+
+#### O1. Operator user View requests for return of delivered artwork
+
+1. Menu option for order return available
+2. Ability to select all returned orders
+3. Button to pick and update the order status
+4. Confirmation to proceed with the change of status
+5. Feedback message on successful acceptance of the return
+6. Updated list of returned orders
+
+#### O2. Operator user Update order status
+
+1. Menu option for update Order Status is available
+2. A page is provided where active orders are displayed
+3. Buttons are provided to click and select to update status
+4. Status of order changes after confirmation of status change
+
+#### O3. Operator user Make enquiry on orders by date range and order status
+
+1. Order history enquiry available
+2. Query has options to select date range and Order status
+3. List of data is displayed meeting the given criteria
+
