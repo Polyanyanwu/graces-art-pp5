@@ -304,43 +304,148 @@ The test done in [Public User View purchases suffices](#p4-public-user-want-to-e
 #### P11. Public user Input payment information
 
 1. User address form available on checkout page
+
+- Open the Graces Art Print website
+- Click Shop Now
+- Click on any Artwork
+- Select a frame and quantity from the selected artwork details page
+- Click Add to Bag
+- From the Success Message, click Proceed to Checkout
+- Checkout Form opens and Name and Address fields are available
+
+![Checkout address](/docs/testing/checkout.md)
+
 2. Payment card form available on checkout page
-3. Payment accepted or error message displayed
+
+- Payment card form is visible if you scroll down the page below the name and address fields.
+
+![Checkout address](/docs/testing/checkout2.md)
+
+2. Payment accepted or error message displayed
+
+- Fill the form with the necessary data. Mandatory fields have * beside the placeholders
+- First enter an invalid card number (any 16 digits, only numbers are accepted)
+The error "Your Card number is invalid is displayed to the user
+- Enter the Stripe test valid number 4242 4242 4242 4242 and date in future but 3 digits for postal code
+THe error message "Your postal code is incomplete." is displayed.
+- Enter a date in the past like "04/22" and the error message " Your card's expiration date is in the past." is displayed.
+- Enter the failed payment simulation card number 4000 0025 0000 3155 and you will be prompted to either complete authentication of fail authentication.
+- Click the Fail Payment and you will receive a message "we are unable to authenticate your payment method.."
+
+![Failed Payment](/docs/testing/failed_payment_msg.png)
+
+- Enter a successful payment with card number 4242 4242 4242 4242, date 0425,  cvv 456 and zip code 67546
+- Click complete order
+- A spinner will be shown on the page while you card is being verified.
+- Your payment is accepted and a success page is displayed with your order details.
 
 #### P12. Public user View a confirmation of an order after checkout
 
 1. Order confirmation page available after successful checkout
-2. Confirmation page has correct details of the order placed
+
+- Follow the steps in P11.2 above and enter the valid card number 4242 4242 4242 4242 with a date in future, etc
+The following success message is displayed once the payment has been accepted.
+
+![Payment success](/docs/images/checkout_success_msg.png)
+
+1. Confirmation page has correct details of the order placed
+
+- Follow the steps in 1 above and note the artwork and frame you chose
+- Compare with the details in the Thank You success message
+- Confirm that the details match your order.
 
 #### P13. Public user Give a review of an artwork/services of site owner
 
 1. Reviews are visible through a link at the footer
-2. Authenticated user that have purchased artwork in the past could write a review
+
+- Open the Graces Art Print website
+- Find the Reviews link at the footer of the page, and indeed every page.
+
+1. Authenticated user that have purchased artwork in the past could write a review
+
+- Open the website and locate the Reviews link at the footer
+- Click on the Reviews link
+The reviews page opens with any existing customer review. There was a change request from the Store Owner to restrict writing reviews to logged in users even if they have not made purchases and thats what was implemented. The reviews page has Write Review button that leads to the Reviews page that can allow you to write a review.
+
+![Reviews](/docs/images/reviews.png)
+
+- Click on the Write Reviews link inside the Reviews Page.
+If you are logged in the Reviews page with a Form to accept your review is opened. If you are not logged it, the sign in page is opened.
 
 #### P14. Public user View privacy policy of the website
 
 1. Privacy policy is accessible through a link at the footer
 
+- Open the Graces Art Print website
+- Find the Privacy Policy link at the footer of the page, and indeed every page.
+
 #### P15. Public user Subscribe to newsletter
 
 1. Subscribe button is available at the home page footer
+
+- Open the Graces Art Print website
+- Find the "Subscribe for exclusive discounts straight to your inbox" message at the footer and an email address form.
+- Enter a valid email address and the message "Thank you for subscribing!" is displayed below the email address.
+The email subscription is embedded from Mailchimp.
+
+![Footer](/docs/images/footer.png)
+
 2. Logged in user will have email input prefilled
+
+This was no longer desirable as the email subscription was embedded at the footer. If I was to do that it will look noisy for the user to see his/her email non stop at the footer.
 
 #### P16. Public user Contact the site owner
 
 1. Contact us button is available at the footer
+
+- Open the Graces Art Print website
+- Find the Contact Us link at the footer of the page, and indeed every page.
+
 2. Contact us form opens for the user to input the details
+
+- Click on the Contact Us link at the footer
+The Contact Us form opens. If the user is logged in, the email address is prefilled on the form.
+- Enter some message on the form
+- Click submit to send the message.
+
+![Contact Us](/docs/images/contactUs.png)
+
 3. If user is authenticated, copy of the message is saved in the notifications page
+
+- Sign into the website
+- Locate the Contact Us at the footer
+- Type some message and click Save button
+A copy of your message is sent to your email and saved at your Notifications page under My Account when you sign in.
 
 #### P17. Public user See the About Us information
 
-About us button is available at the footer
-About us page opens for the user to view
+1. About us button is available at the footer
+
+- Open the Graces Art Print website
+- Find the About Us link at the footer of the page, and indeed every page.
+
+2. About us page opens for the user to view
+
+- Open the Graces Art Print website
+- Find the About Us link at the footer of the page.
+- Click on the About Us link.
+The informative about us page opens to the user.
+![About Us](/docs/images/aboutUs.png)
 
 #### P18. Public user See the Terms and Conditions
 
 1. Terms & Conditions button is available at the footer
-2. Terms & Conditions page opens for the user to view when the button is clicked
+
+- Open the Graces Art Print website
+- Find the Terms & Conditions link at the footer of the page.
+
+1. Terms & Conditions page opens for the user to view when the button is clicked
+
+- Open the Graces Art Print website
+- Find the Terms & Conditions link at the footer of the page.
+- Click on the Terms & Conditions link.
+The informative Terms & Conditions page opens to the user.
+![About Us](/docs/testing/terms.jpg)
 
 #### P19 Customer View Order History
 
