@@ -704,6 +704,26 @@ An email will be sent to the email address with the instructions to follow to re
 5. Feedback message on successful acceptance of the return
 6. Updated list of returned orders
 
+    - Sign in to Graces Art Print website with a username that belongs to the Operator group (groups are assigned by the administrator)
+    - Click on the Admin/Ops icon and observe that the Review Return Order is on the menu (**O1.1**).
+    - From the dropdown menu, click on Review Return Order
+
+- The Review Request for Return Order page is opened with a list of orders, paginated and sorted in descending order of order date.
+
+![Review Return Order](/docs/images/review_return_order.png)
+
+- Observe that a Select button is available at each row of the displayed orders to enable you select the Return Request work on (**O1.3**)
+
+- Observe that there is a header section in the list of orders that enables you to enter search criteria to easily locate the order you want to work on.
+- You can enter date, order number, email address and click the red search button to filter the list using your entered criteria. Apart from the Order Number that is limited to 1 record, you can combine any of the other search options to reduce your search result further.
+- Click on the red search icon to run the query
+- Click on Select button to load the Return Request details on the left side of the page.
+- Type in your decision comments, which will appear on the email to the customer; its a place to enter the instructions to the customer on how to return the product or why you rejected the request)
+- Click on Reject or Approve button
+- A confirmation popup is displayed for you to confirm your action (**O1.4**)
+- Click Okay and a confirmation message is displayed to you (**O1.5**). An email is also sent to the customer.
+- The reviewed request is removed from the list to reflect your completion of the review. (**O1.6**)
+
 #### O2. Operator user Update order status
 
 1. Menu option for update Order Status is available
@@ -711,11 +731,43 @@ An email will be sent to the email address with the instructions to follow to re
 3. Buttons are provided to click and select to update status
 4. Status of order changes after confirmation of status change
 
+    - Sign in to Graces Art Print website with a username that belongs to the Operator group (groups are assigned by the administrator)
+    - Click on the Admin/Ops icon and observe that the Update Order Status is on the menu.
+    - From the dropdown menu, click on Update Order Status
+
+- The Update Order Status page is opened with a list of orders, paginated and sorted in descending order of order date.
+
+![Update Order Status](/docs/images/update_order_status.png)
+
+- Observe that a Select button is available at each row of the displayed orders to enable you select the order to update the status
+- Observe that there is a header section in the list of orders that enables you to enter search criteria to easily locate the order you want to work on.
+- You can enter date, order number, email address, status or artwork/frame name and click the red search button to filter the list using your entered criteria. Apart from the Order Number that is limited to 1 record, you can combine any of the other search options to reduce your search result further.
+- Click on the red search icon to run the query
+- Click the Select button to load the order details on the form at the left side of the page
+- Click the Order Status dropdown and select a different status
+- Click Update button
+- Click Okay when the confirmation popup opens
+  
+- The status of the order will be changed and a success message is displayed. If you select the same status as the one being changed and clicked update, after the confirmation popup the system will display "You choose same status as before. Select a different status and try again".
+- locate the order in the list of orders once more and notice that the status has changed to the new status
+
 #### O3. Operator user Make enquiry on orders by date range and order status
 
 1. Order history enquiry available
 2. Query has options to select date range and Order status
 3. List of data is displayed meeting the given criteria
+
+- Sign in to Graces Art Print website with a username that belongs to the Operator group
+- Click on the Admin/Ops icon and observe that the Order Details List is on the menu which offers the functionality of enquiry on order history.
+- From the dropdown menu, click on Order Details List
+The Order Details Enquiry page is opened with a list of orders, paginated and sorted in descending order of order date.
+
+![Order Details Enquiry](/docs/images/order_enquiries.png)
+
+- Observe that there is a header section/query panel in the list of orders that enables you to enter search criteria to easily locate the orders.
+- You can enter date, order number, status or artwork/frame name and click the red search button to filter the list using your entered criteria. Apart from the Order Number that is limited to 1 record, you can combine any of the other search options to reduce your search result further.
+- Click on the red search icon to run the query
+- Notice that the list of orders are adjusted to reflect your combination of criteria.
 
 ### **Administrator Acceptance Test**
 
@@ -726,19 +778,54 @@ Setting the user role restricts the user to the assigned role
 
 #### A2. Set system preferences
 
-System preferences available in the Admin panel
-Changes made affect the working of the application
+1. System preferences available in the Admin panel
+2. Changes made affect the working of the application
+
+- Login with a username that belongs to administrator group
+- Click on Admin/Ops icon
+- From the dropdown menu, click on Maintain System Preferences (**A2.1**)
+- From the list of System Configuration items click Select beside the "Description of Current Sales"
+- Change the value to "Summer 2022 Sales ending 2023" or your preferred words.
+- Click save
+- Click on the Sales link on the menu bar at the top of the page
+- Notice that the description of the sales on the page has changed to your changed data.
+
+Validation is done to ensure that the integer data is entered as integer.
+
+The System Preferences are very very critical to the operations of the application and should be handled with utmost care.
 
 #### A3. Add new artwork
 
-Menu item to Add artwork is available on Admin menu
-Admin is able to successfully add an artwork
+1. Menu item to Add artwork is available on Admin menu
+2. Admin is able to successfully add an artwork
+
+- Login with a username that belongs to administrator group
+- Click on Admin/Ops icon
+- From the dropdown menu, click on Add Artwork (**A3.1**)
+The Add Artwork page is displayed
+- Complete the Form stating the Name, Artist, Genre, Style, Sku, etc. The first 9 characters of the SKU is auto generated and you will enter the last 3 digits. It must be 12 characters long
+- Click on Choose File to upload image for the artwork. The image is not mandatory, just for testing purposes but in real life all must have image.
+- Click Add Artwork to complete the addition.
+
+![Add artwork](/docs/images/add_artwork.png)
+
+Note that validations are fully done. The SKU is unique and must be 12 characters.
+
+- Confirm the addition of the artwork by searching for it using the name or artist or genre (**A3.2**).
 
 #### A4. Edit/update artwork
 
-Menu item to Edit artwork is available on Admin menu
-Admin is able to search and locate artwork to update
-Update is successful
+1. Menu item to Edit artwork is available on Admin menu
+2. Admin is able to search and locate artwork to update
+3. Update is successful
+
+- Login with a username that belongs to administrator group
+- Click on Admin/Ops icon
+- From the dropdown menu, click on Edit/Delete Artwork (**A4.1**)
+
+![Edit/Delete Artwork](/docs/images/edit_artwork.png)
+
+- Notice the search bar
 
 #### A5. Delete artwork
 
