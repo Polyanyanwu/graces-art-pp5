@@ -450,29 +450,139 @@ The informative Terms & Conditions page opens to the user.
 #### P19 Customer View Order History
 
 1. Menu item available to view Order History
+
+- Open the Graces Art Print website
+- Sign in with your username and password, create a user name if you have not done so
+- Click on the My Account icon at the top right of any page
+The Order History menu item is visible to the user.
+
+![Order History](/docs/images/order_history_public.png)
+
 2. Clicking the menu after sign in, the details of my previous orders are available
+
+- Follow the process in P11 to place an order
+- Click on My Account at the top right edge of any page
+- Click on Order History from the dropdown menu
+If you have placed an order successfully from P11 above, a list of the orders placed an their details will be displayed.
+- Click on All Status dropdown and select a status to filter the order and display only the ones with the selected status
+- click on the red search icon to filter the displayed records by any of the criteria you entered on the first row (date, order number, status or artwork name / frame name)
 
 #### P20 Customer Request Return Order
 
 1. Menu item to request return order available to logged in user
-2. List of qualifying orders are presented when user selects the return order menu
-3. Acknowledgment email is sent to the requesting user
+
+- Open the Graces Art Print website
+- Sign in with your username and password, create a user name if you have not done so
+- Click on the My Account icon at the top right of any page
+The Return Order menu item is available to the user.
+
+**2. List of qualifying orders are presented when user selects the return order menu**
+
+- Click on the Return Order, after sign in successfully.
+- From the displayed list of orders notice that only orders that are active are displayed (orders with status "Ordered").
+
+![Request Return Order](/docs/images/request_return_order.png)
+
+- Confirm that orders that are older than the store permitted return days are disallowed from being returned by signing in as administrator and reduce the "Order return days" from the System Preferences
+- Click select and observe the message that you can no longer request return of this order.
+(the application could have also removed such order that are already past due for return, but if done the user may be thinking that something is wrong when the order can't be seen on the list. I decided to list the order and give the user the feedback if that order is selected).
+- Select an Order that the date falls within the set return date (now fixed at 4 days)
+- Input a reason for the return into the Form at the left
+- Click the Send Request button
+- Click Okay when the confirmation prompt is displayed
+- The success message is displayed at the message corner at the right.
+
+![Request Return Order](/docs/images/return_feedback.png)
+
+ 3. **Acknowledgment email is sent to the requesting user**
+
+- Send a successful Return Request following process in 2 above.
+- Within a few minutes, depending on network, you will receive an email resembling the one below acknowledging your request.
+- Notice the order is no longer in the list of orders available for return
+- Open the Order History report following the process in  **P19**.
+Observe that the order status has changed to "Returned". The store owner will approve or reject the request and you will receive another email conveying the decision.
+
+![REturn Request Email](/docs/testing/return_request_email.jpg)
 
 #### P21 Customer View Notifications
 
-1. Menu item for notifications available to user
-2. Clicking on notifications displays the list of notifications and their details
+1. **Menu item for notifications available to user**
+
+- Open the Graces Art Print website
+- Sign in with your username and password, create a user name if you have not done so
+- Click on the My Account icon at the top right of any page
+The Notifications menu item is available to the user.
+
+2. **Clicking on notifications displays the list of notifications and their details**
+
+- Click on Notifications from the My Account menu.
+- Observe the My Notifications page opens with a list of notifications on major actions you have taken in the website - order placement, return request, order status change, etc.
+- Click Details button on the notification of interest and the details is displayed on the left column.
+- Click on Delete button from the row you intend to delete, click Okay when the confirmation prompt is displayed.
+The notification record is deleted.
+
+![Notifications](/docs/images/notifications.png)
 
 #### P23 Customer Cancel Order
 
-1. User has option to cancel an order using the order number
-2. Order status changes to cancelled if user submits the cancel order form within a given time frame
+1. **User has option to cancel an order using the order number**
+
+- Open the Graces Art Print website
+- Sign in with your username and password, create a user name if you have not done so
+- Click on the My Account icon at the top right of any page
+The **Cancel Order** menu item is available to the user.
+- Click on the Cancel Order menu item
+The Cancel Order Request page opens with a list of orders that has status "Ordered". The first row of the table has input fields for Order Number, Email Address and Date which you can use to search for a particular order to cancel.
+
+![Cancel Order Page](/docs/images/cancel_order_req.png)
+
+1. **Order status changes to cancelled if user submits the cancel order form within a given time frame**
+
+- Click on the Cancel Order, after sign in success.
+- From the displayed list of orders notice that only orders that are active are displayed (orders with status "Ordered").
+
+- Confirm that orders that are older than the store permitted cancellation days are disallowed from being cancelled by signing in as administrator and reduce the "Cancellation Valid Days" from the System Preferences
+- Click select and observe the message that you can no longer cancel the order.
+- Select an Order that the date falls within the set Cancellation date (now fixed at 3 days)
+- Input a reason for the Cancellation into the Form at the left
+- Click the Send Request button
+- Click Okay when the confirmation prompt is displayed
+- The success message is displayed at the message corner at the right.
+An email is also sent to your email address and a Notification record is created.
+
+![Cancellation Feedback](/docs/images/cancel_order_feedback.png)
 
 #### P24 Customer Save items to my wish list
 
-1. Wish list menu item is visible on profile menu
+1. **Wish list menu item is visible on profile menu**
+
+- Open the Graces Art Print website
+- Sign in with your username and password, create a user name if you have not done so
+- Click on My Account and notice the "My Wishlist" menu item is available.
+
 2. Wish list button is available from artwork details page
-3. Clicking the button adds an item to the wish list
+
+- Follow process in 1 above
+- Click Shop Now from the landing page or select any of the artwork criteria available at the menu bar
+- Click on an artwork and the details of the artwork is displayed
+Observe that the "Add to Wishlist" button is available on the page.
+
+![Artwork detail](/docs/images/artwork_details.png)
+
+1. Clicking the button adds an item to the wish list
+
+- Click on "Add to Wishlist" button
+If the artwork is not in your wishlist already, it is added; if not a message is given that the artwork is already in your wishlist. The "Move to Wishlist" is also available from the Shopping Bag page to add artwork to the wishlist.
+
+![Wishlist Feedback](/docs/images/already_in_wishlist.png)
+
+- From My Account click on wishlist
+The wishlist details is displayed with a list of all artworks in your wishlist.
+
+![Wishlist details](/docs/images/my_wishlist.png)
+
+- click on "Buy Now" button to open the details page for the selected artwork where you can select a frame and add to shopping bag.
+- click on "Delete" button to remove the artwork from the wishlist.
 
 #### FAQ
 

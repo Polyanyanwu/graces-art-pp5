@@ -454,7 +454,7 @@ def request_order_return(request):
             order_date = f_order.date
             delta = (now - order_date).days
             date_str = f_order.date.strftime("%d-%b-%Y %H:%M")
-            if delta > return_days:
+            if delta >= return_days:
                 messages.error(request, f"Sorry you can no longer request \
                     for return of this order placed on {date_str}. \
                         You had within {return_days} days to do so")
