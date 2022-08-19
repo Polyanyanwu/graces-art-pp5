@@ -615,30 +615,83 @@ The Help Centre page is opened for the users information.
 
 #### U1. Create an account
 
-Signup option is available to user on the home page and when trying to complete a purchase
+**1. Sign up option is available to user on the home page and when trying to complete a purchase**
 
-Successful signup will enable user login with the created email and password
+- Open the Graces Art Print website
+- Click on "My Account"
+- The "Register" and "Login" options are available on the dropdown menu of the My Account icon.
+- Follow the process of P11 above and get to the Checkout Page
+- Look below the delivery details for an option to "Create an account or login to save this information"
+- Click on Create Account to proceed with creating an account or click on Login to open the Sign in page.
+- When the Create an Account page opens, enter the email address, username and password to be used in the site
+- Click create account
+Message will be displayed informing you to check your mail and confirm the email address.
+Confirming the email address from the link sent in the email will enable you login
+
+2. **Successful sign up will enable user login with the created email and password**
+
+- Create an account as in process 1. above
+- From the My Account icon at the top right of the page, select login
+- Enter either the username or email address that you used at account creation
+- The login is successful
+- A feedback message is given and the My Account menu now has the full set of menu items for signed in user.
 
 #### U2. Have an effective interface to login and logout
 
-Sign-in link available on home page
-Sign-in page opens when link is clicked
-Full user menu is available when successfully signed in depending on user role
+1. Sign-in link available on home page
+
+- Open the Graces Art Print website
+- Click on "My Account"
+- The Login and Register links are available
+
+**2. Sign-in page opens when link is clicked**
+
+- Open the Graces Art Print website
+- Click on "My Account"
+- Click the Login menu item
+The Sign in page opens for you to enter username/email address and password.
+
+![Sign in](/docs/images/sign_in.png)
 
 #### U3. Change my password
 
-Reset password link available at sign-in page and on user profile menu
-Reset password page opens and enables user successfully reset password
+1. Reset password link available at sign-in page and on user profile menu
+2. Reset password page opens and enables user successfully reset password
+
+- Follow the process in U2 above and open the Sign In page
+- Observe that there is "Forgot Password?" link beside the "Sign In" button.
+- Click the Forgot Password and you will redirected to a page to enter your email address
+- Enter the email address at the Password Reset page that opened
+An email will be sent to the email address with the instructions to follow to reset the password
 
 #### U4. Update information on my profile
 
-Profile option available to signed in user
-Profile page opens and enables user to change names/phone, address as needed
+1. Profile option available to signed in user
+2. Profile page opens and enables user to change names/phone, address as needed
+
+- Open the Graces Art Print website
+- Click on "My Account"
+- Click the Login
+- Enter your username and password and login to the site
+- Click "My Account" again and observe that there is now an option for My Profile.
+- Click on the "My Profile"
+The page below opens for the user to update the profile as desired.
+
+![Profile](/docs/images/update_profile.png)
 
 #### U5. Recover my password if I forgot it
 
-The login form displays a link to reset password
-The reset password form opens requesting email address
+1. The login form displays a link to reset password
+2. The reset password form opens requesting email address
+
+- Follow the process in U2 above and open the Sign In page
+- Observe that there is "Forgot Password?" link beside the "Sign In" button.
+- Click the Forgot Password and you will redirected to a page to enter your email address
+
+![Password Reset](/docs/images/password_reset_input.png)
+
+- Enter the email address at the Password Reset page that opened
+An email will be sent to the email address with the instructions to follow to reset the password
 
 ### **Operator Acceptance Test**
 
