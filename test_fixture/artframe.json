@@ -1,0 +1,38 @@
+[
+{
+    "model": "artworks.artframe",
+    "pk": 1,
+    "fields": {
+        "name": "Madison Black / Gold",
+        "size": "60x80cm",
+        "price": "42.00",
+        "qty": 297,
+        "image_url": null,
+        "image": "canvax_60x80_black.jpg"
+    }
+},
+{
+    "model": "artworks.artframe",
+    "pk": 8,
+    "fields": {
+        "name": "Tampa wide painted Ayous wood",
+        "size": "100x120cm",
+        "price": "102.00",
+        "qty": 170,
+        "image_url": null,
+        "image": "100x120_canvas_tampa.jpg"
+    }
+},
+{
+    "model": "artworks.artframe",
+    "pk": 9,
+    "fields": {
+        "name": "Aurora 18x24",
+        "size": "18x24cm",
+        "price": "15.00",
+        "qty": 192,
+        "image_url": null,
+        "image": "18x24_aurora.jpg"
+    }
+}
+]
