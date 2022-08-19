@@ -34,10 +34,26 @@
       - [P21 Customer View Notifications](#p21-customer-view-notifications)
       - [P23 Customer Cancel Order](#p23-customer-cancel-order)
       - [P24 Customer Save items to my wish list](#p24-customer-save-items-to-my-wish-list)
-      - [FAQ](#faq)
+      - [P25 Frequently Asked Questions is available to the Public](#p25-frequently-asked-questions-is-available-to-the-public)
+    - [**Authentication Acceptance Test**](#authentication-acceptance-test)
+      - [U1. Create an account](#u1-create-an-account)
+      - [U2. Have an effective interface to login and logout](#u2-have-an-effective-interface-to-login-and-logout)
+      - [U3. Change my password](#u3-change-my-password)
+      - [U4. Update information on my profile](#u4-update-information-on-my-profile)
+      - [U5. Recover my password if I forgot it](#u5-recover-my-password-if-i-forgot-it)
+    - [**Operator Acceptance Test**](#operator-acceptance-test)
       - [O1. Operator user View requests for return of delivered artwork](#o1-operator-user-view-requests-for-return-of-delivered-artwork)
       - [O2. Operator user Update order status](#o2-operator-user-update-order-status)
       - [O3. Operator user Make enquiry on orders by date range and order status](#o3-operator-user-make-enquiry-on-orders-by-date-range-and-order-status)
+    - [**Administrator Acceptance Test**](#administrator-acceptance-test)
+      - [A1. Assign user role to registered users](#a1-assign-user-role-to-registered-users)
+      - [A2. Set system preferences](#a2-set-system-preferences)
+      - [A3. Add new artwork](#a3-add-new-artwork)
+      - [A4. Edit/update artwork](#a4-editupdate-artwork)
+      - [A5. Delete artwork](#a5-delete-artwork)
+      - [A6. Edit/update photo frames](#a6-editupdate-photo-frames)
+      - [A7. Delete photo frames](#a7-delete-photo-frames)
+      - [A8. Add/update general information](#a8-addupdate-general-information)
 
 ## **Code Validation**
 
@@ -584,7 +600,47 @@ The wishlist details is displayed with a list of all artworks in your wishlist.
 - click on "Buy Now" button to open the details page for the selected artwork where you can select a frame and add to shopping bag.
 - click on "Delete" button to remove the artwork from the wishlist.
 
-#### FAQ
+#### P25 Frequently Asked Questions is available to the Public
+
+1. Frequently Asked Questions is accessible through a link at the footer
+
+- Open the Graces Art Print website
+- Find the  Frequently Asked Questions link at the footer of the page, and indeed every page.
+- Click on the  Frequently Asked Questions link
+The Help Centre page is opened for the users information.
+
+![FAQ](/docs/images/faq.png)
+
+### **Authentication Acceptance Test**
+
+#### U1. Create an account
+
+Signup option is available to user on the home page and when trying to complete a purchase
+
+Successful signup will enable user login with the created email and password
+
+#### U2. Have an effective interface to login and logout
+
+Sign-in link available on home page
+Sign-in page opens when link is clicked
+Full user menu is available when successfully signed in depending on user role
+
+#### U3. Change my password
+
+Reset password link available at sign-in page and on user profile menu
+Reset password page opens and enables user successfully reset password
+
+#### U4. Update information on my profile
+
+Profile option available to signed in user
+Profile page opens and enables user to change names/phone, address as needed
+
+#### U5. Recover my password if I forgot it
+
+The login form displays a link to reset password
+The reset password form opens requesting email address
+
+### **Operator Acceptance Test**
 
 #### O1. Operator user View requests for return of delivered artwork
 
@@ -608,3 +664,48 @@ The wishlist details is displayed with a list of all artworks in your wishlist.
 2. Query has options to select date range and Order status
 3. List of data is displayed meeting the given criteria
 
+### **Administrator Acceptance Test**
+
+#### A1. Assign user role to registered users
+
+Options for user role is available on the user profile
+Setting the user role restricts the user to the assigned role
+
+#### A2. Set system preferences
+
+System preferences available in the Admin panel
+Changes made affect the working of the application
+
+#### A3. Add new artwork
+
+Menu item to Add artwork is available on Admin menu
+Admin is able to successfully add an artwork
+
+#### A4. Edit/update artwork
+
+Menu item to Edit artwork is available on Admin menu
+Admin is able to search and locate artwork to update
+Update is successful
+
+#### A5. Delete artwork
+
+Menu item to delete artwork is available on Admin menu
+Admin is able to search and locate artwork to delete
+Delete is successful
+
+#### A6. Edit/update photo frames
+
+Menu item to Edit photo frames is available on Admin menu
+Admin is able to locate photo frame to update
+Update is successful
+
+#### A7. Delete photo frames
+
+Menu item to delete photo frame is available on Admin menu
+Admin is able to locate photo frame to delete
+Delete is successful
+
+#### A8. Add/update general information
+
+Menu option to maintain general information available to Admin menu
+Admin user is able to update the general information like About Us, Terms of Use, etc
