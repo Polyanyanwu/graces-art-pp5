@@ -8,6 +8,15 @@ The Graces Art Print is a web application that enables users to purchase an artw
 
 [Graces Art Print Live](https://graces-art.herokuapp.com)
 
+For purposes of payments on this project the use of Stripe's test functionality is implemented. It is not intended to collect real live payments.
+You can make use of the following test card details to make payments on the site:
+
+| NUMBER                | BRAND            | CVC          | DATE            | ZIP CODE     |
+| --------------------- |----------------- | ------------ | --------------- | ------------ |
+| 4242424242424242      | Visa             | Any 3 digits | Any future date | Any 5 digits |
+| 5555555555554444      | Mastercard       | Any 3 digits | Any future date | Any 5 digits |
+| 378282246310005       | American Express | Any 4 digits | Any future date | Any 5 digits |
+
 ## Repository
 
 [View Repository Here](https://github.com/Polyanyanwu/graces-art-pp5)
@@ -92,6 +101,11 @@ The Graces Art Print is a web application that enables users to purchase an artw
     - [**Current Bugs**](#current-bugs)
     - [**Resolved Bugs**](#resolved-bugs)
   - [**Deployment**](#deployment)
+  - [**Credits**](#credits)
+    - [**Content**](#content)
+    - [**Code**](#code)
+    - [**Media**](#media)
+    - [**Acknowledgements**](#acknowledgements)
 
 ## **Objectives of the Site**
 
@@ -792,3 +806,77 @@ There is no known current bugs in the system after an exhaustive testing.
 ## **Deployment**
 
 The application was deployed to [Heroku](https://heroku.com) where all the code and database is hosted. The static files were hosted on [Amazon S3 Object Storage](https://aws.amazon.com/s3/). [Strip](https://dashboard.stripe.com) was used for card payment collection. Details of the fork, clone and deployment process [is available here](/docs/deploy/deployment.md)
+
+## **Credits**
+
+### **Content**
+
+- The terms of use was adapted from the Terms and Conditions of [Opentable.ie](https://www.opentable.ie/legal/terms-and-conditions). 
+
+- The idea of the landing page and search functions were borrowed from [Code Institute](https://codeinstitute.net/ie/) student walk-through project (Boutique Ado).
+
+- The privacy policy on the main page was an adaptation of [Milano.ie](https://milano.ie/about-us/privacy-policy)
+
+- The Frequently Asked questions were inspired from [BGA Ireland](https://www.bgastore.ie)
+  
+### **Code**
+
+- Online [books by Agiliq](https://books.agiliq.com/en/latest/README.html) was a very good resource for getting better ideas of Django ORM.
+  
+- Numerous [Stack Overflow](https://stackoverflow.com/) postings furnished ideas leading to my figuring out how to overcome some challenges.
+
+- [Coderwall](https://coderwall.com/p/itb2hq/cancel-button-on-a-form-with-required-fields) code for Cancel button without validation.
+
+- [Sven Marnach](https://stackoverflow.com/questions/11433886/sorting-a-list-comprehension-in-one-statement) for the idea of Sorting a List Comprehension in one Statement
+  
+- [Brian Neal](https://groups.google.com/g/django-users/c/J2FUloVUlzk) for the idea of removing empty selection option from a select field.
+
+- [Stack Overflow](https://stackoverflow.com/questions/7682804/django-model-forms-setting-a-required-field) make a field required on a form.
+
+- [Stack Overflow - Tariq Ahmed](https://stackoverflow.com/questions/70254873/django-summernote-settings) for the fix of Summernote dropdowns not working
+
+- [Stack Overflow - Tiago Martins Peres](https://stackoverflow.com/questions/6069070/how-to-use-permission-required-decorators-on-django-class-based-views) for the information on resolving login required to class based view.
+
+- [Stack Overflow - Mark Dickinson](https://stackoverflow.com/questions/6681743/splitting-a-number-into-the-integer-and-decimal-parts) for the code on Splitting a number into the integer and decimal parts
+
+- [Stack Overflow](https://stackoverflow.com/questions/27325505/how-to-get-the-previous-url-from-a-post-in-django) for how to get the URL that called a view.
+
+- [Stack Overflow - Ayman Hourieh](https://stackoverflow.com/questions/843277/how-do-i-check-if-a-variable-exists) assisted in answering the question "How do I check if a variable exists?"
+
+- [Seobility](https://www.seobility.net/en/wiki/Robots.txt guide on robots.txt) had a good and brief guide on robots.txt
+
+- [W3schools](https://www.w3schools.com/)  
+
+- [W3docs](https://www.w3docs.com/)
+  
+- [GeeksforGeeks](https://www.geeksforgeeks.org/)
+
+- [Codegrepper](https://www.codegrepper.com/)
+
+- Credit to Google for its search engine easily showing useful search results all of the time.
+
+### **Media**
+
+- The landing page image of a wooden frame was downloaded from [Freepik](https://www.freepik.com/free-psd/wooden-picture-frame-mockup-psd-with-colorful-painting_17609593.htm?query=photo%20frame).
+
+- The images of all the artworks were [WikiArt.org](https://www.wikiart.org/), downloaded from [BryanB](https://www.kaggle.com/datasets/bryanb/abstract-art-gallery) while the csv files that had the image classification into genre, style, artist was downloaded from  in the site was downloaded from [ArtGAN](https://github.com/cs-chan/ArtGAN/tree/master/WikiArt%20Dataset).
+
+- The 403 error message image was downloaded from [gsatatic](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3Crb5tO7_ixFPKD62WWLao6lOdPyl-vzd7w&usqp=CAU)
+
+- The 404 Page not found image was downloaded from [CCM.net](https://ccm.net/contents/1079-page-not-found-where-is-the-404-error-coming-from)
+  
+### **Acknowledgements**
+
+- Many thanks to my mentor [Brian O'Hare](https://code-institute-room.slack.com/team/U02H67B6DS6) for the encouragement.
+
+- Many thanks to the Code Institute's team (Lecturers and Tutors) for the excellent job of making me a better.
+  
+- I'm grateful to my family for their support and prayers through the last year I have been on this up-skilling.
+
+- Really grateful to Code Institute's team (Lecturers and Tutors) for the style of transferring this knowledge in a short time.
+
+- Thanks to the [Slack Community](code-institute-room.slack.com) that serve as first line of help and support.
+
+- Thanks to [Simen Daehlin](https://code-institute-room.slack.com/team/U4MVA9YQP) for pointing out the proper way of validating the HTML codes from a Django project like this.
+
+[>> Bact to TOC](#table-of-contents)

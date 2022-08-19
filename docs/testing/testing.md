@@ -122,7 +122,7 @@ The application was thoroughly tested at each step of the development process an
 
 For the core of the online shop which is the shopping bag and the checkout, I developed a Test Script which was followed and used to test the functionalities of the shopping bag and checkout.
 
-[The Shopping Bag test script is here](/docs/testing/shopping_bag.md) while [the Checkout test script is here](/docs/testing/checkout.md)
+[The Shopping Bag test script is here](/docs/testing/shopping_bag.md) while [the Checkout test script is here](/docs/testing/checkout.jpg)
 
 Other Manual Tests done following the Acceptance Criteria established at the commencement of the project are detailed below:
 
@@ -331,13 +331,13 @@ The test done in [Public User View purchases suffices](#p4-public-user-want-to-e
 - From the Success Message, click Proceed to Checkout
 - Checkout Form opens and Name and Address fields are available
 
-![Checkout address](/docs/testing/checkout.md)
+![Checkout address](/docs/testing/checkout.jpg)
 
 2. Payment card form available on checkout page
 
 - Payment card form is visible if you scroll down the page below the name and address fields.
 
-![Checkout address](/docs/testing/checkout2.md)
+![Checkout address](/docs/testing/checkout2.jpg)
 
 2. Payment accepted or error message displayed
 
