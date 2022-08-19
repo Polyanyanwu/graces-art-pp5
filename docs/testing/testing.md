@@ -274,6 +274,8 @@ A typical list displayed when user selects the Landscape genre is shown below:
 
 ![Genre list](/docs/testing/selecting_genre.jpg)
 
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
+
 #### P8. Public user can search for an artwork by name to find a specific artwork to purchase
 
 1. Input form visible to accept name of artwork on home page
@@ -355,6 +357,8 @@ THe error message "Your postal code is incomplete." is displayed.
 - A spinner will be shown on the page while you card is being verified.
 - Your payment is accepted and a success page is displayed with your order details.
 
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
+
 #### P12. Public user View a confirmation of an order after checkout
 
 1. Order confirmation page available after successful checkout
@@ -387,6 +391,8 @@ The reviews page opens with any existing customer review. There was a change req
 
 - Click on the Write Reviews link inside the Reviews Page.
 If you are logged in the Reviews page with a Form to accept your review is opened. If you are not logged it, the sign in page is opened.
+
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
 
 #### P14. Public user View privacy policy of the website
 
@@ -448,6 +454,8 @@ A copy of your message is sent to your email and saved at your Notifications pag
 The informative about us page opens to the user.
 ![About Us](/docs/images/aboutUs.png)
 
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
+
 #### P18. Public user See the Terms and Conditions
 
 1. Terms & Conditions button is available at the footer
@@ -482,6 +490,8 @@ The Order History menu item is visible to the user.
 If you have placed an order successfully from P11 above, a list of the orders placed an their details will be displayed.
 - Click on All Status dropdown and select a status to filter the order and display only the ones with the selected status
 - click on the red search icon to filter the displayed records by any of the criteria you entered on the first row (date, order number, status or artwork name / frame name)
+
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
 
 #### P20 Customer Request Return Order
 
@@ -518,7 +528,7 @@ The Return Order menu item is available to the user.
 - Open the Order History report following the process in  **P19**.
 Observe that the order status has changed to "Returned". The store owner will approve or reject the request and you will receive another email conveying the decision.
 
-![REturn Request Email](/docs/testing/return_request_email.jpg)
+![Return Request Email](/docs/testing/return_request_email.jpg)
 
 #### P21 Customer View Notifications
 
@@ -538,6 +548,8 @@ The Notifications menu item is available to the user.
 The notification record is deleted.
 
 ![Notifications](/docs/images/notifications.png)
+
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
 
 #### P23 Customer Cancel Order
 
@@ -611,6 +623,8 @@ The Help Centre page is opened for the users information.
 
 ![FAQ](/docs/images/faq.png)
 
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
+
 ### **Authentication Acceptance Test**
 
 #### U1. Create an account
@@ -678,6 +692,8 @@ An email will be sent to the email address with the instructions to follow to re
 The page below opens for the user to update the profile as desired.
 
 ![Profile](/docs/images/update_profile.png)
+
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
 
 #### U5. Recover my password if I forgot it
 
@@ -750,6 +766,8 @@ An email will be sent to the email address with the instructions to follow to re
   
 - The status of the order will be changed and a success message is displayed. If you select the same status as the one being changed and clicked update, after the confirmation popup the system will display "You choose same status as before. Select a different status and try again".
 - locate the order in the list of orders once more and notice that the status has changed to the new status
+
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
 
 #### O3. Operator user Make enquiry on orders by date range and order status
 
@@ -854,7 +872,9 @@ Note that validations are fully done. The SKU is unique and must be 12 character
   - Click Edit button on the row of the artwork you wish to delete
   - Click Okay when the confirmation prompt displays
   - The artwork is delete and leaves the list of artworks displayed and a success message is displayed.
-  
+
+ [<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
+
 #### A6. Edit/update photo frames
 
 1. Menu item to Edit photo frames is available on Admin menu
@@ -921,3 +941,5 @@ The data can only be edited as they are for fixed points in the application.
   - the Edit panel is loaded with the existing information
   - change the information as desired (the panel allows some formatting and loading of image, but its advised to keep the default formats tested already with the application)
   - click Save button and a success message is displayed.
+
+[<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
