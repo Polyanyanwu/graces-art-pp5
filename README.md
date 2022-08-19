@@ -782,6 +782,8 @@ There is no known current bugs in the system after an exhaustive testing.
 
 - Edit?Delete artwork gives Error 500 when Edit button is clicked. Caused by a JavaScript crash when looking for sort element not on current page. Resolved by enclosing the offending function in an if statement to check the existence of the element before proceeding with setting the event listener. It was hard to notice because the sort element involved only goes away when on mobile devices. Resolved through [Commit 38e09d](https://github.com/Polyanyanwu/graces-art-pp5/commit/38e09daf9259f0ed83de95be9ddb7fd2766f2ee2)
 
+- User was able to save a new record multiple times in pages where I have New, Update, Edit and Delete on the same page. It was resolved by obtaining the new ID of the saved record and putting it in a session variable which effectively puts it in edit mode as if it was clicked for editing. See [Commit 834fdc](https://github.com/Polyanyanwu/graces-art-pp5/commit/834fdc6dc3687893fa2102bd74b446e3c7f18171)
+
 ## **Deployment**
 
 The application was deployed to [Heroku](https://heroku.com) where all the code and database is hosted. The static files were hosted on [Amazon S3 Object Storage](https://aws.amazon.com/s3/). [Strip](https://dashboard.stripe.com) was used for card payment collection. Details of the fork, clone and deployment process [is available here](/docs/deploy/deployment.md)

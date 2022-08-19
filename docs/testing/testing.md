@@ -773,8 +773,18 @@ The Order Details Enquiry page is opened with a list of orders, paginated and so
 
 #### A1. Assign user role to registered users
 
-Options for user role is available on the user profile
-Setting the user role restricts the user to the assigned role
+1. Options for user role is available on the user profile
+2. Setting the user role restricts the user to the assigned role
+
+- Login with a username that belongs to administrator group
+- Click on Admin/Ops icon
+- From the dropdown menu, click on Assign User Roles (**A1.1**)
+
+The Assign User Roles/Groups page opens with the first user in the application and its group loaded. Note that this page is to assign special groups to users that will have special privileges in the system. The public user doesn't need to belong to any of these special groups.
+
+- select the user of interest and the list of the existing groups that the user belong to is listed.
+- Add new group by selecting a group from the Group name dropdown and click Add button
+- To remove a user from a group, select the user and click Remove button beside the group to remove
 
 #### A2. Set system preferences
 
@@ -857,18 +867,24 @@ The Art Frame feature was discussed with Project Owner during the development an
 - Click on Admin/Ops icon
 - From the dropdown menu, click on Maintain Art Frame (**A6.1**)
 - The Maintain Art Frames page opens with a list of existing art frames on the right and a form for editing/adding new frame on the left.
-**- To edit an art frame:**
+
+![Art Frame](/docs/testing/frame_page.jpg)
+
+- **To edit an art frame:**
   - Click edit button on the row of the art frame of interest
   - the art frame is loaded on the form
   - change any of the fields of interest
   - click Save button and a success message is displayed
-**- To cancel your inputs on a form**
+  
+- **To cancel your inputs on a form**
   - Click the Cancel button and the current edits/entry on the form is cleared
-**- To Delete an Art Frame**
+
+- **To Delete an Art Frame**
   - Click the Delete button on the row of the art frame to delete
   - Click Okay to confirm the delete action
   - A success message is displayed or error message if any.
-**- To Add a new Art Frame**
+
+- **To Add a new Art Frame**
   - Click New button
   - Fill the form with the necessary data
   - Upload the image if any
@@ -880,7 +896,28 @@ The Art Frame feature was discussed with Project Owner during the development an
 2. Admin is able to locate photo frame to delete
 3. Delete is successful
 
+Covered under A6 above.
+
+The A6 procedure for the Art frame was used to test the Maintain Artist, Maintain Style, and Maintain Art Genre that was part of the Administrator function but not listed as a User Story.
+
 #### A8. Add/update general information
 
-Menu option to maintain general information available to Admin menu
-Admin user is able to update the general information like About Us, Terms of Use, etc
+1. Menu option to maintain general information available to Admin menu
+2. Admin user is able to update the general information like About Us, Terms of Use, etc
+
+The General Information have initial data loaded (4 records). The data for the landing page message, about us, terms of use and privacy policy.
+
+- Login with a username that belongs to administrator group
+- Click on Admin/Ops icon
+- From the dropdown menu, click on Maintain General Information (**A8.1**)
+- The Maintain General Information page opens with the details of the first item in the list loaded on the edit panel.
+
+![General Information](/docs/images/maintain_gen_info.png)
+
+The data can only be edited as they are for fixed points in the application.
+
+- **To edit any record:**
+  - Click the Code selection field and select a record to edit
+  - the Edit panel is loaded with the existing information
+  - change the information as desired (the panel allows some formatting and loading of image, but its advised to keep the default formats tested already with the application)
+  - click Save button and a success message is displayed.
