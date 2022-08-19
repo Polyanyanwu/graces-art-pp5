@@ -61,25 +61,27 @@ function getSkuPrefix() {
 
 
 function sort_selection() {
-    document.getElementById('#select-sort').change(function () {
-        const selector = $(this);
-        const currentUrl = new URL(window.location);
+    if (document.getElementById('#select-sort')) {
+        document.getElementById('#select-sort').change(function () {
+            const selector = $(this);
+            const currentUrl = new URL(window.location);
 
-        const selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            const sort = selectedVal.split("_")[0];
-            const direction = selectedVal.split("_")[1];
+            const selectedVal = selector.val();
+            if (selectedVal != "reset") {
+                const sort = selectedVal.split("_")[0];
+                const direction = selectedVal.split("_")[1];
 
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
 
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-            window.location.replace(currentUrl);
-        }
-    });
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+                window.location.replace(currentUrl);
+            }
+        });
+    }
 }
 
 function artDetails() {
@@ -94,8 +96,8 @@ function artDetails() {
         selectFrame.addEventListener('change', function (e) {
 
             const frameDetail = selectFrame.options[selectFrame.selectedIndex].value;
-            if (frameDetail.split(":")[0] == '0'){
-                totalCostEl.textContent ="";
+            if (frameDetail.split(":")[0] == '0') {
+                totalCostEl.textContent = "";
                 frameSelectActionBtn.setAttribute('value', "None" + ":" + '0');
                 frameSelectActionBtn.click();
                 return;
@@ -113,9 +115,9 @@ function artDetails() {
 
         qtyEl.addEventListener('change', function (e) {
             const artFrameCost = document.querySelector('#art-and-frame');
-            if(artFrameCost.textContent){
+            if (artFrameCost.textContent) {
                 const totalCost = getTotalDetailCost();
-                totalCostEl.textContent =  totalCost.toFixed(2);
+                totalCostEl.textContent = totalCost.toFixed(2);
             }
         });
     }
@@ -127,7 +129,7 @@ function getTotalDetailCost() {
     const artFrameCost = document.querySelector('#art-and-frame').textContent;
     const qty = parseInt(qtyEl.options[qtyEl.selectedIndex].value);
     let total = 0;
-    if (artFrameCost){
+    if (artFrameCost) {
         total = parseFloat(artFrameCost) * qty;
     }
     return total;
@@ -143,7 +145,7 @@ if (document.querySelector('#update-bag-form')) {
         const rec_id = qtySelected.dataset.record_id;
         document.getElementById("change-qty-btn").value = rec_id + ":" + qty_changed;
         document.getElementById('change-qty-btn').click();
-    })); 
+    }));
 
     // Select frame change on bag display
     const frameEl = document.querySelectorAll('.select-frame');
@@ -153,6 +155,6 @@ if (document.querySelector('#update-bag-form')) {
         const rec_id = frameSelected.dataset.record_id;
         document.getElementById("change-frame-btn").value = rec_id + ":" + new_frame;
         document.getElementById('change-frame-btn').click();
-    })); 
+    }));
 
 }
