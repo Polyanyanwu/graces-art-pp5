@@ -758,7 +758,7 @@ Viewing a review doesn't require user login but writing a review does. To write 
 
 Manual tests were continuously done on the application during development and as new features are added. Test scripts were developed and used in carrying out most of the manual tests. Being an Agile approach project, I concentrated on delivering the user stories and testing them while the documentation of some of the tests is coming at the close of the project. The code has been validated for syntactic correctness using industry standard methods like W3C, JSHint, PEP8.
 
-Two sets of manual tests documented with Text Scripts during development are:
+Two sets of manual tests documented with Text Scripts **during development** are:
 
 1. [Shopping Bag Tests](/docs/testing/shopping_bag.md)
 2. [Checkout Tests](/docs/testing/checkout.md)
