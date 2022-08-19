@@ -780,6 +780,8 @@ There is no known current bugs in the system after an exhaustive testing.
 
 - Edit artwork gives Error 500 when SKU is edited. Fixed by using the Artwork ID to fetch the record and passing the ID properly through a context variable. See Commit [dbabea](https://github.com/Polyanyanwu/graces-art-pp5/commit/dbabeae8be439caebfcaf5d8bc1a231539a3714f)
 
+- Edit?Delete artwork gives Error 500 when Edit button is clicked. Caused by a JavaScript crash when looking for sort element not on current page. Resolved by enclosing the offending function in an if statement to check the existence of the element before proceeding with setting the event listener. It was hard to notice because the sort element involved only goes away when on mobile devices. Resolved through [Commit 38e09d](https://github.com/Polyanyanwu/graces-art-pp5/commit/38e09daf9259f0ed83de95be9ddb7fd2766f2ee2)
+
 ## **Deployment**
 
 The application was deployed to [Heroku](https://heroku.com) where all the code and database is hosted. The static files were hosted on [Amazon S3 Object Storage](https://aws.amazon.com/s3/). [Strip](https://dashboard.stripe.com) was used for card payment collection. Details of the fork, clone and deployment process [is available here](/docs/deploy/deployment.md)

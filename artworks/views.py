@@ -65,7 +65,10 @@ def maintain_artist(request):
             else:
                 form = ArtistForm(request.POST)
             if form.is_valid():
-                form.save()
+                new_rec = form.save()
+                # put the newly saved record in edit mood to prevent
+                # creating a new record again if the save key is pressed twice
+                request.session['current_rec'] = new_rec.id
                 messages.success(request,
                                  ('Your Artist was successfully saved!'))
             else:
@@ -134,7 +137,10 @@ def maintain_art_style(request):
             else:
                 form = ArtStyleForm(request.POST, request.FILES)
             if form.is_valid():
-                form.save()
+                new_rec = form.save()
+                # put the newly saved record in edit mood to prevent
+                # creating a new record again if the save key is pressed twice
+                request.session['current_rec'] = new_rec.id
                 messages.success(request,
                                  ('Your Art Style was successfully saved!'))
             else:
@@ -202,7 +208,10 @@ def maintain_art_genre(request):
             else:
                 form = ArtGenreForm(request.POST)
             if form.is_valid():
-                form.save()
+                new_rec = form.save()
+                # put the newly saved record in edit mood to prevent
+                # creating a new record again if the save key is pressed twice
+                request.session['current_rec'] = new_rec.id
                 messages.success(request,
                                  ('Your Art Genre was successfully saved!'))
             else:
@@ -527,7 +536,10 @@ def maintain_art_frame(request):
             else:
                 form = ArtFrameForm(request.POST, request.FILES)
             if form.is_valid():
-                form.save()
+                new_rec = form.save()
+                # put the newly saved record in edit mood to prevent
+                # creating a new record again if the save key is pressed twice
+                request.session['current_rec'] = new_rec.id
                 messages.success(request,
                                  ('Your Art Frame was successfully saved!'))
             else:

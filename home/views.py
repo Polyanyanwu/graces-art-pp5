@@ -196,7 +196,10 @@ def maintain_faq(request):
             else:
                 form = FAQForm(request.POST)
             if form.is_valid():
-                form.save()
+                new_rec = form.save()
+                # put the newly saved record in edit mood to prevent
+                # creating a new record again if the save key is pressed twice
+                request.session['current_rec'] = new_rec.id
                 messages.success(request,
                                  ('Your FAQ was successfully saved!'))
             else:

@@ -825,25 +825,60 @@ Note that validations are fully done. The SKU is unique and must be 12 character
 
 ![Edit/Delete Artwork](/docs/images/edit_artwork.png)
 
-- Notice the search bar
+- Notice the search bar has a form that accepts SKU and artwork name
+  - Input any part of the name of the artwork and click the search button
+  - the list is updated to reflect the result of your search (**A4.2**)
+- Update any of the desired field, noting that the Artist, Style, Genre is almost not supposed to change except it was an error initially.
+- Click Save button to save your updates in the database.
+- The success message is displayed or error message if there is error.
 
 #### A5. Delete artwork
 
-Menu item to delete artwork is available on Admin menu
-Admin is able to search and locate artwork to delete
-Delete is successful
+1. Menu item to delete artwork is available on Admin menu
+2. Admin is able to search and locate artwork to delete
+3. Delete is successful
 
+- The delete functionality was included on the page for the Edit/Delete which was tested in A4 above.
+
+  - follow the process in A4
+  - Click Edit button on the row of the artwork you wish to delete
+  - Click Okay when the confirmation prompt displays
+  - The artwork is delete and leaves the list of artworks displayed and a success message is displayed.
+  
 #### A6. Edit/update photo frames
 
-Menu item to Edit photo frames is available on Admin menu
-Admin is able to locate photo frame to update
-Update is successful
+1. Menu item to Edit photo frames is available on Admin menu
+2. Admin is able to locate photo frame to update
+3. Update is successful
+
+The Art Frame feature was discussed with Project Owner during the development and the Add, Edit and Delete process was developed on one page.
+
+- Login with a username that belongs to administrator group
+- Click on Admin/Ops icon
+- From the dropdown menu, click on Maintain Art Frame (**A6.1**)
+- The Maintain Art Frames page opens with a list of existing art frames on the right and a form for editing/adding new frame on the left.
+**- To edit an art frame:**
+  - Click edit button on the row of the art frame of interest
+  - the art frame is loaded on the form
+  - change any of the fields of interest
+  - click Save button and a success message is displayed
+**- To cancel your inputs on a form**
+  - Click the Cancel button and the current edits/entry on the form is cleared
+**- To Delete an Art Frame**
+  - Click the Delete button on the row of the art frame to delete
+  - Click Okay to confirm the delete action
+  - A success message is displayed or error message if any.
+**- To Add a new Art Frame**
+  - Click New button
+  - Fill the form with the necessary data
+  - Upload the image if any
+  - Click Save and a success message is given or error message if any
 
 #### A7. Delete photo frames
 
-Menu item to delete photo frame is available on Admin menu
-Admin is able to locate photo frame to delete
-Delete is successful
+1. Menu item to delete photo frame is available on Admin menu
+2. Admin is able to locate photo frame to delete
+3. Delete is successful
 
 #### A8. Add/update general information
 
