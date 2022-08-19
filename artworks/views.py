@@ -432,6 +432,7 @@ def edit_delete_artwork(request):
         'form': form,
         'artworks': page_obj,
         'confirm_id': artwork_id,
+        'poly': test,
     })
 
 
