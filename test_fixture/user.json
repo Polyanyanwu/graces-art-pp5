@@ -1,0 +1,61 @@
+[
+{
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$hqtCiBXXSkJWZ3Do0goHMW$WzKDz37Glzd8CaVTn5YBV6ZJRaHV0CUNfbUn+WW6xP0=",
+        "last_login": "2022-08-19T15:10:35.917Z",
+        "is_superuser": true,
+        "username": "poly",
+        "first_name": "Poly",
+        "last_name": "",
+        "email": "polyanyanwu@gmail.com",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2022-07-29T11:14:02.407Z",
+        "groups": [
+            2,
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$z6ph4I1e00ChsEM6pYh1MN$tH8LoKdvSvg92Duiy155sm9AdLdo9c7vG27O+N8HD0w=",
+        "last_login": "2022-08-15T15:30:53.742Z",
+        "is_superuser": false,
+        "username": "grace",
+        "first_name": "Grace",
+        "last_name": "",
+        "email": "ptl@placade.jp",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-07-29T15:27:07.662Z",
+        "groups": [
+            1
+        ],
+        "user_permissions": []
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+        "password": "pbkdf2_sha256$260000$MjrsoVklPqLOIwK1xkbop6$abtkcNV8Ip8+z6OyaKs47ManAg09vhgo6cDstFFWZss=",
+        "last_login": "2022-08-18T21:47:27.079Z",
+        "is_superuser": false,
+        "username": "chuks",
+        "first_name": "",
+        "last_name": "",
+        "email": "ptl@placade.ng",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2022-08-15T10:56:22.128Z",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

@@ -1,0 +1,98 @@
+[
+{
+    "model": "utility.systempreference",
+    "pk": "C",
+    "fields": {
+        "data": "3",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "C1",
+    "fields": {
+        "data": "10",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "C2",
+    "fields": {
+        "data": "12",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "CF",
+    "fields": {
+        "data": "GRACESWELCOME22",
+        "data_type": "str"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "CR",
+    "fields": {
+        "data": "GRACESARTCUP990",
+        "data_type": "str"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "D",
+    "fields": {
+        "data": "Summer 2022 Sales!",
+        "data_type": "str"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "DC",
+    "fields": {
+        "data": "22",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "DP",
+    "fields": {
+        "data": "5",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "Q",
+    "fields": {
+        "data": "8",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "R",
+    "fields": {
+        "data": "4",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "S",
+    "fields": {
+        "data": "5",
+        "data_type": "int"
+    }
+},
+{
+    "model": "utility.systempreference",
+    "pk": "T1",
+    "fields": {
+        "data": "200",
+        "data_type": "int"
+    }
+}
+]

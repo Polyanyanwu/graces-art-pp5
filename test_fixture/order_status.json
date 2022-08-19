@@ -1,0 +1,37 @@
+[
+{
+    "model": "checkout.orderstatus",
+    "pk": "C",
+    "fields": {
+        "description": "Cancelled"
+    }
+},
+{
+    "model": "checkout.orderstatus",
+    "pk": "F",
+    "fields": {
+        "description": "Fulfilled"
+    }
+},
+{
+    "model": "checkout.orderstatus",
+    "pk": "O",
+    "fields": {
+        "description": "Ordered"
+    }
+},
+{
+    "model": "checkout.orderstatus",
+    "pk": "R",
+    "fields": {
+        "description": "Returned"
+    }
+},
+{
+    "model": "checkout.orderstatus",
+    "pk": "S",
+    "fields": {
+        "description": "Shipped"
+    }
+}
+]

@@ -1,0 +1,338 @@
+[
+{
+    "model": "artworks.artist",
+    "pk": 1,
+    "fields": {
+        "name": "georges_braque",
+        "friendly_name": "Georges Braque"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 2,
+    "fields": {
+        "name": "juan_gris",
+        "friendly_name": "Juan Gris"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 3,
+    "fields": {
+        "name": "pablo_picasso",
+        "friendly_name": "Pablo Picasso"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 4,
+    "fields": {
+        "name": "akseli_gallen_kallela",
+        "friendly_name": "Akseli Gallen Kallela"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 5,
+    "fields": {
+        "name": "alphonse_mucha",
+        "friendly_name": "Alphonse Mucha"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 6,
+    "fields": {
+        "name": "gustave_moreau",
+        "friendly_name": "Gustave Moreau"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 7,
+    "fields": {
+        "name": "kuzma_petrov_vodkin",
+        "friendly_name": "Kuzma Petrov Vodkin"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 8,
+    "fields": {
+        "name": "marcel_duchamp",
+        "friendly_name": "Marcel Duchamp"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 9,
+    "fields": {
+        "name": "martiros_saryan",
+        "friendly_name": "Martiros Saryan"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 10,
+    "fields": {
+        "name": "maurice_denis",
+        "friendly_name": "Maurice Denis"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 11,
+    "fields": {
+        "name": "mikhail_nesterov",
+        "friendly_name": "Mikhail Nesterov"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 12,
+    "fields": {
+        "name": "odilon_redon",
+        "friendly_name": "Odilon Redon"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 13,
+    "fields": {
+        "name": "lucian_freud",
+        "friendly_name": "Lucian Freud"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 14,
+    "fields": {
+        "name": "oskar_kokoschka",
+        "friendly_name": "Oskar Kokoschka"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 15,
+    "fields": {
+        "name": "rafael_zabaleta",
+        "friendly_name": "Rafael Zabaleta"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 16,
+    "fields": {
+        "name": "andy_warhol",
+        "friendly_name": "Andy Warhol"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 17,
+    "fields": {
+        "name": "derek_boshier",
+        "friendly_name": "Derek Boshier"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 18,
+    "fields": {
+        "name": "eduardo_paolozzi",
+        "friendly_name": "Eduardo Paolozzi"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 19,
+    "fields": {
+        "name": "peter_phillips",
+        "friendly_name": "Peter Phillips"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 20,
+    "fields": {
+        "name": "r_b_Kitaj",
+        "friendly_name": "R. B. Kitaj"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 21,
+    "fields": {
+        "name": "william_james_glackens",
+        "friendly_name": "William James Glackens"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 22,
+    "fields": {
+        "name": "john_french_sloan",
+        "friendly_name": "John French Sloan"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 23,
+    "fields": {
+        "name": "franz_kline",
+        "friendly_name": "Franz Kline"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 24,
+    "fields": {
+        "name": "jackson_pollock",
+        "friendly_name": "Jackson Pollock"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 25,
+    "fields": {
+        "name": "norman_bluhm",
+        "friendly_name": "Norman Bluhm"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 26,
+    "fields": {
+        "name": "walasse_ting",
+        "friendly_name": "Walasse Ting"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 27,
+    "fields": {
+        "name": "eric_fischl",
+        "friendly_name": "Eric Fischl"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 28,
+    "fields": {
+        "name": "fairfield_porter",
+        "friendly_name": "Fairfield Porter"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 29,
+    "fields": {
+        "name": "jamie_wyeth",
+        "friendly_name": "Jamie Wyeth"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 30,
+    "fields": {
+        "name": "richard_whitney",
+        "friendly_name": "Richard Whitney"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 31,
+    "fields": {
+        "name": "andrea_del_castagno",
+        "friendly_name": "Andrea Del Castagno"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 32,
+    "fields": {
+        "name": "andrea_del_verrocchio",
+        "friendly_name": "Andrea del Verrocchio"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 33,
+    "fields": {
+        "name": "benozzo_gozzoli",
+        "friendly_name": "Benozzo Gozzoli"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 34,
+    "fields": {
+        "name": "domenico_veneziano",
+        "friendly_name": "Domenico Veneziano"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 35,
+    "fields": {
+        "name": "fra_angelico",
+        "friendly_name": "Fra Angelico"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 36,
+    "fields": {
+        "name": "giovanni_bellini",
+        "friendly_name": "Giovanni Bellini"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 37,
+    "fields": {
+        "name": "jacopo_bellini",
+        "friendly_name": "Jacopo Bellini"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 38,
+    "fields": {
+        "name": "leonardo_da_vinci",
+        "friendly_name": "Leonardo da Vinci"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 39,
+    "fields": {
+        "name": "paolo_uccello",
+        "friendly_name": "Paolo Uccello"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 40,
+    "fields": {
+        "name": "piero_della_francesca",
+        "friendly_name": "Piero della Francesca"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 41,
+    "fields": {
+        "name": "edward_hopper",
+        "friendly_name": "Edward Hopper"
+    }
+},
+{
+    "model": "artworks.artist",
+    "pk": 42,
+    "fields": {
+        "name": "george_luks",
+        "friendly_name": "George Luks"
+    }
+}
+]
