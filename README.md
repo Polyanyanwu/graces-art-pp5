@@ -142,6 +142,8 @@ The vouchers will be applied at checkout.
 - Confirmation of order, cancellations or request for return will fire an email to the user informing them accordingly. Admin could disallow a return of a delivered artwork giving the user valid reasons for the refusal.
 - Login button will change to Logout when a user successfully logged in. The name of the logged in user will be displayed.
 
+Please note the slight change in implementation of user interaction to allow anonymous user to complete an order instead of requiring login as initially designed. However, full benefits come with logged in users.
+
 [>> Bact to TOC](#table-of-contents)
 
 ### **User Roles**
@@ -246,6 +248,8 @@ There were few modifications to the initial database model leading to the final 
 The initial flowchart for the user interaction with the website has been produced to guide the application development. As the site unfolds, it may differ slightly as requirements may change in the course of development.
 
 ![Flowchart](/docs/graces_art_flowchart.png)
+
+Please note the slight change in implementation of of the flowchart to allow anonymous user to complete an order instead of requiring login as initially designed.
 
 ## **Technologies Used**
   
