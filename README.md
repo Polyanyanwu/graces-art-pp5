@@ -522,7 +522,7 @@ If the user logged in, a checkbox is available under the delivery details for th
 
 ![Checkout Not Logged in](/docs/images/checkout_no_login.png)
 
-To make payment the user will enter data in all the mandatory fields, which are indicated by a * in the placeholder of the fields. To test the payment flow use the Stripe test card "4242 4242 4242 4242", enter a month and year in future and 5-digit usa zip code. The payment will be accepted an a confirmation page is displayed.
+To make payment the user will enter data in all the mandatory fields, which are indicated by a * in the placeholder of the fields. To test the payment flow use the Stripe test card "4242 4242 4242 4242", enter a month and year in future and 5-digit usa zip code. The payment will be accepted and a confirmation page is displayed.
 
 ![Successful Checkout](/docs/images/checkout_success_msg.png)
 
@@ -535,7 +535,7 @@ E.g "Your postal code is incomplete", "Your card number is invalid", etc
 
 Apart from the shopping and checkout described above, the logged in user has other features accessible through the My Account menu shown below:
 
-![My Account Menu](/docs/images/public_menu.png)
+![My Account Menu](/docs/images/public_dropdown.png)
 
 #### My Profile
 
