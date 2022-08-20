@@ -54,7 +54,8 @@ class TesItemForm(TestCase):
             frame_price=frame.price,
         )
         line_item = OrderLineItem.objects.get(id=1)
-        # assert that line item total = .quantity * artwork_price + frame_price
+        # assert that line item total = 
+        # quantity * (artwork_price + frame_price)
         self.assertEqual(line_item.line_item_total,
                          line_item.quantity * (artwork.price + frame.price))
         # check that the order total is updated to quantity * line item total
