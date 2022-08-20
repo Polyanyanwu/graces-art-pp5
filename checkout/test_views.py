@@ -8,7 +8,8 @@ from .views import request_cancel_order
 class TestViews(TestCase):
     """ test views """
 
-    fixtures = ["test_fixture/system_preference.json"]
+    fixtures = ["test_fixture/system_preference.json",
+                "test_fixture/home_message.json"]
 
     def setUp(self):
         self.factory = RequestFactory()

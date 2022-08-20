@@ -9,6 +9,10 @@
     - [**JSHint**](#jshint)
     - [**PEP8**](#pep8)
     - [**Lighthouse**](#lighthouse)
+  - [**Automated Tests**](#automated-tests)
+    - [**Automated Test on Artworks Forms**](#automated-test-on-artworks-forms)
+    - [**Automated Test on Checkout Models**](#automated-test-on-checkout-models)
+    - [**Automated Test on Checkout Views**](#automated-test-on-checkout-views)
   - [**Manual Tests**](#manual-tests)
     - [**Public User Acceptance Test**](#public-user-acceptance-test)
       - [P1. Public user want a user-friendly interactive website](#p1-public-user-want-a-user-friendly-interactive-website)
@@ -115,6 +119,38 @@ PEP8 result for the checkout.models.py
 ![Lighthouse](/docs/testing/lighthouse.png)
 
 [<< Back to README](/README.md) [>> Bact to TOC](#testing-of-graces-art-print-website)
+
+## **Automated Tests**
+
+A handful of Automated tests (7) were done on the Checkout application to support the findings of the manual testing. It was a matter of insufficient time to implement full automated test on the application.
+
+### **Automated Test on Artworks Forms**
+
+Two tests were done on the artworks application:
+
+1. Assert that artist name on the add Artist form is required.
+2. Confirm that artist name on the form is unique
+
+Both were successful.
+
+### **Automated Test on Checkout Models**
+
+Three tests were done on the Checkout models to:
+
+1. Notification user is required when creating notification records
+2. Order Number is added automatically when new order is created
+3. Confirm that adding line items updates the order record totals
+
+### **Automated Test on Checkout Views**
+
+Two tests were done on the Checkout application to:
+
+1. Confirm the home page responds
+2. Anonymous user cannot cancel order and is redirected to login page
+
+The outcome of the tests is shown below:
+
+![Automated tests result](/docs/testing/test_outcome.jpg)
 
 ## **Manual Tests**
 

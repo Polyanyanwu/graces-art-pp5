@@ -777,6 +777,8 @@ Two sets of manual tests documented with Text Scripts **during development** are
 1. [Shopping Bag Tests](/docs/testing/shopping_bag.md)
 2. [Checkout Tests](/docs/testing/checkout.md)
 
+Seven Automated tests were carried out on some of the requirements of the application including 3 tests in Checkout models, 2 in Checkout views and 2 in artworks forms and were successful.
+
 The full details of the other tests carried out is available at [Tests Carried Out](/docs/testing/testing.md)
 
 ## **Bugs**
