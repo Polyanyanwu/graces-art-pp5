@@ -249,7 +249,7 @@ The initial flowchart for the user interaction with the website has been produce
 
 ![Flowchart](/docs/graces_art_flowchart.png)
 
-Please note the slight change in implementation of of the flowchart to allow anonymous user to complete an order instead of requiring login as initially designed.
+Please note the slight change in implementation of the flowchart to allow anonymous user to complete an order instead of requiring login as initially designed.
 
 ## **Technologies Used**
   
@@ -382,7 +382,7 @@ Providing enticing content to my prospects is very essential since my customers 
 
 #### **Social Media**
 
-The business will use organic social media marketing as it is quite suitable for new businesses like this that is digital online shop. This will enable the business interact with prospects and put a human touch to the marketing effort. The site has a [Facebook page](href="https://www.facebook.com/Graces-Art-Print-110351491783521), which will be monitored for users comments and feedback and responded to accordingly. If short videos or images of latest work work are produced at any time, it will be posted on the Facebook page. Additionally, the business will use WhatsApp platform to chat with users that need special attention or clarifications. When the business picks up paid Facebook promotions will be added.
+The business will use organic social media marketing as it is quite suitable for new businesses like this that is digital online shop. This will enable the business interact with prospects and put a human touch to the marketing effort. The site has a [Facebook page](https://www.facebook.com/Graces-Art-Print-110351491783521), which will be monitored for users comments and feedback and responded to accordingly. If short videos or images of latest work work are produced at any time, it will be posted on the Facebook page. Additionally, the business will use WhatsApp platform to chat with users that need special attention or clarifications. When the business picks up paid Facebook promotions will be added.
 
 #### **Email Marketing**
 
@@ -396,7 +396,7 @@ Affiliate marketing is not feasible at the onset. However, I have included link 
 
 ### Facebook Page
 
-A Facebook business page was created for the e-commerce business available at [Facebook](href="https://www.facebook.com/Graces-Art-Print-110351491783521). The Facebook page features the logo, landing page, link to the website, location city of the business, brief description of the business where some of the keywords were used. The type of business was put as Arts & Crafts and an initial post introducing the business was made. Find below screenshots of the Facebook page.
+A Facebook business page was created for the e-commerce business available at [Facebook](https://www.facebook.com/Graces-Art-Print-110351491783521). The Facebook page features the logo, landing page, link to the website, location city of the business, brief description of the business where some of the keywords were used. The type of business was put as Arts & Crafts and an initial post introducing the business was made. Find below screenshots of the Facebook page.
 
 ![Facebook Page1](docs/facebook1.png)
 
