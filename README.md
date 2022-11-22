@@ -6,7 +6,7 @@ The Graces Art Print is a web application that enables users to purchase an artw
 
 ## Live Site
 
-[Graces Art Print Live](https://graces-art.herokuapp.com)
+[Graces Art Print Live](https://graces-art.onrender.com)
 
 For purposes of payments on this project the use of Stripe's test functionality is implemented. It is not intended to collect real live payments.
 You can make use of the following test card details to make payments on the site:
