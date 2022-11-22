@@ -30,6 +30,7 @@ if development:
     DEBUG = True
 else:
     DEBUG = False
+    ALLOWED_HOSTS = ['localhost']
     # Add Render.com URL to allowed hosts
     RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
     if RENDER_EXTERNAL_HOSTNAME:
